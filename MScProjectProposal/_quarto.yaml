@@ -1,0 +1,23 @@
+project:
+  type: default
+
+format:
+  pdf:
+    documentclass: article
+    number-sections: false
+    toc: false
+    toc-depth: 2
+    fontsize: 12pt
+    linestretch: 1.5
+    geometry: "margin=2.5cm"
+  html:
+    toc: false
+    toc-depth: 2
+    number-sections: true
+
+lang: en-GB
+
+execute:
+  echo: false
+  warning: false
+  message: false
