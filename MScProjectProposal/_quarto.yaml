@@ -10,10 +10,13 @@ format:
     fontsize: 12pt
     linestretch: 1.5
     geometry: "margin=2.5cm"
+  docx:
+    reference-doc: default
+    number-sections: false
   html:
     toc: false
     toc-depth: 2
-    number-sections: true
+    number-sections: false
 
 lang: en-GB
 
