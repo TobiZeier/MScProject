@@ -1,0 +1,29 @@
+
+@article{cunningham1993,
+	title = {The WyCash portfolio management system},
+	author = {Cunningham, Ward},
+	year = {1993},
+	month = {04},
+	date = {1993-04},
+	journal = {ACM SIGPLAN OOPS Messenger},
+	pages = {29--30},
+	volume = {4},
+	number = {2},
+	doi = {10.1145/157710.157715},
+	url = {https://dl.acm.org/doi/10.1145/157710.157715},
+	langid = {en}
+}
+
+@article{sas2023,
+	title = {An Architectural Technical Debt Index Based on Machine Learning and Architectural Smells},
+	author = {Sas, Darius and Avgeriou, Paris},
+	year = {2023},
+	month = {08},
+	date = {2023-08},
+	journal = {IEEE Transactions on Software Engineering},
+	pages = {4169--4195},
+	volume = {49},
+	number = {8},
+	doi = {10.1109/TSE.2023.3286179},
+	url = {https://ieeexplore.ieee.org/document/10152491}
+}
