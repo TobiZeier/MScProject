@@ -1,0 +1,67 @@
+% Custom title page template for Quarto book PDF
+
+$if(has-frontmatter)$
+\frontmatter
+$endif$
+
+\begin{titlepage}
+% Switch to Palatino for title page only
+{\fontfamily{ppl}\selectfont
+\centering
+
+% University name at the very top
+{\large\textbf{{\Large U}NIVERSITY OF ESSEX ONLINE}}\\[1.2cm]
+
+% Degree type
+{\normalsize\textbf{{\large M}ASTER'S THESIS}}\\[1.6cm]
+
+% Horizontal rule before title
+\noindent\rule{\textwidth}{0.8pt}\\[0.5cm]
+
+% Thesis title
+{\LARGE\bfseries $title$}\\[0.4cm]
+$if(subtitle)$
+{\large\bfseries $subtitle$}\\[0.5cm]
+$else$
+\vspace{0.5cm}
+$endif$
+
+% Horizontal rule after title
+\noindent\rule{\textwidth}{0.8pt}\\[2.2cm]
+
+% Author (left) and Supervisors (right) side by side
+\begin{minipage}[t]{0.48\textwidth}
+\raggedright
+\normalsize
+\textit{Author}\\
+$author$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\raggedleft
+\normalsize
+\textit{Supervisor}\\
+$supervisor$\\[0.3cm]
+\textit{Co-Supervisor}\\
+$co-supervisor$
+\end{minipage}
+
+\vfill
+
+% Department
+{\normalsize $department$}\\[0.8cm]
+
+% University logo (smaller)
+$if(logo)$
+\includegraphics[width=0.22\textwidth]{$logo$}\\[0.7cm]
+$endif$
+
+% Date at the very bottom
+{\normalsize $date$}
+
+} % end Palatino scope
+\end{titlepage}
+
+% Revert to Times New Roman for the rest of the document
+{\fontfamily{ptm}\selectfont}
+\cleardoublepage

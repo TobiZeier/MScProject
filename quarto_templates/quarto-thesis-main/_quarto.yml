@@ -42,7 +42,7 @@ thesis:
   logo: images/logo.png
   logo-height: "3cm"
 
-bibliography: [example.bib]
+bibliography: references.bib
 
 execute:
   echo: false

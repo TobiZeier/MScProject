@@ -1,0 +1,52 @@
+project:
+  type: book
+  output-dir: .
+
+book:
+  title: Measuring Technical Debt in Mission Critical Trading Systems - A Service Level Quantitative Framewore
+  date: August 10, 2026
+  author:
+    name: Tobias Zeier
+  downloads: [pdf]
+  abstract: "Lorem ipsum dolor sit amet."
+  chapters:
+    - index.qmd
+    - references.qmd
+  appendices:
+    - Appendices/AppendixA.qmd
+
+  site-url: https://tobizeier.github.io
+  repo-url: https://github.com/TobiZeier/MScProject
+  repo-actions: [edit, source, issue]
+  search: true
+
+thesis:
+  supervisor: 
+    name: Dr Zahid Ullah
+  degree-name: Master of Enterprise IT Management
+  university: University of Essex Online
+  department: Computing Department
+  declaration: "Frontmatter/declaration.tex"
+  acknowledgements: "Frontmatter/acknowledgements.tex"
+  abbreviations: "Frontmatter/abbreviations.tex"
+  symbols: "Frontmatter/symbols.tex"
+  dedication: "Frontmatter/dedication.tex"
+  logo: images/logo.png
+  logo-height: "3cm"
+
+#bibliography: references.bib
+#csl: harvard-cite-them-right-no-et-al.csl
+
+execute:
+  echo: false
+  code-overflow: wrap
+
+# urlcolor changes the url color in the body of the PDF
+# linkcolor changes color of internal links (like to figures)
+# toclinkcolor changes color of toc, lof and lot links
+format:
+  quarto-thesis-pdf: 
+    urlcolor: blue
+    toclinkcolor: black
+    toc-depth: 3
+
