@@ -1,0 +1,17 @@
+---
+title: "Measuring Technical Debt in Mission Critical Trading Systems"
+subtitle: "A Service Level Quantitative Framework"
+author: "Tobi Zeier"
+supervisor: "Dr Zahid Ullah"
+co-supervisor: "Doug Millward"
+university: "University of Essex Online"
+department: "Computing Department"
+degree: "Master's Thesis"
+logo: "university-logo.png"
+---
+
+\newpage
+
+## Preface
+
+(Write a short preface / declaration / abstract here, or leave this section empty for now.)

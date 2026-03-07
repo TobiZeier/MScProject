@@ -1,0 +1,28 @@
+% LaTeX preamble for thesis PDF
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}
+
+
+
+
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=black}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Define horizontal rule command for title page
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+
+% Remove the automatic "Chapter X" heading at the top of each chapter page
+\usepackage{titlesec}
+\titleformat{\chapter}[block]{\normalfont\huge\bfseries}{}{0pt}{}
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
