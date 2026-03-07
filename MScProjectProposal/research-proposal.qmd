@@ -9,7 +9,7 @@ subtitle: "Research Proposal for MSc Computing Project"
 author: 
   - name: "Tobias Zeier"
     affiliation: "Student Number: 12696372"
-date: "4 March 2026"
+date: "7 March 2026"
 date-format: "MMMM YYYY"
 bibliography: references.bib
 csl: harvard-cite-them-right-no-et-al.csl
@@ -21,6 +21,8 @@ format:
     fontsize: 12pt
     linestretch: 1.5
     geometry: "margin=2.5cm"
+    mainfont: "Times New Roman"
+    block-headings: true
 lang: en-GB
 ---
 
@@ -28,7 +30,7 @@ lang: en-GB
 \centerline{University of Essex Online}
 \vspace{5cm}
 
-**Supervisor:** Zahid Ullah\
+**Supervisor:** Dr Zahid Ullah\
 **Co-Supervisor:** Doug Millward \vspace{2cm}
 
 ------------------------------------------------------------------------
@@ -74,7 +76,7 @@ The literature review will be structured into four thematic sections totalling a
 
 Origins and evolution of technical debt [@cunninghamWyCashPortfolioManagement1993; @avgeriouTechnicalDebtManagement2024], types of debt (code, architectural, infrastructure, organisational), intentional versus unintentional incurrence, and extension to system-level and service-level concerns [@rosserSystemsPerspectiveTechnical2021]. Contextualises technical debt in enterprise and regulated financial environments, examining legacy systems in capital markets, regulatory constraints, operational risk, and service continuity implications [@ramasubbuTechnicalDebtReliability2016; @wieseITManagersPerspective2023].
 
-## Theme 2: Multi-Criteria Decision Making (MCDM) in Software and IT Management
+## Theme 2: Multi-Criteria Decision-Making (MCDM) in Software and IT Management
 
 Introduction to MCDM concepts (alternatives, criteria, weights, normalisation, aggregation) and applications in software engineering and IT management, including requirements prioritisation, risk assessment, vendor evaluation, and incident prioritisation. Discusses strengths and limitations of MCDM in complex decision environments.
 
@@ -113,6 +115,8 @@ The framework will be evaluated through a single-organisation case study. The pr
 - **Stability:** Limited ranking volatility under reasonable weight variations in sensitivity analysis
 - **Interpretability:** Rankings and underlying indicators are straightforward to interpret by service managers
 
+\newpage
+
 # Work Packages and Timeline
 
 | # | Work Package | Description | Duration |
@@ -133,6 +137,8 @@ The framework will be evaluated through a single-organisation case study. The pr
 A Gantt chart detailing the full project timeline is available at: <https://github.com/TobiZeier/UoEO_MSc_EIM/blob/main/Module8_MSc_Computing_Project/Unit2-GanttChartMScProject.pdf>
 
 The primary artefact is a Python-based prototype capable of ingesting anonymised service management data, computing a composite technical debt score per service, applying TOPSIS to produce a ranked prioritisation of services for remediation, and generating visualisations of the relationship between debt scores and operational performance metrics. The artefact is designed to be practically applicable to prioritisation decisions within mission-critical trading IT service portfolios, representing the research's primary contribution to practice.
+
+\vspace{2cm}
 
 # References
 
