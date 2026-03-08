@@ -1,67 +1,115 @@
 % Custom title page template for Quarto book PDF
 
-$if(has-frontmatter)$
-\frontmatter
-$endif$
+% roman page numbering for front matter
+\pagenumbering{roman}
+\linespread{1.0}\selectfont
+
+\pagestyle{plain}
+
+%----------------------------------------------------------------------------------------
+% TITLE PAGE
+%----------------------------------------------------------------------------------------
 
 \begin{titlepage}
-% Switch to Palatino for title page only
-{\fontfamily{ppl}\selectfont
-\centering
+\begin{center}
 
-% University name at the very top
-{\large\textbf{{\Large U}NIVERSITY OF ESSEX ONLINE}}\\[1.2cm]
+\vspace*{0.5cm}
+{\scshape\LARGE $university$\par}\vspace{0.6cm}
+\textsc{\Large $degree$}\\[0.8cm]
 
-% Degree type
-{\normalsize\textbf{{\large M}ASTER'S THESIS}}\\[1.6cm]
-
-% Horizontal rule before title
-\noindent\rule{\textwidth}{0.8pt}\\[0.5cm]
-
-% Thesis title
-{\LARGE\bfseries $title$}\\[0.4cm]
+\HRule\\[0.3cm]
+{\huge\bfseries $title$\par}\vspace{0.3cm}
 $if(subtitle)$
-{\large\bfseries $subtitle$}\\[0.5cm]
-$else$
-\vspace{0.5cm}
+{\large\bfseries $subtitle$\par}\vspace{0.3cm}
 $endif$
+\HRule\\[0.8cm]
 
-% Horizontal rule after title
-\noindent\rule{\textwidth}{0.8pt}\\[2.2cm]
-
-% Author (left) and Supervisors (right) side by side
-\begin{minipage}[t]{0.48\textwidth}
-\raggedright
-\normalsize
-\textit{Author}\\
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft}\large
+\emph{Author:}\\
 $author$
+\end{flushleft}
 \end{minipage}
-\hfill
-\begin{minipage}[t]{0.48\textwidth}
-\raggedleft
-\normalsize
-\textit{Supervisor}\\
-$supervisor$\\[0.3cm]
-\textit{Co-Supervisor}\\
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}\large
+\emph{Supervisor:}\\
+$supervisor$
+$if(co-supervisor)$
+\\[0.4cm]
+\emph{Co-Supervisor:}\\
 $co-supervisor$
+$endif$
+\end{flushright}
 \end{minipage}
 
 \vfill
 
-% Department
-{\normalsize $department$}\\[0.8cm]
+\textit{in the}\\[0.2cm]
+$department$\\[0.6cm]
 
-% University logo (smaller)
 $if(logo)$
-\includegraphics[width=0.22\textwidth]{$logo$}\\[0.7cm]
+\includegraphics[width=0.25\textwidth]{$logo$}\\[0.4cm]
 $endif$
 
-% Date at the very bottom
-{\normalsize $date$}
+{\large $date$}
 
-} % end Palatino scope
+\end{center}
 \end{titlepage}
 
-% Revert to Times New Roman for the rest of the document
-{\fontfamily{ptm}\selectfont}
 \cleardoublepage
+
+%----------------------------------------------------------------------------------------
+% DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+\chapter*{Declaration}
+\addcontentsline{toc}{chapter}{Declaration}
+
+\noindent I, Tobias Zeier, declare that this thesis titled, $title$ and the work presented in it are my own. I confirm that:
+
+\begin{itemize} 
+\item This work was done wholly or mainly while in candidature for a research degree at this University.
+\item Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
+\item Where I have consulted the published work of others, this is always clearly attributed.
+\item Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
+\item I have acknowledged all main sources of help.
+\item Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
+\end{itemize}
+
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+% ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\chapter*{Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+
+I would like to express my sincere gratitude to \textbf{Dr Zahid Ullah} for his guidance and support throughout this project, and to \textbf{Doug Millward} for his valuable feedback and co-supervision. I also thank the University of Essex Online for providing the resources and framework to conduct this research.
+
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+% LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\begingroup
+
+\tableofcontents % Prints the main table of contents
+
+\listoffigures % Prints the list of figures
+
+\listoftables % Prints the list of tables
+
+\endgroup
+
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+% THESIS CONTENT
+%----------------------------------------------------------------------------------------
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\pagestyle{plain}
+\linespread{1.5}\selectfont
