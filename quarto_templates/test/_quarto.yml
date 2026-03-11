@@ -61,8 +61,10 @@ format:
       - preamble.tex
     keep-tex: true
     toc: false
-    toc-depth: 3
+    toc-depth: 2
     number-sections: true
+    crossref:
+      chapters: false
     top-level-division: chapter
     colorlinks: true
     urlcolor: blue

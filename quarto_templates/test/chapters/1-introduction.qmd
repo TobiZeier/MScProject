@@ -1,5 +1,7 @@
 # Introduction
 
+tbd
+
 ## Background and Motivation
 
 The increasing complexity of mission-critical trading systems has introduced significant challenges in maintaining software quality over time. Technical debt — the implied cost of rework caused by choosing expedient solutions over more robust approaches — has become a critical concern in financial technology environments where system reliability is paramount.
@@ -35,4 +37,5 @@ Secondary questions include:
 This research contributes to both academic knowledge and industry practice by providing a reproducible, data-driven methodology that bridges IT service management and software quality engineering.
 
 ## Thesis Structure
-[@ahmadTechnicalDebtNot2026]
+
+tbd
