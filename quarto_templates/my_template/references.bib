@@ -151,6 +151,20 @@
   file = {/Users/tobiaszeier/Zotero/storage/I7DKZCMC/Bedi and Kaur - 2022 - Understanding factors affecting technical debt.pdf}
 }
 
+@phdthesis{beskerTechnicalDebtEmpirical,
+  title = {Technical {{Debt}}: {{An}} Empirical Investigation of Its Harmfulness and on Management Strategies in Industry},
+  author = {Besker, Terese},
+  year = 2020,
+  number = {4741},
+  address = {Gothenbrug, Sweden},
+  issn = {0346-718X},
+  abstract = {Background: In order to survive in today's fast-growing and ever fast-changing business environment, software companies need to continuously deliver customer value, both from a short- and long-term perspective. However, the consequences of potential long-term and far-reaching negative effects of shortcuts and quick fixes made during the software development lifecycle, described as Technical Debt (TD), can impede the software development process. Objective: The overarching goal of this Ph.D. thesis is twofold. The first goal is to empirically study and understand in what way and to what extent, TD influences today's software development work, specifically with the intention to provide more quantitative insight into the field. Second, to understand which different initiatives can reduce the negative effects of TD and also which factors are important to consider when implementing such initiatives. Method: To achieve the objectives, a combination of both quantitative and qualitative research methodologies are used, including interviews, surveys, a systematic literature review, a longitudinal study, analysis of documents, correlation analysis, and statistical tests. In seven of the eleven studies included in this Ph.D. thesis, a combination of multiple research methods are used to achieve high validity. Results: We present results showing that software suffering from TD will cause various negative effects on both the software and the developing process. These negative effects are illustrated from a technical, financial, and a developer's working situational perspective. These studies also identify several initiatives that can be undertaken in order to reduce the negative effects of TD. Conclusion: The results show that software developers report that they waste 23\% of their working time due to experiencing TD and that TD required them to perform additional time-consuming work activities. This study also shows that, compared to all types of TD, architectural TD has the greatest negative impact on daily software development work and that TD has negative effects on several different software quality attributes. Further, the results show that TD reduces developer morale. Moreover, the findings show that intentionally introducing TD in startup companies can allow the startups to cut development time, enabling faster feedback and increased revenue, preserve resources, and decrease risk and thereby contribute to beneficial effects. This study also identifies several initiatives that can be undertaken in order to reduce the negative effects of TD, such as the introduction of a tracking process where the TD items are introduced in an official backlog. The finding also indicates that there is an unfulfilled potential regarding how managers can influence the manner in which software practitioners address TD.},
+  isbn = {978-91-7905-274-4},
+  langid = {english},
+  school = {Chalmers University of Technology},
+  file = {/Users/tobiaszeier/Zotero/storage/REVRJ3KV/Besker - Technical Debt An empirical investigation of its harmfulness and on management strategies in indust.pdf}
+}
+
 @article{biazottoTechnicalDebtManagement2024,
   title = {Technical Debt Management Automation: {{State}} of the Art and Future Perspectives},
   shorttitle = {Technical Debt Management Automation},
@@ -251,6 +265,67 @@
   file = {/Users/tobiaszeier/Zotero/storage/UJQNK8YH/Cunningham - 1993 - The WyCash portfolio management system.pdf}
 }
 
+@article{detoledoAccumulationPrioritizationArchitectural2022,
+  title = {Accumulation and {{Prioritization}} of {{Architectural Debt}} in {{Three Companies Migrating}} to {{Microservices}}},
+  author = {De Toledo, Saulo Soares and Martini, Antonio and Nguyen, Phu H. and Sj{\o}berg, Dag I. K.},
+  year = 2022,
+  journal = {IEEE Access},
+  volume = {10},
+  pages = {37422--37445},
+  issn = {2169-3536},
+  doi = {10.1109/ACCESS.2022.3158648},
+  urldate = {2026-03-08},
+  abstract = {Many companies migrate to microservices because they help deliver value to customers quickly and continuously. However, like any architectural style, microservices are prone to architectural technical debt (ATD), which can be costly if the debts are not timely identified, avoided, or removed. During the early stages of migration, microservice-specific ATDs (MS-ATDs) may accumulate. For example, practitioners may decide to continue using poorly defined APIs in microservices while attempting to maintain compatibility with old functionalities. The riskiest MS-ATDs must be prioritized. Nevertheless, there is limited research regarding the prioritization of MS-ATDs in companies migrating to microservices. This study aims to identify, during migration, which MS-ATDs occur, are the most severe, and are the most challenging to solve. In addition, we propose a way to prioritize these debts. We conducted a multiple exploratory case study of three large companies that were early in the migration process to microservices. We interviewed 47 practitioners with several roles to identify the debts in their contexts. We report the MS-ATDs detected during migration, the MS-ATDs that practitioners estimate to occur in the future, and the MS-ATDs that practitioners report as difficult to solve. We discuss the results in the context of the companies involved in this study. In addition, we used a risk assessment approach to propose a way for prioritizing MS-ATDs. Practitioners from other organizations and researchers may use this approach to provide rankings to help identify and prioritize which MS-ATDs should be avoided or solved in their contexts.},
+  keywords = {Architectural technical debt,Computer architecture,Costs,cross-company study,Microservice architectures,microservices,qualitative analysis,Scalability,software maintainability,Software maintenance},
+  file = {/Users/tobiaszeier/Zotero/storage/YNR6FFBN/De Toledo et al. - 2022 - Accumulation and Prioritization of Architectural Debt in Three Companies Migrating to Microservices.pdf}
+}
+
+@inproceedings{detoledoReducingIncidentsMicroservices2021,
+  title = {Reducing {{Incidents}} in {{Microservices}} by {{Repaying Architectural Technical Debt}}},
+  booktitle = {2021 47th {{Euromicro Conference}} on {{Software Engineering}} and {{Advanced Applications}} ({{SEAA}})},
+  author = {{de Toledo}, Saulo S. and Martini, Antonio and Sj{\o}berg, Dag I.K. and Przybyszewska, Agata and Frandsen, Johannes Skov},
+  year = 2021,
+  month = sep,
+  pages = {196--205},
+  doi = {10.1109/SEAA53835.2021.00033},
+  urldate = {2026-03-08},
+  abstract = {Architectural technical debt (ATD) may create a substantial extra effort in software development, which is called interest. There is little evidence about whether repaying ATD in microservices reduces such interest. Objectives: We wanted to conduct a first study on investigating the effect of removing ATD on the occurrence of incidents in a microservices architecture. Method: We conducted a quantitative and qualitative case study of a project with approximately 1000 microservices in a large, international financing services company. We measured and compared the number of software incidents of different categories before and after repaying ATD. Results: The total number of incidents was reduced by 84\%, and the numbers of critical- and high-priority incidents were both reduced by approximately 90\% after the architectural refactoring. The number of incidents in the architecture with the ATD was mainly constant over time, but we observed a slight increase of low priority incidents related to inaccessibility and the environment in the architecture without the ATD. Conclusion: This study shows evidence that refactoring ATDs, such as lack of communication standards, poor management of dead-letter queues, and the use of inadequate technologies in microservices, reduces the number of critical- and high-priority incidents and, thus, part of its interest, although some low priority incidents may increase.},
+  keywords = {Architecture,Case Study,Communication standards,Companies,Computer architecture,Microservices,Software,Software engineering,Software measurement,Technical Debt},
+  file = {/Users/tobiaszeier/Zotero/storage/EV7QAR53/de Toledo et al. - 2021 - Reducing Incidents in Microservices by Repaying Architectural Technical Debt.pdf}
+}
+
+@article{dissanayakeSoftwareSecurityPatch2022,
+  title = {Software Security Patch Management - {{A}} Systematic Literature Review of Challenges, Approaches, Tools and Practices},
+  author = {Dissanayake, Nesara and Jayatilaka, Asangi and Zahedi, Mansooreh and Babar, M. Ali},
+  year = 2022,
+  month = apr,
+  journal = {Information and Software Technology},
+  volume = {144},
+  pages = {106771},
+  issn = {0950-5849},
+  doi = {10.1016/j.infsof.2021.106771},
+  urldate = {2026-03-08},
+  abstract = {Context: Software security patch management purports to support the process of patching known software security vulnerabilities. Patching security vulnerabilities in large and complex systems is a hugely challenging process that involves multiple stakeholders making several interdependent technological and socio-technical decisions. Given the increasing recognition of the importance of software security patch management, it is important and timely to systematically review and synthesise the relevant literature on this topic. Objective: This paper aims at systematically reviewing the state of the art of software security patch management to identify the socio-technical challenges in this regard, reported solutions (i.e., approaches, tools, and practices), the rigour of the evaluation and the industrial relevance of the reported solutions, and to identify the gaps for future research. Method: We conducted a systematic literature review of 72 studies published from 2002 to March 2020, with extended coverage until September 2020 through forward snowballing. Results: We identify 14 socio-technical challenges in software security patch management, 18 solution approaches, tools and practices mapped onto the software security patch management process. We provide a mapping between the solutions and challenges to enable a reader to obtain a holistic overview of the gap areas. The findings also reveal that only 20.8\% of the reported solutions have been rigorously evaluated in industrial settings. Conclusion: Our results reveal that 50\% of the common challenges have not been directly addressed in the solutions and that most of them (38.9\%) address the challenges in one phase of the process, namely vulnerability scanning, assessment and prioritisation. Based on the results that highlight the important concerns in software security patch management and the lack of solutions, we recommend a list of future research directions. This study also provides useful insights about different opportunities for practitioners to adopt new solutions and understand the variations of their practical utility.},
+  keywords = {Security patch management,Systematic literature review,Vulnerability management},
+  file = {/Users/tobiaszeier/Zotero/storage/BX4MTG76/Dissanayake et al. - 2022 - Software security patch management - A systematic literature review of challenges, approaches, tools.pdf;/Users/tobiaszeier/Zotero/storage/T2NGPLFN/S0950584921002147.html}
+}
+
+@article{dissanayakeWhyHowWhere2022,
+  title = {Why, {{How}} and {{Where}} of {{Delays}} in {{Software Security Patch Management}}: {{An Empirical Investigation}} in the {{Healthcare Sector}}},
+  shorttitle = {Why, {{How}} and {{Where}} of {{Delays}} in {{Software Security Patch Management}}},
+  author = {Dissanayake, Nesara and Zahedi, Mansooreh and Jayatilaka, Asangi and Babar, Muhammad Ali},
+  year = 2022,
+  month = nov,
+  journal = {Proc. ACM Hum.-Comput. Interact.},
+  volume = {6},
+  number = {CSCW2},
+  pages = {362:1--362:29},
+  doi = {10.1145/3555087},
+  urldate = {2026-03-08},
+  abstract = {Numerous security attacks that resulted in devastating consequences can be traced back to a delay in applying a security patch. Despite the criticality of timely patch application, not much is known about why and how delays occur when applying security patches in practice, and how the delays can be mitigated. Based on longitudinal data collected from 132 delayed patching tasks over a period of four years and observations of patch meetings involving eight teams from two organisations in the healthcare domain, and using quantitative and qualitative data analysis approaches, we identify a set of reasons relating to technology, people and organisation as key explanations that cause delays in patching. Our findings also reveal that the most prominent cause of delays is attributable to coordination delays in the patch management process and a majority of delays occur during the patch deployment phase. Towards mitigating the delays, we describe a set of strategies employed by the studied practitioners. This research serves as the first step toward understanding the practical reasons for delays and possible mitigation strategies in vulnerability patch management. Our findings provide useful insights for practitioners to understand what and where improvement is needed in the patch management process and guide them towards taking timely actions against potential attacks. Also, our findings help researchers to invest effort into designing and developing computer-supported tools to better support a timely security patch management process.},
+  file = {/Users/tobiaszeier/Zotero/storage/5TTDU6BW/Dissanayake et al. - 2022 - Why, How and Where of Delays in Software Security Patch Management An Empirical Investigation in th.pdf}
+}
+
 @article{dongCrossdisciplinaryCrosslifecyclephaseTechnical2018,
   title = {Cross-Disciplinary and Cross-Life-Cycle-Phase {{Technical Debt}} in Automated {{Production Systems}}: Two Industrial Case Studies and a Survey},
   shorttitle = {Cross-Disciplinary and Cross-Life-Cycle-Phase {{Technical Debt}} in Automated {{Production Systems}}},
@@ -270,19 +345,49 @@
   file = {/Users/tobiaszeier/Zotero/storage/22NSUY75/Dong and Vogel-Heuser - 2018 - Cross-disciplinary and cross-life-cycle-phase Technical Debt in automated Production Systems two in.pdf}
 }
 
-@article{EmpiricalEvaluationCode2021,
-  title = {Empirical Evaluation of Code Smells in Open-Source Software ({{OSS}}) Using {{Best Worst Method}} ({{BWM}}) and {{TOPSIS}} Approach},
-  year = 2021,
-  month = dec,
-  journal = {International Journal of Quality \& Reliability Management},
-  volume = {39},
-  number = {3},
-  pages = {815--835},
-  issn = {0265-671X},
-  doi = {10.1108/IJQRM-02-2021-0045},
-  urldate = {2026-03-01},
-  abstract = {Code smells indicate deep software issues. They have been studied by researchers with different perspectives. The need to study code smells was felt f\dots},
-  langid = {american}
+@article{espositoCorrelationArchitecturalSmells2025,
+  title = {On the Correlation between Architectural Smells and Static Analysis Warnings},
+  author = {Esposito, Matteo and Robredo, Mikel and Arcelli Fontana, Francesca and Lenarduzzi, Valentina},
+  year = 2025,
+  month = oct,
+  journal = {Software Quality Journal},
+  volume = {33},
+  number = {4},
+  pages = {33},
+  issn = {1573-1367},
+  doi = {10.1007/s11219-025-09730-7},
+  urldate = {2026-03-08},
+  abstract = {Software quality assurance is essential during software development and maintenance. Static Analysis Tools (SAT) are widely used for assessing code quality. Architectural smells are becoming more daunting to address and evaluate among quality issues. We aim to understand the relationships between Static Analysis Warnings (``warnings'') and Architectural Smells (``smell'') to guide developers/maintainers in focusing their effort on warnings more prone to co-occurring with smell. We performed an empirical study on 103 Java projects totaling 72 million LOC belonging to projects from a vast set of domains, and 785 warnings were detected by three SAT, Checkstyle, Findbugs, PMD, SonarQube, and 4 architectural smells were detected by the ARCAN tool. We analyzed how warnings influence smell presence. Finally, we proposed a smell remediation effort prioritization based on warning severity and warning proneness to specific smells. Our study reveals a moderate correlation between warnings and smells. Different combinations of SATs and warnings significantly affect smell occurrence, with certain warnings more Likely to co-occur with specific smells. Conversely, 33.79\% of warnings are ``non-co-occurring'' with any of the smells in our dataset. This provides an early indicator for potential architectural concerns before resource-intensive architectural analysis is performed. Practitioners can ignore about a third of warnings and focus on those most likely to be associated with smells. Prioritizing smell remediation based on warning severity or warning proneness to specific smells results in effective rankings like those based on smell severity. While not a substitute for specialized tools like ARCAN, warning-based prioritization provides a pragmatic bridge between low-level warnings and high-level architectural issues, particularly useful in contexts lacking full architectural visibility.},
+  langid = {english},
+  keywords = {Architectural smells,Software quality warnings,Static analysis tool,Technical debt},
+  file = {/Users/tobiaszeier/Zotero/storage/WFMNQI34/Esposito et al. - 2025 - On the correlation between architectural smells and static analysis warnings.pdf}
+}
+
+@inproceedings{feutrillEffectCommonVulnerability2018,
+  title = {The {{Effect}} of {{Common Vulnerability Scoring System Metrics}} on {{Vulnerability Exploit Delay}}},
+  booktitle = {2018 {{Sixth International Symposium}} on {{Computing}} and {{Networking}} ({{CANDAR}})},
+  author = {Feutrill, Andrew and Ranathunga, Dinesha and Yarom, Yuval and Roughan, Matthew},
+  year = 2018,
+  month = nov,
+  pages = {1--10},
+  issn = {2379-1896},
+  doi = {10.1109/CANDAR.2018.00009},
+  urldate = {2026-03-08},
+  abstract = {Modern system administrators need to monitor disclosed software vulnerabilities and address applicable vulnerabilities via patching, reconfiguration and other measures. In 2017, over 14,000 new vulnerabilities were disclosed, so, a key question for administrators is which vulnerabilities to prioritise. The Common Vulnerability Scoring System (CVSS) is often used to decide which vulnerabilities pose the greatest risk and hence inform patching policy. A CVSS score is indicative of a vulnerability severity, but it doesn't predict the time to exploit for a vulnerability. A prediction of exploit delay would greatly assist vendors in prioritising their patch releases and system administrators in prioritising the installation of these patches. In this paper, we study the effect of CVSS metrics on the time until a proof of concept exploit is developed. We use the National Vulnerability Database (NVD) and the Exploit Database, which represent two of the largest listings of vulnerabilities and exploit data, to show how CVSS metrics can provide better insight into exploit delay. We also investigate the time lag associated with populating CVSS metrics and find that the median delay has increased rapidly from a single day prior to 2017 to 19 days in 2018. This is an alarming trend, given the rapid decline in median vulnerability exploit time from 296 days in 2005 to six days in 2018.},
+  keywords = {Databases,Delays,Industries,Sociology,Software,Standards,vulnerability exploits exploit delay cvss metrics},
+  file = {/Users/tobiaszeier/Zotero/storage/6S5STKQC/Feutrill et al. - 2018 - The Effect of Common Vulnerability Scoring System Metrics on Vulnerability Exploit Delay.pdf}
+}
+
+@book{forsgrenAccelerate2018,
+  title = {Accelerate: {{The Science}} of {{Lean Software}} and {{DevOps}}: {{Building}} and {{Scaling High Performing Technology Organizations}}},
+  shorttitle = {Accelerate},
+  author = {Forsgren, Nicole and Humble, Jez and Kim, Gene},
+  year = 2018,
+  publisher = {IT Revolution Press},
+  address = {Portland, OR},
+  isbn = {978-1-942788-35-5},
+  langid = {english},
+  annotation = {OCLC: 1198241718}
 }
 
 @article{fungprasertkulManagingTechnicalDebt2021,
@@ -318,10 +423,40 @@
   file = {/Users/tobiaszeier/Zotero/storage/4JP6969P/Fungprasertkul et al. - 2024 - Technical Debt Monitoring Decision Making with Skin in the Game.pdf}
 }
 
-@article{GettingTrappedTechnical,
-  title = {Getting {{Trapped}} in {{Technical Debt}}: {{Sociotegetting}} ...},
-  shorttitle = {Getting {{Trapped}} in {{Technical Debt}}},
-  file = {/Users/tobiaszeier/Zotero/storage/QGQ4GGFY/Getting Trapped in Technical Debt Sociotegetting ....pdf}
+@article{garcia-cascalesRankReversalTOPSIS2012,
+  title = {On Rank Reversal and {{TOPSIS}} Method},
+  author = {{Garc{\'i}a-Cascales}, M. Socorro and Lamata, M. Teresa},
+  year = 2012,
+  month = sep,
+  journal = {Mathematical and Computer Modelling},
+  volume = {56},
+  number = {5},
+  pages = {123--132},
+  issn = {0895-7177},
+  doi = {10.1016/j.mcm.2011.12.022},
+  urldate = {2026-03-08},
+  abstract = {Rank reversal is a phenomenon that occurs when a decision maker, in the process of selecting an alternative from a set of choices, is confronted with new alternatives that were not thought about when the selection process was initiated. It depends on the relationship between this new alternative and the old ones under each criterion. In this paper, we study the rank reversal phenomenon in the TOPSIS method and we propose modifications in the algorithm of Hwang and Yoon in order to solve the problem. Moreover, we present a general demonstration of the proposed modifications in the algorithm, as well as a numerical example to show these modifications.},
+  keywords = {Absolute mode,Normalization,Rank reversal,Relative mode,TOPSIS method},
+  file = {/Users/tobiaszeier/Zotero/storage/ICTZB9FA/García-Cascales and Lamata - 2012 - On rank reversal and TOPSIS method.pdf;/Users/tobiaszeier/Zotero/storage/53THP7HK/S0895717711007850.html}
+}
+
+@article{grecoMethodologicalFrameworkComposite2019,
+  title = {On the {{Methodological Framework}} of {{Composite Indices}}: {{A Review}} of the {{Issues}} of {{Weighting}}, {{Aggregation}}, and {{Robustness}}},
+  shorttitle = {On the {{Methodological Framework}} of {{Composite Indices}}},
+  author = {Greco, Salvatore and Ishizaka, Alessio and Tasiou, Menelaos and Torrisi, Gianpiero},
+  year = 2019,
+  month = jan,
+  journal = {Social Indicators Research},
+  volume = {141},
+  number = {1},
+  pages = {61--94},
+  issn = {1573-0921},
+  doi = {10.1007/s11205-017-1832-9},
+  urldate = {2026-03-08},
+  abstract = {In recent times, composite indicators have gained astounding popularity in a wide variety of research areas. Their adoption by global institutions has further captured the attention of the media and policymakers around the globe, and their number of applications has surged ever since. This increase in their popularity has solicited a plethora of methodological contributions in response to the substantial criticism surrounding their underlying framework. In this paper, we put composite indicators under the spotlight, examining the wide variety of methodological approaches in existence. In this way, we offer a more recent outlook on the advances made in this field over the past years. Despite the large sequence of steps required in the construction of composite indicators, we focus particularly on two of them, namely weighting and aggregation. We find that these are where the paramount criticism appears and where a promising future lies. Finally, we review the last step of the robustness analysis that follows their construction, to which less attention has been paid despite its importance. Overall, this study aims to provide both academics and practitioners in the field of composite indices with a synopsis of the choices available alongside their recent advances.},
+  langid = {english},
+  keywords = {Aggregation,Composite indicators,Robustness,Weighting},
+  file = {/Users/tobiaszeier/Zotero/storage/J9PYVNPC/Greco et al. - 2019 - On the Methodological Framework of Composite Indices A Review of the Issues of Weighting, Aggregati.pdf}
 }
 
 @article{hakiDigitalNudgingTechnical2023,
@@ -342,6 +477,88 @@
   file = {/Users/tobiaszeier/Zotero/storage/7SLYW2YD/Haki et al. - 2023 - Digital nudging for technical debt management at Credit Suisse.pdf}
 }
 
+@inproceedings{hanssenIdentifyingScalabilityDebt2019,
+  title = {Identifying {{Scalability Debt}} in {{Open Systems}}},
+  booktitle = {2019 {{IEEE}}/{{ACM International Conference}} on {{Technical Debt}} ({{TechDebt}})},
+  author = {Hanssen, Geir Kjetil and Brataas, Gunnar and Martini, Antonio},
+  year = 2019,
+  month = may,
+  pages = {48--52},
+  doi = {10.1109/TechDebt.2019.00014},
+  urldate = {2026-03-08},
+  abstract = {Architectural technical debt can be generated by changes in the business and the environment of an organization. In this paper, we emphasize the change in scalability requirements due to new regulations. Scalability is the ability of a system to handle an increased workload. For complex systems that are abruptly exposed via open interfaces and hence a greater workload, the scalability requirements may quickly increase, leading to technical debt. We term this scalability debt. This paper describes scalability triage, a light-weight, novel technique for identifying scalability threats as a form of technical debt. We illustrate this technique with an open banking case from a large software organization. Open banking is partly caused by the new European PSD2 regulative that enforce banks to open interfaces to unknown third-party actors. Banking systems are well-established, mature systems. However, with the advent of open banking and PSD2, the workload may quickly rocket. This leads to tougher scalability requirements and accumulated architectural debt, despite previously sound architectural decisions. Using scalability triage, such risks may be identified fast. It will then be possible to prevent this form of technical debt with timely reengineering.},
+  keywords = {agile development scalability requirements scalability triage open banking,Germanium,Hafnium},
+  file = {/Users/tobiaszeier/Zotero/storage/AHP2YIBE/Hanssen et al. - 2019 - Identifying Scalability Debt in Open Systems.pdf}
+}
+
+@article{hevnerDesignScienceInformation2004,
+  title = {Design {{Science}} in {{Information Systems Research}}},
+  author = {Hevner, Alan R. and March, Salvatore T. and Park, Jinsoo and Ram, Sudha},
+  year = 2004,
+  journal = {MIS Quarterly},
+  volume = {28},
+  number = {1},
+  eprint = {25148625},
+  eprinttype = {jstor},
+  pages = {75--105},
+  publisher = {Management Information Systems Research Center, University of Minnesota},
+  issn = {0276-7783},
+  doi = {10.2307/25148625},
+  urldate = {2026-03-08},
+  abstract = {Two paradigms characterize much of the research in the Information Systems discipline: behavioral science and design science. The behavioral-science paradigm seeks to develop and verify theories that explain or predict human or organizational behavior. The design-science paradigm seeks to extend the boundaries of human and organizational capabilities by creating new and innovative artifacts. Both paradigms are foundational to the IS discipline, positioned as it is at the confluence of people, organizations, and technology. Our objective is to describe the performance of design-science research in Information Systems via a concise conceptual framework and clear guidelines for understanding, executing, and evaluating the research. In the design-science paradigm, knowledge and understanding of a problem domain and its solution are achieved in the building and application of the designed artifact. Three recent exemplars in the research literature are used to demonstrate the application of these guidelines. We conclude with an analysis of the challenges of performing high-quality design-science research in the context of the broader IS community.},
+  file = {/Users/tobiaszeier/Zotero/storage/LKKTS72N/Hevner et al. - 2004 - Design Science in Information Systems Research.pdf}
+}
+
+@book{hwangMultipleAttributeDecision1981,
+  title = {Multiple {{Attribute Decision Making}}},
+  author = {Hwang, Ching-Lai and Yoon, Kwangsun},
+  editor = {Beckmann, M. and K{\"u}nzi, H. P.},
+  year = 1981,
+  series = {Lecture {{Notes}} in {{Economics}} and {{Mathematical Systems}}},
+  volume = {186},
+  publisher = {Springer},
+  address = {Berlin, Heidelberg},
+  doi = {10.1007/978-3-642-48318-9},
+  urldate = {2026-03-08},
+  copyright = {http://www.springer.com/tdm},
+  isbn = {978-3-540-10558-9 978-3-642-48318-9},
+  keywords = {decision making,Entscheidung,fuzzy sets,mutation,operations research,utility theory}
+}
+
+@article{ishakAnalysisFuzzyAHPTOPSIS2020,
+  title = {Analysis of {{Fuzzy AHP-TOPSIS Methods}} in {{Multi Criteria Decision Making}}: {{Literature Review}}},
+  shorttitle = {Analysis of {{Fuzzy AHP-TOPSIS Methods}} in {{Multi Criteria Decision Making}}},
+  author = {Ishak, Aulia and {Wanli}},
+  year = 2020,
+  month = dec,
+  journal = {IOP Conference Series: Materials Science and Engineering},
+  volume = {1003},
+  number = {1},
+  pages = {012147},
+  publisher = {IOP Publishing},
+  issn = {1757-899X},
+  doi = {10.1088/1757-899X/1003/1/012147},
+  urldate = {2026-03-08},
+  abstract = {With the development of technology and times, we have faced various alternative problems. The problem of making decisions is one of the problems that is often encountered in everyday life. In the matter of decision-making, there are several methods that can be used, one of which is Multi-Criteria Decision Making (MCDM). MCDM is a method to make decision based on theory, process and analytical methods that involved uncertainty, dynamics and various aspects of criteria. This journal will discuss the use of one of the MCDM methods, namely Fuzzy AHP-TOPSIS. Basically, AHP breaks down unstructured situations into its components and organize these components or variables in a hierarchical order and assign a scientific value as a subjective assessment of the proportionate significance of each variable. Fuzzy theory is used to represent ambiguity, inaccuracies, lack of information, and partial truth. Then the TOPSIS method uses the principle that the preferred alternative must have the farthest from the negative ideal solution and the shortest interval from the positive ideal solution to find the optimal solution from the available alternatives.},
+  langid = {english},
+  file = {/Users/tobiaszeier/Zotero/storage/TA3FSB4N/Ishak and Wanli - 2020 - Analysis of Fuzzy AHP-TOPSIS Methods in Multi Criteria Decision Making Literature Review.pdf}
+}
+
+@inproceedings{khanIntegratedMethodologyRanking2022,
+  title = {An {{Integrated Methodology}} of {{Ranking Based}} on {{PROMETHEE-CRITIC}} and {{TOPSIS-CRITIC In Web Service Domain}}},
+  booktitle = {2022 {{IEEE}} 11th {{International Conference}} on {{Communication Systems}} and {{Network Technologies}} ({{CSNT}})},
+  author = {Khan, Shadab and Purohit, Lalit},
+  year = 2022,
+  month = apr,
+  pages = {335--340},
+  issn = {2329-7182},
+  doi = {10.1109/CSNT54456.2022.9787620},
+  urldate = {2026-03-08},
+  abstract = {With the increase in technology and resources, number of web services are available that can meet the similar needs of web clients. Out of the numerous available web services, it is becoming difficult for the web user to choose the correct and relevant web service from among the similar web services. In this paper we have taken the quality of service (QoS) criteria in the determination of most relevant web service(s). All the more exactly, we propose two part combine effort using objective weight calculation method for weight evaluation of each criteria followed by ranking of the web services using well established MCDM methods. For QoS criteria weight calculation "Criteria Importance Through Intercriteria Correlation" (CRITIC) method is used and ranking of web services is obtained by using PROMETHEE-II and "Technique for ordered preference by similarity to the ideal solution" (TOPSIS) methods. In order to show the stability of the proposed method, a prototype of a web services ranking is implemented. The data set of real world "Quality of Web Service" (QWS) is used for the experimentation. On observing the result, it is found that both ranking method perform well also the rank reversal problem of TOPSIS method is get solved by using the CRITIC QoS weights.},
+  keywords = {Conferences,Correlation,CRITIC,Decision making,Multiple Criteria Decision Making (MCDM),PROMETHEE-II,Prototypes,Quality of service,Quality of services (QoS),Stability criteria,TOPSIS,Web Service Selection (WSS),Web services},
+  file = {/Users/tobiaszeier/Zotero/storage/PINLWKAR/Khan and Purohit - 2022 - An Integrated Methodology of Ranking Based on PROMETHEE-CRITIC and TOPSIS-CRITIC In Web Service Doma.pdf}
+}
+
 @article{kleinwaksTechnicalDebtSystems2023,
   title = {Technical Debt in Systems Engineering---{{A}} Systematic Literature Review},
   author = {Kleinwaks, Howard and Batchelor, Ann and Bradley, Thomas H.},
@@ -357,6 +574,42 @@
   abstract = {Abstract             The metaphor of ``technical debt'' is used in software engineering to describe technical solutions that may be pragmatic in the near-term but may have a negative long-term impact. Similar decisions and similar dynamics are present in the field of systems engineering. This work investigates the current body of knowledge to identify if, and how, the technical debt metaphor is used within the systems engineering field and which systems engineering lifecycle stages are most susceptible to technical debt. A systematic literature review was conducted on 354 papers in February 2022, of which 18 were deemed relevant for inclusion in the study. The results of the systematic literature review show that the technical debt metaphor is not prevalent within systems engineering research and that existing research is limited to specific fields and theoretical discussions. This paper concludes with recommendations for future work to establish a research agenda on the identification and management of technical debt within systems engineering.},
   langid = {english},
   file = {/Users/tobiaszeier/Zotero/storage/ZH9RFLCG/Kleinwaks et al. - 2023 - Technical debt in systems engineering—A systematic literature review.pdf}
+}
+
+@article{kruchtenTechnicalDebtMetaphor2012,
+  title = {Technical {{Debt}}: {{From Metaphor}} to {{Theory}} and {{Practice}}},
+  shorttitle = {Technical {{Debt}}},
+  author = {Kruchten, Philippe and Nord, Robert L. and Ozkaya, Ipek},
+  year = 2012,
+  month = nov,
+  journal = {IEEE Software},
+  volume = {29},
+  number = {6},
+  pages = {18--21},
+  issn = {1937-4194},
+  doi = {10.1109/MS.2012.167},
+  urldate = {2026-03-08},
+  abstract = {The metaphor of technical debt in software development was introduced two decades ago to explain to nontechnical stakeholders the need for what we call now "refactoring." As the term is being used to describe a wide range of phenomena, this paper proposes an organization of the technical debt landscape, and introduces the papers on technical debt contained in the issue.},
+  keywords = {evolvability,Investments,maintainability,refactoring,Risk management,Software maintenance,software quality,Software quality,Sofware testing,technical debt},
+  file = {/Users/tobiaszeier/Zotero/storage/L9QIYD8Z/6336722.html}
+}
+
+@inproceedings{kulaReleasingFastSlow2019,
+  title = {Releasing Fast and Slow: An Exploratory Case Study at {{ING}}},
+  shorttitle = {Releasing Fast and Slow},
+  booktitle = {Proceedings of the 2019 27th {{ACM Joint Meeting}} on {{European Software Engineering Conference}} and {{Symposium}} on the {{Foundations}} of {{Software Engineering}}},
+  author = {Kula, Elvan and Rastogi, Ayushi and Huijgens, Hennie and van Deursen, Arie and Gousios, Georgios},
+  year = 2019,
+  month = aug,
+  series = {{{ESEC}}/{{FSE}} 2019},
+  pages = {785--795},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  doi = {10.1145/3338906.3338978},
+  urldate = {2026-03-13},
+  abstract = {The appeal of delivering new features faster has led many software projects to adopt rapid releases. However, it is not well understood what the effects of this practice are. This paper presents an exploratory case study of rapid releases at ING, a large banking company that develops software solutions in-house, to characterize rapid releases. Since 2011, ING has shifted to a rapid release model. This switch has resulted in a mixed environment of 611 teams releasing relatively fast and slow. We followed a mixed-methods approach in which we conducted a survey with 461 participants and corroborated their perceptions with 2 years of code quality data and 1 year of release delay data. Our research shows that: rapid releases are more commonly delayed than their non-rapid counterparts, however, rapid releases have shorter delays; rapid releases can be beneficial in terms of reviewing and user-perceived quality; rapidly released software tends to have a higher code churn, a higher test coverage and a lower average complexity; challenges in rapid releases are related to managing dependencies and certain code aspects, e.g., design debt.},
+  isbn = {978-1-4503-5572-8},
+  file = {/Users/tobiaszeier/Zotero/storage/5FIHAGDF/Kula et al. - 2019 - Releasing fast and slow an exploratory case study at ING.pdf}
 }
 
 @article{kumarDebtComTechnicalDebtAware2023,
@@ -409,6 +662,35 @@
   file = {/Users/tobiaszeier/Zotero/storage/7YU377CP/Malakuti and Heuschkel - 2021 - The Need for Holistic Technical Debt Management across the Value Stream Lessons Learnt and Open Cha.pdf}
 }
 
+@inproceedings{markkanenPatchManagementPlanning2023,
+  title = {Patch Management Planning - towards One-to-One Policy},
+  booktitle = {2023 10th {{International Conference}} on {{Dependable Systems}} and {{Their Applications}} ({{DSA}})},
+  author = {Markkanen, Veikko and Frantti, Tapio},
+  year = 2023,
+  month = aug,
+  pages = {60--69},
+  issn = {2767-6684},
+  doi = {10.1109/DSA59317.2023.00018},
+  urldate = {2026-03-08},
+  abstract = {Software security is a key component in protecting an enterprise's digital and operational infrastructure. Time from vulnerability disclosure to exploitation is decreasing and a large number of vulnerabilities are being exploited before security teams have implemented patches or other mitigation methods. To achieve a sufficient level of software security, timely patching is critical. However, failure to recognize patching as a necessary business cost is extremely common at many levels of organizations. The lack of proper patch management strategy is apparent. In order to help organizations to improve their patch management planning we surveyed the latest academic publications, vulnerability reports and the latest NIST special publication 800-40 on patch management planning and focused on enriching the provided recommendations for organizations, to improve their management of threats.},
+  keywords = {Costs,NIST,Organizations,patch management,patching policy,Planning,Security,Software,vulnerability management},
+  file = {/Users/tobiaszeier/Zotero/storage/UM5WRIXK/Markkanen and Frantti - 2023 - Patch management planning - towards one-to-one policy.pdf}
+}
+
+@article{neilModelingOperationalRisk2009,
+  title = {Modeling Operational Risk in Financial Institutions Using Hybrid Dynamic {{Bayesian}} Networks},
+  author = {Neil, Martin and H{\"a}ger, David and Andersen, Lasse},
+  year = 2009,
+  month = mar,
+  journal = {The Journal of Operational Risk},
+  volume = {4},
+  number = {1},
+  pages = {3--33},
+  issn = {17446740},
+  doi = {10.21314/JOP.2009.057},
+  urldate = {2026-03-08}
+}
+
 @article{nikolaidisExperienceManagingTechnical2021,
   title = {Experience {{With Managing Technical Debt}} in {{Scientific Software Development Using}} the {{EXA2PRO Framework}}},
   author = {Nikolaidis, Nikolaos and Zisis, Dimitrios and Ampatzoglou, Apostolos and Chatzigeorgiou, Alexander and Soudris, Dimitrios},
@@ -424,7 +706,7 @@
   file = {/Users/tobiaszeier/Zotero/storage/VLQS8JA9/Nikolaidis et al. - 2021 - Experience With Managing Technical Debt in Scientific Software Development Using the EXA2PRO Framewo.pdf}
 }
 
-@inproceedings{nikolaidisTechnicalDebtServiceOriented2022a,
+@inproceedings{nikolaidisTechnicalDebtServiceOriented2022,
   title = {Technical {{Debt}} in {{Service-Oriented Software Systems}}},
   booktitle = {Product-{{Focused Software Process Improvement}}},
   author = {Nikolaidis, Nikolaos and Ampatzoglou, Apostolos and Chatzigeorgiou, Alexander and Tsekeridou, Sofia and Piperidis, Avraam},
@@ -438,7 +720,7 @@
   isbn = {978-3-031-21388-5},
   langid = {english},
   keywords = {Endpoint analysis,Quality,Service analysis,Technical debt},
-  file = {/Users/tobiaszeier/Zotero/storage/YV3866ST/Nikolaidis et al. - 2022 - Technical Debt in Service-Oriented Software Systems.pdf}
+  file = {/Users/tobiaszeier/Zotero/storage/5MQFKAFF/Nikolaidis et al. - 2022 - Technical Debt in Service-Oriented Software Systems.pdf}
 }
 
 @misc{paudelMeasuringImpactTechnical2024,
@@ -534,12 +816,76 @@
   file = {/Users/tobiaszeier/Zotero/storage/7DM9PBBE/Sas and Avgeriou - 2023 - An Architectural Technical Debt Index Based on Machine Learning and Architectural Smells.pdf}
 }
 
+@inproceedings{shaikhEnergyEfficientManufacturingMCDM2024,
+  title = {Energy-{{Efficient Manufacturing}}: {{MCDM Techniques}} for {{Sustainability-Driven Optimization}} in {{Machining}} for {{Power Systems}}},
+  shorttitle = {Energy-{{Efficient Manufacturing}}},
+  booktitle = {2024 {{IEEE Sustainable Power}} and {{Energy Conference}} ({{iSPEC}})},
+  author = {Shaikh, Mohd Bilal Naim and Imteyaz, Binash and Irshad, Kashif and Alam, Mohammad Azad},
+  year = 2024,
+  month = nov,
+  pages = {193--197},
+  issn = {2837-522X},
+  doi = {10.1109/iSPEC59716.2024.10892595},
+  urldate = {2026-03-08},
+  abstract = {Integration of sustainability dimensions i.e., environmental, economic, and social remains a relevant domain across the fields and deserves to be investigated. Hence, this work optimizes turning process to improve sustainability aspect in terms of productivity, surface quality, cutting force, and floor noise level as performance criteria using two multi-criteria decision-making (MCDM) methods, namely COPRAS, and WASPAS for ranking alternatives and criteria weighting method, ENTROPY, for the weight evaluation. ENTROPY method utilized to determine the criteria weights of the outputs, results in values of 0.208772 for MRR, 0.258356 for Roughness, 0.266006 for Cutting Force, and 0.266866 for Noise Level. Out of the 27 alternatives having all possible combination of the all input parameters, i.e., speed (150,200, 250 m/min), depth of cut (0.1, 0.3, 0.5 mm), and feed (0.05, 0.25, 0.45 mm/rev.), the alternative 7, with cutting speed 250 m/min, depth of cut 0.5 mm, and feed 0.05 mm/rev, is identified as the least favorable. However, the 27th alternative, having values for speed 350 m/min, depth of cut 0.5 mm, and the feed movement 0.45 mm/rev, is determined to be the most optimal. Both methods identified the same optimal and worst alternatives, which validate the ranking pattern. Studies with data-driven decision-making can assist in enhancing the operational efficiency and sustainability for real-world machining setups and assist manufacturers about selecting optimal parameters based on multiple performance criteria},
+  keywords = {cutting speed,Decision making,depth of cut,Entropy,feed,Feeds,Force,machining,MCDM,Noise level,Productivity,Rough surfaces,Surface roughness,Sustainable development,turning,Turning},
+  file = {/Users/tobiaszeier/Zotero/storage/U8N6WXJX/Shaikh et al. - 2024 - Energy-Efficient Manufacturing MCDM Techniques for Sustainability-Driven Optimization in Machining.pdf}
+}
+
+@article{shekhovtsovComparativeCaseStudy2020,
+  title = {A Comparative Case Study of the {{VIKOR}} and {{TOPSIS}} Rankings Similarity},
+  author = {Shekhovtsov, Andrii and Sa{\l}abun, Wojciech},
+  year = 2020,
+  month = jan,
+  journal = {Procedia Computer Science},
+  series = {Knowledge-{{Based}} and {{Intelligent Information}} \& {{Engineering Systems}}: {{Proceedings}} of the 24th {{International Conference KES2020}}},
+  volume = {176},
+  pages = {3730--3740},
+  issn = {1877-0509},
+  doi = {10.1016/j.procs.2020.09.014},
+  urldate = {2026-03-08},
+  abstract = {Multi-criteria decision-methods (MCDA) has a broad field of applications in various areas, such as engineering, logistic, health management, and others. Their main objective is to rank the decision variants, from the best to the worst. It is always essential to get a reliable solution to a decision problem. However, rankings obtained with different MCDA methods are often different, and that is why an interesting research gap is related to measuring the accuracy and reliability of MCDA methods. In this paper, we examine how much different can be rankings obtained using TOPSIS and VIKOR methods. For this purpose, we apply classical versions of TOPSIS and VIKOR methods to randomly generated decision matrices with different criteria and alternatives. Then, we compare the obtained ranking using three ranking similarity coefficients. The comparison results of conducted simulations are represented as boxplots, which contain the primary distribution of similarity of results calculated using the tested methods. The work is finished with a discussion and conclusions on the results in different classes of problems.},
+  keywords = {separated by semicolons,Type your keywords here},
+  file = {/Users/tobiaszeier/Zotero/storage/232PIAGV/Shekhovtsov and Sałabun - 2020 - A comparative case study of the VIKOR and TOPSIS rankings similarity.pdf;/Users/tobiaszeier/Zotero/storage/77962UYK/S1877050920319050.html}
+}
+
+@article{shimizuVulnerabilityManagementChaining2026,
+  title = {Vulnerability {{Management Chaining}}: {{An Integrated Framework}} for {{Efficient Cybersecurity Risk Prioritization}}},
+  shorttitle = {Vulnerability {{Management Chaining}}},
+  author = {Shimizu, Naoyuki and Hashimoto, Masaki},
+  year = 2026,
+  journal = {IEEE Access},
+  volume = {14},
+  pages = {31407--31424},
+  issn = {2169-3536},
+  doi = {10.1109/ACCESS.2026.3665768},
+  urldate = {2026-03-08},
+  abstract = {As the number of Common Vulnerabilities and Exposures (CVE) continues to grow exponentially, security teams face increasingly difficult decisions about prioritization. Current approaches using Common Vulnerability Scoring System (CVSS) scores produce overwhelming volumes of high-priority vulnerabilities, while the Exploit Prediction Scoring System (EPSS) and the Known Exploited Vulnerabilities (KEV) catalog offer valuable but incomplete perspectives on actual exploitation risk. We present Vulnerability Management Chaining, a decision tree framework that systematically integrates these three approaches to achieve efficient vulnerability prioritization. Our framework employs a two-stage evaluation process: first applying threat-based filtering using KEV membership or EPSS threshold ( \textbackslash geq 0.088 ), then applying vulnerability severity assessment using CVSS scores ( \textbackslash geq 7.0 ) to enable informed deprioritization. Experimental validation using 28,377 real-world vulnerabilities and vendor-reported exploitation data demonstrates efficiency improvements from 0.5\% (CVSS-only) to 9.1\%, while maintaining 85.6\% coverage. Comprehensive ROC/AUC analysis (ROC-AUC=0.8678) validates the selected EPSS threshold of 0.088, achieving optimal balance between detection capability (48.89\% true positive rate) and operational efficiency (96.9\% workload reduction) under extreme class imbalance conditions. Organizations can reduce urgent remediation workload by approximately 95\%. The integration identifies 48 additional exploited vulnerabilities that neither KEV nor EPSS captures individually. Our framework relies exclusively on open-source data, enabling immediate adoption regardless of organizational resources.},
+  keywords = {Computer security,CVSS,cybersecurity risk assessment,decision trees,Decision trees,EPSS,Faces,Feature extraction,KEV,Machine learning,Organizations,Predictive models,Reviews,security prioritization,threat intelligence,Uncertainty,Vectors,Vulnerability management},
+  file = {/Users/tobiaszeier/Zotero/storage/3PJ8K8LC/Shimizu and Hashimoto - 2026 - Vulnerability Management Chaining An Integrated Framework for Efficient Cybersecurity Risk Prioriti.pdf}
+}
+
 @inproceedings{siavvasEmpiricalEvaluationRelationship2019,
   title = {An {{Empirical Evaluation}} of the {{Relationship}} between {{Technical Debt}} and {{Software Security}}},
   author = {Siavvas, Miltiadis G. and Tsoukalas, D. and Jankovic, M. and Kehagias, Dionysios and Chatzigeorgiou, A. and Tzovaras, D. and Anicic, Nenad and Gelenbe, E.},
   year = 2019,
   urldate = {2026-03-02},
   abstract = {---Technical Debt (TD) is commonly used in practice as a measure of software quality. Due to the potential overlap between software quality and software security, an interesting topic is to investigate whether TD can be used as a software security indicator as well. However, although some software-related factors (e.g. software metrics) have been studied for their ability to indicate security risk in software products, no research attempts exist specifically focusing on TD. To this end, in the present study, we empirically evaluate the ability of TD to indicate security risks in software products. For this purpose, a relatively large code repository comprising 50 open-source software applications was constructed and analyzed using popular open-source static analysis tools, in order to calculate their TD and security level (i.e. vulnerability density). Subsequently, statistical analysis was employed, to assess the relationship between TD and software security. The results of the empirical study revealed a statistically significant positive and strong correlation between the TD and the vulnerability densities of the studied software products. This provides preliminary evidence for the ability of TD to be used as an indicator of software security. To the best of our knowledge, this is the first study that empirically evaluates the relationship between TD and software security.}
+}
+
+@inproceedings{soaresdetoledoArchitecturalTechnicalDebt2019,
+  title = {Architectural {{Technical Debt}} in {{Microservices}}: {{A Case Study}} in a {{Large Company}}},
+  shorttitle = {Architectural {{Technical Debt}} in {{Microservices}}},
+  booktitle = {2019 {{IEEE}}/{{ACM International Conference}} on {{Technical Debt}} ({{TechDebt}})},
+  author = {{Soares de Toledo}, Saulo and Martini, Antonio and Przybyszewska, Agata and Sj{\o}berg, Dag I.K.},
+  year = 2019,
+  month = may,
+  pages = {78--87},
+  doi = {10.1109/TechDebt.2019.00026},
+  urldate = {2026-03-08},
+  abstract = {Introduction: Software companies aim to achieve continuous delivery to constantly provide value to their customers. A popular strategy is to use microservices architecture. However, such an architecture is also subject to debt, which hinders the continuous delivery process and thus negatively affects the software released to the customers. Objectives: The aim of this study is to identify issues, solutions and risks related to Architecture Technical Debt in microservices. Method: We conducted an exploratory case study of a real life project with about 1000 services in a large, international company. Through qualitative analysis of documents and interviews, we investigated Architecture Technical Debt in the communication layer of a system with microservices architecture. Results: Our main contributions are a list of Architecture Technical Debt issues specific for the communication layer in a system with microservices architecture, as well as their associated negative impact (interest), a solution to repay the debt and the its cost (principal). Among the found Architecture Technical Debt issues were the existence of business logic in the communication layer and a high amount of point-to-point connections between services. The studied solution consists of the implementation of different canonical models specific to different domains, the removal of business logic from the communication layer, and migration from services to use the communication layer correctly. We also contributed with a list of possible risks that can affect the payment of the debt, as lack of funding and inadequate prioritization. Conclusion: We found issues, solutions and possible risks that are specific for microservices architectures not yet encountered in the current literature. Our results may be useful for practitioners that want to avoid or repay Technical Debt in their microservices architecture.},
+  keywords = {Companies,Computer architecture,Data models,Informatics,Software,Technical Debt Architecture Microservices Case Study},
+  file = {/Users/tobiaszeier/Zotero/storage/9KH4NEIC/Soares de Toledo et al. - 2019 - Architectural Technical Debt in Microservices A Case Study in a Large Company.pdf}
 }
 
 @article{stochelBusinessdrivenTechnicalDebt2023,
@@ -558,6 +904,23 @@
   file = {/Users/tobiaszeier/Zotero/storage/K8V65ERR/Stochel et al. - 2023 - Business-driven technical debt management using Continuous Debt Valuation Approach (CoDVA).pdf;/Users/tobiaszeier/Zotero/storage/S784SCMP/S095058492300188X.html}
 }
 
+@article{tandonEmpiricalEvaluationCode2022,
+  title = {Empirical Evaluation of Code Smells in Open-Source Software ({{OSS}}) Using {{Best Worst Method}} ({{BWM}}) and {{TOPSIS}} Approach},
+  author = {Tandon, Stuti and Kumar, Vijay and Singh, V.B.},
+  year = 2022,
+  month = feb,
+  journal = {International Journal of Quality \& Reliability Management},
+  volume = {39},
+  number = {3},
+  pages = {815--835},
+  issn = {0265-671X},
+  doi = {10.1108/IJQRM-02-2021-0045},
+  urldate = {2026-03-13},
+  abstract = {Purpose               Code smells indicate deep software issues. They have been studied by researchers with different perspectives. The need to study code smells was felt from the perspective of software industry. The authors aim to evaluate the code smells on the basis of their scope of impact on widely used open-source software (OSS) projects.                                         Design/methodology/approach               The authors have proposed a methodology to identify and rank the smells in the source code of 16 versions of Apache Tomcat Software. Further, the authors have analyzed the categorized smells by calculating the weight of the smells using constant weights as well as Best Worst Method (BWM). Consequently, the authors have used Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS) to determine the rank of versions using constant weights as well as BWM.                                         Findings               Version 1 of Apache Tomcat has least smell, and version 8 is reported to contain the maximum code smells. Notable differences in both the cases during the trend analysis are reported by the study. The findings also show that increase is observed in the number of code smells with the release of newer versions. This increment is observed till version 8, followed by a subtle marked depreciation in the number of code smells in further releases.                                         Originality/value               The focus is to analyze smells and rank several versions of Apache Tomcat, one of the most widely used software for code smell study. This study will act as a significant one for the researchers as it prioritizes the versions and will help in narrowing down the options of the software used to study code smell.},
+  copyright = {https://www.emerald.com/insight/site-policies},
+  langid = {english}
+}
+
 @article{theuniversityofqueenslandGettingTrappedTechnical2023,
   title = {Getting {{Trapped}} in {{Technical Debt}}: {{Sociotechnical Analysis}} of a {{Legacy System}}'s {{Replacement}}},
   shorttitle = {Getting {{Trapped}} in {{Technical Debt}}},
@@ -574,6 +937,19 @@
   abstract = {Organizations replace their legacy systems for technical, economic, and operational reasons. Replacement is a risky proposition, as high levels of technical and social inertia make these systems hard to withdraw. Failure to fully replace systems results in complex system architectures involving manifold hidden dependencies that carry technical debt. To understand how a process for replacing a complex legacy system unfolds and accumulates technical debt, we conducted an explanatory case study at a local manufacturing site that had struggled to replace its mission-critical legacy systems as part of the larger global company's commercial-off-the-shelf (COTS) system implementation. We approach the replacement as a sociotechnical change and leverage the punctuated sociotechnical information system change model in combination with the design-moves framework to analyze how the site balanced creating digital options, countering social inertia, and managing (architectural) technical debt. The findings generalize to a two-level (local/global) system-dynamics model delineating how replacing a deeply entrenched mission-critical system generates positive and negative feedback loops within and between social and technical changes at local and global levels. The loops, unless addressed, accrue technical debt that hinders legacy system discontinuance and gradually locks the organization into a debt-constrained state. The model helps managers anticipate challenges that accompany replacing highly entrenched systems and formulate effective strategies to address them.}
 }
 
+@article{torkkiRecommendationsForDealing2024,
+  title = {Recommendations for {{Dealing}} with {{Unexpected Challenges}} in {{Paying Back Documentation Debt}}},
+  author = {Torkki, S{\"a}de and Penttinen, Esko and {Rinta-Kahila}, Tapani and Ruissalo, Joona and CCiittaattiioonn, {\relax Rr}eeccoommmmeennddeedd},
+  year = 2024,
+  month = dec,
+  journal = {ICIS 2024 Proceedings},
+  publisher = {Association for Information Systems},
+  address = {Bangkok, Thailand},
+  abstract = {Technical debt has become a significant concern for organizations that accumulate increasingly complex information systems architectures. Broadly defined as future system-maintenance obligations, technical debt comes in various forms. Documentation debt is a notoriously insidious type of technical debt that leads to inaccurate, incomplete, or outdated information, thereby confusing or misleading users. To study how organizations can address issues around insufficient system documentation, an action research project closely followed a company's efforts to settle its documentation debt. The case revealed that resolving documentation debt is a complex process involving four phases (realization, resourcing, documenting, and evaluation) that manifest multiple feedback loops. The resulting practitioner-oriented contribution articulates four recommendations that support organizational efforts to manage documentation debt. The recommendations should aid managers in developing strategies to repay documentation debt and prevent it from cascading out of control.},
+  langid = {english},
+  file = {/Users/tobiaszeier/Zotero/storage/68X5PH29/Torkki et al. - 2024 - Recommendations for Dealing with Unexpected Challenges in Paying Back Documentation Debt.pdf}
+}
+
 @inproceedings{tornhillCodeRedBusiness2022,
   title = {Code {{Red}}: {{The Business Impact}} of {{Code Quality}} - {{A Quantitative Study}} of 39 {{Proprietary Production Codebases}}},
   shorttitle = {Code {{Red}}},
@@ -587,6 +963,25 @@
   abstract = {Code quality remains an abstract concept that fails to get traction at the business level. Consequently, software companies keep trading code quality for time-to-market and new features. The resulting technical debt is estimated to waste up to 42\% of developers' time. At the same time, there is a global shortage of software developers, meaning that developer productivity is key to software businesses. Our overall mission is to make code quality a business concern, not just a technical aspect. Our first goal is to understand how code quality impacts 1) the number of reported defects, 2) the time to resolve issues, and 3) the predictability of resolving issues on time. We analyze 39 proprietary production codebases from a variety of domains using the CodeScene tool based on a combination of source code analysis, version-control mining, and issue information from Jira. By analyzing activity in 30,737 files, we find that low quality code contains 15 times more defects than high quality code. Furthermore, resolving issues in low quality code takes on average 124\% more time in development. Finally, we report that issue reso-lutions in low quality code involve higher uncertainty manifested as 9 times longer maximum cycle times. This study provides evi-dence that code quality cannot be dismissed as a technical concern. With 15 times fewer defects, twice the development speed, and substantially more predictable issue resolution times, the business advantage of high quality code should be unmistakably clear.},
   keywords = {Business,business impact,code quality,Codes,Companies,devel-oper productivity,mining software repositories,Productivity,Software,software defects,technical debt,Uncertainty},
   file = {/Users/tobiaszeier/Zotero/storage/DCWH2RV2/Tornhill and Borg - 2022 - Code Red The Business Impact of Code Quality - A Quantitative Study of 39 Proprietary Production Co.pdf}
+}
+
+@article{trautschAreAutomatedStatic2023,
+  title = {Are Automated Static Analysis Tools Worth It? {{An}} Investigation into Relative Warning Density and External Software Quality on the Example of {{Apache}} Open Source Projects},
+  shorttitle = {Are Automated Static Analysis Tools Worth It?},
+  author = {Trautsch, Alexander and Herbold, Steffen and Grabowski, Jens},
+  year = 2023,
+  month = apr,
+  journal = {Empirical Software Engineering},
+  volume = {28},
+  number = {3},
+  pages = {66},
+  issn = {1573-7616},
+  doi = {10.1007/s10664-023-10301-2},
+  urldate = {2026-03-08},
+  abstract = {Automated Static Analysis Tools (ASATs) are part of software development best practices. ASATs are able to warn developers about potential problems in the code. On the one hand, ASATs are based on best practices so there should be a noticeable effect on software quality. On the other hand, ASATs suffer from false positive warnings, which developers have to inspect and then ignore or mark as invalid. In this article, we ask whether ASATs have a measurable impact on external software quality, using the example of PMD for Java. We investigate the relationship between ASAT warnings emitted by PMD on defects per change and per file. Our case study includes data for the history of each file as well as the differences between changed files and the project in which they are contained. We investigate whether files that induce a defect have more static analysis warnings than the rest of the project. Moreover, we investigate the impact of two different sets of ASAT rules. We find that, bug inducing files contain less static analysis warnings than other files of the project at that point in time. However, this can be explained by the overall decreasing warning density. When compared with all other changes, we find a statistically significant difference in one metric for all rules and two metrics for a subset of rules. However, the effect size is negligible in all cases, showing that the actual difference in warning density between bug inducing changes and other changes is small at best.},
+  langid = {english},
+  keywords = {Quality evolution,Software metrics,Software quality,Static code analysis},
+  file = {/Users/tobiaszeier/Zotero/storage/VXVM3FAY/Trautsch et al. - 2023 - Are automated static analysis tools worth it An investigation into relative warning density and ext.pdf}
 }
 
 @article{trudelQuantifyingValueTechnical2024,
@@ -715,6 +1110,30 @@
   file = {/Users/tobiaszeier/Zotero/storage/XYZYDE8Z/Wiese et al. - 2022 - Preventing technical debt with the TAP framework for Technical Debt Aware Management.pdf}
 }
 
+@article{yangIngeniousSolutionRank,
+  title = {Ingenious {{Solution}} for the {{Rank Reversal Problem}} of {{TOPSIS Method}}},
+  author = {Yang, Wenguang},
+  doi = {10.1155/2020/9676518},
+  urldate = {2026-03-08},
+  abstract = {Although the classic TOPSIS method is very practical, there may be a problem of rank reversal in the addition, deletion, or replacement of the candidate set, which makes its credibility greatly compr...},
+  langid = {english}
+}
+
+@inproceedings{yangSLAdrivenApplicabilityAnalysis2011,
+  title = {{{SLA-driven}} Applicability Analysis for Patch Management},
+  booktitle = {12th {{IFIP}}/{{IEEE International Symposium}} on {{Integrated Network Management}} ({{IM}} 2011) and {{Workshops}}},
+  author = {Yang, Bo and Ayachitula, Naga and Zeng, Sai and Puri, Rajeev},
+  year = 2011,
+  month = may,
+  pages = {438--445},
+  issn = {1573-0077},
+  doi = {10.1109/INM.2011.5990544},
+  urldate = {2026-03-08},
+  abstract = {To strengthen patch management, organizations are required not only to focus on sole patch management on single server, machine or application servers, but also to consider other IT system management processes as well because patch management relies on them to be efficient. Processes such as inventory, system configurations, risk management, change management, system audit, and business cost on policy and SLA should be evaluated and enhanced together with patch management; appropriate applicability assessment of patch should be built in and coordinated with all these processes to make patch management a safe, reliable and efficient process to carry out its high profile tasks. This paper presents a patch management framework based on SLA-driven patch applicability analysis. It provides automatic patch applicability analysis and risk assessment for supporting business-impact analysis and logical control during patch process. Experimental results collected from the simulation on realistic business services case study show that SLA-driven patch applicability analysis based patch management outperforms traditional patch management.},
+  keywords = {Business,business impact analysis,Grippers,IT Service Management,Monitoring,patch management,Planning,Security,SLA},
+  file = {/Users/tobiaszeier/Zotero/storage/XDD6VKZB/Yang et al. - 2011 - SLA-driven applicability analysis for patch management.pdf}
+}
+
 @article{yangTaxonomyTechnicalDebt2019,
   title = {Towards a Taxonomy of Technical Debt for {{COTS-intensive}} Cyber Physical Systems},
   author = {Yang, Ye and Michel, Ronald and Wade, Jon and Verma, Dinesh and T{\"o}rngren, Martin and Alelyani, Turki},
@@ -732,6 +1151,35 @@
   file = {/Users/tobiaszeier/Zotero/storage/7XKXXPMC/Yang et al. - 2019 - Towards a taxonomy of technical debt for COTS-intensive cyber physical systems.pdf;/Users/tobiaszeier/Zotero/storage/8483CPJB/S1877050919307203.html}
 }
 
-@article{zotero-item-11,
-  type = {Article}
+@article{zanakisMultiattributeDecisionMaking1998,
+  title = {Multi-Attribute Decision Making: {{A}} Simulation Comparison of Select Methods},
+  shorttitle = {Multi-Attribute Decision Making},
+  author = {Zanakis, Stelios H. and Solomon, Anthony and Wishart, Nicole and Dublish, Sandipa},
+  year = 1998,
+  month = jun,
+  journal = {European Journal of Operational Research},
+  volume = {107},
+  number = {3},
+  pages = {507--529},
+  issn = {0377-2217},
+  doi = {10.1016/S0377-2217(97)00147-1},
+  urldate = {2026-03-08},
+  abstract = {Several methods have been proposed for solving multi-attribute decision making problems (MADM). A major criticism of MADM is that different techniques may yield different results when applied to the same problem. The problem considered in this study consists of a decision matrix input of N criteria weights and ratings of L alternatives on each criterion. The comparative performance of some methods has been investigated in a few, mostly field, studies. In this simulation experiment we investigate the performance of eight methods: ELECTRE, TOPSIS, Multiplicative Exponential Weighting (MEW), Simple Additive Weighting (SAW), and four versions of AHP (original vs. geometric scale and right eigenvector vs. mean transformation solution). Simulation parameters are the number of alternatives, criteria and their distribution. The solutions are analyzed using twelve measures of similarity of performance. Similarities and differences in the behavior of these methods are investigated. Dissimilarities in weights produced by these methods become stronger in problems with few alternatives; however, the corresponding final rankings of the alternatives vary across methods more in problems with many alternatives. Although less significant, the distribution of criterion weights affects the methods differently. In general, all AHP versions behave similarly and closer to SAW than the other methods. ELECTRE is the least similar to SAW (except for closer matching the top-ranked alternative), followed by MEW. TOPSIS behaves closer to AHP and differently from ELECTRE and MEW, except for problems with few criteria. A similar rank-reversal experiment produced the following performance order of methods: SAW and MEW (best), followed by TOPSIS, AHPs and ELECTRE. It should be noted that the ELECTRE version used was adapted to the common MADM problem and therefore it did not take advantage of the method's capabilities in handling problems with ordinal or imprecise information.},
+  keywords = {Decision theory,Multiple criteria analysis,Simulation,Utility theory},
+  file = {/Users/tobiaszeier/Zotero/storage/QDYX6TL5/Zanakis et al. - 1998 - Multi-attribute decision making A simulation comparison of select methods.pdf}
+}
+
+@article{zytoonDecisionSupportModel2020,
+  title = {A {{Decision Support Model}} for {{Prioritization}} of {{Regulated Safety Inspections Using Integrated Delphi}}, {{AHP}} and {{Double-Hierarchical TOPSIS Approach}}},
+  author = {Zytoon, Mohamed A.},
+  year = 2020,
+  journal = {IEEE Access},
+  volume = {8},
+  pages = {83444--83464},
+  issn = {2169-3536},
+  doi = {10.1109/ACCESS.2020.2991179},
+  urldate = {2026-03-08},
+  abstract = {Planning regulated occupational safety and health (OSH) inspections is dependent on the prioritization scheme followed by inspection agencies. It is probable that the methods used by OSH inspectorates for decision making on inspection priorities is not efficient enough to cover all the hazardous firms which is evidenced by less than expected reduction in injury rates in many countries. The objective of the current research is to present a prioritization model based on four criteria comprising thirteen subcriteria using an integrated Delphi, AHP and Double-Hierarchical TOPSIS (DH-TOPSIS) approach. The decision main and subcriteria as well as their pairwise comparisons were decided by a group of experts through a Delphi methodology. In addition, the weights of the main and subcriteria were determined using AHP method. Unlike the commonly applied TOPSIS method which uses subcriteria global weights in a single calculation process, the DH-TOPSIS method uses the local weights of the subcriteria to calculate the priority index of the alternatives (firms) with respect to the main criteria in a first TOPSIS calculation cycle. The resulting priority index is used as the evaluation scores of the firms in a second TOPSIS calculation cycle to prioritize firms for subsequent inspections. The DH-TOPSIS performed better than the global weight, single TOPSIS (GWS-TOPSIS) method with respect to the probability that the best alternative has the shortest distance to the ideal solution. Furthermore, the proposed model has a stable prioritization performance without rank reversal. As such, it is dynamic in handling large number of alternatives making it appropriate for prioritization of firms for OSH inspections. This approach can be further integrated with an appropriate scheduling methodology to improve the effectiveness of OSH inspections.},
+  keywords = {AHP-TOPSIS,Decision making,Delphi,double hierarchical TOPSIS,Employment,Indexes,Industries,Inspection,multicriteria decision making,regulated OSH inspections,Risk management,Safety,safety inspections prioritization},
+  file = {/Users/tobiaszeier/Zotero/storage/PB53AZW2/Zytoon - 2020 - A Decision Support Model for Prioritization of Regulated Safety Inspections Using Integrated Delphi,.pdf}
 }

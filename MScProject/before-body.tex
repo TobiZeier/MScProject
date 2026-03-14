@@ -11,10 +11,13 @@
 
 \vspace*{.06\textheight}
 {\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
-\textsc{\Large Doctoral Thesis}\\[0.5cm] % Thesis type
+\textsc{\Large \degreename\ Thesis}\\[0.5cm] % Thesis type
 
 \HRule \\[0.4cm] % Horizontal line
-{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+{\huge \bfseries \ttitle\par}\vspace{0.2cm} % Thesis title
+$if(book.subtitle)$
+{\large\bfseries $book.subtitle$\par}\vspace{0.2cm} %Thesis subtitle
+$endif$
 \HRule \\[1.5cm] % Horizontal line
  
 \begin{minipage}[t]{0.4\textwidth}
@@ -33,7 +36,11 @@ $endif$
 $if(thesis.supervisor.url)$%
 \href{$thesis.supervisor.url$}{\supname} % Supervisor name - remove the \href bracket to remove the link  
 $else$%
-\supname
+\supname\\[0.3cm]
+$endif$
+$if(thesis.co-supervisor.name)$
+\emph{Co-Supervisor:}\\
+\cosupname
 $endif$
 \end{flushright}
 \end{minipage}\\[3cm]
@@ -43,7 +50,7 @@ $endif$
 \large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
 \textit{in the}\\[0.4cm]
 \groupname\\
-\deptname\\[2cm] % Research group name and department name
+\deptname\\[1cm] % Research group name and department name
  
 \vfill
 
@@ -56,7 +63,7 @@ $endif$
 $endif$
 
 $if(book.date)$
-{\large $book.date$}\\[4cm] % Date
+{\large $book.date$}\\[1cm] % Date
 $endif$
 
  
@@ -78,7 +85,7 @@ $endif$
 
 \end{declaration}
 
-\cleardoublepage
+\clearpage
 $endif$
 
 $if(thesis.quotation)$
@@ -145,6 +152,7 @@ $if(thesis.abbreviations)$
 %	ABBREVIATIONS
 %----------------------------------------------------------------------------------------
 
+\clearpage
 \input{"$thesis.abbreviations$"}
 
 $endif$
@@ -154,6 +162,7 @@ $if(thesis.constants)$
 %	PHYSICAL CONSTANTS/OTHER DEFINITIONS
 %----------------------------------------------------------------------------------------
 
+\clearpage
 \input{"$thesis.constants$"}
 
 $endif$
@@ -163,6 +172,7 @@ $if(thesis.symbols)$
 %	SYMBOLS
 %----------------------------------------------------------------------------------------
 
+\clearpage
 \input{"$thesis.symbols$"}
 
 $endif$
