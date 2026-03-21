@@ -211,6 +211,22 @@
   \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 }
 \makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
 \makeatother
 \makeatletter
@@ -426,7 +442,11 @@ governance.
 
 \chapter{Introduction}\label{introduction}
 
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toptitle=1mm, coltitle=black, toprule=.15mm, bottomrule=.15mm, opacitybacktitle=0.6, breakable, leftrule=.75mm, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, colframe=quarto-callout-note-color-frame, opacityback=0, colback=white, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, titlerule=0mm, bottomtitle=1mm]
+
 tbd
+
+\end{tcolorbox}
 
 \section{Background and Motivation}\label{background-and-motivation}
 
@@ -504,7 +524,11 @@ bridges IT service management and software quality engineering.
 
 \section{Thesis Structure}\label{thesis-structure}
 
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toptitle=1mm, coltitle=black, toprule=.15mm, bottomrule=.15mm, opacitybacktitle=0.6, breakable, leftrule=.75mm, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, colframe=quarto-callout-note-color-frame, opacityback=0, colback=white, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, titlerule=0mm, bottomtitle=1mm]
+
 tbd
+
+\end{tcolorbox}
 
 \bookmarksetup{startatroot}
 
@@ -737,8 +761,19 @@ TOPSIS}\label{multi-criteria-decision-making-and-topsis}
 \section{Synthesis: Converging Evidence and the Research
 Gap}\label{synthesis-converging-evidence-and-the-research-gap}
 
-\section{Strengths and Limitations of the Reviewed
-Literature}\label{strengths-and-limitations-of-the-reviewed-literature}
+\section{Synthesis: Converging Evidence and the Research
+Gap}\label{synthesis-converging-evidence-and-the-research-gap-1}
+
+\subsection{Cross-Pillar Convergence}\label{cross-pillar-convergence}
+
+\subsection{Cross-Cutting Limitations of the Reviewed
+Literature}\label{cross-cutting-limitations-of-the-reviewed-literature}
+
+\subsection{Statement of the Research
+Gap}\label{statement-of-the-research-gap}
+
+\subsection{Transition to Research
+Questions}\label{transition-to-research-questions}
 
 \section{Conclusion}\label{conclusion}
 
