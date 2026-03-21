@@ -1,6 +1,8 @@
 # Introduction
 
+::: {.callout-note}
 tbd
+:::
 
 ## Background and Motivation
 
@@ -38,4 +40,6 @@ This research contributes to both academic knowledge and industry practice by pr
 
 ## Thesis Structure
 
+::: {.callout-note}
 tbd
+:::

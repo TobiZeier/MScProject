@@ -1,96 +1,115 @@
+---
+format: pdf
+linestretch: 1.5
+fontsize: 12pt
+geometry:
+      - paper=a4paper
+      - inner=2.5cm
+      - outer=3.8cm
+      - top=2cm
+      - bottom=3cm
+number-sections: true
+
+bibliography: ../references.bib
+csl: ../harvard-cite-them-right-no-et-al.csl
+---
+
+
 # Literature Review
+
+This chapter develops the theoretical and empirical foundation for the proposed framework. It achieves this objective through a critical review of four interconnected bodies of literature: the conceptual foundations of technical debt, existing measurement and prioritisation approaches, technical debt governance in financial and regulated enterprise IT, and multi criteria decision-making. Together, these strands support a synthesis that identifies the research gap and motivates the research questions addressed in this dissertation.
 
 ## Context of the Topic
 
-Technical debt has become one of the most widely discussed and least consistently managed challenges in software engineering and enterprise IT governance [@avgeriouTechnicalDebtManagement2024]. Originally coined by @cunninghamWyCashPortfolioManagement1993 as a metaphor for the long-term cost of short-term technical compromises, the concept has since expanded to encompass architectural, infrastructure, organisational, and process dimensions of complex IT systems [@kruchtenTechnicalDebtMetaphor2012]. Despite growing academic and practitioner interest, the dominant body of literature remains anchored at the source code level, relying on static analysis tools and code-level metrics that are poorly suited to enterprise environments where operational reliability depends on vendor platforms, legacy infrastructure, and tightly integrated service stacks rather than on internally developed software alone [@amanatidisEvaluatingAgreementTechnical2020].
+Technical debt has become both a central concept and a persistent management problem in software engineering and enterprise IT governance [@avgeriouTechnicalDebtManagement2024]. Ward Cunningham first introduced the metaphor in 1992, describing technical debt as the long term cost of short term technical compromises [@cunninghamWyCashPortfolioManagement1992]. Over time, the concept has expanded from a focus on poor code and shortcuts in implementation to a broader understanding that also includes architectural, infrastructure, organisational and process aspects of complex IT systems [@kruchtenTechnicalDebtMetaphor2012].
 
-This literature review is motivated by a specific and underexplored gap at the intersection of three fields: technical debt management, multi-criteria decision-making, and mission-critical enterprise IT operations. Existing frameworks do not provide a quantitative, service-level mechanism for measuring and prioritising technical debt in environments such as trading IT, where the most consequential forms of debt are observable not in code repositories but in operational outcomes such as incident frequency, recovery time, patch lag, and change failure rate [@ramasubbuControllingTechnicalDebt2021]. The review therefore examines the state of knowledge across these three domains and synthesises a theoretical and methodological foundation for the proposed framework.
+Despite this conceptual expansion, much of the empirical and tool supported literature remains anchored at the source code level. It relies heavily on static analysis tools and code based metrics. These approaches work tolerably well for greenfield development dominated by in house code. They are much less appropriate for enterprise environments where operational reliability depends on vendor platforms, legacy infrastructure, and tightly integrated service stacks rather than solely on internally developed software [@amanatidisEvaluatingAgreementTechnical2020].
+
+The present review is motivated by a gap at the intersection of technical debt management, multi criteria decision-making, and mission-critical enterprise IT operations. Existing frameworks do not provide a quantitative, service level mechanism for measuring and prioritising technical debt in environments such as trading IT. In these contexts, the most consequential forms of debt manifest not in code repositories but in operational outcomes such as incident frequency, recovery time, patch delay, and change failure rate [@ramasubbuControllingTechnicalDebt2021]. The following sections map the state of knowledge across these three domains and build a theoretical and methodological basis for the proposed framework.
 
 ## Perspective and Framework
 
-This review adopts a critical, problem-oriented perspective. Rather than providing an exhaustive catalogue of the technical debt literature, it is structured to build a coherent argument: that existing measurement and prioritisation approaches are inadequate for service-level, enterprise IT contexts, and that a quantitative framework applying TOPSIS to service management data represents a defensible and novel contribution. Each thematic section therefore not only summarises relevant findings but explicitly evaluates the assumptions, limitations, and gaps in the reviewed work, drawing on contradictory evidence where available to avoid uncritical acceptance of established positions [@lenarduzziSystematicLiteratureReview2021].
+The review adopts a critical, problem oriented perspective rather than an exhaustive cataloguing of all work on technical debt. Its structure is intended to build a coherent argument: that existing measurement and prioritisation approaches are not adequate for service level, enterprise IT contexts, and that a quantitative framework applying TOPSIS to service management data represents a defensible and novel contribution.
 
-The review is organised into four thematic areas, each corresponding to a pillar of the
-research design:
-
-1. **Conceptual foundations of technical debt** — origins, typologies, and theoretical critiques [@cunninghamWyCashPortfolioManagement1993; @kruchtenTechnicalDebtMetaphor2012; @avgeriouTechnicalDebtManagement2024]
-2. **Existing measurement and prioritisation frameworks** — tools, approaches, and their limitations [@amanatidisEvaluatingAgreementTechnical2020;
-   @alfayezHowSonarQubeidentifiedTechnical2023; @lenarduzziSystematicLiteratureReview2021]
-3. **Technical debt in financial and regulated enterprise IT** — domain-specific evidence and contextual constraints [@hakiDigitalNudgingTechnical2023; @ramasubbuControllingTechnicalDebt2021; @neilModelingOperationalRisk2009; @forsgrenAccelerate2018]
-4. **Multi-criteria decision-making and TOPSIS** — methodological grounding for the prioritisation component [@hwangMultipleAttributeDecision1981; @garcia-cascalesRankReversalTOPSIS2012; @albarakManagingTechnicalDebt2022]
+To support this argument, the review is organised into four thematic areas that align with the four pillars of the research design. The first examines the conceptual foundations of technical debt. The second surveys current measurement and prioritisation frameworks and their limitations. The third focuses on technical debt in financial and regulated enterprise IT. The fourth introduces multi criteria decision-making and makes the case for TOPSIS as an appropriate method in this setting.
 
 ## Methodology for Literature Selection
 
-The literature search was conducted between January and March 2026 using a systematic, reproducible approach across multiple academic databases and grey literature sources. It draws upon scholarly articles sourced from four key academic databases: the University of Essex Online (UoEO) library, Scopus (Elsevier), IEEE Xplore, and Google Scholar.
-
-### Search Strings
+The literature search was conducted between January and March 2026 using a systematic and reproducible approach. It drew on four principal academic databases: the University of Essex library, Scopus, IEEE Xplore and Google Scholar. Search strings were tailored to each thematic area to capture both foundational and current work.
 
 | Theme | Search String |
 |---|---|
 | TD foundations | `"technical debt" AND (metaphor OR taxonomy OR typology OR theory)` |
-| TD measurement & tools | `"technical debt" AND (measurement OR "static analysis" OR SonarQube OR metric OR "code smell")` |
+| TD measurement and tools | `"technical debt" AND (measurement OR "static analysis" OR SonarQube OR metric OR "code smell")` |
 | TD prioritisation | `"technical debt" AND (priorit* OR "backlog management" OR remediation OR repayment)` |
-| TD in enterprise/financial IT | `"technical debt" AND ("enterprise" OR "financial services" OR "trading" OR "legacy system" OR "regulated")` |
-| TD automation & intelligent techniques | `"technical debt management" AND ("machine learning" OR "intelligent" OR automation OR NLP)` |
-| MCDM & TOPSIS | `TOPSIS AND ("multi-criteria" OR MCDM OR "decision making" OR priorit*)` |
-| TOPSIS & TD | `TOPSIS AND "technical debt"` |
+| TD in enterprise and financial IT | `"technical debt" AND ("enterprise" OR "financial services" OR "trading" OR "legacy system" OR "regulated")` |
+| TD automation | `"technical debt management" AND ("machine learning" OR intelligent OR automation OR NLP)` |
+| MCDM and TOPSIS | `TOPSIS AND ("multi-criteria" OR MCDM OR "decision making" OR priorit*)` |
 | Patch management | `"patch management" AND (priorit* OR risk OR vulnerability OR SLA OR enterprise)` |
-| DORA metrics & operational performance | `("DORA metrics" OR "mean time to restore" OR "change failure rate") AND ("technical debt" OR "software delivery" OR performance)` |
-| Operational risk in financial IT | `"operational risk" AND ("trading" OR "financial institution") AND (quantitative OR model OR framework)` |
+| Operational risk and DORA | `("DORA metrics" OR "mean time to restore") AND ("technical debt" OR "software delivery")` |
 : Search terms used for literature review {#tbl-status tbl-colwidths="[30,70]"}
 
-### Inclusion Criteria
+The selection focused primarily on peer-reviewed journal articles, conference proceedings and empirical technical reports from the last six years. Exceptions were made for topics with no recent resarch and for foundational works that define key concepts or methods, such as @cunninghamWyCashPortfolioManagement1992 and @hwangMultipleAttributeDecision1981. All selected sources were available in full text in English and were directly relevant to at least one thematic pillar.
 
-- Peer-reviewed journal articles, conference proceedings, or empirical technical reports
-- Published between 2010 and 2026, with exceptions for foundational works
-  [@cunninghamWyCashPortfolioManagement1993; @hwangMultipleAttributeDecision1981]
-- Direct relevance to at least one of the four thematic areas listed above
-- Available in full text in English
-
-### Exclusion Criteria
-
-- Opinion pieces, editorials, and non-empirical practitioner blogs without academic grounding
-- Papers focused exclusively on agile process improvement without a measurable TD component
-- Domain-specific MCDM applications with no transferable methodological contribution
-- Duplicate studies superseded by a more comprehensive journal version by the same authors
-
-### Citation Snowballing
-
-Forward and backward citation tracking was applied to all identified anchor papers, specifically @cunninghamWyCashPortfolioManagement1993, @kruchtenTechnicalDebtMetaphor2012, @lenarduzziSystematicLiteratureReview2021, @forsgrenAccelerate2018, and @dissanayakeSoftwareSecurityPatch2022 to capture foundational works and recent citing literature not returned by keyword search alone. Approximately 140 candidate sources were identified in total; 60+ were retained as directly relevant following full-text screening against the criteria above.
+Opinion pieces without empirical grounding, studies confined to agile process improvement without a measurable technical debt component, and duplicates superseded by more comprehensive journal versions were excluded. Forward and backward citation snowballing was applied to four anchor publications: @kruchtenTechnicalDebtMetaphor2012, @lenarduzziSystematicLiteratureReview2021, @forsgrenAccelerate2018 and @ramasubbuTechnicalDebtReliability2016. The search yielded approximately 140 candidate sources, of which more than 60 were retained following full text screening.
 
 ## Analytical Approach
 
-This review employs a narrative synthesis method involving explicit critical evaluation, as opposed to a formal systematic review protocol. This approach is justified on two primary grounds.
+The review uses narrative synthesis rather than a formal systematic review protocol. Two reasons support this choice. First, the research spans three disciplines. These include software engineering, systems and enterprise IT governance, and decision science. These fields differ significantly in their research methods, terminology and evidence standards. A single meta analytic framework would not accommodate this heterogeneity. Second, the aim of the review is to build a coherent argument in support of a novel design science artefact. In this context, narrative synthesis is more appropriate than statistical aggregation [@hevnerDesignScienceInformation2004].
 
-Firstly, the research encompasses three distinct fields: software engineering, multi-criteria decision-making (MCDM), and enterprise IT operations. These disciplines utilise heterogeneous research methods, terminologies, and quality criteria that are not amenable to unified meta-analytic treatment. Secondly, the objective of the review is to construct a coherent theoretical and empirical argument in support of a novel design science artefact [@hevnerDesignScienceInformation2004]. For this purpose, narrative synthesis represents the methodologically appropriate approach.
-
-Within this framework, each thematic section applies three analytical moves consistently:
-
-- **Synthesis**: identifying convergent findings and established consensus positions across reviewed sources
-- **Critique**: surfacing contradictions, limitations, and assumptions that qualify or undermine those consensus positions
-- **Positioning**: explicitly relating identified gaps to the design decisions of the proposed framework, ensuring full traceability between the literature and the research artefact
-
-Where quantitative evidence is available, such as the inter-tool agreement statistics reported by @amanatidisEvaluatingAgreementTechnical2020, the 84% incident reduction reported by @detoledoReducingIncidentsMicroservices2021, or the DORA performance benchmarks established by @forsgrenAccelerate2018, it is used to anchor critical arguments in empirical data rather than assertion alone. In instances where contradictory findings exist, for example the divergence between tool-generated TD estimates and practitioner prioritisation behaviour documented by @alfayezHowSonarQubeidentifiedTechnical2023, both positions are represented and their implications for the proposed framework are discussed explicitly.
+Each thematic section follows the same pattern. It begins by synthesising convergent findings. It then identifies tensions, contradictions and gaps. Finally, it positions these gaps in relation to design decisions for the proposed framework. In this way, the review remains tightly coupled to the subsequent research design.
 
 ## Conceptual Foundations of Technical Debt
 
+The first thematic area traces the evolution of the technical debt concept. It moves from the original metaphor to later theoretical developments and then to the expansion of the concept beyond software into systems engineering, infrastructure and vendor platforms. Understanding this evolution is essential because most existing tools and practices are still tuned to an earlier, narrower view of technical debt and so misalign with the realities of contemporary enterprise IT.
+
+### Origins and the Metaphor
+
+@cunninghamWyCashPortfolioManagement1992 introduced the metaphor of technical debt to explain his refactoring strategy to non-technical stakeholders. He compared shipping “not quite right” code to taking on financial debt. The development team gains speed and delivers earlier, but every additional maintenance effort on that code represents interest. If the principal is not repaid through refactoring, the cost of working with the system grows until further change becomes very difficult or impossible.
+
+Several influential thinkers refined the concept. @mcconnellManagingTechnicalDebt2008 distinguished between unintentional debt, arising from poor practice, and intentional debt, incurred as a conscious trade-off, and introduced a cost structure of principal, recurring interest, and compounding interest. @fowlerTechnicalDebtQuadrant2009 added a quadrant distinguishing reckless from prudent debt and deliberate from inadvertent debt, arguing that even the best teams inevitably accumulate some inadvertent debt as their understanding of the problem matures. @gatTechnicalDebt2010 cautioned that when debt accumulates to the point where it equals or exceeds the value of the system itself, the code becomes "toxic" and further investment yields negative returns. @kruchtenTechnicalDebtMetaphor2012 later formalised these ideas into a taxonomy covering code, design, architectural, test, build and documentation debt.
+
+### Theoretical Development
+
+Subsequent empirical studies have confirmed and extended this view. @beskerTechnicalDebtEmpirical reported that developers in industrial settings spend roughly 23% of their time dealing with the consequences of existing technical debt, with architectural debt exerting the strongest negative influence on productivity. @bediUnderstandingFactorsAffecting2022 used regression analysis on open source repositories and found that commit frequency, lines of code, code smells, test coverage are all significant predictors of technical debt, whereas developer reputation metrics are not. Their work suggests that technical debt is driven primarily by development practices rather than by the perceived quality of individual developers.
+
+@ahmadTechnicalDebtNot2026 approached the topic qualitatively, interviewing experts from four international companies. They identified five non-technical dimensions of debt accumulation in large scale agile environments: social dynamics, process, people, documentation and requirements. Across these dimensions, a lack of communication and collaboration emerged as the dominant driver. This reinforces the view of technical debt as a sociotechnical phenomenon.
+
+@vidoniInfiniteTechnicalDebt2022 advanced a more radical theoretical argument through a game theoretic lens. They argued that in complex systems technical debt cannot be completely removed and that its effects cannot be considered fully controlled, even when individual items are repaid. The concept of “infinite technical debt” challenges the assumption, implicit in many repayment focused frameworks, that debt is always recoverable given sufficient effort. It also raises an ethical concern: if a system has passed into a state where meaningful repayment is no longer feasible, continuing to emphasise local repayments may offer an illusion of governance while delaying necessary replacement decisions.
+
+### Expanding the Conceptual Perimeter
+
+The conceptual perimeter of technical debt has progressively widened to include broader systems and lifecycle concerns. @kleinwaksTechnicalDebtSystems2023 conducted a systematic review of technical debt in systems engineering and found that requirements, architecture, integration artefacts and verification artefacts can all accumulate debt. They also concluded that many software oriented technical debt approaches are poorly adapted to multidisciplinary systems engineering lifecycles. @hanssenIdentifyingScalabilityDebt2019 identified scalability debt as a distinct subtype of technical debt triggered by regulatory change. In an open banking case study they showed that architectural decisions that were sound before the introduction of the EU Payment Services Directive 2 (PSD2) became sources of debt once new scalability requirements were imposed without revisiting the architecture. This illustrates how external regulatory change can convert previously adequate designs into liabilities. @yangTaxonomyTechnicalDebt2019 proposed a taxonomy of Commercial Off-the-Shelf (COTS) related technical debt that covers seven key types of debt arising during system acquisition and integration. These include vendor platform obsolescence and integration constraints. Managing such forms of debt requires different tools from those used for internally developed code. For financial trading IT, where vendor platforms and COTS products are central, this broader view is particularly relevant. Many of the most consequential debts in this domain—platform debt, infrastructure debt and vulnerability debt—are not detectable by standard static analysis.
+
 ## Measurement and Prioritisation Frameworks
+
+The second thematic area examines how technical debt is measured and prioritised in practice. It argues that current measurement is heavily concentrated at the code level and that existing prioritisation frameworks lack the multidimensional and quantitative rigour required for robust governance in enterprise settings.
+
+### The Dominance of Static Analysis and Its Limits
+
+Static code analysis tools such as SonarQube, SQALE and CAST dominate current practice. They typically operationalise technical debt as a weighted sum of estimated remediation effort. The estimates are derived from rule violations detected by automated scanners [@biazottoTechnicalDebtManagement2024].
+In a systematic mapping study, @biazottoTechnicalDebtManagement2024 identified 178 primary studies and 121 automation artefacts for technical debt management. They found that most artefacts operate at the code level, that many still require substantial human intervention even at higher automation levels, and that end to end automation across the technical debt management lifecycle is rare. The focus on code leaves infrastructure level and platform level debt largely unaddressed. @ampatzoglouSDK4EDPlatformTechnical2022 presented SDK4ED as a comprehensive industry oriented platform integrating several code level techniques. A three-year evaluation suggested that SDK4ED can deliver financial benefits to software organisations. At the same time, the platform offers only limited support for debt related to infrastructure or vendor platforms.
+@tornhillCodeRedBusiness2022 analysed 39 proprietary production codebases drawn from multiple industries. They found that poor code quality is statistically associated with higher defect density, longer remediation cycles and reduced developer throughput. This confirms that code level debt has clear business consequences. It does not, however, change the fact that an exclusive focus on code creates blind spots. Organisations may allocate significant resources to “safe” refactoring while leaving critical legacy infrastructure and unsupported components unaddressed.
+@amanatidisEvaluatingAgreementTechnical2020 evaluated the agreement between different technical debt assessment tools applied to 50 open source projects. They observed substantial divergence: tools that assess the same codebase produce different debt estimates and highlight different violation sets. No single tool consistently dominated. This implies that a debt figure generated by one tool is not an objective measurement but a function of that tool’s ruleset and thresholds. @albuquerqueManagingTechnicalDebt2023 reviewed 150 primary studies on intelligent techniques for technical debt management. They found that most approaches remain at low to intermediate levels of automation and that human involvement is still required at several stages. They also noted that infrastructure debt and process debt remain significantly understudied compared to code and architectural debt.
+
+### The Prioritisation Gap
+
+@lenarduzziSystematicLiteratureReview2021 carried out the most comprehensive review of technical debt prioritisation strategies to date. They analysed 44 primary studies and found that existing approaches cluster around cost based, value based and risk based strategies. Most of these approaches adopt a single primary criterion. Quantitative methods are less common than qualitative or heuristic techniques, and empirical validation on industrial datasets is rare. The authors concluded that the field lacks agreement on which factors matter, how to measure them and what constitutes an adequate prioritisation process. This conclusion directly motivates the quantitative prioritisation contribution of the present work. Concrete evidence demonstrates the cost of inadequate prioritisation. @detoledoReducingIncidentsMicroservices2021 showed in a production microservices system that targeted repayment of architectural technical debt items led to an 84% reduction in incidents. This result anchors the abstract case for technical debt management in a measurable operational outcome and suggests incident reduction as a meaningful evaluation criterion for prioritisation frameworks.
+
+Empirical studies also reveal a clear gap between tool generated priorities and practitioner behaviour. @alfayezHowSonarQubeidentifiedTechnical2023 studied 89 practitioners from four companies. They found that most practitioners considered both value and cost when deciding which items to repay, rather than following a single strategy. They also reported that perceived value was highly context dependent and subjective, which challenges the assumption that any single ranking rule can capture all relevant considerations. @limBalancingActWhat2012 interviewed practitioners across several organisations. They found that repayment decisions are strongly shaped by organisational pressures, interpersonal dynamics and competing business priorities. These factors are difficult to encode in algorithms. The implication is that quantitative prioritisation tools should be seen as decision support rather than decision replacement. From a managerial perspective, @wieseITManagersPerspective2023 interviewed 16 IT managers and found, that most did not have a formal technical debt management process in place. The primary challenge they identified was communicating about technical debt across technical and business stakeholders. @stochelBusinessdrivenTechnicalDebt2023 proposed the Continuous Debt Valuation Approach (CoDVA), which assigns a financial value to each debt item based on remediation cost, interest rate and business risk exposure. Case studies show that this valuation can significantly change repayment priorities compared with effort only approaches. However, CoDVA still relies on development level data and does not incorporate signals from operational service management, such as incident rates or change failure rates.
+
+These studies also highlight an ethical dimension. Any prioritisation framework embeds value judgements about which systems, users and risks matter most. In financial institutions, priority scores may influence funding, staffing and post incident accountability. Where weighting schemes and decision rules are opaque, they may conceal these value choices under a veneer of technical objectivity.
 
 ## Technical Debt in Financial and Regulated Enterprise IT
 
-## Multi-Criteria Decision-Making and TOPSIS
+The third thematic area applies the general insights from the technical debt literature to the specific setting of financial services and regulated trading IT. It focuses on how debt accumulates in these environments, how it translates into operational harm, and how related work in security and patch management quantifies this harm.
 
-## Synthesis: Converging Evidence and the Research Gap
-
-## Synthesis: Converging Evidence and the Research Gap
-
-### Cross-Pillar Convergence
-
-### Cross-Cutting Limitations of the Reviewed Literature
-
-### Statement of the Research Gap
-
-### Transition to Research Questions
+### The Financial Services Context
 
 
-## Conclusion
+\clearpage
+# References {.unnumbered}
+
+
+::: {#refs}
+:::
