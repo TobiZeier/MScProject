@@ -130,6 +130,15 @@ In contrast, @paudelExploringRelationshipTechnical2025 investigated the relation
 
 Using operational service management data as a basis for technical debt prioritisation raises important ethical questions regardless of the specific metric used. Such records are generated and owned by operations teams. Development teams may not have consented to their use in performance evaluations. A framework that ranks services based on operational indicators may influence budgets, staffing and reputational assessments. Any use of such data therefore requires explicit data governance principles and transparency about how metrics are attributed, aggregated and interpreted.
 
+### Security Debt and Patch Management
+
+Security related technical debt is most visible in the literature on patch management and vulnerability handling. @tizioSoftwareUpdatesStrategies2023 analysed a dataset of 86 Advanced Persistent Threats (APT) and 350 campaigns dated between 2008 and 2020 to quantify the risk of different software update strategies. Contrary to common assumption, most APT campaigns exploited publicly known vulnerabilities rather than zero-days. Enterprises delaying updates by one month faced 4.9 times higher odds of compromise compared to immediate patching, rising to 9.1 times at three months.
+
+@markkanenPatchManagementPlanning2023 reviewed the academic literature and current NIST guidance on patch management planning to identify gaps and propose enriched recommendations for enterprise organisations. They argue that uniform, time-based patching policies are increasingly inadequate given the shrinking window between vulnerability disclosure and exploitation, and that organisations should instead treat patching as a risk-based, organisation-wide business priority rather than a purely technical responsibility. @nursePatchNotPatch2025 framed patch prioritisation as a problem of maintaining service-level agreement (SLA) compliance, noting that business partners and clients drive patching decisions through supply chain agreements and contractual requirements. This aligns patch management with the service level focus of the present research.
+
+@kulaReleasingFastSlow2019 provided further evidence from ING, where they studied release practices and dependency management. They showed that keeping upstream dependencies current is a persistent challenge in rapid release banking environments and that delays in dependency updates contribute to technical debt. This finding is consistent with the broader argument, supported by Forsgren, Humble and Kim as well as Paudel *et al.*, that technical debt manifests in ways that are detectable through operational service management data [@forsgrenAccelerate2018; @paudelExploringRelationshipTechnical2025]
+
+## Multi-Criteria Decision-Making and TOPSIS
 
 
 \clearpage
@@ -138,3 +147,4 @@ Using operational service management data as a basis for technical debt prioriti
 
 ::: {#refs}
 :::
+
