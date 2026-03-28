@@ -1,20 +1,3 @@
----
-format: pdf
-linestretch: 1.5
-fontsize: 12pt
-geometry:
-      - paper=a4paper
-      - inner=2.5cm
-      - outer=3.8cm
-      - top=2cm
-      - bottom=3cm
-number-sections: true
-
-bibliography: ../references.bib
-csl: ../harvard-cite-them-right-no-et-al.csl
----
-
-
 # Literature Review
 
 This chapter develops the theoretical and empirical foundation for the proposed framework. It achieves this objective through a critical review of four interconnected bodies of literature: the conceptual foundations of technical debt, existing measurement and prioritisation approaches, technical debt governance in financial and regulated enterprise IT, and multi criteria decision-making. Together, these strands support a synthesis that identifies the research gap and motivates the research questions addressed in this dissertation.
@@ -51,7 +34,7 @@ The literature search was conducted between January and March 2026 using a syste
 
 The selection focused primarily on peer-reviewed journal articles, conference proceedings and empirical technical reports from the last six years. Exceptions were made for topics with no recent resarch and for foundational works that define key concepts or methods, such as @cunninghamWyCashPortfolioManagement1992 and @hwangMultipleAttributeDecision1981. All selected sources were available in full text in English and were directly relevant to at least one thematic pillar.
 
-Opinion pieces without empirical grounding, studies confined to agile process improvement without a measurable technical debt component, and duplicates superseded by more comprehensive journal versions were excluded. Forward and backward citation snowballing was applied to four anchor publications: @kruchtenTechnicalDebtMetaphor2012, @lenarduzziSystematicLiteratureReview2021, @forsgrenAccelerate2018 and @ramasubbuTechnicalDebtReliability2016. The search yielded approximately 140 candidate sources, of which more than 60 were retained following full text screening.
+Opinion pieces without empirical grounding, studies confined to agile process improvement without a measurable technical debt component, and duplicates superseded by more comprehensive journal versions were excluded. Forward and backward citation snowballing was applied to four anchor publications: @kruchtenTechnicalDebtMetaphor2012, @lenarduzziSystematicLiteratureReview2021 and @forsgrenAccelerate2018. The search yielded approximately 140 candidate sources, of which more than 60 were retained following full text screening.
 
 ## Analytical Approach
 
@@ -116,7 +99,7 @@ Rolland and Lyytinen investigated the organisational dynamics of architectural d
 
 ### Enterprise Systems and the Outsourcing Context
 
-@ramasubbuTechnicalDebtReliability2016 analysed a commercial enterprise system deployed at 48 client firms. Over time, they observed that technical debt reduced system reliability in a non-linear manner. Modular maintenance aimed at reducing debt was 53% more effective at lowering client error driven failures than architectural maintenance, but it also increased the probability of vendor induced failures by 83%. This trade off underscores that debt repayment strategies can shift risk from one dimension to another rather than reduce it uniformly.
+@bankerTechnicalDebtFirm2020 examined 26 firms operating a commercial COTS CRM system over its full eleven-year lifecycle. Using propensity score matching against firms with zero technical debt, they found that a 10% increase in technical debt reduced gross return on assets by 16% on average. Critically, this penalty more than doubled within six years of adoption as code decay compounded structural complexity. While all firms initially benefited from system customisation, those carrying median debt levels saw the net value of their system turn negative by year five, a pattern robust to alternative performance measures including asset turnover, gross margin, and operating income.
 
 In a later study, they extended this analysis to 1,824 outsourced remediation projects involving 424 client organisations [@ramasubbuControllingTechnicalDebt2021]. They found that “control balancing” between client and vendor improved remediation outcomes only when both parties had agreed a long term migration roadmap. In the absence of such a roadmap, increased coordination actually harmed performance. For prioritisation frameworks, this implies that ranking debt items without embedding them in a strategic roadmap can be counterproductive.
 
@@ -140,11 +123,61 @@ Security related technical debt is most visible in the literature on patch manag
 
 ## Multi-Criteria Decision-Making and TOPSIS
 
+The fourth thematic area turns to decision science. The previous sections established that technical debt in enterprise IT is multidimensional, that current tools largely ignore the most important dimensions in enterprise settings, and that no validated quantitative prioritisation framework exists. This section argues that multi-criteria decision-making (MCDM) methods are well suited to the prioritisation problem and that TOPSIS, in particular, is an appropriate method for the proposed framework.
 
-\clearpage
-# References {.unnumbered}
+### The Case for Multi-Criteria Methods
 
+Technical debt prioritisation involves balancing several criteria at once. These include remediation cost, business value, security risk, operational impact and regulatory compliance. Existing practice and empirical studies show that practitioners weigh these dimensions together rather than focusing on a single factor [@alfayezHowSonarQubeidentifiedTechnical2023]. Collapsing them into a single ad-hoc indicator risks discarding information that matters in real decisions. @lenarduzziSystematicLiteratureReview2021 concluded that the absence of a validated, quantitative, multi criteria framework is a central obstacle to evidence based technical debt governance. MCDM methods provide formal mechanisms for integrating multiple, incommensurable criteria. Among these methods, TOPSIS is attractive because of its intuitive interpretation and computational simplicity.
 
-::: {#refs}
-:::
+@hwangMultipleAttributeDecision1981 introduced TOPSIS, defining the ideal solution as the hypothetical alternative scoring best on all criteria simultaneously and ranking alternatives by Euclidean proximity to this ideal. @zanakisMultiattributeDecisionMaking1998 compared several MCDM methods and found that TOPSIS tends to produce rankings that are stable and close to the Pareto optimal ordering across a range of problem structures. This supports its use in prioritisation tasks under uncertainty.
 
+### TOPSIS: Mechanics, Applications, and Critical Limitations
+TOPSIS operates by constructing a normalised weighted decision matrix, identifying ideal best and worst values per criterion, computing each alternative's Euclidean distance to both reference points, and ranking by the closeness coefficient, defined as the ratio of the distance to the ideal worst to the sum of both distances [@albarakManagingTechnicalDebt2022]. A well known issue with TOPSIS is rank reversal: the addition or removal of alternatives can change the ranking of existing options [@garcia-cascalesRankReversalTOPSIS2012]. @yangIngeniousSolutionRank2020 proposed an adjustment to the normalisation process to mitigate rank reversal by defining reference points independently of the specific set of alternatives. This is particularly relevant for enterprise portfolios where services are regularly added, modified or decommissioned.
+
+@shekhovtsovComparativeCaseStudy2020 compared TOPSIS and VIKOR across several decision problems. They found that the two methods produce similar rankings when criterion weights are well specified, but diverge when weights are uncertain or criteria conflict strongly. They suggested that TOPSIS is preferable when the objective is a global ranking of alternatives across all criteria, whereas VIKOR is better suited to identifying compromise solutions between conflicting criteria. Because the present research aims to generate a ranked list of services for remediation, rather than to identify compromise solutions, TOPSIS appears more appropriate.
+
+Several studies demonstrate that TOPSIS can be applied in technical and risk intensive contexts. @albarakManagingTechnicalDebt2022 and colleagues combined TOPSIS with portfolio theory to prioritise database normalisation debt. Their results showed that TOPSIS highlighted high priority debt items that would likely have been deferred under effort only approaches. @khanIntegratedMethodologyRanking2022 applied a hybrid PROMETHEE CRITIC and TOPSIS CRITIC approach to web service ranking, using CRITIC to derive objective weights. @zytoonDecisionSupportModel2020 used a Delphi–AHP–TOPSIS combination to prioritise safety inspections in a regulated industrial environment. @ishakAnalysisFuzzyAHPTOPSIS2020 applied fuzzy AHP–TOPSIS to improve robustness when weights cannot be specified with precision. All of these studies provide precedents for using TOPSIS to support multi criteria decisions under risk and regulation.
+
+## Transferability Critique and Ethical Dimensions
+
+Although these applications offer relevant precedents, none of them operates on live service management data in large enterprise settings. Most rely on researcher defined scenarios, synthetic datasets or controlled development artefacts. The proposed research differs by applying TOPSIS to operational records such as incident logs, ITSM change data and vulnerability scan outputs. These data sources are known to have quality issues. Incident classifications can vary between teams. Recorded change failure rates can be influenced by documentation practices as much as by technical quality. Vulnerability counts depend on scanner coverage and configuration.
+
+@grecoMethodologicalFrameworkComposite2019 examined composite indices based on MCDM methods and emphasised that their robustness depends strongly on input data quality. They argued that sensitivity analysis with respect to criterion weights is a necessary component of any such index. For the proposed framework, this implies that data limitations must be explicitly acknowledged, that the sensitivity of rankings to weight changes must be studied, and that outputs must be interpreted with appropriate caution.
+
+The ethical dimension of criterion weighting is equally important. Weights are not neutral technical parameters but normative choices about organisational priorities. A framework that places a high weight on vulnerability debt relative to infrastructure lifecycle debt expresses a judgement that security exposure is more important than supportability. In a regulated financial institution, such choices have governance and possibly legal implications [@grecoMethodologicalFrameworkComposite2019]. The framework must therefore include a transparent and auditable process for weight elicitation. This process should consider aspects from operations, security, risk and business leadership perspectives, and the resulting weights and their rationale should be documented and visible in all governance outputs.
+
+## Synthesis: Converging Evidence and the Research Gap
+
+The four thematic sections together define the conceptual, methodological, contextual and technical landscape within which this research is situated. This synthesis draws out the main points of convergence across the literature, acknowledges important limitations and articulates the research gap that the proposed framework addresses.
+
+### Cross Pillar Convergence
+
+Four converging findings are particularly significant. First, the concept of technical debt has expanded to encompass all layers of the enterprise IT stack, but measurement practice has not kept pace. The dominant tools still focus on code level debt, leaving infrastructure lifecycle debt, platform obsolescence and other critical forms of enterprise debt largely unmeasured [@kruchtenTechnicalDebtMetaphor2012; @yangTaxonomyTechnicalDebt2019; @biazottoTechnicalDebtManagement2024].
+
+Second, technical debt prioritisation is both empirically and theoretically a multi criteria problem. No widely accepted quantitative framework currently exists that can integrate cost, value, risk and operational impact into a single, auditable ranking [@lenarduzziSystematicLiteratureReview2021]. Practitioner studies confirm that both developers and managers routinely consider multiple factors when making repayment decisions [@alfayezHowSonarQubeidentifiedTechnical2023; @pinaTechnicalDebtPrioritization2022].
+
+Third, the consequences of unmanaged technical debt are both measurable and substantial. Targeted repayment of architectural debt can dramatically reduce incidents [@detoledoReducingIncidentsMicroservices2021]. The financial harm of technical debt compounds progressively over a system's lifecycle [@bankerTechnicalDebtFirm2020]. Repeated customisation of COTS systems can drive organisations into debt-constrained states [@rinta-kahilaGettingTrappedTechnical2023]. Poor code quality reduces throughput and increases defects [@tornhillCodeRedBusiness2022]. Delayed patching increases vulnerability to exploitation [@feutrillEffectCommonVulnerability2018]. Together these studies show that technical debt produces quantifiable, progressive operational harm that is visible in service level data before it becomes evident in code.
+
+Fourth, DORA metrics and related operational indicators offer a viable bridge between technical debt and observable service level performance. @forsgrenAccelerate2018 showed that these metrics capture aspects of technical health even when source code is inaccessible. @paudelExploringRelationshipTechnical2025 provided further evidence by linking technical debt accumulation directly to degradation in lead time. This suggests that service management data can serve as a legitimate measurement basis for technical debt in vendor dominated trading IT environments.
+
+### Cross Cutting Limitations
+
+At the same time, several limitations qualify these conclusions. The empirical base for financial IT and trading systems remains relatively thin. Studies such as Haki *et al.’s* work at Credit Suisse and *Kula et al.’s* analysis at ING provide valuable insights but are restricted to single organisations [@hakiDigitalNudgingTechnical2023; @kulaReleasingFastSlow2019].
+
+Existing applications of TOPSIS and other MCDM methods to technical debt rely on controlled datasets rather than live operational records [@albarakManagingTechnicalDebt2022; @khanIntegratedMethodologyRanking2022]. The comparative work of @salabunComparativeCaseStudy2020 shows that method choice matters less than weight choice when weights are uncertain, which underscores the importance of careful and transparent weight determination.
+
+Behavioural studies emphasise that management intent, incentives and communication patterns often exert a stronger influence on remediation outcomes than technical tools do [@wieseITManagersPerspective2023; @beskerTechnicalDebtEmpirical; @hakiDigitalNudgingTechnical2023]. Technical frameworks can support, but not replace, governance and leadership.
+
+Finally, the ethical dimensions of operating on service level operational data, assigning criterion weights and attributing responsibility for technical debt have received little explicit attention in the technical debt literature. The present work responds to this gap by embedding transparency and governance considerations into the design and evaluation of the proposed framework.
+
+### Statement of the Research Gap
+
+No existing framework integrates service level operational metrics, multi criteria prioritisation and the specific constraints of financial trading IT into a single, auditable technical debt ranking instrument. Code centric tools are structurally inapplicable to many vendor hosted and regulated platforms. Single criterion models conflict with both the empirical evidence on practitioner behaviour and the theoretical structure of the prioritisation problem. Qualitative governance frameworks lack the quantitative precision and repeatability required by risk and compliance functions in regulated institutions.
+
+Moreover, TOPSIS has not been applied to service level technical debt data in an enterprise setting. The financial trading IT domain is almost absent from empirical technical debt research, despite being one of the environments where the risks associated with unmanaged technical debt are most severe.
+
+### Transition to Research Questions
+
+These observations motivate two research questions. The first concerns measurement: which operational service management metrics can act as valid proxies for technical debt severity in enterprise trading IT systems where source code analysis is not feasible, and how can these metrics be combined into a replicable and auditable multi criteria framework? The second concerns evaluation: does a TOPSIS based ranking of services, constructed from such metrics, align more closely with actual operational risk exposure than existing practitioner heuristics, and is that alignment sufficient for the framework to function as a defensible governance instrument in a regulated financial institution?
+
+Taken together, these questions position the proposed framework at the convergence of the four reviewed pillars and set the stage for the design science work presented in the subsequent chapters.
