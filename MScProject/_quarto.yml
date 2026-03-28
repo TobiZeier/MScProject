@@ -45,8 +45,9 @@ toclinkcolor: black
 format:
   pdf:
     documentclass: MastersDoctoralThesis
-    classoption: ["12pt", "oneside", "english", "onehalfspacing", "headsepline"]
-    fontsize: 12pt
+    classoption: ["11pt", "oneside", "english", "onehalfspacing", "headsepline"]
+    fontsize: 11pt
+    linestretch: 1.5
     geometry:
       - paper=a4paper
       - inner=2.5cm
