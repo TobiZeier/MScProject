@@ -145,7 +145,7 @@
         </group>
       </if>
       <else>
-        <text variable="title" form="long" prefix="'" suffix="'"/>
+        <text variable="title" form="long" quotes="true"/>
       </else>
     </choose>
   </macro>
