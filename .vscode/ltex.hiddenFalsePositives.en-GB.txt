@@ -1,0 +1,1 @@
+{"rule":"HE_VERB_AGR","sentence":"^\\QFourth, @forsgrenAccelerate2018 demonstrate that DORA metrics derived from operational data are valid proxies for technical health when source code is inaccessible, providing the methodological bridge between the technical debt literature and the service management data available in financial trading IT.\\E$"}
