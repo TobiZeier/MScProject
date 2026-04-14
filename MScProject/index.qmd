@@ -1,2 +1,3 @@
 {{< include chapters/1-introduction.qmd >}}
 {{< include chapters/2-literaturereview.qmd >}}
+{{< include chapters/3-methodology.qmd >}}

@@ -1,4 +1,111 @@
+---
+format: pdf
+linestretch: 1.5
+fontsize: 12pt
+mainfont: Times New Roman
+geometry:
+      - paper=a4paper
+      - inner=2.5cm
+      - outer=3.8cm
+      - top=2cm
+      - bottom=3cm
+number-sections: true
+author: Tobias Zeier
 
+bibliography: ../references.bib
+csl: ../harvard-cite-them-right-no-et-al.csl
+---
+
+
+# Research Design and Methodology {#sec-chapter3}
+
+This chapter explains the philosophical approach, research strategy, and design decisions that govern the construction and evaluation of the proposed framework. It proceeds in two parts: the first covers the research design from philosophical positioning through to the evaluation approach; the second addresses the ethical and professional considerations arising from the use of operational data in a regulated financial institution.
+
+## Research Design
+
+This study is grounded in a pragmatist research philosophy. Pragmatism holds that the value of a knowledge claim is determined by whether the resulting artefact works in the context for which it was designed [@kellyThreePrinciplesPragmatism2020]. This position suits the present study because the objective is not to establish universal laws about technical debt, but to construct a quantitative framework that is useful for prioritisation decisions in a specific enterprise IT environment. Technical debt is treated here as a construct whose meaning is shaped by measurement choices rather than as a directly observable quantity [@amanatidisEvaluatingAgreementTechnical2020]. The framework therefore grounds its estimates in operationally defined proxies and acknowledges that the resulting scores are representations, not facts.
+
+### Research Strategy
+
+The governing methodology is Design Science Research (DSR), as formalised by @hevnerDesignScienceInformation2004. DSR focuses on the creation and evaluation of artefacts, including models, methods, and instantiations, that solve identified organisational or technical problems. It is the appropriate strategy here because the primary output of this dissertation is an artefact: a prioritisation framework instantiated as a TOPSIS model operating on operational service-management data.
+
+@hevnerDesignScienceInformation2004 specify seven guidelines for rigorous DSR. @tbl-dsr-guidelines maps each guideline to the corresponding element of this study.
+
+| DSR Guideline | Implementation in this Study |
+|---|---|
+| Design as an artefact | The TOPSIS-based prioritisation framework |
+| Problem relevance | Established in @sec-chapter2: no existing framework integrates service-level operational metrics for TD prioritisation in trading IT |
+| Design evaluation | Sensitivity analysis; criterion validity against historical operational records |
+| Research contributions | Novel indicator set; first application of TOPSIS to live ITSM data in financial trading IT |
+| Research rigour | Systematic indicator selection; reproducible TOPSIS computation; documented normalisation |
+| Design as a search process | Iterative refinement of indicator selection and weight assignment |
+| Communication of research | This dissertation; practitioner-accessible scoring output |
+
+: DSR guidelines and their implementation {#tbl-dsr-guidelines tbl-colwidths="[30,70]"}
+
+The DSR process follows the six-step DSRM model as described in @vombrockeIntroductionDesignScience2020: problem identification and motivation (@sec-chapter1 and @sec-chapter2), definition of objectives for a solution (@sec-chapter2), design and development of the artefact (@sec-chapter4), demonstration, evaluation (@sec-chapter5), and communication (@sec-chapter6). This sequence is not strictly linear; indicator selection and evaluation criteria were refined iteratively as constraints in the available data emerged during development.
+
+The six core dimensions of a DSR project, as conceptualised by @vombrockeIntroductionDesignScience2020, provide a concise map of the project as a whole, relating the problem and solution spaces to the research process, input knowledge, key concepts and output knowledge. @fig-dsr-grid applies these dimensions to the present study, showing how the identified gap in the literature connects to the artefact and the design knowledge it produces.
+
+```{mermaid}
+%%| label: fig-dsr-grid
+%%| fig-cap: "DSR Grid for the present study, adapted from vom Brocke, Hevner and Maedche (2020)"
+%%| fig-width: 6
+
+graph TD
+    P["Problem<br/>Absence of a quantitative<br/>service-level TD prioritisation<br/>framework for trading IT"]
+    IK["Input Knowledge<br/>TD taxonomy; DORA metrics;<br/>TOPSIS method; DSR foundations<br/>(Hevner et al., 2004)"]
+    RP["Research Process<br/>Literature review;<br/>indicator selection;<br/>TOPSIS construction;<br/>sensitivity analysis"]
+    KC["Key Concepts<br/>Technical debt;<br/>operational proxies;<br/>MCDM; ITSM service data"]
+    DSR(["DSR Project"])
+    S["Solution<br/>TOPSIS framework operating<br/>on live ServiceNow data<br/>(four DORA-derived indicators)"]
+    OK["Output Knowledge<br/>Prescriptive design entity;<br/>validity of operational TD<br/>proxies in regulated IT"]
+
+    P --> DSR
+    IK --> DSR
+    RP --> DSR
+    KC --> DSR
+    DSR --> S
+    DSR --> OK
+```
+
+### Research Design
+
+The study is structured as a single-organisation embedded case study, situated within the trading IT division of one of Switzerland's three largest universal banks. @turnbullUseCaseStudy2021 define this design as an investigation into a single instance of observable complex phenomena constrained by clearly identifiable boundaries, such as a specific organisational context, where discrete units of analysis (e.g., IT services) are dissected within that bounded setting. The case study design is appropriate for three reasons. First, the research context is distinguished by specific regulatory, operational, and vendor-platform characteristics that cannot be generalised from software engineering studies conducted elsewhere. Second, the framework requires access to operational ITSM records available only within a specific organisational context; a survey or experiment would not provide the granular service-level data needed. Third, DSR artefacts are inherently context-situated and their evaluation requires deployment in the target environment [@hevnerDesignScienceInformation2004].
+
+The study adopts the individual IT service as the unit of analysis, defined as a distinct configuration item in the organisation's ITSM instance. In this vendor-heavy enterprise environment where source-code access is unavailable, service-level operational indicators are tested as candidate proxies for technical-debt prioritisation [@ramasubbuControllingTechnicalDebt2021]. The study is cross-sectional, analysing a fixed observation window rather than tracking changes over time, consistent with the objective of demonstrating ranking validity at a point in time. Longitudinal evaluation is identified as a direction for future work.
+
+## Research strategy
+
+design science research as the governing methodology, the five DSR activities (awareness, suggestion, development, evaluation, conclusion) mapped to the thesis chapters
+
+## Research design
+
+single-organisation embedded case study; why trading IT at one firm is the unit of analysis; justification for a quantitative-primary, mixed-evidence approach
+
+## Data sources and collection
+
+ITSM operational data, DORA-derived metrics (incident frequency, MTTR, change failure rate, patch currency); what is in scope and what is excluded
+
+## Framework design process
+
+indicator selection, normalisation, TOPSIS computation, weighting scheme
+
+## Evaluation design
+
+sensitivity analysis (weight perturbation), criterion validity against historical records, how the evaluation maps to the research questions
+
+## Ethical considerations and limitations
+
+data anonymisation, single-site generalisability constraint
 
 
 A framework that ranks services based on operational indicators may influence budgets, staffing and reputational assessments. Any deployment of the framework must therefore be accompanied by explicit data governance principles covering how metrics are attributed, aggregated and made available across organisational boundaries.
+
+
+
+\clearpage
+# References {.unnumbered}
+
+::: {#refs}
+:::

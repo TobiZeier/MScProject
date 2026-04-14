@@ -16,7 +16,8 @@ bibliography: ../references.bib
 csl: ../harvard-cite-them-right-no-et-al.csl
 ---
 
-# Literature Review
+
+# Literature Review {#sec-chapter2}
 
 This chapter develops the theoretical and empirical foundation for the proposed framework through a critical review of four interconnected bodies of literature: the conceptual foundations of technical debt, existing measurement and prioritisation approaches, technical debt governance in financial and regulated enterprise IT, and multi-criteria decision-making. Each section synthesises convergent findings, identifies tensions and limitations, and positions these gaps in relation to the research design. The review adopts a critical, problem-oriented perspective rather than an exhaustive catalogue, building a coherent argument that existing approaches are not adequate for service-level enterprise IT contexts and that a quantitative framework applying TOPSIS to operational service management data represents a defensible and novel contribution.
 
@@ -43,7 +44,7 @@ The literature search was conducted between January and March 2026 using a syste
 | MCDM and TOPSIS | `TOPSIS AND ("multi-criteria" OR MCDM OR "SAW" OR "decision making" OR priorit*)` |
 | Patch management | `"patch management" AND (priorit* OR risk OR vulnerability OR SLA OR enterprise)` |
 | Operational risk and DORA | `("DORA metrics" OR "mean time to restore") AND ("technical debt" OR "software delivery")` |
-: Search terms used for literature review {#tbl-status tbl-colwidths="[30,70]"}
+: Search terms used for literature review {#tbl-search-terms tbl-colwidths="[30,70]"}
 
 Sources were screened against the following pre-specified inclusion and exclusion criteria:
 
@@ -195,7 +196,7 @@ The four thematic sections together define the conceptual, methodological, conte
 The following diagram illustrates the logical pipeline of the proposed framework, from the collection of operational indicators through to a ranked prioritisation output.
 ```{mermaid}
 %%| label: fig-framework
-%%| fig-cap: "Proposed framework pipeline"
+%%| fig-cap: "Proposed framework pipeline (Zeier, 2026)"
 %%| fig-width: 6
 
 flowchart LR
