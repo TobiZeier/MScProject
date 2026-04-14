@@ -5,7 +5,7 @@ project:
 book:
   title: "Measuring Technical Debt in Mission Critical Trading Systems"
   subtitle: "A Service Level Quantitative Framework"
-  date: "7 March 2026"
+  date: "7 Mai 2026"
   author:
     name: Tobias Zeier
   abstract: "This thesis develops a service-level quantitative framework for measuring technical debt in mission-critical trading systems. Using a multi-criteria decision-making approach based on TOPSIS, the framework evaluates services across five dimensions: code quality, infrastructure, architecture, documentation, and operations. The model is validated against empirical data from a Swiss securities trading environment, demonstrating clear discriminant validity and practical utility for IT governance."
