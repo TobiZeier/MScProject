@@ -1,35 +1,17 @@
----
-format: pdf
-linestretch: 1.5
-fontsize: 12pt
-mainfont: Times New Roman
-geometry:
-      - paper=a4paper
-      - inner=2.5cm
-      - outer=3.8cm
-      - top=2cm
-      - bottom=3cm
-number-sections: true
-author: Tobias Zeier
-
-bibliography: ../references.bib
-csl: ../harvard-cite-them-right-no-et-al.csl
----
-
-
 # Research Design and Methodology {#sec-chapter3}
 
 This chapter explains the philosophical approach, research strategy, and design decisions that govern the construction and evaluation of the proposed framework. It proceeds in two parts: the first covers the research design from philosophical positioning through to the evaluation approach; the second addresses the ethical and professional considerations arising from the use of operational data in a regulated financial institution.
 
 ## Research Design
 
-This study is grounded in a pragmatist research philosophy. Pragmatism holds that the value of a knowledge claim is determined by whether the resulting artefact works in the context for which it was designed [@kellyThreePrinciplesPragmatism2020]. This position suits the present study because the objective is not to establish universal laws about technical debt, but to construct a quantitative framework that is useful for prioritisation decisions in a specific enterprise IT environment. Technical debt is treated here as a construct whose meaning is shaped by measurement choices rather than as a directly observable quantity [@amanatidisEvaluatingAgreementTechnical2020]. The framework therefore grounds its estimates in operationally defined proxies and acknowledges that the resulting scores are representations, not facts.
+This study is grounded in a pragmatist research philosophy. Pragmatism holds that the value of a knowledge claim is determined by whether the resulting artefact works in the context for which it was designed [@kellyThreePrinciplesPragmatism2020]. This position suits the present study because the objective is not to establish universal laws about technical debt, but to construct a quantitative framework useful for prioritisation decisions in a specific enterprise IT environment. Technical debt is treated here as a construct whose meaning is shaped by measurement choices rather than as a directly observable quantity [@amanatidisEvaluatingAgreementTechnical2020]. The framework therefore grounds its estimates in operationally defined proxies and acknowledges that the resulting scores are representations, not facts.
 
 ### Research Strategy
 
-The governing methodology is Design Science Research (DSR), as formalised by @hevnerDesignScienceInformation2004. DSR focuses on the creation and evaluation of artefacts, including models, methods, and instantiations, that solve identified organisational or technical problems. It is the appropriate strategy here because the primary output of this dissertation is an artefact: a prioritisation framework instantiated as a TOPSIS model operating on operational service-management data.
+Design Science Research (DSR) governs this study, as formalised by @hevnerDesignScienceInformation2004. DSR is appropriate here because the primary output is an artefact rather than a theory: a TOPSIS-based prioritisation framework operating on live ITSM data. The framework is designed to address the gap identified in @sec-chapter2, where no existing approach integrates service-level operational metrics for technical debt prioritisation in trading IT. @lenarduzziSystematicLiteratureReview2021 confirm the broader absence of validated, quantitative prioritisation frameworks across the field; the service-level and enterprise-IT dimension of that gap is established through the synthesis in @sec-chapter2.
 
-@hevnerDesignScienceInformation2004 specify seven guidelines for rigorous DSR. @tbl-dsr-guidelines maps each guideline to the corresponding element of this study.
+@hevnerDesignScienceInformation2004 specify seven guidelines for rigorous DSR, mapped to this study in @tbl-dsr-guidelines. On one side sits the problem space: the absence of a service-level TD framework. On the other sits the solution space: the TOPSIS artefact. These are connected through input knowledge, such as DORA metrics and MCDM methods, and through research processes, including indicator selection and sensitivity analysis. This structure positions the framework as prescriptive design knowledge applicable to regulated enterprise contexts.
+
 
 | DSR Guideline | Implementation in this Study |
 |---|---|
@@ -43,9 +25,7 @@ The governing methodology is Design Science Research (DSR), as formalised by @he
 
 : DSR guidelines and their implementation {#tbl-dsr-guidelines tbl-colwidths="[30,70]"}
 
-The DSR process follows the six-step DSRM model as described in @vombrockeIntroductionDesignScience2020: problem identification and motivation (@sec-chapter1 and @sec-chapter2), definition of objectives for a solution (@sec-chapter2), design and development of the artefact (@sec-chapter4), demonstration, evaluation (@sec-chapter5), and communication (@sec-chapter6). This sequence is not strictly linear; indicator selection and evaluation criteria were refined iteratively as constraints in the available data emerged during development.
-
-The six core dimensions of a DSR project, as conceptualised by @vombrockeIntroductionDesignScience2020, provide a concise map of the project as a whole, relating the problem and solution spaces to the research process, input knowledge, key concepts and output knowledge. @fig-dsr-grid applies these dimensions to the present study, showing how the identified gap in the literature connects to the artefact and the design knowledge it produces.
+The process follows @vombrockeIntroductionDesignScience2020's six-step model: problem identification and motivation (@sec-chapter1 and @sec-chapter2), definition of objectives (@sec-chapter2), design and development of the artefact (@sec-chapter4), demonstration, evaluation (@sec-chapter5), and communication (@sec-chapter6). The sequence is not strictly linear; indicator selection and evaluation criteria were refined iteratively as constraints in the available data emerged during development.
 
 ```{mermaid}
 %%| label: fig-dsr-grid
@@ -71,41 +51,88 @@ graph TD
 
 ### Research Design
 
-The study is structured as a single-organisation embedded case study, situated within the trading IT division of one of Switzerland's three largest universal banks. @turnbullUseCaseStudy2021 define this design as an investigation into a single instance of observable complex phenomena constrained by clearly identifiable boundaries, such as a specific organisational context, where discrete units of analysis (e.g., IT services) are dissected within that bounded setting. The case study design is appropriate for three reasons. First, the research context is distinguished by specific regulatory, operational, and vendor-platform characteristics that cannot be generalised from software engineering studies conducted elsewhere. Second, the framework requires access to operational ITSM records available only within a specific organisational context; a survey or experiment would not provide the granular service-level data needed. Third, DSR artefacts are inherently context-situated and their evaluation requires deployment in the target environment [@hevnerDesignScienceInformation2004].
+The study is structured as a single-organisation embedded case study, situated within the trading IT division of one of Switzerland's three largest universal banks. @turnbullUseCaseStudy2021 define this design as an investigation into a single instance of observable complex phenomena, constrained by clearly identifiable boundaries. Discrete units of analysis, in this case individual IT services, are examined within that bounded organisational setting.
 
-The study adopts the individual IT service as the unit of analysis, defined as a distinct configuration item in the organisation's ITSM instance. In this vendor-heavy enterprise environment where source-code access is unavailable, service-level operational indicators are tested as candidate proxies for technical-debt prioritisation [@ramasubbuControllingTechnicalDebt2021]. The study is cross-sectional, analysing a fixed observation window rather than tracking changes over time, consistent with the objective of demonstrating ranking validity at a point in time. Longitudinal evaluation is identified as a direction for future work.
+Three factors make this design appropriate. First, the regulatory, operational, and vendor-platform characteristics specific to Swiss financial IT resist generalisation from software engineering studies conducted elsewhere. Second, access to granular ITSM records is unavailable through surveys or experiments. Third, @hevnerDesignScienceInformation2004 specify that a design artefact must be evaluated through rigorous, well-executed methods. The present study satisfies this requirement by evaluating the framework against operational data from the environment for which it was designed.
 
-## Research strategy
+The study adopts the individual IT service as the unit of analysis, defined as a distinct configuration item in the organisation's ITSM instance. In this vendor-heavy enterprise environment, source-code access is unavailable for both outsourced components and on-premises vendor software [@ramasubbuControllingTechnicalDebt2021]. Service-level operational indicators are therefore tested as candidate proxies for technical debt prioritisation, rather than assumed as established substitudes. The study is cross-sectional, analysing a fixed observation window rather than tracking changes over time, consistent with the objective of demonstrating ranking validity at a point in time. Longitudinal evaluation is identified as a direction for future work.
 
-design science research as the governing methodology, the five DSR activities (awareness, suggestion, development, evaluation, conclusion) mapped to the thesis chapters
+### Data Sources and Collection
 
-## Research design
+The framework operationalises four operational indicators as technical debt proxies, each supported by prior empirical validation. Two indicators, MTTR and change failure rate, are drawn from the DORA metrics framework, which has demonstrated validity as a proxy for delivery performance [@forsgrenAccelerate2018]. Incident frequency signals service instability that the literature associates with accumulated technical debt, as established in the synthesis in @sec-chapter2 [@detoledoReducingIncidentsMicroservices2021; @ramasubbuControllingTechnicalDebt2021]. Patch recency may serve as a proxy for infrastructure and dependency debt [@dissanayakeSoftwareSecurityPatch2022]. Static code metrics and expert cost estimates were excluded because static analysis tools are calibrated for in-house codebases and produce unreliable signals in vendor-heavy enterprise environments [@amanatidisEvaluatingAgreementTechnical2020].
 
-single-organisation embedded case study; why trading IT at one firm is the unit of analysis; justification for a quantitative-primary, mixed-evidence approach
+| Indicator | Definition | TD Dimension | Literature Justification |
+|---|---|---|---|
+| Incident frequency | Number of P2/P3 incidents per service within the observation window, normalised by service age. The company defines P1 incidents as cases where the majority of its business is affected, which did not happen in the past 10 years. | Architectural debt | @detoledoReducingIncidentsMicroservices2021; @ramasubbuControllingTechnicalDebt2021 |
+| Mean time to restore (MTTR) | Average elapsed time from incident creation to resolution, expressed in hours. | Infrastructure debt | @forsgrenAccelerate2018 |
+| Change failure rate (CFR) | The proportion of changes that resulted in an unplanned incident or rollback within 72 hours of deployment. | Process debt | @forsgrenAccelerate2018 |
+| Patch recency | The proportion of components within each service's dependency stack that are within a supported-version window, derived from the CMDB. | Vulnerability debt | @dissanayakeSoftwareSecurityPatch2022 |
 
-## Data sources and collection
+: Mapping of operational indicators to technical debt dimensions {#tbl-indicators tbl-colwidths="[20,40,20,20]"}
 
-ITSM operational data, DORA-derived metrics (incident frequency, MTTR, change failure rate, patch currency); what is in scope and what is excluded
+Data were accessed under an agreed arrangement with the IT operations team over a twelve-month observation window. All records were anonymised at source, with service names replaced by alphanumeric identifiers and team and vendor labels removed.
 
-## Framework design process
+### Framework Design
 
-indicator selection, normalisation, TOPSIS computation, weighting scheme
+The analytical core is the Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS), formulated by @hwangMultipleAttributeDecision1981 and validated through comprehensive reviews of its enterprise applications [@pandeyReviewTOPSISMethod2023]. TOPSIS addresses the single-criterion prioritisation limitation identified in @sec-chapter2 by ranking services according to their geometric proximity to ideal solutions after normalisation and weighting. Given a decision matrix with $m$ services and $n$ indicators, the method proceeds as follows.
 
-## Evaluation design
+The matrix is normalised using vector normalisation, which scales each value relative to the column norm to ensure comparability across indicators with different units and ranges [@pandeyReviewTOPSISMethod2023]:
 
-sensitivity analysis (weight perturbation), criterion validity against historical records, how the evaluation maps to the research questions
+$$
+r_{ij} = \frac{x_{ij}}{\sqrt{\sum_{i=1}^{m} x_{ij}^2}}
+$$
 
-## Ethical considerations and limitations
+A weighted normalised matrix is constructed using criterion weight $w_j$:
 
-data anonymisation, single-site generalisability constraint
+$$
+v_{ij} = w_j \cdot r_{ij}
+$$
 
+The positive and negative ideal solutions are identified:
 
-A framework that ranks services based on operational indicators may influence budgets, staffing and reputational assessments. Any deployment of the framework must therefore be accompanied by explicit data governance principles covering how metrics are attributed, aggregated and made available across organisational boundaries.
+$$
+A^+ = \{ v_1^+, \ldots, v_n^+ \}, \quad A^- = \{ v_1^-, \ldots, v_n^- \}
+$$
 
+Euclidean distances from each ideal are calculated:
 
+$$
+S_i^+ = \sqrt{\sum_{j=1}^{n}(v_{ij} - v_j^+)^2}, \quad
+S_i^- = \sqrt{\sum_{j=1}^{n}(v_{ij} - v_j^-)^2}
+$$
 
-\clearpage
-# References {.unnumbered}
+The relative closeness coefficient $C_i$ constitutes the final score:
 
-::: {#refs}
-:::
+$$
+C_i = \frac{S_i^-}{S_i^+ + S_i^-}, \quad C_i \in [0, 1]
+$$
+
+A higher $C_i$ indicates a service closer to the worst-case operational profile, representing a higher technical debt priority. Incident frequency, MTTR, and CFR are cost criteria where lower values are preferable; patch recency is a benefit criterion where higher values are preferable.
+
+Two weight configurations are used. A baseline equal-weight configuration ($w_j = 0.25$) serves as the reference case, in accordance with @grecoMethodologicalFrameworkComposite2019. A secondary configuration applies differential weights reflecting the higher operational salience of MTTR and CFR in a trading environment, as established in @sec-chapter2. The sensitivity of rankings to weight perturbation is assessed in @sec-chapter5.
+
+### Evaluation Approach
+
+The framework is evaluated against a single criterion following the sensitivity practice recommended by @grecoMethodologicalFrameworkComposite2019 for composite indicators. Ranking stability is assessed by perturbing each criterion weight by plus or minus 20 percentage points, with remaining weights adjusted proportionally, and measuring rank-order correlations between the baseline ranking and each perturbed variant using Kendall's $\tau$. This constitutes an analytical evaluation of the artefact in the sense of @hevnerDesignScienceInformation2004 Guideline 3, which requires that the utility and quality of a design artefact be rigorously demonstrated via well-executed evaluation methods. A consistently high $\tau$ across perturbations provides evidence that the ranking is not sensitive to reasonable variation in weight assumptions, which is a necessary condition for the framework to be actionable in practice.
+
+## Ethical and Professional Considerations
+
+The ethical considerations arising from this study concern data confidentiality and legal compliance, the responsible use of prioritisation outputs, and alignment with professional standards.
+
+### Data Confidentiality and Anonymisation
+
+The data originate from a live Swiss financial institution that is not identified by name. All service, team, and vendor identifiers were replaced with alphanumeric codes before analysis. No employee data are present: all four indicators are service-level aggregates that cannot be attributed to individuals. The data-sharing arrangement was established with the explicit agreement of the Head of Trading IT, access was limited to the required records, and no data were retained beyond the analytical period or shared with third parties.
+
+### Legal Compliance
+
+The organisation is subject to the revised Federal Act on Data Protection (nFADP), which entered into force on 1 September 2023 [@FederalActData2023], enforced by the Federal Data Protection and Information Commissioner (FDPIC). Because the dataset contains no personal data, the nFADP's provisions on personal data processing do not apply directly. The principle of data minimisation, which the nFADP enshrines in alignment with international standards, was nonetheless observed: only the metrics required for the four TOPSIS indicators were extracted.
+
+As a systemically significant institution, the organisation is also subject to FINMA Circular 2023/1 on operational risks and resilience, in force since 1 January 2024 [@finmaCircular202312024]. This circular requires comprehensive ICT operational risk management, including incident monitoring and service resilience. Areas structurally aligned with the framework's operational focus. Although the specific metrics used here are organisationally defined rather than prescribed by FINMA. No ethics committee approval was required under the University of Essex's research ethics framework, and a departmental no-objection confirmation was obtained.
+
+### Responsible Use of Prioritisation Outputs
+
+A relative rank assigned to a service carries a risk of being misused to evaluate team performance. High-debt service profiles typically reflect historical design decisions or legacy constraints rather than the competence of the team currently managing the service [@ahmadTechnicalDebtNot2026]. Three mitigations address this risk: framework documentation explicitly states that $C_i$ reflects the operational state of a service rather than team performance; outputs are intended for IT governance and portfolio management functions only; and the sensitivity analysis makes weighting assumptions transparent, reducing the risk of false precision.
+
+### Professional Standards and Limitations
+
+This study was conducted in accordance with the BCS Code of Conduct [@CodeConductBCS2022], including the obligations to act with integrity, to respect the rights of third parties, and to ensure that the artefact is fit for purpose. Three limitations clarify scope. The single-site design means that indicator weights and TOPSIS configuration are calibrated for one organisation and should not be transferred without revalidation. The cross-sectional window means the framework captures a snapshot; recently remediated services may be under-ranked. Finally, the four indicators do not exhaust all dimensions of operational technical debt; indicators related to documentation, test coverage, or architectural coupling were excluded due to data availability and remain candidates for future iterations.

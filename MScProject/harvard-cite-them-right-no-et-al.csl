@@ -18,11 +18,11 @@
   <locale xml:lang="en-GB">
     <terms>
       <term name="editor" form="short">
-        <single>ed.</single>
+        <single>ed</single>
         <multiple>eds</multiple>
       </term>
       <term name="editortranslator" form="verb">edited and translated by</term>
-      <term name="edition" form="short">edn.</term>
+      <term name="edition" form="short">edn</term>
     </terms>
   </locale>
   <macro name="editor">
@@ -145,7 +145,7 @@
         </group>
       </if>
       <else>
-        <text variable="title" form="long" quotes="true"/>
+        <text variable="title" form="long" prefix="'" suffix="'"/>
       </else>
     </choose>
   </macro>
