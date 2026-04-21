@@ -1,22 +1,3 @@
----
-format: pdf
-linestretch: 1.5
-fontsize: 12pt
-mainfont: Times New Roman
-geometry:
-      - paper=a4paper
-      - inner=2.5cm
-      - outer=3.8cm
-      - top=2cm
-      - bottom=3cm
-number-sections: true
-author: Tobias Zeier
-
-bibliography: ../references.bib
-csl: ../harvard-cite-them-right-no-et-al.csl
----
-
-
 # Literature Review {#sec-chapter2}
 
 This chapter develops the theoretical and empirical foundation for the proposed framework through a critical review of four interconnected bodies of literature: the conceptual foundations of technical debt, existing measurement and prioritisation approaches, technical debt governance in financial and regulated enterprise IT, and multi-criteria decision-making. Each section synthesises convergent findings, identifies tensions and limitations, and positions these gaps in relation to the research design. The review adopts a critical, problem-oriented perspective rather than an exhaustive catalogue, building a coherent argument that existing approaches are not adequate for service-level enterprise IT contexts and that a quantitative framework applying TOPSIS to operational service management data represents a defensible and novel contribution.
@@ -32,7 +13,7 @@ The present review is motivated by a gap at the intersection of technical debt m
 
 ## Methodology for Literature Selection
 
-The literature search was conducted between January and March 2026 using a systematic and reproducible approach, drawing on four principal academic databases: the University of Essex library, Scopus, IEEE Xplore and Google Scholar. Search tearms included the following.
+The literature search was conducted between January and March 2026 using a systematic and reproducible approach, drawing on four principal academic databases: the University of Essex library, Scopus, IEEE Xplore and Google Scholar. Search terms included the following.
 
 | Theme | Search String |
 |---|---|
@@ -134,7 +115,7 @@ In a later study, @ramasubbuControllingTechnicalDebt2021 extended this analysis 
 
 @forsgrenAccelerate2018 developed and validated the DORA metrics across more than 2,000 organisations, showing that deployment frequency, lead time for changes, mean time to restore service and change failure rate distinguish high-performing from low-performing delivery teams. A crucial feature of these metrics is that they can be derived from operational systems such as CI/CD pipelines and ITSM tools without access to source code.
 
-It is important to acknowledge that the DORA metrics were validated as predictors of software delivery performance, not as proxies for technical debt severity. The inferential step from degraded DORA indicators to elevated technical debt is plausible but not yet empirically established as a general relationship in the technical debt literature. The present framework therefore formalises the following as a core research hypothesis: that degraded DORA-derived operational indicators are valid proxies for technical debt severity in vendor-dominated enterprise IT environments. Rather than borrowing this relationship as an established premise from prior work, the present study treats it as testable. The empirical evaluation phase will assess it through correlation analysis between indicator scores and historical incident and remediation records, and by testing ranking stability when criterion weights are varied.
+It is important to acknowledge that the DORA metrics were validated as predictors of software delivery performance, not as proxies for technical debt severity. The inferential step from degraded DORA indicators to elevated technical debt is plausible but not yet empirically established as a general relationship in the technical debt literature. The present framework therefore formalises the following as a core research hypothesis: that degraded DORA-derived operational indicators may serve as candidate proxies for technical debt severity in vendor-dominated enterprise IT environments. Rather than borrowing this relationship as an established premise from prior work, the present study treats it as testable. The empirical evaluation phase will assess it through correlation analysis between indicator scores and historical incident and remediation records, and by testing ranking stability when criterion weights are varied.
 
 @paudelExploringRelationshipTechnical2025 investigated the relationship between technical debt density and lead time across six components at a large fintech company. The results were mixed: two components showed a moderate positive correlation, two a moderate negative correlation and two no meaningful relationship. Technical debt density explained between 5% and 41% of lead time variance depending on the component. The authors concluded that technical debt alone cannot explain lead time and that change size, component ownership and team structure are likely confounding factors. These mixed results reinforce the case for multi-criteria measurement and indicate that DORA-derived proxies must be used as one input among several rather than as standalone indicators.
 
@@ -145,7 +126,7 @@ The following table maps each operational indicator used in the proposed framewo
 | Incident frequency | Architectural debt | @detoledoReducingIncidentsMicroservices2021; @ramasubbuControllingTechnicalDebt2021 |
 | Mean Time to Restore (MTTR) | Infrastructure / platform debt | @forsgrenAccelerate2018; @paudelExploringRelationshipTechnical2025 |
 | Change failure rate | Process debt | @forsgrenAccelerate2018; @paudelExploringRelationshipTechnical2025 |
-| Patch lag | Vulnerability debt | @tizioSoftwareUpdatesStrategies2023; @markkanenPatchManagementPlanning2023 |
+| Patch recency | Vulnerability debt | @tizioSoftwareUpdatesStrategies2023; @markkanenPatchManagementPlanning2023 |
 | Unsupported component months | Infrastructure lifecycle debt | @hakiDigitalNudgingTechnical2023 |
 : Mapping of operational indicators to technical debt dimensions and literature justification {#tbl-indicators tbl-colwidths="[25,30,45]"}
 
@@ -159,7 +140,7 @@ Security-related technical debt is most visible in the literature on patch manag
 
 @kulaReleasingFastSlow2019 studied release practices and dependency management at ING, showing that keeping upstream dependencies current is a persistent challenge in rapid-release banking environments and that delays in dependency updates contribute directly to technical debt. This finding is consistent with the broader argument, that technical debt manifests in ways detectable through operational service management data. The study is based on a single-organisation case study, however, and may reflect ING-specific governance practices; whether the same dependency dynamics apply in trading IT environments with different release governance structures is not established.
 
-Together, these studies confirm that the most consequential forms of technical debt in financial IT are operational rather than code-level, establishing the need for a measurement approach grounded in service management data.
+Together, these studies suggest that the most consequential forms of technical debt in financial IT are operational rather than code-level, establishing the need for a measurement approach grounded in service management data.
 
 ## Multi-Criteria Decision-Making and TOPSIS
 
@@ -222,10 +203,3 @@ Behavioural studies emphasise that management intent, incentives and communicati
 ### The Research Gap
 
 To the best of current literature, no framework integrates service-level operational metrics, multi-criteria prioritisation and the specific constraints of financial trading IT into a single, auditable technical debt ranking instrument. Code-centric tools are structurally inapplicable to vendor-hosted and regulated platforms. Single-criterion models conflict with both the empirical evidence on practitioner behaviour and the multidimensional nature of operational risk in trading environments. The proposed framework addresses this gap directly. Its evaluation will follow the approach established in adjacent quantitative work, assessing ranking stability across weighting schemes and validating indicator scores against historical operational records [@grecoMethodologicalFrameworkComposite2019; @albarakManagingTechnicalDebt2022].
-
-
-\clearpage
-# References {.unnumbered}
-
-::: {#refs}
-:::

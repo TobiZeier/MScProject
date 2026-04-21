@@ -1,8 +1,6 @@
 # Introduction {#sec-chapter1}
 
-::: {.callout-note}
 tbd
-:::
 
 ## Background and Motivation
 
@@ -24,15 +22,17 @@ This thesis aims to develop a service-level quantitative framework for measuring
 
 ## Research Questions
 
-The study is guided by the following primary research question:
+The study is guided by the following primary research question (RQ):
 
-> *How can technical debt in mission-critical trading systems be measured quantitatively at the service level?*
+> RQ1: *How can technical debt in mission-critical trading systems be measured quantitatively at the service level?*
 
 Secondary questions include:
 
-- Which indicators most reliably capture technical debt in trading infrastructure?
-- How can TOPSIS be applied to rank services by accumulated technical debt?
-- What thresholds distinguish acceptable from critical debt levels?
+- RQ2: Which operational indicators best capture technical debt in this context?
+- RQ3: To what extent can operational service management metrics proxy technical debt severity?
+- RQ4: How can TOPSIS be applied to rank services by technical debt priority?
+- RQ5: How stable are the resulting rankings when criterion weights are perturbed?
+- RQ6: How well do the top ranked services correspond to independently verified historical incident and remediation records?
 
 ## Significance of the Study
 
@@ -40,6 +40,4 @@ This research contributes to both academic knowledge and industry practice by pr
 
 ## Thesis Structure
 
-::: {.callout-note}
 tbd
-:::
