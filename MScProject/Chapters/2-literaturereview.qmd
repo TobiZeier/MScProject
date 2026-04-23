@@ -9,7 +9,7 @@ Technical debt has become both a central concept and a persistent management pro
 
 Despite this conceptual expansion, much of the empirical and tool-supported literature remains anchored at the source code level, relying heavily on static analysis tools and code-based metrics. These approaches work tolerably well for greenfield development dominated by in-house code but are much less appropriate for enterprise environments where operational reliability depends on vendor platforms, legacy infrastructure and tightly integrated service stacks [@amanatidisEvaluatingAgreementTechnical2020].
 
-The present review is motivated by a gap at the intersection of technical debt management, multi-criteria decision-making and mission-critical enterprise IT operations. To the best of current literature, no framework provides a quantitative, service-level mechanism for measuring and prioritising technical debt in environments such as trading IT. In these contexts, the most consequential forms of debt manifest not in code repositories but in operational outcomes such as incident frequency, recovery time, patch delay and change failure rate [@ramasubbuControllingTechnicalDebt2021]. The following sections build a theoretical and methodological basis for the proposed framework.
+The present review is motivated by a gap at the intersection of technical debt management, multi-criteria decision-making and mission-critical enterprise IT operations. To the best of current literature, no framework provides a quantitative, service-level mechanism for measuring and prioritising technical debt in environments such as trading IT. In these contexts, significant forms of technical debt manifest not only in code repositories but also in operational outcomes such as service instability, patch delay and infrastructure obsolescence [@hakiDigitalNudgingTechnical2023; @ramasubbuControllingTechnicalDebt2021]. The following sections build a theoretical and methodological basis for the proposed framework.
 
 ## Methodology for Literature Selection
 
@@ -25,6 +25,7 @@ The literature search was conducted between January and March 2026 using a syste
 | MCDM and TOPSIS | `TOPSIS AND ("multi-criteria" OR MCDM OR "SAW" OR "decision making" OR priorit*)` |
 | Patch management | `"patch management" AND (priorit* OR risk OR vulnerability OR SLA OR enterprise)` |
 | Operational risk and DORA | `("DORA metrics" OR "mean time to restore") AND ("technical debt" OR "software delivery")` |
+
 : Search terms used for literature review {#tbl-search-terms tbl-colwidths="[30,70]"}
 
 Sources were screened against the following pre-specified inclusion and exclusion criteria:
@@ -38,6 +39,7 @@ Sources were screened against the following pre-specified inclusion and exclusio
 | Exclusion: scope | Opinion pieces without empirical grounding |
 | Exclusion: topic | Agile process improvement without a measurable TD component |
 | Exclusion: duplicates | Superseded by a more comprehensive journal version |
+
 : Inclusion and exclusion criteria {#tbl-criteria tbl-colwidths="[30,70]"}
 
 Screening was conducted in two stages. Titles and abstracts of all retrieved records were first assessed against these criteria, reducing the initial pool. Remaining sources then underwent full-text review to verify relevance and methodological quality. Forward and backward citation snowballing was subsequently applied to three anchor publications: @kruchtenTechnicalDebtMetaphor2012, @lenarduzziSystematicLiteratureReview2021 and @forsgrenAccelerate2018 to surface relevant studies not captured by database searches. The process yielded approximately 140 candidate sources, of which more than 60 were retained following full-text screening.
@@ -52,7 +54,7 @@ expansion beyond software into systems engineering, infrastructure and vendor pl
 
 ### Origins and the Metaphor
 
-@cunninghamWyCashPortfolioManagement1992 introduced the metaphor to explain his refactoring strategy to non-technical stakeholders: shipping "not quite right" code resembles taking on financial debt, with each subsequent maintenance effort representing interest. If the principal is not repaid through refactoring, the cost of working with the system compounds until change becomes very difficult.
+@cunninghamWyCashPortfolioManagement1992 introduced the metaphor to explain his refactoring strategy to non-technical stakeholders. In his original formulation, shipping code that is "not quite right" resembles taking on financial debt, with each subsequent maintenance effort representing interest. If the principal is not repaid through refactoring, the cost of working with the system compounds until change becomes very difficult.
 
 The debt metaphor has proved productive, but it carries important conceptual limits. In financial debt, the principal is contractually defined, and the interest rate is known in advance, whereas technical debt has neither. The principal is an estimated remediation cost that changes as systems evolve. The interest depends on future development activity that is uncertain at the time of incurrence. These limitations matter directly for the present research because a central objective of the proposed framework is to make interest cost concrete and operationally measurable. The framework therefore does not rely on the metaphor for rigour; it grounds its estimates in service-level operational data rather than in abstract financial analogies.
 
@@ -68,7 +70,7 @@ Empirical studies have confirmed and extended this view. @beskerTechnicalDebtEmp
 
 ### Expanding the Conceptual Perimeter
 
-The conceptual perimeter of technical debt has progressively widened to include broader systems and lifecycle concerns. @kleinwaksTechnicalDebtSystems2023 conducted a systematic review of technical debt in systems engineering and found that requirements, architecture, integration artefacts and verification artefacts can all accumulate debt, and that many software-oriented approaches are poorly adapted to multidisciplinary systems engineering lifecycles. @hanssenIdentifyingScalabilityDebt2019 identified scalability debt as a distinct subtype triggered by regulatory change: in an open banking case study, they showed that architectural decisions, adequate before the EU Payment Services Directive 2 (PSD2), became sources of debt once new scalability requirements were imposed without architectural review. This illustrates how external regulatory change can convert previously adequate designs into liabilities, a pattern directly relevant to financial trading IT where regulatory obligations are similarly dynamic. @yangTaxonomyTechnicalDebt2019 proposed a taxonomy of Commercial Off-the-Shelf (COTS) related technical debt covering seven key types, including vendor platform obsolescence and integration constraints. Managing such forms of debt requires different tools from those used for internally developed code. For financial trading IT, where vendor platforms and COTS products are central, this broader view is particularly important: many of the most consequential debts, including platform debt, infrastructure debt and vulnerability debt, are not detectable by standard static analysis.
+The conceptual perimeter of technical debt has progressively widened to include broader systems and lifecycle concerns. @kleinwaksTechnicalDebtSystems2023 conducted a systematic review of technical debt in systems engineering and found that requirements, architecture, integration artefacts and verification artefacts can all accumulate debt, and that many software-oriented approaches are poorly adapted to multidisciplinary systems engineering lifecycles. @hanssenIdentifyingScalabilityDebt2019 identified scalability debt as a distinct subtype triggered by regulatory change: in an open banking case study, they showed that architectural decisions, adequate before the EU Payment Services Directive 2 (PSD2), became sources of debt once new scalability requirements were imposed without architectural review. This illustrates how external regulatory change can convert previously adequate designs into liabilities, a pattern directly relevant to financial trading IT where regulatory obligations are similarly dynamic. @yangTaxonomyTechnicalDebt2019 proposed a taxonomy of Commercial Off-the-Shelf (COTS) related technical debt covering seven key types, including vendor platform obsolescence and integration constraints. Managing such forms of debt requires different tools from those used for internally developed code. For financial trading IT, where vendor platforms and COTS products are central, this broader view is particularly important: many of the significant forms of technical debts, including platform debt, infrastructure debt and vulnerability debt, are not detectable by standard static analysis.
 
 ## Measurement and Prioritisation Frameworks
 
@@ -128,7 +130,8 @@ The following table maps each operational indicator used in the proposed framewo
 | Change failure rate | Process debt | @forsgrenAccelerate2018; @paudelExploringRelationshipTechnical2025 |
 | Patch recency | Vulnerability debt | @tizioSoftwareUpdatesStrategies2023; @markkanenPatchManagementPlanning2023 |
 | Unsupported component months | Infrastructure lifecycle debt | @hakiDigitalNudgingTechnical2023 |
-: Mapping of operational indicators to technical debt dimensions and literature justification {#tbl-indicators tbl-colwidths="[25,30,45]"}
+
+: Mapping of operational indicators to technical debt dimensions and literature justification {#tbl-indicators-lit tbl-colwidths="[25,30,45]"}
 
 Using operational service management data as a basis for technical debt prioritisation raises important ethical questions. Such records are generated and owned by operations teams, and development teams may not have consented to their use in performance evaluations. These considerations are addressed in the methodology chapter.
 
@@ -140,7 +143,7 @@ Security-related technical debt is most visible in the literature on patch manag
 
 @kulaReleasingFastSlow2019 studied release practices and dependency management at ING, showing that keeping upstream dependencies current is a persistent challenge in rapid-release banking environments and that delays in dependency updates contribute directly to technical debt. This finding is consistent with the broader argument, that technical debt manifests in ways detectable through operational service management data. The study is based on a single-organisation case study, however, and may reflect ING-specific governance practices; whether the same dependency dynamics apply in trading IT environments with different release governance structures is not established.
 
-Together, these studies suggest that the most consequential forms of technical debt in financial IT are operational rather than code-level, establishing the need for a measurement approach grounded in service management data.
+Together, these studies illustrate that in financial trading IT, significant forms of technical debt extend well beyond source code. Regulatory change can convert previously adequate architectures into sources of debt overnight [@hanssenIdentifyingScalabilityDebt2019], unsupported components accumulate measurable infrastructure lifecycle debt [@hakiDigitalNudgingTechnical2023], and service instability signals accumulated debt that compounds with system growth [@ramasubbuControllingTechnicalDebt2021]. Each of these manifestations is detectable through ITSM and CMDB records rather than static analysis, establishing the data foundation for the proposed framework.
 
 ## Multi-Criteria Decision-Making and TOPSIS
 
@@ -177,7 +180,7 @@ The four thematic sections together define the conceptual, methodological, conte
 The following diagram illustrates the logical pipeline of the proposed framework, from the collection of operational indicators through to a ranked prioritisation output.
 ```{mermaid}
 %%| label: fig-framework
-%%| fig-cap: "Proposed framework pipeline (Zeier, 2026)"
+%%| fig-cap: "Proposed framework pipeline [@zeierMeasuringTechnicalDebt2026]"
 %%| fig-width: 6
 
 flowchart LR
