@@ -28,11 +28,8 @@ The study is guided by the following primary research question (RQ):
 
 Secondary questions include:
 
-- RQ2: Which operational indicators best capture technical debt in this context?
-- RQ3: To what extent can operational service management metrics proxy technical debt severity?
-- RQ4: How can TOPSIS be applied to rank services by technical debt priority?
-- RQ5: How stable are the resulting rankings when criterion weights are perturbed?
-- RQ6: How well do the top ranked services correspond to independently verified historical incident and remediation records?
+- RQ2: To what extent do operational service management metrics serve as valid proxies for technical debt severity in vendor-dominated enterprise IT environments?
+- RQ3: How stable are the resulting service rankings when criterion weights are perturbed?
 
 ## Significance of the Study
 

@@ -55,22 +55,24 @@ The study is structured as a single-organisation embedded case study, situated w
 
 Three factors make this design appropriate. First, the regulatory, operational, and vendor-platform characteristics specific to Swiss financial IT resist generalisation from software engineering studies conducted elsewhere. Second, access to granular ITSM records is unavailable through surveys or experiments. Third, @hevnerDesignScienceInformation2004 specify that a design artefact must be evaluated through rigorous, well-executed methods. The present study satisfies this requirement by evaluating the framework against operational data from the environment for which it was designed.
 
-The study adopts the individual IT service as the unit of analysis, defined as a distinct configuration item in the organisation's ITSM instance. In this vendor-heavy enterprise environment, source-code access is unavailable for both outsourced components and on-premises vendor software [@ramasubbuControllingTechnicalDebt2021]. Service-level operational indicators are therefore tested as candidate proxies for technical debt prioritisation, rather than assumed as established substitudes. The study is cross-sectional, analysing a fixed observation window rather than tracking changes over time, consistent with the objective of demonstrating ranking validity at a point in time. Longitudinal evaluation is identified as a direction for future work.
+The study adopts the individual IT service as the unit of analysis, defined as a distinct configuration item in the organisation's ITSM instance. In this vendor-heavy enterprise environment, source-code access is unavailable for both outsourced components and on-premises vendor software [@ramasubbuControllingTechnicalDebt2021]. Service-level operational indicators are therefore tested as candidate proxies for technical debt prioritisation, rather than assumed as established substitutes. The study is cross-sectional, analysing a fixed observation window rather than tracking changes over time, consistent with the objective of demonstrating ranking validity at a point in time. Longitudinal evaluation is identified as a direction for future work.
 
 ### Data Sources and Collection
 
-The framework operationalises four operational indicators as technical debt proxies, each supported by prior empirical validation. Two indicators, MTTR and change failure rate, are drawn from the DORA metrics framework, which has demonstrated validity as a proxy for delivery performance [@forsgrenAccelerate2018]. Incident frequency signals service instability that the literature associates with accumulated technical debt, as established in the synthesis in @sec-chapter2 [@detoledoReducingIncidentsMicroservices2021; @ramasubbuControllingTechnicalDebt2021]. Patch recency may serve as a proxy for infrastructure and dependency debt [@dissanayakeSoftwareSecurityPatch2022]. Static code metrics and expert cost estimates were excluded because static analysis tools are calibrated for in-house codebases and produce unreliable signals in vendor-heavy enterprise environments [@amanatidisEvaluatingAgreementTechnical2020].
+The framework operationalises four operational indicators as technical debt proxies. Each indicator is drawn from live records held in the organisation's ITSM instance and Configuration Management Database (CMDB), accessed under an agreed arrangement with the Head of Trading IT over a twelve-month observation window (January–December 2025). All records were anonymised at source, with service names replaced by alphanumeric identifiers and team and vendor labels removed before analysis.
 
-| Indicator | Definition | TD Dimension | Literature Justification |
-|---|---|---|---|
-| Incident frequency | Number of P2/P3 incidents per service within the observation window, normalised by service age. The company defines P1 incidents as cases where the majority of its business is affected, which did not happen in the past 10 years. | Architectural debt | @detoledoReducingIncidentsMicroservices2021; @ramasubbuControllingTechnicalDebt2021 |
-| Mean time to restore (MTTR) | Average elapsed time from incident creation to resolution, expressed in hours. | Infrastructure debt | @forsgrenAccelerate2018 |
-| Change failure rate (CFR) | The proportion of changes that resulted in an unplanned incident or rollback within 72 hours of deployment. | Process debt | @forsgrenAccelerate2018 |
-| Patch recency | The proportion of components within each service's dependency stack that are within a supported-version window, derived from the CMDB. | Vulnerability debt | @dissanayakeSoftwareSecurityPatch2022 |
+The four indicators were selected on the basis of the literature review in @sec-chapter2, summarised in @tbl-indicators-lit. Their operationalisation for this study is defined in @tbl-indicators-def below.
 
-: Mapping of operational indicators to technical debt dimensions {#tbl-indicators tbl-colwidths="[20,40,20,20]"}
+| Indicator | Operational Definition | Data Source | Unit | Direction |
+|---|---|---|---|---|
+| Incident frequency | Count of P2 and P3 incidents per service within the observation window, normalised by service age in months | ITSM | Incidents per month | Cost (lower is better) |
+| Mean Time to Restore (MTTR) | Mean elapsed time from incident creation to resolution status, averaged across all P2 and P3 incidents per service | ITSM | Hours | Cost (lower is better) |
+| Change failure rate (CFR) | Proportion of change records per service that resulted in an unplanned incident or rollback within 72 hours of deployment | ITSM | Percentage (0–100) | Cost (lower is better) |
+| Patch recency | Proportion of components within each service's dependency stack recorded as within a vendor-supported version window at the point of extraction | CMDB | Percentage (0–100) | Benefit (higher is better) |
 
-Data were accessed under an agreed arrangement with the IT operations team over a twelve-month observation window. All records were anonymised at source, with service names replaced by alphanumeric identifiers and team and vendor labels removed.
+: Operational definition of indicators used in the TOPSIS framework {#tbl-indicators-def tbl-colwidths="[20,40,20,20]"}
+
+Incident frequency and MTTR proxy accumulated architectural and infrastructure debt, as service instability and slow recovery are empirically associated with technical debt consequences [@ramasubbuControllingTechnicalDebt2021]. Change failure rate captures deployment instability associated with technical debt accumulation [@forsgrenAccelerate2018]. Patch recency is operationalised following @hakiDigitalNudgingTechnical2023, who measured infrastructure lifecycle debt using unsupported component months, and is further supported by evidence that patch delay produces measurable operational risk [@tizioSoftwareUpdatesStrategies2023].
 
 ### Framework Design
 
@@ -91,20 +93,20 @@ $$
 The positive and negative ideal solutions are identified:
 
 $$
-A^+ = \{ v_1^+, \ldots, v_n^+ \}, \quad A^- = \{ v_1^-, \ldots, v_n^- \}
+A^{\text{+}} = \{ v_1^{\text{+}}, \ldots, v_n^{\text{+}} \}, \quad A^{\text{-}} = \{ v_1^{\text{-}}, \ldots, v_n^{\text{-}} \}
 $$
 
 Euclidean distances from each ideal are calculated:
 
 $$
-S_i^+ = \sqrt{\sum_{j=1}^{n}(v_{ij} - v_j^+)^2}, \quad
-S_i^- = \sqrt{\sum_{j=1}^{n}(v_{ij} - v_j^-)^2}
+S_i^{\text{+}} = \sqrt{\sum_{j=1}^{n}(v_{ij} - v_j^{\text{+}})^2}, \quad
+S_i^{\text{-}} = \sqrt{\sum_{j=1}^{n}(v_{ij} - v_j^{\text{-}})^2}
 $$
 
 The relative closeness coefficient $C_i$ constitutes the final score:
 
 $$
-C_i = \frac{S_i^-}{S_i^+ + S_i^-}, \quad C_i \in [0, 1]
+C_i = \frac{S_i^{\text{-}}}{S_i^{\text{+}} + S_i^{\text{-}}}, \quad C_i \in [0, 1]
 $$
 
 A higher $C_i$ indicates a service closer to the worst-case operational profile, representing a higher technical debt priority. Incident frequency, MTTR, and CFR are cost criteria where lower values are preferable; patch recency is a benefit criterion where higher values are preferable.
