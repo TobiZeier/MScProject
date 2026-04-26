@@ -7,3 +7,4 @@
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QGiven a decision matrix with \\( m \\) services and \\( n \\) indicators, the method proceeds as follows.\\E$"}
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QA weighted normalised matrix is constructed using criterion weight \\( w_j \\):\\E$"}
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QGiven a decision matrix with \\( m \\) services and \\( n \\) indicators, the method proceeds as follows.\\E$"}
+{"rule":"SUBJECT_MATTER","sentence":"^\\QI am equally grateful to Doug Millward for his thoughtful co-supervision during the early stages of this thesis and his practical perspectives on the subject matter.\\E$"}
