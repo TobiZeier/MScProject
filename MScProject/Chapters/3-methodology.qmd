@@ -74,7 +74,7 @@ The four indicators were selected on the basis of the literature review in @sec-
 
 Incident frequency and MTTR proxy accumulated architectural and infrastructure debt, as service instability and slow recovery are empirically associated with technical debt consequences [@ramasubbuControllingTechnicalDebt2021]. Change failure rate captures deployment instability associated with technical debt accumulation [@forsgrenAccelerate2018]. Patch recency is operationalised following @hakiDigitalNudgingTechnical2023, who measured infrastructure lifecycle debt using unsupported component months, and is further supported by evidence that patch delay produces measurable operational risk [@tizioSoftwareUpdatesStrategies2023].
 
-### Framework Design
+### Framework Design {#sec-frameworkdesign}
 
 The analytical core is the Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS), formulated by @hwangMultipleAttributeDecision1981 and validated through comprehensive reviews of its enterprise applications [@pandeyReviewTOPSISMethod2023]. TOPSIS addresses the single-criterion prioritisation limitation identified in @sec-chapter2 by ranking services according to their geometric proximity to ideal solutions after normalisation and weighting. Given a decision matrix with $m$ services and $n$ indicators, the method proceeds as follows.
 
@@ -138,3 +138,16 @@ A relative rank assigned to a service carries a risk of being misused to evaluat
 ### Professional Standards and Limitations
 
 This study was conducted in accordance with the BCS Code of Conduct [@CodeConductBCS2022], including the obligations to act with integrity, to respect the rights of third parties, and to ensure that the artefact is fit for purpose. Three limitations clarify scope. The single-site design means that indicator weights and TOPSIS configuration are calibrated for one organisation and should not be transferred without revalidation. The cross-sectional window means the framework captures a snapshot; recently remediated services may be under-ranked. Finally, the four indicators do not exhaust all dimensions of operational technical debt; indicators related to documentation, test coverage, or architectural coupling were excluded due to data availability and remain candidates for future iterations.
+
+
+## Rework!
+
+The following diagram illustrates the logical pipeline of the proposed framework, from the collection of operational indicators through to a ranked prioritisation output.
+```{mermaid}
+%%| label: fig-framework
+%%| fig-cap: "Proposed framework pipeline"
+%%| fig-width: 6
+
+flowchart LR
+    A[Operational Indicators] --> B[Normalisation & Weighting] --> C[TOPSIS Scoring] --> D[Ranked Prioritisation]
+```
