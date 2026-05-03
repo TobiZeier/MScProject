@@ -48,6 +48,8 @@ Two weight configurations are applied, as specified in @sec-frameworkdesign. The
 
 ## TOPSIS Computation and Rankings
 
+The TOPSIS procedure follows the formulation of [@hwangMultipleAttributeDecision1981]. After constructing the weighted normalised matrix, the positive and negative ideal solutions are identified:
+
 ## Sensitivity Analysis
 
 ## Interpretation and Discussion
