@@ -115,25 +115,23 @@ In a later study, @ramasubbuControllingTechnicalDebt2021 extended this analysis 
 
 ### DORA Metrics as Operational Debt Proxies
 
-@forsgrenAccelerate2018 developed and validated the DORA metrics across more than 2,000 organisations, showing that deployment frequency, lead time for changes, mean time to restore service and change failure rate distinguish high-performing from low-performing delivery teams. A crucial feature of these metrics is that they can be derived from operational systems such as CI/CD pipelines and ITSM tools without access to source code.
+@forsgrenAccelerate2018 validated DORA metrics across more than 2,000 organisations, showing that MTTR, CFR, deployment frequency and lead time for changes distinguish high-performing from low-performing delivery teams and can be derived from ITSM tools without source code access. It is important to acknowledge that DORA metrics were validated as delivery performance predictors, not as technical debt proxies. The inferential step from degraded indicators to elevated TD severity is plausible but not empirically established as a general relationship. The present framework therefore treats this as a testable hypothesis rather than a given premise. @nordExamplesTechnicalDebts2021 provide more direct grounding by classifying delivery tempo degradation and deployment instability explicitly as observable TD symptoms detectable from production records, positioning MTTR and CFR as diagnostic signals of accumulated debt rather than borrowed performance surrogates.
 
-It is important to acknowledge that the DORA metrics were validated as predictors of software delivery performance, not as proxies for technical debt severity. The inferential step from degraded DORA indicators to elevated technical debt is plausible but not yet empirically established as a general relationship in the technical debt literature. The present framework therefore formalises the following as a core research hypothesis: that degraded DORA-derived operational indicators may serve as candidate proxies for technical debt severity in vendor-dominated enterprise IT environments. Rather than borrowing this relationship as an established premise from prior work, the present study treats it as testable. The empirical evaluation phase will assess it through correlation analysis between indicator scores and historical incident and remediation records, and by testing ranking stability when criterion weights are varied.
+The evidence nonetheless requires careful qualification. @paudelExploringRelationshipTechnical2025 found that TD density explained between 5% and 41% of lead time variance across six fintech components, with team structure and component ownership acting as confounding factors. This reinforces the case for multi-criteria measurement rather than reliance on any single proxy. @nielsenITPortfolioManagement2022 offer complementary empirical support. In a vendor-managed public sector portfolio without in-house development resources, operational errors emerged shortly after TD-related resource constraints were imposed on a shared service component, and unsupported component versions were only detected through infrastructure migration rather than routine monitoring. While the public sector context limits direct transferability, the operational mechanism is consistent with the vendor-dominated profile of the case organisation.
 
-@paudelExploringRelationshipTechnical2025 investigated the relationship between technical debt density and lead time across six components at a large fintech company. The results were mixed: two components showed a moderate positive correlation, two a moderate negative correlation and two no meaningful relationship. Technical debt density explained between 5% and 41% of lead time variance depending on the component. The authors concluded that technical debt alone cannot explain lead time and that change size, component ownership and team structure are likely confounding factors. These mixed results reinforce the case for multi-criteria measurement and indicate that DORA-derived proxies must be used as one input among several rather than as standalone indicators.
-
-The following table maps each operational indicator used in the proposed framework to the technical debt dimension it proxies and the literature that justifies its inclusion:
+The following table maps each operational indicator to the technical debt dimension it proxies and the literature that justifies its inclusion:
 
 | Indicator | TD Dimension | Literature Justification |
 |---|---|---|
-| Incident frequency | Architectural debt | @detoledoReducingIncidentsMicroservices2021; @ramasubbuControllingTechnicalDebt2021 |
-| Mean Time to Restore (MTTR) | Infrastructure / platform debt | @forsgrenAccelerate2018; @paudelExploringRelationshipTechnical2025 |
-| Change failure rate | Process debt | @forsgrenAccelerate2018; @paudelExploringRelationshipTechnical2025 |
+| Incident frequency | Architectural debt | @detoledoReducingIncidentsMicroservices2021; @ramasubbuControllingTechnicalDebt2021; @ramasubbuManagingTechnicalDebt2015; @nielsenITPortfolioManagement2022 |
+| Mean Time to Restore (MTTR) | Infrastructure / platform debt | @forsgrenAccelerate2018; @nordExamplesTechnicalDebts2021; @paudelExploringRelationshipTechnical2025 |
+| Change failure rate | Process debt | @forsgrenAccelerate2018; @nordExamplesTechnicalDebts2021; @paudelExploringRelationshipTechnical2025 |
 | Patch recency | Vulnerability debt | @tizioSoftwareUpdatesStrategies2023; @markkanenPatchManagementPlanning2023 |
 | Unsupported component months | Infrastructure lifecycle debt | @hakiDigitalNudgingTechnical2023 |
 
 : Mapping of operational indicators to technical debt dimensions and literature justification {#tbl-indicators-lit tbl-colwidths="[25,30,45]"}
 
-Using operational service management data as a basis for technical debt prioritisation raises important ethical questions. Such records are generated and owned by operations teams, and development teams may not have consented to their use in performance evaluations. These considerations are addressed in the methodology chapter.
+Using operational service management data as a basis for technical debt prioritisation raises important ethical questions, addressed in full in @sec-ethics.
 
 ### Security Debt and Patch Management
 

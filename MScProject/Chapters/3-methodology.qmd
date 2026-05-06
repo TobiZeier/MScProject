@@ -57,20 +57,25 @@ Three factors make this design appropriate. First, the regulatory, operational, 
 
 The study adopts the individual IT service as the unit of analysis, defined as a distinct configuration item in the organisation's ITSM instance. In this vendor-heavy enterprise environment, source-code access is unavailable for both outsourced components and on-premises vendor software [@ramasubbuControllingTechnicalDebt2021]. Service-level operational indicators are therefore tested as candidate proxies for technical debt prioritisation, rather than assumed as established substitutes. The study is cross-sectional, analysing a fixed observation window rather than tracking changes over time, consistent with the objective of demonstrating ranking validity at a point in time. Longitudinal evaluation is identified as a direction for future work.
 
-### Data Sources and Collection
+### Data Sources and Collection {#sec-datasources}
 
-The framework operationalises four operational indicators as technical debt proxies. Each indicator is drawn from live records held in the organisation's ITSM instance and Configuration Management Database (CMDB), accessed under an agreed arrangement with the Head of Trading IT over a twelve-month observation window (January–December 2025). All records were anonymised at source, with service names replaced by alphanumeric identifiers and team and vendor labels removed before analysis.
+The framework operationalises five operational indicators as technical debt proxies, drawn from live records held in the organisation's ITSM instance and Configuration Management Database (CMDB). Records were accessed under an agreed arrangement with the Head of Trading IT over a twelve-month observation window (January–December 2025) and anonymised at source, with service names replaced by alphanumeric identifiers and all team and vendor labels removed before analysis.
 
-The four indicators were selected on the basis of the literature review in @sec-chapter2, summarised in @tbl-indicators-lit. Their operationalisation for this study is defined in @tbl-indicators-def below.
+The five indicators were selected on the basis of the literature mapping in @tbl-indicators-lit and are operationally defined in @tbl-indicators-def below.
 
-| Indicator | Operational Definition | Data Source | Unit | Direction |
+| Indicator | Operational Definition | Source | Unit | Direction |
 |---|---|---|---|---|
-| Incident frequency | Count of P2 and P3 incidents per service within the observation window, normalised by service age in months | ITSM | Incidents per month | Cost (lower is better) |
-| Mean Time to Restore (MTTR) | Mean elapsed time from incident creation to resolution status, averaged across all P2 and P3 incidents per service | ITSM | Hours | Cost (lower is better) |
-| Change failure rate (CFR) | Proportion of change records per service that resulted in an unplanned incident or rollback within 72 hours of deployment | ITSM | Percentage (0–100) | Cost (lower is better) |
-| Patch recency | Proportion of components within each service's dependency stack recorded as within a vendor-supported version window at the point of extraction | CMDB | Percentage (0–100) | Benefit (higher is better) |
+| Incident frequency | Count of P2 and P3 incidents per service within the observation window, normalised by service age in months | ITSM | Incidents / month | Cost |
+| MTTR | Mean elapsed time from incident creation to resolution status, averaged across all P2 and P3 incidents per service | ITSM | Hours | Cost |
+| CFR | Proportion of change records per service that resulted in an unplanned incident or rollback within 72 hours of deployment | ITSM | Percentage (0–100) | Cost |
+| Patch recency | Proportion of components within each service's dependency stack recorded as within a vendor-supported version window at point of extraction | CMDB | Percentage (0–100) | Benefit |
+| Unsupported component months | Cumulative months of exposure to unsupported components within the service's CMDB dependency stack during the observation window | CMDB | Months | Cost |
 
-: Operational definition of indicators used in the TOPSIS framework {#tbl-indicators-def tbl-colwidths="[20,40,20,20]"}
+: Operational definition of indicators used in the TOPSIS framework {#tbl-indicators-def tbl-colwidths="[20,40,10,15,15]"}
+
+Incident frequency, MTTR and CFR proxy the operational consequences of architectural and infrastructure debt: service instability and slow recovery are empirically linked to TD severity in vendor-managed portfolios [@ramasubbuControllingTechnicalDebt2021; @nielsenITPortfolioManagement2022], while deployment instability is classified as a direct observable symptom of accumulated debt [@nordExamplesTechnicalDebts2021; @forsgrenAccelerate2018]. @nordExamplesTechnicalDebts2021 further ground the inclusion of MTTR and CFR specifically by classifying delivery tempo degradation as a diagnostic TD signal detectable from production records, independently of source code access. Patch recency and unsupported component months are both derived from CMDB dependency data and operationalise infrastructure lifecycle and vulnerability debt following @hakiDigitalNudgingTechnical2023, with delayed patching shown to produce measurable operational risk [@tizioSoftwareUpdatesStrategies2023]. Service-level operational indicators are treated as candidate proxies for technical debt prioritisation rather than established substitutes. The validity of this inference is the central empirical hypothesis tested in @sec-chapter5.
+
+### Data Sources and Collection
 
 Incident frequency and MTTR proxy accumulated architectural and infrastructure debt, as service instability and slow recovery are empirically associated with technical debt consequences [@ramasubbuControllingTechnicalDebt2021]. Change failure rate captures deployment instability associated with technical debt accumulation [@forsgrenAccelerate2018]. Patch recency is operationalised following @hakiDigitalNudgingTechnical2023, who measured infrastructure lifecycle debt using unsupported component months, and is further supported by evidence that patch delay produces measurable operational risk [@tizioSoftwareUpdatesStrategies2023].
 
@@ -117,7 +122,7 @@ Two weight configurations are used. A baseline equal-weight configuration ($w_j 
 
 The framework is evaluated against a single criterion following the sensitivity practice recommended by @grecoMethodologicalFrameworkComposite2019 for composite indicators. Ranking stability is assessed by perturbing each criterion weight by plus or minus 20 percentage points, with remaining weights adjusted proportionally, and measuring rank-order correlations between the baseline ranking and each perturbed variant using Kendall's $\tau$. This constitutes an analytical evaluation of the artefact in the sense of @hevnerDesignScienceInformation2004 Guideline 3, which requires that the utility and quality of a design artefact be rigorously demonstrated via well-executed evaluation methods. A consistently high $\tau$ across perturbations provides evidence that the ranking is not sensitive to reasonable variation in weight assumptions, which is a necessary condition for the framework to be actionable in practice.
 
-## Ethical and Professional Considerations
+## Ethical and Professional Considerations {#sec-ethics}
 
 The ethical considerations arising from this study concern data confidentiality and legal compliance, the responsible use of prioritisation outputs, and alignment with professional standards.
 
