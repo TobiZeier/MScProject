@@ -69,8 +69,7 @@ The five retained indicators are fully operationalisable from live records held 
 | MTTR | Mean elapsed time from incident creation to resolution status, averaged across all P2 and P3 incidents per service | ITSM | Hours | Cost |
 | CFR | Proportion of change records per service that resulted in an unplanned incident or rollback within 72 hours of deployment | ITSM | Percentage (0–100) | Cost |
 | Patch recency | Proportion of components within each service's dependency stack recorded as within a vendor-supported version window at point of extraction | CMDB | Percentage (0–100) | Benefit |
-| Unsupported component months | Cumulative months of exposure to 
-unsupported components within the service's CMDB dependency stack during the observation window | CMDB | Months | Cost |
+| Unsupported component months | Cumulative months of exposure to unsupported components within the service's CMDB dependency stack during the observation window | CMDB | Months | Cost |
 
 : Operational definition of indicators used in the TOPSIS framework {#tbl-indicators-def tbl-colwidths="[20,40,10,15,15]"}
 
