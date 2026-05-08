@@ -3,9 +3,10 @@
 
 % preamble.tex — LaTeX packages and thesis macros
 \usepackage{graphicx}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[sc]{mathpazo}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\setmainfont{TeX Gyre Pagella}
+\setmathfont{texgyrepagella-math.otf}
 \linespread{1.05}
 
 \usepackage{xcolor}
@@ -14,8 +15,6 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{enumitem}
-\usepackage{amsmath}
-\usepackage{amssymb}
 
 % cosupervisor is not defined in MastersDoctoralThesis.cls — define manually
 \NewDocumentCommand{\cosupervisor}{m}{\newcommand{\cosupname}{#1}}
@@ -46,7 +45,7 @@
     \vspace*{40pt}%
   }%
   \thispagestyle{plain}%
-}
+}%
 \makeatother
 
 \AtBeginDocument{
@@ -56,11 +55,11 @@
     pdfauthor={\authorname},
     allcolors=black,
     urlcolor=blue
-  }
+  }%
 
   % Number headings from chapter level: 1 / 1.1 / 1.1.1 / 1.1.1.1
   \renewcommand{\thechapter}{\arabic{chapter}}
   \renewcommand{\thesection}{\thechapter.\arabic{section}}
   \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
   \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
-}
+}%
