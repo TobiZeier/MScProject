@@ -20,6 +20,12 @@ The four indicators are operationally defined as follows, consistent with the de
 
 Incident frequency, MTTR and CFR are cost criteria, for which lower values indicate lower technical debt severity. Patch currency is a benefit criterion, for which higher values are preferable.
 
+### Data Limitations
+
+As established in @sec-transfer, the operational data used here carry inherent quality limitations that must be explicitly acknowledged. Incident P2/P3 classifications vary across teams; CFR reflects documentation practices as much as technical outcomes; and patch recency depends on CMDB coverage and scanner configuration. These do not invalidate the proxy approach but constrain score precision.
+
+Mitigations include: (i) sensitivity analysis (@sec-sensanaly) to test ranking stability; and (ii) cross-validation against independent remediation records (@sec-chapter5).
+
 ## Indicator Normalisation and Weighting
 
 Before aggregation, each indicator is normalised using vector normalisation to remove differences in scale and unit:
@@ -50,6 +56,6 @@ Two weight configurations are applied, as specified in @sec-frameworkdesign. The
 
 The TOPSIS procedure follows the formulation of [@hwangMultipleAttributeDecision1981]. After constructing the weighted normalised matrix, the positive and negative ideal solutions are:
 
-## Sensitivity Analysis
+## Sensitivity Analysis {#sec-sensanaly}
 
 ## Interpretation and Discussion

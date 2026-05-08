@@ -38,7 +38,7 @@ graph TD
     RP["Research Process<br/>Literature review;<br/>indicator selection;<br/>TOPSIS construction;<br/>sensitivity analysis"]
     KC["Key Concepts<br/>Technical debt;<br/>operational proxies;<br/>MCDM; ITSM service data"]
     DSR(["DSR Project"])
-    S["Solution<br/>TOPSIS framework operating<br/>on live ServiceNow data<br/>(four DORA-derived indicators)"]
+    S["Solution<br/>TOPSIS framework operating<br/>on live ITSM data<br/>(four DORA-derived indicators)"]
     OK["Output Knowledge<br/>Prescriptive design entity;<br/>validity of operational TD<br/>proxies in regulated IT"]
 
     P --> DSR
