@@ -36,20 +36,20 @@ Vector normalisation is preferred over min-max normalisation because it preserve
 
 $$v_{ij} = w_j \cdot r_{ij}$$
 
-Two weight configurations are applied. The baseline equal-weight configuration assigns $w_j = 0.25$ to each criterion and serves as the reference case against which the differential configuration is evaluated. The differential configuration assigns higher weights to MTTR and CFR.
+Two weight configurations are applied. The baseline equal-weight configuration assigns $w_j = 0.20$ to each criterion and serves as the reference case against which the differential configuration is evaluated. The differential configuration assigns higher weights to MTTR and CFR.
 
 This reflects a design judgement rather than a claim attributable to a single empirical source, and it is grounded in three converging observations from the literature. First, @ramasubbuManagingTechnicalDebt2015 establish that technical debt in COTS enterprise systems increases the probability of system failures by up to 62 percent, identifying incident frequency as the most directly observable TD signal in vendor-platform environments. This makes the speed of recovery from those incidents, captured by MTTR, the dimension most consequential to operational governance once a failure has occurred. Second, Nord, Ozkaya and Woody (2021) classify delivery tempo degradation and deployment instability explicitly as observable symptoms from which technical debt can be detected and prioritised in production environments [@nordExamplesTechnicalDebts2021]. This provides direct grounding for elevating the weights of both MTTR and CFR relative to the remaining two criteria. Third, Fungprasertkul, Bahsoon and Kazman (2024) establish that TD dimensions can and should be assigned differential weights to reflect the perspectives of different stakeholders and the operational context in which monitoring takes place [@fungprasertkulTechnicalDebtMonitoring2024], offering methodological precedent for a two-configuration design in which the baseline equal-weight case is tested against a configuration calibrated to domain context.
 
 
 
-Two weight configurations are applied, as specified in @sec-frameworkdesign. The baseline equal-weight configuration assigns $w_j = 0.25$ to each criterion and serves as the reference case. The differential configuration assigns higher weights to MTTR and CFR, reflecting their higher operational salience in a trading environment where speed of recovery and deployment stability directly determine financial exposure [@forsgrenAccelerate2018]. The differential weights are $w_{\text{MTTR}} = w_{\text{CFR}} = 0.30$ and $w_{\text{IncFreq}} = w_{\text{Patch}} = 0.20$.
+Two weight configurations are applied, as specified in @sec-frameworkdesign. The baseline equal-weight configuration assigns $w_j = 0.20$ to each criterion and serves as the reference case. The differential configuration assigns higher weights to MTTR and CFR, reflecting their higher operational salience in a trading environment where speed of recovery and deployment stability directly determine financial exposure [@forsgrenAccelerate2018]. The differential weights are $w_{\text{MTTR}} = w_{\text{CFR}} = 0.30$ and $w_{\text{IncFreq}} = w_{\text{Patch}} = 0.20$.
 
-| Configuration | Incident Freq. | MTTR | CFR  | Patch Currency |
-|---|---|---|---|---|
-| Equal (baseline) | 0.25 | 0.25 | 0.25 | 0.25 |
-| Differential | 0.20 | 0.30 | 0.30 | 0.20 |
+| Configuration | Incident Freq. | MTTR | CFR  | Patch Currency | Unsupported comp. months |
+|---|---|---|---|---|---|
+| Equal (baseline) | 0.20 | 0.20 | 0.20 | 0.20 | 0.20 |
+| Differential | 0.133 | 0.30 | 0.30 | 0.133 | 0.133 |
 
-: Weight configurations {#tbl-weights tbl-colwidths="[32,17,17,17,17]"}
+: Weight configurations {#tbl-weights tbl-colwidths="[25,15,15,15,15,15]"}
 
 
 ## TOPSIS Computation and Rankings

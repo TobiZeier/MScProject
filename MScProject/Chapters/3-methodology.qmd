@@ -20,7 +20,7 @@ Design Science Research (DSR) governs this study, as formalised by @hevnerDesign
 | Design evaluation | Sensitivity analysis; criterion validity against historical operational records |
 | Research contributions | Novel indicator set; first application of TOPSIS to live ITSM data in financial trading IT |
 | Research rigour | Systematic indicator selection; reproducible TOPSIS computation; documented normalisation |
-| Design as a search process | Iterative refinement of indicator selection and weight assignment |
+| Design as a search process | Iterative refinement of indicator selection (literature candidates audited against ITSM/CMDB availability) and weight assignment |
 | Communication of research | This dissertation; practitioner-accessible scoring output |
 
 : DSR guidelines and their implementation {#tbl-dsr-guidelines tbl-colwidths="[30,70]"}
@@ -38,7 +38,7 @@ graph TD
     RP["Research Process<br/>Literature review;<br/>indicator selection;<br/>TOPSIS construction;<br/>sensitivity analysis"]
     KC["Key Concepts<br/>Technical debt;<br/>operational proxies;<br/>MCDM; ITSM service data"]
     DSR(["DSR Project"])
-    S["Solution<br/>TOPSIS framework operating<br/>on live ITSM data<br/>(four DORA-derived indicators)"]
+    S["Solution<br/>TOPSIS framework operating<br/>on live ITSM data<br/>(five DORA-derived indicators)"]
     OK["Output Knowledge<br/>Prescriptive design entity;<br/>validity of operational TD<br/>proxies in regulated IT"]
 
     P --> DSR
@@ -59,25 +59,22 @@ The study adopts the individual IT service as the unit of analysis, defined as a
 
 ### Data Sources and Collection {#sec-datasources}
 
-The framework operationalises five operational indicators as technical debt proxies, drawn from live records held in the organisation's ITSM instance and Configuration Management Database (CMDB). Records were accessed under an agreed arrangement with the Head of Trading IT over a twelve-month observation window (January–December 2025) and anonymised at source, with service names replaced by alphanumeric identifiers and all team and vendor labels removed before analysis.
+The literature review (@sec-chapter2) identified candidate indicators mapping technical debt dimensions to operational data (see @tbl-indicators-lit). A data audit against available ITSM and CMDB fields refined this set prior to data collection. Documentation completeness was excluded as no structured ITSM or CMDB field captures it consistently across services; relevant records reside in unstructured repositories not amenable to uniform extraction. Test coverage ratio and architectural coupling were excluded because both require access to assets unavailable in this environment: test coverage is derived from CI/CD build artefacts or source repositories, and architectural coupling is measured through static dependency graph analysis of compiled code[@amanatidisEvaluatingAgreementTechnical2020]; neither is accessible for vendor-managed nor outsourced components. Raw vulnerability density was excluded as subsumed by patch recency, which provides a more stable CMDB-derived proxy grounded in regulatory patching compliance rather than raw scanner counts whose coverage varies across components.
 
-The five indicators were selected on the basis of the literature mapping in @tbl-indicators-lit and are operationally defined in @tbl-indicators-def below.
+The five retained indicators are fully operationalisable from live records held in the organisation's ITSM instance and CMDB. Records were accessed under an agreed arrangement with the Head of Trading IT over a twelve-month observation window (January–December 2025) and anonymised at source, with service names replaced by alphanumeric identifiers and all team and vendor labels removed before analysis.
 
 | Indicator | Operational Definition | Source | Unit | Direction |
 |---|---|---|---|---|
-| Incident frequency | Count of P2 and P3 incidents per service within the observation window, normalised by service age in months | ITSM | Incidents / month | Cost |
+| Incident frequency | Count of P2 and P3 incidents per service within the observation window, normalised by service age in months. P1 incidents, defined by the organisation as cases where the majority of its business is affected, did not occur within the observation period and are excluded. | ITSM | Incidents / month | Cost |
 | MTTR | Mean elapsed time from incident creation to resolution status, averaged across all P2 and P3 incidents per service | ITSM | Hours | Cost |
 | CFR | Proportion of change records per service that resulted in an unplanned incident or rollback within 72 hours of deployment | ITSM | Percentage (0–100) | Cost |
 | Patch recency | Proportion of components within each service's dependency stack recorded as within a vendor-supported version window at point of extraction | CMDB | Percentage (0–100) | Benefit |
-| Unsupported component months | Cumulative months of exposure to unsupported components within the service's CMDB dependency stack during the observation window | CMDB | Months | Cost |
+| Unsupported component months | Cumulative months of exposure to 
+unsupported components within the service's CMDB dependency stack during the observation window | CMDB | Months | Cost |
 
 : Operational definition of indicators used in the TOPSIS framework {#tbl-indicators-def tbl-colwidths="[20,40,10,15,15]"}
 
-Incident frequency, MTTR and CFR proxy the operational consequences of architectural and infrastructure debt: service instability and slow recovery are empirically linked to TD severity in vendor-managed portfolios [@ramasubbuControllingTechnicalDebt2021; @nielsenITPortfolioManagement2022], while deployment instability is classified as a direct observable symptom of accumulated debt [@nordExamplesTechnicalDebts2021; @forsgrenAccelerate2018]. @nordExamplesTechnicalDebts2021 further ground the inclusion of MTTR and CFR specifically by classifying delivery tempo degradation as a diagnostic TD signal detectable from production records, independently of source code access. Patch recency and unsupported component months are both derived from CMDB dependency data and operationalise infrastructure lifecycle and vulnerability debt following @hakiDigitalNudgingTechnical2023, with delayed patching shown to produce measurable operational risk [@tizioSoftwareUpdatesStrategies2023]. Service-level operational indicators are treated as candidate proxies for technical debt prioritisation rather than established substitutes. The validity of this inference is the central empirical hypothesis tested in @sec-chapter5.
-
-### Data Sources and Collection
-
-Incident frequency and MTTR proxy accumulated architectural and infrastructure debt, as service instability and slow recovery are empirically associated with technical debt consequences [@ramasubbuControllingTechnicalDebt2021]. Change failure rate captures deployment instability associated with technical debt accumulation [@forsgrenAccelerate2018]. Patch recency is operationalised following @hakiDigitalNudgingTechnical2023, who measured infrastructure lifecycle debt using unsupported component months, and is further supported by evidence that patch delay produces measurable operational risk [@tizioSoftwareUpdatesStrategies2023].
+Incident frequency, MTTR and CFR proxy the operational consequences of architectural and infrastructure debt. Service instability and slow recovery are empirically linked to TD severity in vendor-managed portfolios [@ramasubbuControllingTechnicalDebt2021; @nielsenITPortfolioManagement2022]. Deployment instability is classified as a direct observable symptom of accumulated debt [@nordExamplesTechnicalDebts2021; @forsgrenAccelerate2018]. @nordExamplesTechnicalDebts2021 further ground the inclusion of MTTR and CFR specifically by classifying delivery tempo degradation as a diagnostic TD signal detectable from production records, independently of source code access. Patch recency captures the proportion of components currently within a vendor-supported version window. Unsupported component months measures the cumulative duration of exposure to end-of-life components during the observation period. Together, these two CMDB-derived indicators operationalise infrastructure lifecycle and vulnerability debt following @hakiDigitalNudgingTechnical2023, differentiating services with similar current patch status but differing historical debt accumulation. Service-level operational indicators are treated as candidate proxies for technical debt prioritisation rather than established substitutes. The validity of this inference is the central empirical hypothesis tested in @sec-chapter5.
 
 ### Framework Design {#sec-frameworkdesign}
 
@@ -114,13 +111,30 @@ $$
 C_i = \frac{S_i^{\text{-}}}{S_i^{\text{+}} + S_i^{\text{-}}}, \quad C_i \in [0, 1]
 $$
 
-A higher $C_i$ indicates a service closer to the worst-case operational profile, representing a higher technical debt priority. Incident frequency, MTTR, and CFR are cost criteria where lower values are preferable; patch recency is a benefit criterion where higher values are preferable.
+A higher $C_i$ indicates a service closer to the worst-case operational profile, representing a higher technical debt priority. Incident frequency, MTTR, CFR, and unsupported component months are cost criteria where lower values are preferable; patch recency is a benefit criterion where higher values are preferable.
 
-Two weight configurations are used. A baseline equal-weight configuration ($w_j = 0.25$) serves as the reference case, in accordance with @grecoMethodologicalFrameworkComposite2019. A secondary configuration applies differential weights reflecting the higher operational salience of MTTR and CFR in a trading environment, as established in @sec-chapter2. The sensitivity of rankings to weight perturbation is assessed in @sec-chapter5.
+@fig-framework-pipeline illustrates the full pipeline from indicator collection through to ranked output.
+
+```{mermaid}
+%%| label: fig-framework-pipeline
+%%| fig-cap: "Framework pipeline: from operational indicators to ranked prioritisation"
+%%| fig-width: 6.5
+
+flowchart LR
+    A["<b>Operational Indicators</b><br/>Incident freq.<br/>MTTR<br/>CFR<br/>Patch recency<br/>Unsupported comp. months"]
+    --> B["<b>Normalisation</b><br/>Scale each value<br/>by column norm<br/>(vector normalisation)"]
+    --> C["<b>Weighting</b><br/>Multiply by w_j<br/>Equal: w_j = 0.20<br/>or differential"]
+    --> D["<b>TOPSIS Scoring</b><br/>Distances to ideal<br/>best and worst<br/>Closeness Ci in [0,1]"]
+    --> E["<b>Ranked Prioritisation</b><br/>Services ordered<br/>by Ci descending<br/>(higher = more debt)"]
+```
+
+Two weight configurations are used. A baseline equal-weight configuration ($w_j = 0.20$) serves as the reference case. Equal weighting is the standard default in composite indicator construction in the absence of empirically justified differential weights [@grecoMethodologicalFrameworkComposite2019], and provides a transparent basis for the sensitivity analysis that follows. A secondary configuration assigns higher weight to MTTR and CFR ($w_j = 0.30$ each) and lower weight to the remaining three indicators ($w_j = 0.133$ each), reflecting a practitioner judgement that service recovery time and deployment instability carry greater operational consequence in time-critical trading environments. This weighting is not derived from literature and is treated as an explicit assumption; its influence on rankings is assessed in @sec-chapter5. The sensitivity of rankings to weight perturbation more broadly is also assessed there, following the practice recommended by @grecoMethodologicalFrameworkComposite2019 for composite indicators.
 
 ### Evaluation Approach
 
-The framework is evaluated against a single criterion following the sensitivity practice recommended by @grecoMethodologicalFrameworkComposite2019 for composite indicators. Ranking stability is assessed by perturbing each criterion weight by plus or minus 20 percentage points, with remaining weights adjusted proportionally, and measuring rank-order correlations between the baseline ranking and each perturbed variant using Kendall's $\tau$. This constitutes an analytical evaluation of the artefact in the sense of @hevnerDesignScienceInformation2004 Guideline 3, which requires that the utility and quality of a design artefact be rigorously demonstrated via well-executed evaluation methods. A consistently high $\tau$ across perturbations provides evidence that the ranking is not sensitive to reasonable variation in weight assumptions, which is a necessary condition for the framework to be actionable in practice.
+The framework is evaluated on two dimensions. First, ranking stability is assessed through sensitivity analysis following @grecoMethodologicalFrameworkComposite2019. Each criterion weight is perturbed by ±20 percentage points, with remaining weights adjusted proportionally, and Kendall's $tau$ is computed between the baseline ranking and each perturbed variant. $\tau$ counts how many service pairs appear in the same order across both rankings minus those that do not, scaled to $[-1, 1]$; values near $+1$ indicate the ranking is preserved. A consistently high $\tau$ across perturbations demonstrates that results are not sensitive to reasonable variation in weight assumptions.
+Second, criterion validity is assessed through convergent validation against normalised Problem record count per service — an independent ITSM metric not used as a TOPSIS input. Problem records document root cause investigations for recurring issues, making them a non-circular proxy for structural degradation. A positive Spearman's $\rho$ between $C_i$ scores and Problem density supports the core research hypothesis without circularity.
+Together, these dimensions constitute an analytical evaluation in the sense of @hevnerDesignScienceInformation2004 Guideline 3.
 
 ## Ethical and Professional Considerations {#sec-ethics}
 
@@ -128,11 +142,11 @@ The ethical considerations arising from this study concern data confidentiality 
 
 ### Data Confidentiality and Anonymisation
 
-The data originate from a live Swiss financial institution that is not identified by name. All service, team, and vendor identifiers were replaced with alphanumeric codes before analysis. No employee data are present: all four indicators are service-level aggregates that cannot be attributed to individuals. The data-sharing arrangement was established with the explicit agreement of the Head of Trading IT, access was limited to the required records, and no data were retained beyond the analytical period or shared with third parties.
+The data originate from a live Swiss financial institution that is not identified by name. All service, team, and vendor identifiers were replaced with alphanumeric codes before analysis. No employee data are present: all five indicators are service-level aggregates that cannot be attributed to individuals. The data-sharing arrangement was established with the explicit agreement of the Head of Trading IT, access was limited to the required records, and no data were retained beyond the analytical period or shared with third parties.
 
 ### Legal Compliance
 
-The organisation is subject to the revised Federal Act on Data Protection (nFADP), which entered into force on 1 September 2023 [@FederalActData2023], enforced by the Federal Data Protection and Information Commissioner (FDPIC). Because the dataset contains no personal data, the nFADP's provisions on personal data processing do not apply directly. The principle of data minimisation, which the nFADP enshrines in alignment with international standards, was nonetheless observed: only the metrics required for the four TOPSIS indicators were extracted.
+The organisation is subject to the revised Federal Act on Data Protection (nFADP), which entered into force on 1 September 2023 [@FederalActData2023], enforced by the Federal Data Protection and Information Commissioner (FDPIC). Because the dataset contains no personal data, the nFADP's provisions on personal data processing do not apply directly. The principle of data minimisation, which the nFADP enshrines in alignment with international standards, was nonetheless observed: only the metrics required for the five TOPSIS indicators were extracted.
 
 As a systemically significant institution, the organisation is also subject to FINMA Circular 2023/1 on operational risks and resilience, in force since 1 January 2024 [@finmaCircular202312024]. This circular requires comprehensive ICT operational risk management, including incident monitoring and service resilience. Areas structurally aligned with the framework's operational focus. Although the specific metrics used here are organisationally defined rather than prescribed by FINMA. No ethics committee approval was required under the University of Essex's research ethics framework, and a departmental no-objection confirmation was obtained.
 
@@ -142,17 +156,4 @@ A relative rank assigned to a service carries a risk of being misused to evaluat
 
 ### Professional Standards and Limitations
 
-This study was conducted in accordance with the BCS Code of Conduct [@CodeConductBCS2022], including the obligations to act with integrity, to respect the rights of third parties, and to ensure that the artefact is fit for purpose. Three limitations clarify scope. The single-site design means that indicator weights and TOPSIS configuration are calibrated for one organisation and should not be transferred without revalidation. The cross-sectional window means the framework captures a snapshot; recently remediated services may be under-ranked. Finally, the four indicators do not exhaust all dimensions of operational technical debt; indicators related to documentation, test coverage, or architectural coupling were excluded due to data availability and remain candidates for future iterations.
-
-
-## Rework!
-
-The following diagram illustrates the logical pipeline of the proposed framework, from the collection of operational indicators through to a ranked prioritisation output.
-```{mermaid}
-%%| label: fig-framework
-%%| fig-cap: "Proposed framework pipeline"
-%%| fig-width: 6
-
-flowchart LR
-    A[Operational Indicators] --> B[Normalisation & Weighting] --> C[TOPSIS Scoring] --> D[Ranked Prioritisation]
-```
+This study was conducted in accordance with the BCS Code of Conduct [@CodeConductBCS2022], including the obligations to act with integrity, to respect the rights of third parties, and to ensure that the artefact is fit for purpose. Three limitations clarify scope. The single-site design means that indicator weights and TOPSIS configuration are calibrated for one organisation and should not be transferred without revalidation. The cross-sectional window means the framework captures a snapshot; recently remediated services may be under-ranked. Finally, the five indicators do not exhaust all dimensions of operational technical debt; indicators related to documentation, test coverage, or architectural coupling were excluded due to data availability and remain candidates for future iterations.
