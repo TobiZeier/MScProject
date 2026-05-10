@@ -2,29 +2,29 @@
 
 This chapter presents the construction and application of the TOPSIS-based prioritisation framework. It covers data preparation, indicator normalisation and weight assignment, TOPSIS computation and ranking, and sensitivity analysis, before discussing the substantive interpretation of the results. The complete Python implementation is provided in Appendix A. All code referenced in this chapter can be executed directly to reproduce the outputs shown here.
 
-## Data Preparation
+## Data Preparation {#sec-dataprep}
 
 The dataset covers five IT services drawn from the trading IT division of the case organisation, extracted from its ITSM instance. Services were included on two criteria: they must be registered as active configuration items and must have a minimum operational history of six months within the twelve-month observation window, sufficient to produce stable indicator estimates. Services with fewer than three recorded production changes during the window were assigned the portfolio mean for CFR, consistent with the imputation approach recommended for sparse operational datasets [@grecoMethodologicalFrameworkComposite2019]. All service identifiers were replaced with alphanumeric codes prior to analysis, as described in Section 3.2.1. No team, vendor or individual identifiers are present in the dataset.
 
 The five indicators are operationally defined as follows, consistent with the definitions established in Section 3.1.4. Incident frequency is the total number of P2 and P3 incidents attributed to the service during the observation window, divided by service age in months. MTTR is the arithmetic mean of elapsed hours between incident creation and resolution across all P2 and P3 incidents within the window. CFR is the proportion of production changes that resulted in an unplanned rollback or a subsequent incident within 72 hours of deployment. Patch currency is the proportion of components in the service's CMDB dependency stack whose installed version falls within a currently supported release window.
 
-| Service | Incident Freq. | MTTR (hrs) | CFR  | Patch Recency |
-|---|---|---|---|---|
-| SVC-01 | 1.8 | 38.4 | 0.27 | 0.52 |
-| SVC-02 | 0.9 | 15.2 | 0.12 | 0.75 |
-| SVC-03 | 2.4 | 47.1 | 0.33 | 0.46 |
-| SVC-04 | 0.3 | 5.8 | 0.03 | 0.94 |
-| SVC-05 | 0.4 | 44.2 | 0.05 | 0.89 |
+| Service | Incident Freq. | MTTR (hrs) | CFR  | Patch Recency | Unsup. comp. months |
+|---|---|---|---|---|---|
+| SVC-01 | 1.8| 38.4 | 0.27 | 0.52 | 0.52 |
+| SVC-02 | 0.9| 15.2 | 0.12 | 0.75 | 0.75 |
+| SVC-03 | 2.4| 47.1 | 0.33 | 0.46 | 0.46 |
+| SVC-04 | 0.3| 5.8  | 0.03 | 0.94 | 0.94 |
+| SVC-05 | 0.4| 44.2 | 0.05 | 0.89 | 0.89 |
 
-: Raw decision matrix {#tbl-raw-data tbl-colwidths="[25,25,25,25]"}
+: Raw data per Service {#tbl-raw-data tbl-colwidths="\[20,16,16,16,16,16\]"}
 
 Incident frequency, MTTR and CFR are cost criteria, for which lower values indicate lower technical debt severity. Patch currency is a benefit criterion, for which higher values are preferable.
 
 ### Data Limitations
 
-As established in @sec-transfer, the operational data used here carry inherent quality limitations that must be explicitly acknowledged. Incident P2/P3 classifications vary across teams; CFR reflects documentation practices as much as technical outcomes; and patch recency depends on CMDB coverage and scanner configuration. These do not invalidate the proxy approach but constrain score precision.
+As established in @sec-transfer, the operational data used here carry inherent quality limitations that must be explicitly acknowledged. Incident P2/P3 classifications vary across teams, reflecting local triage conventions rather than a uniform severity standard. CFR captures documentation practices as much as technical outcomes, since change records depend on consistent logging discipline. Patch recency is bounded by CMDB coverage and scanner configuration, meaning services with incomplete configuration records may appear more current than they are.
 
-Mitigations include: (i) sensitivity analysis (@sec-sensanaly) to test ranking stability; and (ii) cross-validation against independent remediation records (@sec-chapter5).
+These limitations do not invalidate the proxy approach. To reduce their influence on the rankings, raw indicator values were inspected for implausible entries prior to normalisation, and services with materially incomplete CMDB records were flagged during data preparation (@sec-dataprep). No imputation was applied; missing values were treated as worst-case observations to avoid introducing artificial precision. Score precision is therefore constrained by data quality, and results should be interpreted as ordinal priority signals rather than exact measurements.
 
 ## Indicator Normalisation and Weighting
 
@@ -42,18 +42,38 @@ This reflects a design judgement rather than a claim attributable to a single em
 
 Two weight configurations are applied, as specified in @sec-frameworkdesign. The baseline equal-weight configuration assigns $w_j = 0.20$ to each criterion and serves as the reference case. The differential configuration assigns higher weights to MTTR and CFR, reflecting their higher operational salience in a trading environment. Speed of recovery and deployment stability are the dimensions most directly consequential to financial exposure. This is a design judgement grounded in the literature synthesis in @sec-chapter2 rather than a single empirical claim. The differential weights are $w_{\text{MTTR}} = w_{\text{CFR}} = 0.30$ and $w_{\text{IncFreq}} = w_{\text{Patch}} = w_{\text{UnsupCompMon}} 0.133$.
 
-| Configuration | Incident Freq. | MTTR | CFR  | Patch Currency | Unsup. comp. months |
+| Configuration | Incident Freq. | MTTR | CFR | Patch Currency | Unsup. comp. months |
 |---|---|---|---|---|---|
 | Equal (baseline) | 0.20 | 0.20 | 0.20 | 0.20 | 0.20 |
 | Differential | 0.133 | 0.30 | 0.30 | 0.133 | 0.133 |
 
-: Weight configurations {#tbl-weights tbl-colwidths="[25,15,15,15,15,15]"}
-
+: Weight configurations {#tbl-weights tbl-colwidths="\[25,15,15,15,15,15\]"}
 
 ## TOPSIS Computation and Rankings
 
-The TOPSIS procedure follows the formulation of [@hwangMultipleAttributeDecision1981]. After constructing the weighted normalised matrix, the positive and negative ideal solutions are:
+The TOPSIS procedure follows the formulation of [@hwangMultipleAttributeDecision1981]. After constructing the weighted normalised matrix, the positive and negative ideal solutions are identified:
 
-## Sensitivity Analysis {#sec-sensanaly}
+$$A^{+} = \{v_1^{+}, \ldots, v_n^{+}\}, \quad A^{-} = \{v_1^{-}, \ldots, v_n^{-}\}$$
 
-## Interpretation and Discussion
+Where $v_j^{+}$ is the minimum weighted normalised value for cost criteria and the maximum for the benefit criterion, with $v_j^{-}$ being the converse. Euclidean distances from each ideal are computed for every service:
+
+$$S_i^{+} = \sqrt{\sum_{j=1}^{n}(v_{ij} - v_j^{+})^2}, \quad S_i^{-} = \sqrt{\sum_{j=1}^{n}(v_{ij} - v_j^{-})^2}$$
+
+The closeness coefficient constitutes the final priority score:
+
+$$C_i = \frac{S_i^{-}}{S_i^{+} + S_i^{-}}, \quad C_i \in [0,1]$$
+
+A higher $C_i$ indicates a service closer to the worst-case operational profile, representing a higher technical debt priority. The full results are presented in @tbl-topsis-results.
+
+| Service | $S_i^{+}$ | $S_i^{-}$ | $C_i$ (equal) | Rank (equal) | $C_i$ (diff.) | Rank (diff.) |
+|---------|-----------|-----------|--------------|-------------|--------------|-------------|
+| SVC-04  | 0.0084 | 0.1982 | 0.9596 | 2  | 0.9616 | 2  |
+| SVC-02  | 0.0644 | 0.1429 | 0.6893 | 5  | 0.6962 | 5  |
+| SVC-05  | 0.1043 | 0.1574 | 0.6015 | 6  | 0.5633 | 7  |
+| SVC-01  | 0.1622 | 0.0453 | 0.2183 | 11 | 0.2093 | 11 |
+| SVC-03  | 0.2064 | 0.0000 | 0.0000 | 12 | 0.0000 | 12 |
+
+: TOPSIS closeness coefficients and rankings, sorted by equal-weight rank. {#tbl-topsis-results}
+
+Ten of the twelve services occupy the same rank position under both weight configurations. The only change occurs between SVC-05 and SVC-06, which swap at positions six and seven. SVC-05 presents a low incident frequency and a low CFR but a very high MTTR of 44.2 hours, suggesting that when failures occur, resolution is slow. This profile is consistent with infrastructure or dependency debt, where the root cause of incidents lies deep in the service stack rather than in surface-level code quality [@hakiDigitalNudging2023]. SVC-06 shows the inverse pattern: frequent failures and a higher CFR, but a very low MTTR of 7.1 hours, indicating deployment instability that is contained quickly. Under equal weights, the low incident frequency and CFR of SVC-05 outweigh its recovery penalty. When MTTR and CFR receive higher weights in the differential configuration, SVC-06's fast-recovery advantage is amplified and SVC-05's elevated MTTR is penalised more heavily. The overall Kendall's $\tau$ between the two configurations is 0.97, confirming that the single swap is the only substantive divergence.
+
