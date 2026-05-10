@@ -1,6 +1,6 @@
 # Framework Development and Results {#sec-chapter4}
 
-This chapter presents the construction and application of the TOPSIS-based prioritisation framework. It covers data preparation, indicator normalisation and weight assignment, TOPSIS computation and ranking, and sensitivity analysis, before discussing the substantive interpretation of the results. The complete Python implementation is provided in Appendix A. All code referenced in this chapter can be executed directly to reproduce the outputs shown here.
+This chapter presents the construction and application of the TOPSIS-based prioritisation framework. It covers data preparation, indicator normalisation and weight assignment, TOPSIS computation, and the interpretation of results. The sensitivity analysis, which constitutes an evaluation activity, is presented in @sec-chapter5. The complete Python implementation used to produce all outputs in this chapter is provided as a reproducible artefact in Appendix A.
 
 ## Data Preparation {#sec-dataprep}
 
