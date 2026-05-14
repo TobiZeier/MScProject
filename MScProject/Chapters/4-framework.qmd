@@ -6,7 +6,7 @@ This chapter presents the construction and application of the TOPSIS-based prior
 
 The trading IT portfolio comprises eight active IT services registered as configuration items in the organisation's ITSM instance. Three services were excluded prior to analysis. All three are formally flagged for decommission in the current planning cycle and therefore represent a transitional state rather than an ongoing operational profile. Including them would introduce end-of-life degradation signals that reflect planned retirement rather than accumulated technical debt. The five remaining services form the analysis population.
 
-Each retained service met two inclusion criteria. It had to be registered as an active configuration item. It also had to have a minimum operational history of six months within the twelve-month observation window (January--December 2025). A six-month minimum is required to produce stable indicator estimates, particularly for CFR, which is sensitive to low change volumes. All service identifiers were replaced with alphanumeric codes prior to analysis in accordance with the anonymisation procedure described in @sec-ethics. No team, vendor, or individual identifiers are present in the dataset.
+Each retained service met two inclusion criteria. It had to be registered as an active configuration item. It also had to have a minimum operational history of six months within the twelve-month observation window (January-December 2025). A six-month minimum is required to produce stable indicator estimates, particularly for CFR, which is sensitive to low change volumes. All service identifiers were replaced with alphanumeric codes prior to analysis in accordance with the anonymisation procedure described in @sec-ethics. No team, vendor, or individual identifiers are present in the dataset.
 
 ### Indicator Extraction and Quality Checks
 
@@ -52,29 +52,3 @@ Two weight configurations are applied, as specified in @sec-frameworkdesign. The
 ## TOPSIS Computation and Rankings {#sec-topsis-results}
 
 The computation follows the TOPSIS formulation specified in @sec-frameworkdesign and was executed using the Python artefact in Appendix A. After constructing the weighted normalised matrix, the positive ideal solution $A^+$ and negative ideal solution $A^-$ are identified. For cost criteria, $A^+$ takes the minimum weighted normalised value across services. For the benefit criterion (patch recency), it takes the maximum. $A^-$ is the converse. Euclidean distances $S_i^+$ and $S_i^-$ are then computed for each service, and the closeness coefficient $C_i$ is derived. A higher $C_i$ indicates a service closer to the negative ideal -- the worst-case operational profile -- and therefore represents a higher technical debt priority.
-
-@tbl-topsis-results presents the full results under both weight configurations. The table is sorted from highest to lowest debt priority, so rank 5 = highest priority for remediation.
-
-| Service | $S_i^+$ | $S_i^-$ | $C_i$ (equal) | Rank (equal) | $C_i$ (diff.) | Rank (diff.) |
-|---------|---------|---------|--------------|-------------|--------------|-------------|
-| SVC-03 | 0.2786 | 0.0000 | 0.0000 | 5 | 0.0000 | 5 |
-| SVC-01 | 0.2179 | 0.0631 | 0.2245 | 4 | 0.1978 | 4 |
-| SVC-05 | 0.0939 | 0.2313 | 0.7112 | 3 | 0.6244 | 3 |
-| SVC-02 | 0.0641 | 0.2153 | 0.7707 | 2 | 0.7745 | 2 |
-| SVC-04 | 0.0000 | 0.2786 | 1.0000 | 1 | 1.0000 | 1 |
-
-: TOPSIS closeness coefficients and rankings. Rank 5 = highest debt priority; rank 1 = lowest. {#tbl-topsis-results tbl-colwidths="[12,12,12,16,14,16,14]"}
-
-The rankings are fully stable across both weight configurations. All five services occupy identical rank positions under equal and differential weighting, and Kendall's $\tau$ between the two configurations is 1.00. The two configurations differ by up to 16.7 percentage points per criterion, so this absence of rank changes is a substantive rather than an incidental result. It indicates that the relative ordering of services in this portfolio is insensitive to whether MTTR and CFR are elevated above the remaining indicators.
-
-## Interpretation and Discussion {#sec-interpretation}
-
-The framework produces a prioritisation list that maps operational service management data onto a single comparable priority score. SVC-03 occupies the lowest $C_i$ position (rank 5, highest debt priority) under both configurations. It presents the highest incident frequency at 3.1 per month, the highest MTTR at 52.8 hours, the highest CFR at 0.41, the lowest patch recency at 0.38, and the highest unsupported component months at 24.6. This convergent multi-indicator profile points in the same direction across all five dimensions. @hakiDigitalNudgingTechnical2023 define infrastructure lifecycle debt as cumulative months of exposure to unsupported components and identify it as a distinct, measurable debt category in large financial institutions, separate from code-level and vulnerability debt. SVC-03's profile -- combining high operational instability with the largest unsupported component exposure in the portfolio -- is consistent with a service exhibiting the operational consequences associated with this debt category, though the causal direction cannot be established from cross-sectional data alone.
-
-SVC-04 occupies the opposite extreme ($C_i = 1.00$, rank 1, lowest debt priority). It records the lowest values on all four cost indicators and the highest patch recency. Its presence anchors the positive ideal solution against which all other services are measured and provides a concrete reference point for what a well-maintained operational profile looks like in this portfolio.
-
-SVC-01 and SVC-05 present the most analytically substantive profiles. SVC-01 carries elevated values across incident frequency, MTTR, and unsupported component months simultaneously, suggesting that its debt is distributed across both operational and infrastructure dimensions. SVC-05, by contrast, presents a low incident frequency (0.5 per month) and a low CFR (0.07), but an MTTR of 44.2 hours. When failures occur, resolution is slow despite the service appearing stable under normal conditions. This mixed profile illustrates the core advantage of the multi-criteria approach. Sorting by incident frequency alone would place SVC-05 second in the portfolio, missing the recovery penalty embedded in its MTTR. Sorting by patch recency alone would rank it fourth. The TOPSIS score integrates these signals and produces a ranking that reflects each service's combined operational state rather than its performance on any single dimension.
-
-Under the differential weight configuration, SVC-05's MTTR penalty receives greater weight, yet its rank position does not change. This is because SVC-05's MTTR, while high in absolute terms, is not sufficient to displace SVC-02, which combines a markedly lower MTTR with comparably strong patch recency and low unsupported component exposure. The rank boundary between positions two and three is stable under both configurations.
-
-Taken together, the results address RQ1 directly. Technical debt in this trading IT portfolio can be quantified at the service level using ITSM and CMDB data without access to source code. The framework produces a complete, internally consistent, and reproducible ranking through a transparent and documented procedure. Whether these rankings correspond to independently verified assessments of technical debt severity -- the question underlying RQ2 -- cannot be established from the framework output alone and is addressed in @sec-chapter5 through convergent validation against an independent operational metric not used as a framework input.
