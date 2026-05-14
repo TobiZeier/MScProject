@@ -52,3 +52,5 @@ Two weight configurations are applied, as specified in @sec-frameworkdesign. The
 ## TOPSIS Computation and Rankings {#sec-topsis-results}
 
 The computation follows the TOPSIS formulation specified in @sec-frameworkdesign and was executed using the Python artefact in Appendix A. After constructing the weighted normalised matrix, the positive ideal solution $A^+$ and negative ideal solution $A^-$ are identified. For cost criteria, $A^+$ takes the minimum weighted normalised value across services. For the benefit criterion (patch recency), it takes the maximum. $A^-$ is the converse. Euclidean distances $S_i^+$ and $S_i^-$ are then computed for each service, and the closeness coefficient $C_i$ is derived. A higher $C_i$ indicates a service closer to the negative ideal -- the worst-case operational profile -- and therefore represents a higher technical debt priority.
+
+
