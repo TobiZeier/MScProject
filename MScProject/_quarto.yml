@@ -35,10 +35,13 @@ thesis:
 bibliography: references.bib
 csl: harvard-cite-them-right-no-et-al.csl
 
+jupyter: python3
+
 execute:
   echo: false
   warning: false
   message: false
+  python: .venv/bin/python3
 
 toclinkcolor: black
 

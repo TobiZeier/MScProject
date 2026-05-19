@@ -1,3 +1,38 @@
-# Appendix A
+# Appendix A: Python Code {.appendix}
 
-Lorem ipsum
+```{python}
+#| eval: false
+#| echo: true
+#| code-fold: false
+
+import argparse
+import sys
+import json
+
+import numpy as np
+import pandas as pd
+import plotly.graph_objects as go
+
+
+# ── Configuration ──────────────────────────────────────────────────────────────
+CRITERIA = [
+    "incident_freq",
+    "mttr_hrs",
+    "cfr",
+    "patch_recency",
+    "unsupported_months",
+]
+
+# Cost criteria lower value = better (all except patch_recency)
+COST_CRITERIA = [
+    "incident_freq",
+    "mttr_hrs",
+    "cfr",
+    "unsupported_months",
+]
+
+# Equal weights — one per criterion, must sum to 1.0
+WEIGHTS = np.array([0.20, 0.20, 0.20, 0.20, 0.20])
+
+
+```
