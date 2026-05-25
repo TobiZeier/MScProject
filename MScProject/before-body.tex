@@ -113,6 +113,11 @@ $if(abstract)$
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
 $abstract$
+
+$if(keywords)$
+\vspace{2cm}
+\noindent\textbf{Keywords:} $for(keywords)$$keywords$$sep$, $endfor$
+$endif$
 \end{abstract}
 
 $endif$
