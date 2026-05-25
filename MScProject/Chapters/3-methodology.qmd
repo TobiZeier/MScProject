@@ -1,6 +1,6 @@
 # Research Design and Methodology {#sec-chapter3}
 
-This chapter explains the philosophical approach, research strategy, and design decisions that govern the construction and evaluation of the proposed framework. It proceeds in two parts: the first covers the research design from philosophical positioning through to the evaluation approach; the second addresses the ethical and professional considerations arising from the use of operational data in a regulated financial institution.
+The philosophical approach, research strategy, and design decisions that govern the construction and evaluation of the proposed framework are developed in this chapter. It proceeds in two parts: the first covers the research design from philosophical positioning through to the evaluation approach; the second addresses the ethical and professional considerations arising from the use of operational data in a regulated financial institution.
 
 ## Research Design
 

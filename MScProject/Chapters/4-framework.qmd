@@ -1,6 +1,6 @@
 # Framework Development and Results {#sec-chapter4}
 
-This chapter presents the construction and application of the TOPSIS-based prioritisation framework. It covers data preparation, indicator normalisation and weight assignment, TOPSIS computation, and the interpretation of results. The sensitivity analysis, which constitutes an evaluation activity, is presented in @sec-chapter5. The complete Python implementation used to produce all outputs in this chapter is provided as a reproducible artefact in Appendix A, where the script inputs, normalisation steps, and distance computations are documented in full.
+Twelve months of live ITSM and CMDB records from a regulated Swiss trading institution supply the raw material for this chapter. The indicator values extracted from those records, the normalisation and weighting decisions applied to them, and the TOPSIS scores that result are each documented and justified in the sections below.
 
 ## Data Preparation {#sec-dataprep}
 
@@ -40,3 +40,15 @@ Incident frequency, MTTR, CFR, and unsupported component months are cost criteri
 
 Each indicator was normalised using vector normalisation, as specified in @sec-frameworkdesign. This removes differences in scale and unit while preserving proportional relationships between values. A service with an unusually high MTTR retains its full distance from lower-performing services in the normalised space, rather than being compressed toward a fixed upper bound. Min-max normalisation was considered and rejected on this basis. @grecoMethodologicalFrameworkComposite2019 recommend vector normalisation for composite indicators precisely because it does not reduce the discriminatory power of extreme observations.
 
+Two weight configurations are applied, as specified in @sec-frameworkdesign. The baseline equal-weight configuration assigns $w_j = 0.20$ to each of the five criteria and serves as the reference case. The differential configuration assigns higher weights to MTTR and CFR, consistent with the design rationale established in @sec-chapter3. The differential weights are $w_{\text{MTTR}} = w_{\text{CFR}} = 0.30$ and $w_{\text{IncFreq}} = w_{\text{Patch}} = w_{\text{UnsupComp}} \approx 0.133$.
+
+| Configuration | Incident Freq. | MTTR | CFR | Patch Recency | Unsup. Comp. Months |
+|---|---|---|---|---|---|
+| Equal (baseline) | 0.200 | 0.200 | 0.200 | 0.200 | 0.200 |
+| Differential | 0.133 | 0.300 | 0.300 | 0.133 | 0.134 |
+
+: Weight configurations {#tbl-weights tbl-colwidths="[25,15,12,12,18,18]"}
+
+## TOPSIS Computation and Rankings {#sec-topsis-results}
+
+The computation follows the TOPSIS formulation specified in @sec-frameworkdesign and was executed using the Python artefact in Appendix A. After constructing the weighted normalised matrix, the positive ideal solution $A^+$ and negative ideal solution $A^-$ are identified. 

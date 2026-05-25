@@ -1,5 +1,7 @@
 # Evaluation {#sec-chapter5}
 
+A ranking instrument earns its place in governance practice only if its outputs survive scrutiny. This chapter puts the framework under two forms of pressure: it tests whether rankings shift when criterion weights change, and whether the scores produced align with independent operational evidence that was not used to construct them.
+
 ## Evaluation Aim
 
 ## Evaluation Criteria
