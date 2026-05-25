@@ -151,7 +151,11 @@ As a systemically significant institution, the organisation is also subject to F
 
 ### Responsible Use of Prioritisation Outputs
 
-A relative rank assigned to a service carries a risk of being misused to evaluate team performance. High-debt service profiles typically reflect historical design decisions or legacy constraints rather than the competence of the team currently managing the service [@ahmadTechnicalDebtNot2026]. Three mitigations address this risk: framework documentation explicitly states that $C_i$ reflects the operational state of a service rather than team performance; outputs are intended for IT governance and portfolio management functions only; and the sensitivity analysis makes weighting assumptions transparent, reducing the risk of false precision.
+A relative rank assigned to a service carries a risk of being misused to evaluate team performance. High-debt service profiles typically reflect historical design decisions or legacy constraints rather than the competence of the team currently managing the service [@ahmadTechnicalDebtNot2026]. This risk is not hypothetical in regulated financial institutions, where priority scores can influence budgets, staffing allocations and post-incident accountability.
+
+The governance scope of this framework was agreed with the Head of Trading IT at the outset of the study. The explicit understanding was that the framework would support a broader, portfolio-level view of service health and inform governance conversations, rather than serve as a definitive or binding prioritisation instrument. The closeness coefficient is a decision-support signal derived from operational proxies, and it was presented as such from the start of the engagement.
+
+Team leads were not involved in the creation of this framework, as the study was conducted solely by the author as part of a master's thesis. No outputs were shared with service teams during the research period. Any operational use of the priority scores beyond the agreed portfolio management scope would require a separate governance decision by the Head of Trading IT before deployment.
 
 ### Professional Standards and Limitations
 
