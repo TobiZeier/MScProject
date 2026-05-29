@@ -358,7 +358,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 			\bigskip
 			{\normalsize\bfseries \@title \par}% Thesis title
 			\medskip
-			{\normalsize \byname{} \authorname \par}% Author name
+			{\normalsize \byname{} \authorname~--~\thesistudentid \par}% Author name & Student ID
 			\bigskip
 		\end{center}
 	}
@@ -384,7 +384,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 		\bigskip
 		{\normalsize\bfseries \@title \par}% Thesis title
 		\medskip
-		{\normalsize \byname{} \authorname \par}% Author name
+		{\normalsize \byname{} \authorname~--~\thesistudentid \par}% Author name & Student ID
 		\bigskip
 	\end{center}
 }

@@ -16,6 +16,10 @@
 \usepackage{longtable}
 \usepackage{enumitem}
 \usepackage{pdflscape}
+\usepackage{tabularx}
+
+% student id is not defined in MastersDoctoralThesis.cls — define manually
+\NewDocumentCommand{\studentid}{m}{\newcommand{\thesistudentid}{#1}}
 
 % cosupervisor is not defined in MastersDoctoralThesis.cls — define manually
 \NewDocumentCommand{\cosupervisor}{m}{\newcommand{\cosupname}{#1}}

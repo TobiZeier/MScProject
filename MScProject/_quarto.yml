@@ -18,6 +18,8 @@ book:
     - appendices/appendixa.qmd
 
 thesis:
+  student: 
+    id: "12696372"
   supervisor:
     name: "Dr Zahid Ullah"
   co-supervisor:
@@ -63,6 +65,7 @@ format:
   pdf:
     documentclass: MastersDoctoralThesis
     classoption: ["12pt", "oneside", "english", "onehalfspacing", "headsepline"]
+    mainfont: "Times New Roman"
     fontsize: 12pt
     linestretch: 1.5
     geometry:

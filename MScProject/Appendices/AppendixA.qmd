@@ -5,16 +5,23 @@
 #| echo: true
 #| code-fold: false
 
+#!/usr/bin/env python
+"""
+TOPSIS-based Technical Debt Prioritisation Framework
+
+Description: Reads a CSV of IT services with five operational indicators and produces:
+  1. A ranked results table printed to the console.
+  2. A bar chart saved as topsis_ranking.png.
+"""
+
 import argparse
-import sys
 import json
+import sys
 
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 
-
-# ── Configuration ──────────────────────────────────────────────────────────────
 CRITERIA = [
     "incident_freq",
     "mttr_hrs",
@@ -23,7 +30,6 @@ CRITERIA = [
     "unsupported_months",
 ]
 
-# Cost criteria lower value = better (all except patch_recency)
 COST_CRITERIA = [
     "incident_freq",
     "mttr_hrs",
@@ -31,8 +37,7 @@ COST_CRITERIA = [
     "unsupported_months",
 ]
 
-# Equal weights — one per criterion, must sum to 1.0
-WEIGHTS = np.array([0.20, 0.20, 0.20, 0.20, 0.20])
-
+WEIGHTS = np.array([0.20, 0.20, 0.20, 0.20, 0.20], dtype=float)
+OUTPUT_CHART = "topsis_ranking.png"
 
 ```

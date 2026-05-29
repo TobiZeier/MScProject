@@ -24,9 +24,13 @@ $endif$
 \begin{flushleft} \normalsize
 \emph{Author:}\\
 $if(author.url)$
-\href{$author.url$}{\authorname} % Author name - remove the \href bracket to remove the link
+\href{$author.url$}{\authorname}\\[0.3cm] % Author name - remove the \href bracket to remove the link
+\emph{Student ID:}\\
+\thesistudentid
 $else$
-\authorname
+\authorname\\[0.3cm]
+\emph{Student ID:}\\
+\thesistudentid
 $endif$
 \end{flushleft}
 \end{minipage}

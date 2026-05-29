@@ -61,17 +61,19 @@ The study adopts the individual IT service as the unit of analysis, defined as a
 
 The literature review (@sec-chapter2) identified candidate indicators mapping technical debt dimensions to operational data (see @tbl-indicators-lit). A data audit against available ITSM and CMDB fields refined this set prior to data collection. Documentation completeness was excluded as no structured ITSM or CMDB field captures it consistently across services; relevant records reside in unstructured repositories not amenable to uniform extraction. Test coverage ratio and architectural coupling were excluded because both require access to assets unavailable in this environment: test coverage is derived from CI/CD build artefacts or source repositories, and architectural coupling is measured through static dependency graph analysis of compiled code [@amanatidisEvaluatingAgreementTechnical2020]; neither is accessible for vendor-managed nor outsourced components. Raw vulnerability density was excluded as subsumed by patch recency, which provides a more stable CMDB-derived proxy grounded in regulatory patching compliance rather than raw scanner counts whose coverage varies across components.
 
-The five retained indicators are fully operationalisable from live records held in the organisation's ITSM instance and CMDB. Records were accessed under an agreed arrangement with the Head of Trading IT over a twelve-month observation window (January–December 2025) and anonymised at source, with service names replaced by alphanumeric identifiers and all team and vendor labels removed before analysis.
+The five retained indicators are operationalisable from live records held in the organisation's ITSM instance and CMDB. Records were accessed under an agreed arrangement with the Head of Trading IT over a twelve-month observation window (January–December 2025) and anonymised at source, with service names replaced by alphanumeric identifiers and all team and vendor labels removed before analysis.
 
 | Indicator | Operational Definition | Source | Unit | Direction |
 |---|---|---|---|---|
-| Incident frequency | Count of P2 and P3 incidents per service within the observation window, normalised by service age in months. P1 incidents, defined by the organisation as cases where the majority of its business is affected, did not occur within the observation period and are excluded. | ITSM | Incidents / month | Cost |
-| MTTR | Mean elapsed time from incident creation to resolution status, averaged across all P2 and P3 incidents per service | ITSM | Hours | Cost |
-| CFR | Proportion of change records per service that resulted in an unplanned incident or rollback within 72 hours of deployment | ITSM | Percentage (0–100) | Cost |
-| Patch recency | Proportion of components within each service's dependency stack recorded as within a vendor-supported version window at point of extraction | CMDB | Percentage (0–100) | Benefit |
-| Unsupported component months | Cumulative months of exposure to unsupported components within the service's CMDB dependency stack during the observation window | CMDB | Months | Cost |
+| Incident frequency | Number of incidents per service per month. | ITSM | Incidents / month | Cost |
+| MTTR | Arithmetic mean resolution time for incidents. | ITSM | Hours | Cost |
+| CFR | Weighted incidents divided by the number of changes. | ITSM | Percentage (0–100) | Cost |
+| Patch recency | Share of service components running within a supported release window. | CMDB | Percentage (0–100) | Benefit |
+| Unsupported component months | Total months of exposure to unsupported components in the service stack. | CMDB | Months | Cost |
 
 : Operational definition of indicators used in the TOPSIS framework {#tbl-indicators-def tbl-colwidths="[20,40,10,15,15]"}
+
+The operational definitions above should be read with two caveats. First, incident frequency and MTTR are based on P2 and P3 incidents only, because these are the severity levels used consistently in the case organisation’s ITSM records. Second, CFR is a derived proxy rather than a directly tracked service metric, and is calculated from weighted incidents divided by the number of changes. 
 
 Incident frequency, MTTR and CFR proxy the operational consequences of architectural and infrastructure debt. Service instability and slow recovery are empirically linked to TD severity in vendor-managed portfolios [@ramasubbuControllingTechnicalDebt2021; @nielsenITPortfolioManagement2022]. Deployment instability is classified as a direct observable symptom of accumulated debt [@nordExamplesTechnicalDebts2021; @forsgrenAccelerate2018]. @nordExamplesTechnicalDebts2021 further ground the inclusion of MTTR and CFR specifically by classifying delivery tempo degradation as a diagnostic TD signal detectable from production records, independently of source code access. Patch recency captures the proportion of components currently within a vendor-supported version window. Unsupported component months measures the cumulative duration of exposure to end-of-life components during the observation period. Together, these two CMDB-derived indicators operationalise infrastructure lifecycle and vulnerability debt following @hakiDigitalNudgingTechnical2023, differentiating services with similar current patch status but differing historical debt accumulation. Service-level operational indicators are treated as candidate proxies for technical debt prioritisation rather than established substitutes. The validity of this inference is the central empirical hypothesis tested in @sec-chapter5.
 
@@ -110,7 +112,7 @@ $$
 C_i = \frac{S_i^{\text{-}}}{S_i^{\text{+}} + S_i^{\text{-}}}, \quad C_i \in [0, 1]
 $$
 
-A higher $C_i$ indicates a service closer to the worst-case operational profile, representing a higher technical debt priority. Incident frequency, MTTR, CFR, and unsupported component months are cost criteria where lower values are preferable; patch recency is a benefit criterion where higher values are preferable.
+A higher $C_i$ indicates that a service is closer to the ideal best operational profile across the full indicator set and therefore has lower technical debt priority. Incident frequency, MTTR, CFR, and unsupported component months are cost criteria where lower values are preferable; patch recency is a benefit criterion where higher values are preferable.
 
 @fig-framework-pipeline illustrates the full pipeline from indicator collection through to ranked output.
 
@@ -124,7 +126,7 @@ flowchart LR
     --> B["<b>Normalisation</b><br/>Scale each value<br/>by column norm<br/>(vector normalisation)"]
     --> C["<b>Weighting</b><br/>Multiply by w_j<br/>Equal: w_j = 0.20<br/>or differential"]
     --> D["<b>TOPSIS Scoring</b><br/>Distances to ideal<br/>best and worst<br/>Closeness Ci in [0,1]"]
-    --> E["<b>Ranked Prioritisation</b><br/>Services ordered<br/>by Ci descending<br/>(higher = more debt)"]
+    --> E["<b>Ranked Prioritisation</b><br/>Services ordered<br/>by Ci ascending<br/>(lower = more debt)"]
 ```
 
 Two weight configurations are used. A baseline equal-weight configuration ($w_j = 0.20$) serves as the reference case. Equal weighting is the standard default in composite indicator construction in the absence of empirically justified differential weights [@grecoMethodologicalFrameworkComposite2019], and provides a transparent basis for the sensitivity analysis that follows. A secondary configuration assigns higher weight to MTTR and CFR ($w_j = 0.30$ each) and lower weight to the remaining three indicators ($w_j = 0.133$ each), reflecting a practitioner judgement that service recovery time and deployment instability carry greater operational consequence in time-critical trading environments. This weighting is not derived from literature and is treated as an explicit assumption; its influence on rankings is assessed in @sec-chapter5. The sensitivity of rankings to weight perturbation more broadly is also assessed there, following the practice recommended by @grecoMethodologicalFrameworkComposite2019 for composite indicators.
