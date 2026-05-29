@@ -32,7 +32,7 @@ Two secondary questions support the investigation.
 
 ## Significance of the Study
 
-The principal academic contribution is a prescriptive design artefact that bridges IT service management and software quality engineering, addressing a gap the technical debt literature has not yet systematically engaged with. To the best of current knowledge, no prior study has applied TOPSIS to live operational records from a financial trading institution for technical debt prioritisation. Practically, the framework operates on data routinely available in enterprise ITSM and CMDB systems without requiring source code access, making it directly applicable to vendor-dominated trading IT architectures and supporting auditable remediation decisions in regulated environments [@finmaCircular202312024].
+The main academic contribution is a working prioritisation framework that did not previously exist for this type of environment, connecting how services are managed operationally with how technical debt is typically studied in the software engineering literature. To the best of current knowledge, no prior study has applied TOPSIS to live operational records from a financial trading institution for technical debt prioritisation. Practically, the framework operates on data routinely available in enterprise ITSM and CMDB systems without requiring source code access, making it directly applicable to vendor-dominated trading IT architectures and supporting auditable remediation decisions in regulated environments [@finmaCircular202312024].
 
 ## Thesis Structure
 

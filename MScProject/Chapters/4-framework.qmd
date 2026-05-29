@@ -22,7 +22,7 @@ These limitations do not invalidate the proxy approach. Scores should be interpr
 
 ### Operational Indicator Values
 
-@tbl-raw-data presents the extracted indicator values for all five services. Incident frequency is the total number of P2 and P3 incidents attributed to the service during the observation window, divided by service age in months. MTTR is the arithmetic mean of elapsed hours between incident creation and resolution across all P2 and P3 incidents. CFR is the proportion of production changes that resulted in an unplanned rollback or a subsequent incident within 72 hours of deployment. Patch recency is the proportion of components in the service's CMDB dependency stack whose installed version falls within a currently supported release window. Unsupported component months is the cumulative months of exposure to unsupported components within the service's dependency stack during the observation window.
+@tbl-raw-data presents the extracted indicator values for all five services. The definition for these indicators have been described in @sec-datasources.
 
 | Service | Incident Freq. (per month) | MTTR (hrs) | CFR | Patch Recency | Unsup. Comp. Months |
 |---|---|---|---|---|---|
@@ -51,4 +51,4 @@ Two weight configurations are applied, as specified in @sec-frameworkdesign. The
 
 ## TOPSIS Computation and Rankings {#sec-topsis-results}
 
-The computation follows the TOPSIS formulation specified in @sec-frameworkdesign and was executed using the Python artefact in Appendix A. After constructing the weighted normalised matrix, the positive ideal solution $A^+$ and negative ideal solution $A^-$ are identified. 
+The computation follows the TOPSIS formulation specified in @sec-frameworkdesign and was executed using the Python artefact in Appendix A. This process calculates the closeness coefficient $C_i$ for each service based on its Euclidean distance from the ideal solution. 
