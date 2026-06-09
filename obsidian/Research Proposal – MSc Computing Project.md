@@ -1,0 +1,111 @@
+
+
+
+# Introduction and Research Question
+
+Technical debt is a well-established concept in software engineering and information systems research, originally coined by @cunninghamWyCashPortfolioManagement1993 as a metaphor to describe the long-term cost implications of short-term technical decisions. The metaphor draws an analogy between financial debt and the accumulated burden created when expedient but suboptimal solutions are chosen during software development or system maintenance. Just as financial debt accrues interest, technical debt accumulates over time, making future changes increasingly costly and difficult [@sasArchitecturalTechnicalDebt2023]. The concept has since expanded well beyond its origins in agile software development to encompass architectural, infrastructure, organisational, and process dimensions of IT systems [@rosserSystemsPerspectiveTechnical2021].
+
+Despite the breadth of academic and practitioner literature, existing technical debt approaches primarily focus on code-level metrics or qualitative classifications. Tools such as SonarQube measure debt through static code analysis, identifying issues such as code smells, duplications, and complexity violations [@amanatidisEvaluatingAgreementTechnical2020]. While valuable in pure software development contexts, such approaches offer limited applicability in complex trading IT environments, where operational reliability depends on tightly coupled services, third-party vendor platforms, middleware, and infrastructure components rather than on internally developed software alone. In these environments, the most impactful forms of technical debt are often invisible to code analysis tools yet manifest clearly in operational metrics such as incident frequency, recovery time, and change failure rates.
+
+Trading IT services operate under strict availability and performance requirements governed by internal service level agreements and external regulatory obligations. Failures can lead to immediate financial loss, regulatory censure, and lasting reputational damage [@ramasubbuTechnicalDebtReliability2016]. The relationship between accumulated technical debt and such operational outcomes is therefore of critical importance to practitioners responsible for managing these environments. However, decisions regarding technical debt remediation are frequently made on the basis of intuition or ad hoc judgement rather than empirically grounded, quantitative evidence. This disconnect between technical debt theory and practice in enterprise service management represents the central problem motivating this research.
+
+This research addresses this gap by designing a multi-criteria decision-making framework that applies TOPSIS to service-level technical debt indicators derived from operational data. The research question is: *How can a TOPSIS-based, service-level technical debt framework be designed and empirically evaluated to prioritise remediation decisions in mission-critical trading IT services using operational incident and change data?*
+
+
+# Aims and Objectives
+
+The aim of this research is to design, implement, and evaluate a TOPSIS-based framework for measuring and prioritising technical debt at the service level within trading IT environments. Unlike existing approaches that focus on source code, the framework will operate on service management data, making it applicable to the full technology stack of a trading IT organisation, including vendor platforms, infrastructure services, and middleware components.
+
+The supporting objectives are:
+
+- To identify measurable service-level indicators of technical debt applicable to trading IT services through a structured and critical review of the existing literature
+- To design a formal multi-criteria model defining technical debt criteria (e.g., incident frequency, MTTR, change failure rate, patch lag), their normalisation, weighting, and the TOPSIS procedure for computing a priority index per service
+- To implement the model as a prototype decision-support artefact (Python-based tool) that ingests anonymised service-level operational data, computes technical debt profiles and TOPSIS closeness coefficients, and outputs a ranked prioritisation of services
+- To empirically examine the statistical relationship between TOPSIS-derived priority scores and operational outcomes, validating the framework's explanatory power
+- To assess the stability of prioritisation under weight variations through sensitivity analysis
+- To reflect on the framework's limitations and identify directions for future refinement and broader application in regulated enterprise IT contexts
+
+
+## Description of the Artefact
+
+The artefact consists of two integrated components:
+
+**Mathematical model (MCDM + TOPSIS):** A formal model that defines input criteria reflecting technical debt and operational risk (incident frequency, incident age and backlog, MTTR, change failure rate, patch/upgrade lag, proportion of end-of-life components), normalises each criterion according to its type (benefit or cost), applies literature-derived weights, determines positive ideal and negative ideal solutions, computes Euclidean distances from each service to both ideals, and calculates a TOPSIS closeness coefficient producing a priority score for each service.
+
+**Implemented prototype (Python tool):** A Python-based implementation that reads anonymised service-level data from CSV or similar formats, applies the mathematical model programmatically, and produces three outputs: (1) a ranked list of services ordered by remediation priority, (2) a tabular view showing indicator values and TOPSIS scores per service, and (3) visualisations (bar charts or scatter plots) to support interpretation by service managers.
+
+
+# Literature Review Skeleton
+
+The literature review will be structured into four thematic sections totalling approximately 4,400–4,600 words.
+
+## Theme 1: Technical Debt Foundations and Enterprise Context
+
+Origins and evolution of technical debt [@cunninghamWyCashPortfolioManagement1993; @avgeriouTechnicalDebtManagement2024], types of debt (code, architectural, infrastructure, organisational), intentional versus unintentional incurrence, and extension to system-level and service-level concerns [@rosserSystemsPerspectiveTechnical2021]. Contextualises technical debt in enterprise and regulated financial environments, examining legacy systems in capital markets, regulatory constraints, operational risk, and service continuity implications [@ramasubbuTechnicalDebtReliability2016; @wieseITManagersPerspective2023].
+
+## Theme 2: Multi-Criteria Decision-Making (MCDM) in Software and IT Management
+
+Introduction to MCDM concepts (alternatives, criteria, weights, normalisation, aggregation) and applications in software engineering and IT management, including requirements prioritisation, risk assessment, vendor evaluation, and incident prioritisation. Discusses strengths and limitations of MCDM in complex decision environments.
+
+## Theme 3: TOPSIS and Related Methods for Prioritisation
+
+Principles of TOPSIS [@paulyoonTopsis1995], ideal and negative-ideal solutions, distance measures, and closeness coefficient. Comparison with other MCDM techniques (AHP, ELECTRE, PROMETHEE) and justification for selecting TOPSIS based on its ability to handle conflicting criteria, support weight variation and sensitivity analysis, and produce interpretable rank-ordered outputs. Examples of TOPSIS applied to IT service management and reliability-based decision-making.
+
+## Theme 4: Research Gap – Service-Level Technical Debt Prioritisation in Trading IT
+
+Limitations of code-centric technical debt metrics for service-oriented, vendor-heavy environments. Lack of service-level, operationally grounded frameworks connecting technical debt indicators with prioritised remediation decisions. Absence of TOPSIS-based technical debt prioritisation in mission-critical trading IT services. Need for an artefact that uses operational incident and change data, provides transparent auditable rankings, and supports decision-making under regulatory and reliability constraints.
+
+
+# Research Methods
+
+The research adopts a Design Science Research (DSR) methodology [@vombrockeIntroductionDesignScience2020]. DSR is particularly appropriate as it explicitly supports the creation and rigorous evaluation of novel artefacts within real-world organisational contexts. The research philosophy is pragmatist, treating quantitative empirical analysis and engineering design as complementary modes of inquiry.
+
+## Data Collection
+
+The sole data source is anonymised historical service management data from a trading IT environment in which the researcher operates professionally. The dataset includes incident management records, change management logs, configuration management data, and infrastructure lifecycle information, all aggregated at the service level. Personally identifiable information and commercially sensitive details will be removed through a documented anonymisation process before analysis. No human participants will be recruited and no primary data collection from individuals will take place.
+[[Data Collection for Literature Review]]
+
+## Artefact Design
+
+A composite technical debt scoring model will be constructed translating service-level indicators into weighted numeric scores. Candidate indicators include proportion of end-of-life components, volume and age of open incidents, patch and upgrade lag relative to vendor schedules, change failure rate, and MTTR trend. Indicator selection and weighting will be derived systematically from the literature, ensuring traceability between framework design and theoretical foundations.
+
+## Prioritisation using TOPSIS
+
+After computing individual technical debt scores, the framework employs TOPSIS to rank services for remediation. This technique calculates each service's geometric distance from a theoretically ideal solution (best possible values across all indicators) and from a negative ideal solution (worst possible values). Services closest to the ideal and furthest from the negative ideal receive highest priority. This approach effectively manages conflicting criteria, incorporates differential weights, and produces auditable results to inform management decisions.
+
+## Analysis
+
+Statistical correlation and regression analysis will examine the relationship between composite technical debt scores and observed operational performance metrics. This assesses whether higher technical debt scores are statistically associated with worse operational outcomes, empirically validating the framework's explanatory power. All analysis will be conducted in Python using freely available libraries. Results will be visualised to support interpretation and communication.
+
+## Evaluation
+
+The framework will be evaluated through a single-organisation case study. The prototype will be applied to historical data to generate TOPSIS-based rankings. These rankings will be compared to observed outcomes in subsequent periods to assess whether high-priority services exhibit worse reliability characteristics. Sensitivity analysis will vary indicator weights within plausible ranges to assess ranking stability.
+
+**Success Criteria:**
+
+- **Construct validity:** Indicators and model reflect technical debt and operational risk concepts from the literature
+- **Predictive validity:** High-priority services (by TOPSIS) show significantly worse reliability metrics than lower-priority services, measured using correlation metrics
+- **Discriminatory power:** High prioritised services account for a disproportionate share of serious incidents compared to lower-ranked services
+- **Stability:** Limited ranking volatility under reasonable weight variations in sensitivity analysis
+- **Interpretability:** Rankings and underlying indicators are straightforward to interpret by service managers
+
+
+# Work Packages and Timeline
+
+| # | Work Package | Description | Duration |
+|---|---|---|---|
+| 1 | Project initiation and ethical approval | Define scope, complete proposal and ethical approval process | 6 weeks |
+| 2 | Literature review and gap analysis | Structured critical review of technical debt, MCDM, TOPSIS, and trading IT literature | 4 weeks |
+| 3 | Research design and data strategy | Finalise methodology, case study design, and data anonymisation approach | 3 weeks |
+| 4 | Framework design | Identify and validate service-level indicators; design composite scoring and TOPSIS prioritisation model | 5 weeks |
+| 5 | Data preparation and analysis design | Extract, anonymise, and prepare data; define statistical analytical approach | 3 weeks |
+| 6 | Artefact implementation | Implement the scoring and TOPSIS framework as a functional Python-based prototype | 3 weeks |
+| 7 | Empirical evaluation | Apply artefact to case study dataset, perform correlation analysis and sensitivity testing | 1 week |
+| 8 | Writing and submission | Integrate findings, finalise dissertation, and submit | 3 weeks |
+| 9 | Presentation and defence | Prepare materials and deliver oral defence | 2 weeks |
+
+**Total estimated duration:** 30 weeks.
+
+A Gantt chart detailing the full project timeline is available at: <https://github.com/TobiZeier/UoEO_MSc_EIM/blob/main/Module8_MSc_Computing_Project/Unit2-GanttChartMScProject.pdf>
+
+The primary artefact is a Python-based prototype capable of ingesting anonymised service management data, computing a composite technical debt score per service, applying TOPSIS to produce a ranked prioritisation of services for remediation, and generating visualisations of the relationship between debt scores and operational performance metrics. The artefact is designed to be practically applicable to prioritisation decisions within mission-critical trading IT service portfolios, representing the research's primary contribution to practice.
