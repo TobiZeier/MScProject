@@ -29,6 +29,7 @@ COST_CRITERIA = [
 ]
 
 WEIGHTS = np.array([0.20, 0.20, 0.20, 0.20, 0.20], dtype=float)
+#WEIGHTS = np.array([0.30, 0.30, 0.1333, 0.1333, 0.1333], dtype=float)
 
 OUTPUT_CHART = "topsis_ranking.png"
 
