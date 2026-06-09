@@ -196,20 +196,20 @@ Existing TOPSIS applications to technical debt rely on controlled datasets, and 
 
 The following table maps the literature reviewed in this chapter to the thesis argument. For each thematic category, it identifies what existing sources cover, where the literature falls short, and precisely what this dissertation addresses in response. The table makes the novelty of the contribution explicit because no existing study combines all four elements, namely service level indicators, multi criteria prioritisation, live operational data, and a trading IT context, into a single auditable framework.
 
-| Reference | Focus / Approach | Data Level | Service-Level Indicators | Multi-Criteria Prioritisation | Financial / Regulated IT | Key Gap |
-|---|---|---|---|---|---|---|
-| @kruchtenTechnicalDebtMetaphor2012; @fowlerTechnicalDebtQuadrant2009; @cunninghamWyCashPortfolioManagement1992 | TD taxonomy and metaphor | Conceptual | ✗ | ✗ | ✗ | No measurement or prioritisation mechanism |
-| @biazottoTechnicalDebtManagement2024; @amanatidisEvaluatingAgreementTechnical2020; @ampatzoglouSDK4EDPlatformTechnical2022 | Static analysis and code-level tools | Code | ✗ | ✗ | ✗ | Inapplicable to vendor-hosted platforms |
-| @lenarduzziSystematicLiteratureReview2021; @pinaTechnicalDebtPrioritization2022; @alfayezHowSonarQubeidentifiedTechnical2023 | TD prioritisation strategies | Code / backlog | ✗ | Partial | ✗ | Single criterion; no operational data |
-| @stochelBusinessdrivenTechnicalDebt2023; @wieseITManagersPerspective2023 | Business-driven TD valuation | Development | ✗ | ✗ | ✗ | No service-level operational signals |
-| @hakiDigitalNudgingTechnical2023; @rollandExploringTensionsManagement2021 | TD in financial services | Organisational | Partial | ✗ | ✓ | No quantitative ranking output |
-| @bankerTechnicalDebtFirm2020; @ramasubbuControllingTechnicalDebt2021; @rinta-kahilaGettingTrappedTechnical2023 | Enterprise COTS and outsourcing debt | System / firm | ✗ | ✗ | ✓ | No prioritisation framework |
-| @forsgrenAccelerate2018; @nordExamplesTechnicalDebts2021; @paudelExploringRelationshipTechnical2025; @nielsenITPortfolioManagement2022 | DORA metrics as TD proxies | Service | ✓ | ✗ | Partial | Single-criterion; no ranking instrument |
-| @tizioSoftwareUpdatesStrategies2023; @markkanenPatchManagementPlanning2023; @nursePatchNotPatch2025 | Patch management and vulnerability debt | Service / infrastructure | Partial | ✗ | Partial | Not integrated into TD prioritisation |
-| @albarakManagingTechnicalDebt2022; @khanIntegratedMethodologyRanking2022; @zytoonDecisionSupportModel2020 | TOPSIS and MCDM in IT contexts | Controlled / synthetic | ✗ | ✓ | ✗ | No live operational data; no trading IT context |
-| **This study** | **TOPSIS framework on ITSM/CMDB data** | **Service** | **✓** | **✓** | **✓** | — |
+| Reference | Focus | SL Ind. | Multi-crit. | Fin. IT | Key gap |
+|---|---|:---:|:---:|:---:|---|
+| [@kruchtenTechnicalDebtMetaphor2012]; [@fowlerTechnicalDebtQuadrant2009]; [@cunninghamWyCashPortfolioManagement1992] | TD taxonomy | ⨯ | ⨯ | ⨯ | No measurement mechanism |
+| [@biazottoTechnicalDebtManagement2024]; [@amanatidisEvaluatingAgreementTechnical2020]; [@ampatzoglouSDK4EDPlatformTechnical2022] | Static analysis tools | ⨯ | ⨯ | ⨯ | Inapplicable to vendor platforms |
+| [@lenarduzziSystematicLiteratureReview2021]; [@pinaTechnicalDebtPrioritization2022]; [@alfayezHowSonarQubeidentifiedTechnical2023] | TD prioritisation | ⨯ | Partial | ⨯ | Single criterion; no operational data |
+| [@stochelBusinessdrivenTechnicalDebt2023]; [@wieseITManagersPerspective2023] | Business-driven valuation | ⨯ | ⨯ | ⨯ | No service-level signals |
+| [@hakiDigitalNudgingTechnical2023]; [@rollandExploringTensionsManagement2021] | TD in financial services | Partial | ⨯ | ✓ | No quantitative ranking output |
+| [@bankerTechnicalDebtFirm2020]; [@ramasubbuControllingTechnicalDebt2021]; [@rinta-kahilaGettingTrappedTechnical2023] | Enterprise COTS and outsourcing | ⨯ | ⨯ | ✓ | No prioritisation framework |
+| [@forsgrenAccelerate2018]; [@nordExamplesTechnicalDebts2021]; [@paudelExploringRelationshipTechnical2025] | DORA metrics as TD proxies | ✓ | ⨯ | Partial | No ranking instrument |
+| [@tizioSoftwareUpdatesStrategies2023]; [@markkanenPatchManagementPlanning2023]; [@nursePatchNotPatch2025] | Patch and vulnerability debt | Partial | ⨯ | Partial | Not linked to TD prioritisation |
+| [@albarakManagingTechnicalDebt2022]; [@khanIntegratedMethodologyRanking2022]; [@zytoonDecisionSupportModel2020] | TOPSIS / MCDM in IT | ⨯ | ✓ | ⨯ | No live data; no trading IT context |
+| **This study** | **TOPSIS on ITSM/CMDB data** | **✓** | **✓** | **✓** | **—** |
 
-: Overview of related work and research gap {#tbl-lit-overview tbl-colwidths="[28,22,10,10,10,10,10]"}
+: Overview of related work and research gap {#tbl-lit-overview tbl-colwidths="[30,20,10,10,8,22]"}
 
 The research gap identified in the final row of @tbl-lit-overview defines the problem that Chapter 3 translates into a concrete research design, and that Chapters 4 and 5 address through framework construction and evaluation.
 
