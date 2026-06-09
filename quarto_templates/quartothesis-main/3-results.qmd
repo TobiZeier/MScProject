@@ -1,5 +1,0 @@
-# Results
-
-What I found out.
-
-See [Appendix -@sec-more-results] for more detailed results

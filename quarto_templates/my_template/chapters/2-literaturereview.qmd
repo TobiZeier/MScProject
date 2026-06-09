@@ -1,5 +1,0 @@
-# Data Collection
-How did the student collect the data?
-
-## Data Bases
-IEEExplore, Scopus, UoEO
