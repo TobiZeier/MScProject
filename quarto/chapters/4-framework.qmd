@@ -30,12 +30,12 @@ These limitations do not invalidate the proxy approach. Scores should be interpr
 
 | Service | Incident Freq. (per year) | MTTR (hrs) | CFR | Patch Recency | Unsup. Comp. Months |
 |------------|-----------:|-----------:|-----------:|-----------:|-----------:|
-| SSVC-01 | 64 | 45.35 | 0.83 | 92.45 | 44 |
-| SSVC-02 | 30 | 25.26 | 0.19 | 59.93 | 1221 |
-| SSVC-03 | 21 | 13.31 | 0.38 | 100.00 | 0 |
-| SSVC-04 | 574 | 41.91 | 3.38 | 100.00 | 0 |
-| SSVC-05 | 171 | 23.72 | 1.52 | 100.00 | 0 |
-| SSVC-06 | 302 | 13.11 | 3.96 | 56.25 | 353 |
+| SVC-01 | 64 | 45.35 | 0.83 | 92.45 | 44 |
+| SVC-02 | 30 | 25.26 | 0.19 | 59.93 | 1221 |
+| SVC-03 | 21 | 13.31 | 0.38 | 100.00 | 0 |
+| SVC-04 | 574 | 41.91 | 3.38 | 100.00 | 0 |
+| SVC-05 | 171 | 23.72 | 1.52 | 100.00 | 0 |
+| SVC-06 | 302 | 13.11 | 3.96 | 56.25 | 353 |
 
 : Extracted indicator values per service (January--December 2025) {#tbl-raw-data tbl-colwidths="\[14,20,13,12,16,18\]"}
 
