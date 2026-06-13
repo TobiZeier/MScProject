@@ -17,6 +17,10 @@
 \usepackage{enumitem}
 \usepackage{pdflscape}
 \usepackage{tabularx}
+\usepackage{fvextra}
+
+% break long code lines
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
 
 % student id is not defined in MastersDoctoralThesis.cls — define manually
 \NewDocumentCommand{\studentid}{m}{\newcommand{\thesistudentid}{#1}}

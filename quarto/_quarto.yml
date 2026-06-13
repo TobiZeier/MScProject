@@ -16,6 +16,7 @@ book:
   
   appendices: 
     - appendices/appendixa.qmd
+    - appendices/appendixb.qmd
 
 thesis:
   student: 
@@ -81,6 +82,7 @@ format:
       - definitions.tex
     include-in-header:
       - preamble.tex
+    code-overflow: wrap
     keep-tex: true
     toc: false
     toc-depth: 2

@@ -1,4 +1,4 @@
-# Appendix A: Python Code {.appendix}
+# Appendix A: Python Code {#sec-appendixa .appendix}
 
 ```{python}
 #| eval: false
@@ -7,15 +7,12 @@
 
 #!/usr/bin/env python
 """
-TOPSIS-based Technical Debt Prioritisation Framework
-
-Description: Reads a CSV of IT services with five operational indicators and produces:
-  1. A ranked results table printed to the console.
-  2. A bar chart saved as topsis_ranking.png.
+TOPSIS scoring for technical debt prioritisation.
+Reads a CSV of services, scores them with equal and adjusted weights,
+prints both ranked tables, and saves two bar charts.
 """
 
 import argparse
-import json
 import sys
 
 import numpy as np
@@ -30,6 +27,8 @@ CRITERIA = [
     "unsupported_months",
 ]
 
+# patch_recency is a benefit criterion - higher = more recent = better
+# everything else - lower = better
 COST_CRITERIA = [
     "incident_freq",
     "mttr_hrs",
@@ -37,7 +36,196 @@ COST_CRITERIA = [
     "unsupported_months",
 ]
 
-WEIGHTS = np.array([0.20, 0.20, 0.20, 0.20, 0.20], dtype=float)
-OUTPUT_CHART = "topsis_ranking.png"
+EQUAL_WEIGHTS = np.array([0.20, 0.20, 0.20, 0.20, 0.20], dtype=float)
+ADJUSTED_WEIGHTS = np.array([0.13333, 0.30, 0.13333, 0.3, 0.13333], dtype=float)
+
+OUTPUT_CHART_EQUAL = "topsis_ranking_equal.png"
+OUTPUT_CHART_ADJUSTED = "topsis_ranking_adjusted.png"
+
+
+def run_topsis(df, criteria, cost_criteria, weights):
+    if not np.isclose(weights.sum(), 1.0):
+        raise ValueError(f"Weights should sum to 1.0, got {weights.sum():.4f}")
+
+    X = df[criteria].to_numpy(dtype=float)
+
+    # normalise each column
+    norms = np.sqrt((X ** 2).sum(axis=0))
+    if np.any(norms == 0):
+        raise ValueError("One or more criterion columns are all zeros - normalisation not possible.")
+    R = X / norms
+    V = R * weights
+
+    # figure out ideal best/worst per criterion
+    benefit = np.array([c not in cost_criteria for c in criteria])
+    ideal_best = np.where(benefit, V.max(axis=0), V.min(axis=0))
+    ideal_worst = np.where(benefit, V.min(axis=0), V.max(axis=0))
+
+    d_best = np.sqrt(((V - ideal_best) ** 2).sum(axis=1))
+    d_worst = np.sqrt(((V - ideal_worst) ** 2).sum(axis=1))
+
+    total = d_best + d_worst
+    if np.any(total == 0):
+        raise ValueError("A row is equidistant from both ideals - closeness coefficient is undefined.")
+
+    # Ci close to 0 = closest to worst (highest debt priority)
+    Ci = d_worst / total
+
+    out = df[["service"]].copy()
+    out["closeness_coeff"] = Ci
+    out["rank"] = out["closeness_coeff"].rank(ascending=True, method="min").astype(int)
+    return out.sort_values(["rank", "closeness_coeff", "service"]).reset_index(drop=True)
+
+
+def load_data(path):
+    try:
+        df = pd.read_csv(path)
+    except FileNotFoundError:
+        sys.exit(f"Couldn't find file: {path}")
+
+    needed = {"service"} | set(CRITERIA)
+    missing = needed - set(df.columns)
+    if missing:
+        sys.exit(f"CSV is missing these columns: {sorted(missing)}")
+
+    for col in CRITERIA:
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    bad = [c for c in CRITERIA if df[c].isnull().any()]
+    if bad:
+        sys.exit(f"Non-numeric or missing values found in: {bad}")
+
+    if df["service"].isnull().any():
+        sys.exit("Some rows in the service column are empty.")
+
+    return df
+
+
+def print_results(result, title):
+    print()
+    print("=" * 70)
+    print(f"  {title}")
+    print("=" * 70)
+    print(f"  {'Service':<12} {'Closeness Coeff (Ci)':>22} {'Rank':>6}")
+    print("-" * 70)
+    for _, row in result.iterrows():
+        print(f"  {row['service']:<12} {row['closeness_coeff']:>22.4f} {row['rank']:>6}")
+    print("=" * 70)
+    print("  Rank 1 = highest TD priority  |  Ci near 0 = worst")
+    print(f"  Rank {len(result)} = lowest TD priority   |  Ci near 1 = best")
+    print()
+
+
+def save_chart(result, output_path, subtitle):
+    df_plot = result.sort_values(["rank", "closeness_coeff"], ascending=[True, False]).reset_index(drop=True)
+    df_plot["label"] = df_plot.apply(lambda r: f"Rank {int(r['rank'])} · {r['closeness_coeff']:.4f}", axis=1)
+
+    colors = ["#c0392b" if r == 1 else "#2471a3" for r in df_plot["rank"]]
+
+    fig = go.Figure(go.Bar(
+        y=df_plot["service"],
+        x=df_plot["closeness_coeff"],
+        orientation="h",
+        marker_color=colors,
+        text=df_plot["label"],
+        textposition="outside",
+        cliponaxis=False,
+        insidetextanchor="middle",
+    ))
+
+    fig.update_layout(
+        width=1100,
+        height=max(420, 95 * len(df_plot) + 170),
+        title=dict(
+            text=(
+                "Technical Debt Priority<br>"
+                f"<span style='font-size:15px;font-weight:normal;'>{subtitle}</span>"
+            ),
+            font=dict(size=19),
+            y=0.93,
+        ),
+        plot_bgcolor="white",
+        paper_bgcolor="white",
+        margin=dict(t=140, b=60, l=130, r=90),
+        xaxis=dict(
+            title="Closeness coefficient Ci",
+            range=[0, 1.05],
+            tickformat=".2f",
+            gridcolor="#dddddd",
+            zeroline=False,
+            tickfont=dict(size=13),
+        ),
+        yaxis=dict(
+            title="Service",
+            autorange="reversed",
+            tickfont=dict(size=13),
+        ),
+        showlegend=False,
+        uniformtext_minsize=11,
+        uniformtext_mode="hide",
+    )
+
+    try:
+        fig.write_image(output_path)
+    except Exception as exc:
+        raise RuntimeError(
+            "Chart export failed - is kaleido installed? Try: pip install kaleido"
+        ) from exc
+
+    print(f"Chart saved: {output_path}")
+
+
+def _run_tests():
+    # sanity check: A is ideal, C is worst, B sits in the middle
+    test = pd.DataFrame({
+        "service": ["A", "B", "C"],
+        "cost1": [1.4, 2.6, 4.9],
+        "benefit1": [5.2, 3.1, 0.8],
+    })
+    w = np.array([0.5, 0.5])
+    cr = ["cost1", "benefit1"]
+    cc = ["cost1"]
+
+    res = run_topsis(test, cr, cc, w)
+    ci = res.set_index("service")["closeness_coeff"]
+
+    assert abs(ci["A"] - 1.0) < 1e-6, f"Expected Ci(A)≈1.0, got {ci['A']}"
+    assert abs(ci["C"] - 0.0) < 1e-6, f"Expected Ci(C)≈0.0, got {ci['C']}"
+    assert 0.0 < ci["B"] < 1.0, f"Expected 0 < Ci(B) < 1, got {ci['B']}"
+    assert res.loc[res["service"] == "C", "rank"].values[0] == 1
+    assert res.loc[res["service"] == "A", "rank"].values[0] == 3
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("csv_file", help="Path to input CSV file")
+    args = parser.parse_args()
+
+    #_run_tests()
+    df = load_data(args.csv_file)
+
+    result_equal = run_topsis(df, CRITERIA, COST_CRITERIA, EQUAL_WEIGHTS)
+    result_adjusted = run_topsis(df, CRITERIA, COST_CRITERIA, ADJUSTED_WEIGHTS)
+
+    print_results(result_equal, "TOPSIS Results - Equal Weights (0.20 per criterion)")
+    print_results(
+        result_adjusted,
+        "TOPSIS Results - Adjusted Weights (0.13333, 0.30, 0.30, 0.13333, 0.13333)"
+    )
+
+    save_chart(
+        result_equal,
+        OUTPUT_CHART_EQUAL,
+        "Equal weights: 0.20 per criterion | Red = Rank 1 (highest remediation priority)"
+    )
+    save_chart(
+        result_adjusted,
+        OUTPUT_CHART_ADJUSTED,
+        "Adjusted weights: 0.13333, 0.30, 0.30, 0.13333, 0.13333 | Red = Rank 1"
+    )
+
+
+if __name__ == "__main__":
+    main()
 
 ```

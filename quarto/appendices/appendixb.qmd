@@ -1,0 +1,29 @@
+# Appendix B: Data {#sec-appendixb .appendix}
+
+This appendix contains the contents of the CSV files that were used as input for the TOPSIS calculations presented in @sec-chapter4.
+
+\vspace{1.5cm}
+
+````{python}
+#| echo: false
+#| output: asis
+print("Filename: `services2025.csv`\n")
+print("Filesize: `253 bytes`\n")
+print("```")
+with open("services2025.csv") as f:
+    print(f.read())
+print("```")
+````
+
+\vspace{1cm}
+
+````{python}
+#| echo: false
+#| output: asis
+print("Filename: `services2024.csv`\n")
+print("Filesize: `250 bytes`\n")
+print("```")
+with open("services2024.csv") as f:
+    print(f.read())
+print("```")
+````
