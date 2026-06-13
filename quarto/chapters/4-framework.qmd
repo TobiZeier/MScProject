@@ -4,9 +4,9 @@ Twelve months of live ITSM and CMDB records from a regulated Swiss trading insti
 
 ## Data Preparation {#sec-dataprep}
 
-The trading IT portfolio comprises eight active IT services registered as configuration items in the organisation's ITSM instance. Three services were excluded prior to analysis. All three are formally flagged for decommission in the current planning cycle and therefore represent a transitional state rather than an ongoing operational profile. Including them would introduce end-of-life degradation signals that reflect planned retirement rather than accumulated technical debt. The five remaining services form the analysis population.
+The trading IT portfolio includes 108 services. Fifty-three of these are small vendor applications such as trading graphical user interfaces and were excluded from the analysis because they require no significant ongoing activity from the portfolio's IT teams.
 
-Each retained service met two inclusion criteria. It had to be registered as an active configuration item. It also had to have a minimum operational history of six months within the twelve-month observation window (January-December 2025). A six-month minimum is required to produce stable indicator estimates, particularly for CFR, which is sensitive to low change volumes. All service identifiers were replaced with alphanumeric codes prior to analysis in accordance with the anonymisation procedure described in @sec-ethics. No team, vendor, or individual identifiers are present in the dataset.
+From the remaining services, the six with the highest incident and change volumes were selected. These services represent the major services within the portfolio and were chosen because their underlying data is the most complete and therefore best suited to reliable analysis. All selected services are registered as active configuration items and have been in operation for more than 36 months. Service identifiers were replaced with alphanumeric codes before analysis in line with the anonymisation procedure described in @sec-ethics. The dataset contains no team, vendor, or individual identifiers.
 
 ### Indicator Extraction and Quality Checks
 
@@ -22,19 +22,18 @@ These limitations do not invalidate the proxy approach. Scores should be interpr
 
 ### Operational Indicator Values
 
-@tbl-raw-data presents the extracted indicator values for all five services. The definition for these indicators have been described in @sec-datasources.
+@tbl-raw-data presents the extracted indicator values for all six services. The definition for these indicators have been described in @sec-datasources.
 
-| Service | Incident Freq. (per month) | MTTR (hrs) | CFR | Patch Recency | Unsup. Comp. Months |
-|---|---|---|---|---|---|
-| SVC-01 | 2.4 | 47.1 | 0.33 | 0.46 | 18.2 |
-| SVC-02 | 0.9 | 15.2 | 0.12 | 0.75 | 6.4 |
-| SVC-03 | 3.1 | 52.8 | 0.41 | 0.38 | 24.6 |
-| SVC-04 | 0.3 | 5.8 | 0.03 | 0.94 | 1.2 |
-| SVC-05 | 0.5 | 44.2 | 0.07 | 0.87 | 3.8 |
+| Service | Incident Freq. (per year) | MTTR (hrs) | CFR | Patch Recency | Unsup. Comp. Months |
+|------------|------------|------------|------------|------------|------------|
+| SSVC-01 | 64 | 45.35 | 0.83 | 92.45 | 44 |
+| SSVC-02 | 30 | 25.26 | 0.19 | 59.93 | 1221 |
+| SSVC-03 | 21 | 13.31 | 0.38 | 100.00 | 0 |
+| SSVC-04 | 574 | 41.91 | 3.38 | 100.00 | 0 |
+| SSVC-05 | 171 | 23.72 | 1.52 | 100.00 | 0 |
+| SSVC-06 | 302 | 13.11 | 3.96 | 56.25 | 353 |
 
-: Extracted indicator values per service (January--December 2025, test data) {#tbl-raw-data tbl-colwidths="[14,20,13,12,16,18]"}
-
-Incident frequency, MTTR, CFR, and unsupported component months are cost criteria, for which lower values indicate lower technical debt severity. Patch recency is a benefit criterion, for which higher values are preferable.
+: Extracted indicator values per service (January--December 2025) {#tbl-raw-data tbl-colwidths="\[14,20,13,12,16,18\]"}
 
 ## Indicator Normalisation and Weighting
 
@@ -42,12 +41,12 @@ Each indicator was normalised using vector normalisation, as specified in @sec-f
 
 Two weight configurations are applied, as specified in @sec-frameworkdesign. The baseline equal-weight configuration assigns $w_j = 0.20$ to each of the five criteria and serves as the reference case. The differential configuration assigns higher weights to MTTR and CFR, consistent with the design rationale established in @sec-chapter3. The differential weights are $w_{\text{MTTR}} = w_{\text{CFR}} = 0.30$ and $w_{\text{IncFreq}} = w_{\text{Patch}} = w_{\text{UnsupComp}} \approx 0.133$.
 
-| Configuration | Incident Freq. | MTTR | CFR | Patch Recency | Unsup. Comp. Months |
-|---|---|---|---|---|---|
-| Equal (baseline) | 0.200 | 0.200 | 0.200 | 0.200 | 0.200 |
-| Differential | 0.133 | 0.300 | 0.300 | 0.133 | 0.134 |
+| Configuration    | Incident Freq. | MTTR  | CFR   | Patch Recency | Unsup. Comp. Months |
+|------------|------------|------------|------------|------------|------------|
+| Equal (baseline) | 0.200          | 0.200 | 0.200 | 0.200         | 0.200               |
+| Differential     | 0.133          | 0.300 | 0.300 | 0.133         | 0.134               |
 
-: Weight configurations {#tbl-weights tbl-colwidths="[25,15,12,12,18,18]"}
+: Weight configurations {#tbl-weights tbl-colwidths="\[25,15,12,12,18,18\]"}
 
 ## TOPSIS Computation and Rankings {#sec-topsis-results}
 
@@ -56,14 +55,14 @@ The computation follows the TOPSIS formulation specified in @sec-frameworkdesign
 @tbl-topsis-results presents the full results under both weight configurations. The table is sorted from highest to lowest debt priority, so rank 1 = highest priority for remediation.
 
 | Service | $S_i^+$ | $S_i^-$ | $C_i$ (equal) | Rank (equal) | $C_i$ (diff.) | Rank (diff.) |
-|---------|---------|---------|--------------|-------------|--------------|-------------|
-| SVC-03 | 0.2786 | 0.0000 | 0.0000 | 1 | 0.0000 | 1 |
-| SVC-01 | 0.2179 | 0.0631 | 0.2245 | 2 | 0.1978 | 2 |
-| SVC-05 | 0.0939 | 0.2313 | 0.7112 | 3 | 0.6244 | 3 |
-| SVC-02 | 0.0641 | 0.2153 | 0.7707 | 4 | 0.7745 | 4 |
-| SVC-04 | 0.0000 | 0.2786 | 1.0000 | 5 | 1.0000 | 5 |
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| SVC-03  | 0.2786  | 0.0000  | 0.0000        | 1            | 0.0000        | 1            |
+| SVC-01  | 0.2179  | 0.0631  | 0.2245        | 2            | 0.1978        | 2            |
+| SVC-05  | 0.0939  | 0.2313  | 0.7112        | 3            | 0.6244        | 3            |
+| SVC-02  | 0.0641  | 0.2153  | 0.7707        | 4            | 0.7745        | 4            |
+| SVC-04  | 0.0000  | 0.2786  | 1.0000        | 5            | 1.0000        | 5            |
 
-: TOPSIS closeness coefficients and rankings. Higher $C_i$ indicates lower debt priority. {#tbl-topsis-results tbl-colwidths="[12,12,12,16,14,16,14]"}
+: TOPSIS closeness coefficients and rankings. Higher $C_i$ indicates lower debt priority. {#tbl-topsis-results tbl-colwidths="\[12,12,12,16,14,16,14\]"}
 
 The rankings are fully stable across both weight configurations. All five services occupy identical rank positions under equal and differential weighting, and Kendall's $\tau$ between the two configurations is 1.00. The two configurations differ by up to 16.7 percentage points per criterion, so this absence of rank changes is a substantive rather than an incidental result. It indicates that the relative ordering of services in this portfolio is insensitive to whether MTTR and CFR are elevated above the remaining indicators.
 
