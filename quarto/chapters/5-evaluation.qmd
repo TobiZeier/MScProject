@@ -1,40 +1,58 @@
 # Evaluation {#sec-chapter5}
 
-## Evaluation Aim
+The framework developed in Chapter 4 produces a ranked prioritisation of six production services based on five operational indicators extracted from the organisation's ITSM instance and CMDB. Before drawing conclusions from those rankings, it is necessary to establish whether the framework behaves predictably under different analytical assumptions and whether its outputs are meaningful in relation to independent evidence of service health. The following sections report those tests and interpret the results in the context of the research questions.
 
-## Evaluation Criteria
+## Evaluation Criteria {#sec-evaluationcriteria}
 
-## Stability Results
+The framework is evaluated against two criteria defined in @sec-evaluationapproach. Ranking stability requires that the priority order is insensitive to reasonable variation in criterion weights and consistent across observation periods, assessed by comparing equal-weight and adjusted-weight rankings using Kendall's tau for both 2025 and 2024. Practical validity requires that the rankings are interpretable in terms of the service profiles they describe and align with an independent operational signal not used as a TOPSIS input, assessed through convergent validation against normalised problem record count per service. Problem records document root cause investigations for recurring incidents and serve as a non-circular indicator of structural service degradation. Together these criteria constitute an analytical evaluation in the sense of @hevnerDesignScienceInformation2004 Guideline 3.
 
-The rankings are fully stable across both weight configurations. All five services occupy identical rank positions under equal and differential weighting, and Kendall's $\tau$ between the two configurations is 1.00. The two configurations differ by up to 16.7 percentage points per criterion, so this absence of rank changes is a substantive rather than an incidental result. It indicates that the relative ordering of services in this portfolio is insensitive to whether MTTR and CFR are elevated above the remaining indicators.
+## Stability Results {#sec-stability}
 
+Kendall's tau ($\tau$) is a measure of ranking similarity well established in MCDA evaluation practice [@shekhovtsovHowStronglyRank2021]. For each possible pair of services, tau counts concordant pairs and subtracts discordant pairs, scaled to $[-1, 1]$, where $\tau = 1$ indicates perfect concordance and $\tau = -1$ a complete reversal. Shekhovtsov [-@shekhovtsovHowStronglyRank2021] demonstrated through exhaustive permutation analysis that Kendall's tau correlates closely with Spearman's and Weighted Spearman's coefficients ($r = 0.982$ and $r = 0.970$ respectively), confirming consistent assessments of ranking similarity relative to other commonly used measures. Because this study ranks six services, the p-value is calculated using an exact permutation method: all $6! = 720$ possible orderings are enumerated, and the p-value is the proportion producing a $|\tau|$ at least as large as the observed value. With only six services the test has limited statistical power — a consequence of sample size rather than of weak concordance, since p-values decrease monotonically as sample size increases [@chenRolesChallengesMerits2023]. A result near the conventional 0.05 threshold should not be read as binary evidence of independence; as Chen et al. [-@chenRolesChallengesMerits2023] note, close calls of this kind warrant contextual interpretation rather than mechanical rejection.
 
-ADD IMAGES!
+@tbl-kendall presents the full set of concordance values across all four comparisons.
 
+| Comparison | $\tau$ | $p$ | Significant |
+|------------------|-----------------:|-----------------:|:-----------------:|
+| Weight sensitivity — 2025 (equal vs adjusted) | 0.867 | 0.017 | Yes |
+| Weight sensitivity — 2024 (equal vs adjusted) | 0.733 | 0.056 | Borderline |
+| Temporal stability — equal weights (2025 vs 2024) | 1.000 | 0.003 | Yes |
+| Temporal stability — adjusted weights (2025 vs 2024) | 0.867 | 0.017 | Yes |
 
-Interpretation and Discussion {#sec-interpretation}
+: Kendall's tau concordance values across all ranking comparisons. {#tbl-kendall tbl-colwidths="[55,15,15,15]"}
 
-The framework produces a prioritisation list that maps operational service management data onto a single comparable priority score. SVC-03 occupies the lowest $C_i$ position (rank 5, highest debt priority) under both configurations. It presents the highest incident frequency at 3.1 per month, the highest MTTR at 52.8 hours, the highest CFR at 0.41, the lowest patch recency at 0.38, and the highest unsupported component months at 24.6. This convergent multi-indicator profile points in the same direction across all five dimensions. @hakiDigitalNudgingTechnical2023 define infrastructure lifecycle debt as cumulative months of exposure to unsupported components and identify it as a distinct, measurable debt category in large financial institutions, separate from code-level and vulnerability debt. SVC-03's profile -- combining high operational instability with the largest unsupported component exposure in the portfolio -- is consistent with a service exhibiting the operational consequences associated with this debt category, though the causal direction cannot be established from cross-sectional data alone.
+The 2025 weight sensitivity result ($\tau = 0.867$, $p = 0.017$) indicates strong concordance between configurations. The only change is that SVC-06 and SVC-02 swap positions at ranks 2 and 3: under adjusted weights, SVC-02's exceptionally high unsupported component months value and lower patch recency score become more prominent, pulling it above SVC-06. The top and bottom positions remain identical under both configurations.
 
-SVC-04 occupies the opposite extreme ($C_i = 1.00$, rank 1, lowest debt priority). It records the lowest values on all four cost indicators and the highest patch recency. Its presence anchors the positive ideal solution against which all other services are measured and provides a concrete reference point for what a well-maintained operational profile looks like in this portfolio.
+![Technical debt priority ranking for 2025, equal weights.](images/topsis_ranking2025_equal.png){#fig-topsis-equal-2025 fig-pos="H"}
 
-SVC-01 and SVC-05 present the most analytically substantive profiles. SVC-01 carries elevated values across incident frequency, MTTR, and unsupported component months simultaneously, suggesting that its debt is distributed across both operational and infrastructure dimensions. SVC-05, by contrast, presents a low incident frequency (0.5 per month) and a low CFR (0.07), but an MTTR of 44.2 hours. When failures occur, resolution is slow despite the service appearing stable under normal conditions. This mixed profile illustrates the core advantage of the multi-criteria approach. Sorting by incident frequency alone would place SVC-05 second in the portfolio, missing the recovery penalty embedded in its MTTR. Sorting by patch recency alone would rank it fourth. The TOPSIS score integrates these signals and produces a ranking that reflects each service's combined operational state rather than its performance on any single dimension.
+![Technical debt priority ranking for 2025, adjusted weights.](images/topsis_ranking2025_adjust.png){#fig-topsis-adjusted-2025 fig-pos="H"}
 
-Under the differential weight configuration, SVC-05's MTTR penalty receives greater weight, yet its rank position does not change. This is because SVC-05's MTTR, while high in absolute terms, is not sufficient to displace SVC-02, which combines a markedly lower MTTR with comparably strong patch recency and low unsupported component exposure. The rank boundary between positions two and three is stable under both configurations.
+Temporal stability under equal weights is perfect ($\tau = 1.000$, $p = 0.003$), indicating that the framework captures structural service properties rather than short-term fluctuations. Under adjusted weights it remains strong ($\tau = 0.867$, $p = 0.017$), with SVC-05 and SVC-01 swapping positions at ranks 4 and 5 between years, reflecting genuine year-on-year variation in their MTTR and patch recency profiles rather than model instability.
 
-Taken together, the results address RQ1 directly. Technical debt in this trading IT portfolio can be quantified at the service level using ITSM and CMDB data without access to source code. The framework produces a complete, internally consistent, and reproducible ranking through a transparent and documented procedure. Whether these rankings correspond to independently verified assessments of technical debt severity -- the question underlying RQ2 -- cannot be established from the framework output alone and is addressed in @sec-chapter5 through convergent validation against an independent operational metric not used as a framework input.
+The 2024 weight sensitivity result ($\tau = 0.733$, $p = 0.056$) is the weakest in the set. Two swaps occur rather than the single swap observed in 2025, because the middle-ranking services carry more closely grouped scores in 2024, making the ordering more sensitive to weight adjustments. This does not indicate a structural problem; it confirms that differential weighting has greater practical consequence when services carry similar operational profiles.
 
-## Practical Validity
+![Technical debt priority ranking for 2024, equal weights.](images/topsis_ranking2024_equal.png){#fig-topsis-equal-2024 fig-pos="H"}
 
-## Limitations of the Evaluation
+![Technical debt priority ranking for 2024, adjusted weights.](images/topsis_ranking2024_adjust.png){#fig-topsis-adjusted-2024 fig-pos="H"}
 
-| Service | Incident Freq. (per year) | MTTR (hrs) | CFR | Patch Recency | Unsup. Comp. Months |
-|------------|------------|------------|------------|------------|------------|
-| SVC-01 | 65 | 55.37 | 0.29 | 100.00 | 0 |
-| SVC-02 | 39 | 81.35 | 0.11 | 100.00 | 0 |
-| SVC-03 | 63 | 9.77 | 0.86 | 100.00 | 0 |
-| SVC-04 | 410 | 41.53 | 2.19 | 100.00 | 0 |
-| SVC-05 | 140 | 30.30 | 1.41 | 100.00 | 0 |
-| SVC-06 | 43 | 15.87 | 0.86 | 81.25 | 329 |
+Taken together, the stability results address RQ3 directly. The rankings are robust to reasonable variation in criterion weights and consistent across observation years, with the top and bottom positions stable in every run.
 
-: Extracted indicator values per service (January--December 2024) {#tbl-raw-data2024 tbl-colwidths="\[14,20,13,12,16,18\]"}
+## Practical Validity {#sec-practicalvalidity}
+
+SVC-04 consistently occupies rank 1 across all four calculations, indicating the highest technical debt priority in the portfolio. Its 2025 profile combines the highest incident frequency at 574 per year with an MTTR of 41.91 hours and a CFR of 3.38, while carrying no unsupported component exposure and full patch recency. The elevated incident volume and change failure rate suggest that the dominant form of accumulated debt is operational rather than infrastructural, consistent with architectural debt manifestations identified in the literature [@ramasubbuControllingTechnicalDebt2021; @detoledoReducingIncidentsMicroservices2021].
+
+At the opposite end, SVC-03 holds the lowest debt priority in every run, with the lowest incident frequency, a low MTTR, a low CFR, full patch recency and zero unsupported component exposure. This convergent profile anchors the negative ideal solution and provides a concrete reference for a well-maintained service in this portfolio.
+
+The most analytically informative service is SVC-02. Under equal weights it ranks third; under adjusted weights it rises to rank 2, driven by its unsupported component months value of 1,221 — by far the largest in the portfolio — combined with the lowest patch recency score. This is precisely the kind of signal the framework is designed to surface: a service that appears operationally stable in isolation but carries structural debt visible only through multi-criteria analysis, consistent with the infrastructure lifecycle debt category described by @hakiDigitalNudgingTechnical2023.
+
+These results address RQ2. While a strict causal claim cannot be established from cross-sectional data alone, the rankings are consistent with the operational debt profiles the literature would predict for services at each position [@hakiDigitalNudgingTechnical2023; @ramasubbuControllingTechnicalDebt2021; @nordExamplesTechnicalDebts2021]. The framework produces an ordinal priority signal interpretable in terms of the debt dimensions mapped in @tbl-indicators-lit.
+
+## Limitations of the Evaluation {#sec-evaluationlimitations}
+
+The most fundamental limitation is that the framework is evaluated on the same dataset used to construct it. No external validation against an independently verified assessment of technical debt severity has been conducted, meaning the convergent validity claim rests on the plausibility of the indicator-to-debt mapping established in the literature review rather than a direct empirical test.
+
+The small portfolio of six services limits the statistical power of the Kendall's tau tests. A concordance of $\tau = 0.733$ cannot achieve significance at the conventional threshold with only 720 possible permutations, even though the level of agreement is substantively meaningful. This limitation would diminish if the framework were applied to a larger service set.
+
+The cross-sectional design means the framework captures a snapshot. A service that recently completed significant remediation may appear worse than its current state warrants, and a service whose debt is actively increasing may not yet show the full consequences within a single annual window. Longitudinal evaluation is identified as a priority for future work in @sec-chapter6.
+
+Finally, the data quality limitations documented in @sec-datalimitations apply equally here. Inconsistent incident recording, partial issue capture across BMC Helix and Jira, and CFR dependence on documentation discipline all introduce noise into the input data. The stability results partially mitigate this concern, but middle-position rankings should be interpreted with appropriate caution.

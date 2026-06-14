@@ -203,7 +203,7 @@ The following table maps the literature reviewed in this chapter to the thesis a
 | [@forsgrenAccelerate2018]; [@nordExamplesTechnicalDebts2021]; [@paudelExploringRelationshipTechnical2025] | DORA metrics as TD proxies | ✓ | ⨯ | Partial | No ranking instrument |
 | [@tizioSoftwareUpdatesStrategies2023]; [@markkanenPatchManagementPlanning2023]; [@nursePatchNotPatch2025] | Patch and vulnerability debt | Partial | ⨯ | Partial | Not linked to TD prioritisation |
 | [@albarakManagingTechnicalDebt2022]; [@khanIntegratedMethodologyRanking2022]; [@zytoonDecisionSupportModel2020] | TOPSIS / MCDM in IT | ⨯ | ✓ | ⨯ | No live data; no trading IT context |
-| **This study** | **TOPSIS on ITSM/CMDB data** | **✓** | **✓** | **✓** | **—** |
+| **This thesis** | **TOPSIS on ITSM/CMDB data** | **✓** | **✓** | **✓** | **—** |
 
 : Overview of related work and research gap {#tbl-lit-overview tbl-colwidths="[30,20,10,10,8,22]"}
 
