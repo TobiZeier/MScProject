@@ -28,8 +28,8 @@ COST_CRITERIA = [
     "unsupported_months",
 ]
 
-WEIGHTS = np.array([0.20, 0.20, 0.20, 0.20, 0.20], dtype=float)
-#WEIGHTS = np.array([0.30, 0.30, 0.1333, 0.1333, 0.1333], dtype=float)
+#WEIGHTS = np.array([0.2, 0.2, 0.2, 0.2, 0.2], dtype=float)
+WEIGHTS = np.array([0.13333, 0.3, 0.13333, 0.3, 0.13333], dtype=float)
 
 OUTPUT_CHART = "topsis_ranking.png"
 
@@ -97,7 +97,7 @@ def load_data(path):
 def print_results(result):
     print()
     print("=" * 56)
-    print("  TOPSIS Results - Equal Weights (0.20 per criterion)")
+    print("  TOPSIS Results - Adjusted Weight")
     print("=" * 56)
     print(f"  {'Service':<12} {'Closeness Coeff (Ci)':>22} {'Rank':>6}")
     print("-" * 56)
@@ -134,7 +134,7 @@ def save_chart(result, output_path):
             text=(
                 "Technical Debt Priority<br>"
                 "<span style='font-size:15px;font-weight:normal;'>"
-                "Weights: 0.20 per criterion | "
+                "Weights: 0.3 MTTR and Patch recency, rest 0.13333 | "
                 "Red = Rank 1 (highest remediation priority)"
                 "</span>"
             ),
@@ -166,7 +166,7 @@ def save_chart(result, output_path):
         fig.write_image(output_path)
     except Exception as exc:
         raise RuntimeError(
-            "Chart export failed - is kaleido installed? Try: pip install kaleido"
+            "Chart export failed"
         ) from exc
 
     print(f"Chart saved: {output_path}")
