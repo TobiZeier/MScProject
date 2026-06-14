@@ -60,7 +60,7 @@ The computation follows the TOPSIS formulation specified in @sec-frameworkdesign
 
 @tbl-topsis-results2025 presents the full results under both weight configurations. The table is sorted from highest to lowest debt priority, so rank 1 = highest priority for remediation.
 
-| Service | Ci (Equal) | Rank (Equal) | Ci (Adjusted) | Rank (Adjusted) |
+| Service | $C_i$ (Equal) | Rank (Equal) | $C_i$ (Adjusted) | Rank (Adjusted) |
 |---|---:|---:|---:|---:|
 | SVC-04 | 0.4784 | 1 | 0.4457 | 1 |
 | SVC-06 | 0.5095 | 2 | 0.5677 | 3 |
@@ -73,7 +73,7 @@ The computation follows the TOPSIS formulation specified in @sec-frameworkdesign
 
 To assess temporal stability, the framework was applied to the 2024 dataset using the same weight configurations. @tbl-topsis-results2024 presents the resulting closeness coefficients and rankings for both configurations.
 
-| Service | Ci (Equal) | Rank (Equal) | Ci (Adjusted) | Rank (Adjusted) |
+| Service | $C_i$ (Equal) | Rank (Equal) | $C_i$ (Adjusted) | Rank (Adjusted) |
 |---|---:|---:|---:|---:|
 | SVC-04 | 0.4838 | 1 | 0.5041 | 1 |
 | SVC-06 | 0.5162 | 2 | 0.6044 | 3 |
