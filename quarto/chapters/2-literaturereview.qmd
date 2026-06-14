@@ -113,7 +113,7 @@ The most directly relevant empirical grounding for the present framework comes f
 
 ### DORA Metrics as Operational Debt Proxies
 
-@forsgrenAccelerate2018 drew on more than 23,000 survey responses from over 2,000 unique organisations worldwide and showed that DORA metrics MTTR, CFR, deployment frequency and lead time can distinguish high-performing from low-performing delivery teams. This makes these indicators useful in a vendor-dominated environment where source code inspection is not available.
+@forsgrenAccelerate2018 drew on survey responses from over 2,000 unique organisations worldwide and showed that DORA metrics MTTR, CFR, deployment frequency and lead time can distinguish high-performing from low-performing delivery teams. This makes these indicators useful in a vendor-dominated environment where source code inspection is not available.
 
 The inferential step this thesis takes, however, goes beyond what the original validation supports. @forsgrenAccelerate2018 established DORA metrics as delivery performance predictors. Using them as proxies for technical debt severity requires a further claim. Degraded operational performance reflects accumulated debt rather than inadequate staffing, immature release practices or organisational disruption. That claim is plausible but has not been established as a general empirical law. The framework therefore treats this as a hypothesis rather than a premise. The literature does not settle the question, and it would be misleading to present it as if it did.
 
