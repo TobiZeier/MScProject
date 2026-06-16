@@ -35,7 +35,8 @@ COST_CRITERIA = [
     "unsupported_months",
 ]
 
-WEIGHTS = np.array([0.13333, 0.3, 0.3, 0.13333, 0.13333], dtype=float)
+WEIGHTS = np.array([0.2, 0.2, 0.2, 0.2, 0.2], dtype=float)
+#WEIGHTS = np.array([0.13333, 0.3, 0.3, 0.13333, 0.13333], dtype=float)
 
 OUTPUT_CHART = "topsis_ranking.png"
 

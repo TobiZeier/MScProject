@@ -16,7 +16,7 @@ Design Science Research (DSR) governs this study, as formalised by @hevnerDesign
 |------------------------------------|------------------------------------|
 | Design as an artefact | The TOPSIS-based prioritisation framework |
 | Problem relevance | Established in @sec-chapter2: no existing framework integrates service-level operational metrics for TD prioritisation in trading IT |
-| Design evaluation | Sensitivity analysis; convergent validation across methods; discriminant baseline; rank-reversal test |
+| Design evaluation | Sensitivity analysis; convergent validation across alternative methods; discriminant baseline; rank-reversal test |
 | Research contributions | A novel operational indicator set; to the best of current knowledge, the first application of TOPSIS to live ITSM and CMDB data for technical debt prioritisation in financial trading IT |
 | Design as a search process | Iterative refinement of indicator selection (literature candidates audited against ITSM/CMDB availability) and weight assignment |
 | Communication of research | This dissertation; practitioner-accessible scoring output |
