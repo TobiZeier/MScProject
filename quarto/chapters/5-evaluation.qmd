@@ -1,4 +1,4 @@
-# Evaluation {#sec-chapter5}
+# Evaluation and Discussion {#sec-chapter5}
 
 The framework developed in Chapter 4 produces a ranked prioritisation of six production services based on five operational indicators extracted from the organisation's ITSM instance and CMDB. Before drawing conclusions from those rankings, it is necessary to establish whether the framework behaves predictably under different analytical assumptions and whether its outputs are meaningful in relation to independent evidence of service health. The following sections report those tests and interpret the results in the context of the research questions.
 
@@ -8,18 +8,20 @@ The framework is evaluated against two criteria defined in @sec-evaluationapproa
 
 ## Stability Results {#sec-stability}
 
-Kendall's tau ($\tau$) is a measure of ranking similarity well established in MCDA evaluation practice [@shekhovtsovHowStronglyRank2021]. For each possible pair of services, tau counts concordant pairs and subtracts discordant pairs, scaled to $[-1, 1]$, where $\tau = 1$ indicates perfect concordance and $\tau = -1$ a complete reversal. Shekhovtsov [-@shekhovtsovHowStronglyRank2021] demonstrated through exhaustive permutation analysis that Kendall's tau correlates closely with Spearman's and Weighted Spearman's coefficients ($r = 0.982$ and $r = 0.970$ respectively), confirming consistent assessments of ranking similarity relative to other commonly used measures. Because this study ranks six services, the p-value is calculated using an exact permutation method: all $6! = 720$ possible orderings are enumerated, and the p-value is the proportion producing a $|\tau|$ at least as large as the observed value. With only six services the test has limited statistical power — a consequence of sample size rather than of weak concordance, since p-values decrease monotonically as sample size increases [@chenRolesChallengesMerits2023]. A result near the conventional 0.05 threshold should not be read as binary evidence of independence; as Chen et al. [-@chenRolesChallengesMerits2023] note, close calls of this kind warrant contextual interpretation rather than mechanical rejection.
+Kendall's tau ($\tau$) is a measure of ranking similarity well established in MCDA evaluation practice [@shekhovtsovHowStronglyRank2021]. For each possible pair of services, tau counts concordant pairs and subtracts discordant pairs, scaled to $[-1, 1]$, where $\tau = 1$ indicates perfect concordance and $\tau = -1$ a complete reversal. @shekhovtsovHowStronglyRank2021 demonstrated through exhaustive permutation analysis that Kendall's tau correlates closely with Spearman's and Weighted Spearman's coefficients ($r = 0.982$ and $r = 0.970$ respectively), confirming consistent assessments of ranking similarity relative to other commonly used measures. Because this study ranks six services, the p-value is calculated using an exact permutation method: all $6! = 720$ possible orderings are enumerated, and the p-value is the proportion producing a $|\tau|$ at least as large as the observed value. With only six services the test has limited statistical power — a consequence of sample size rather than of weak concordance, since p-values decrease monotonically as sample size increases [@chenRolesChallengesMerits2023]. A result near the conventional 0.05 threshold should not be read as binary evidence of independence; as @chenRolesChallengesMerits2023 note, close calls of this kind warrant contextual interpretation rather than mechanical rejection.
 
 @tbl-kendall presents the full set of concordance values across all four comparisons.
 
-| Comparison | $\tau$ | $p$ | Significant |
-|------------------|-----------------:|-----------------:|:-----------------:|
-| Weight sensitivity — 2025 (equal vs adjusted) | 0.867 | 0.017 | Yes |
-| Weight sensitivity — 2024 (equal vs adjusted) | 0.733 | 0.056 | Borderline |
-| Temporal stability — equal weights (2025 vs 2024) | 1.000 | 0.003 | Yes |
-| Temporal stability — adjusted weights (2025 vs 2024) | 0.867 | 0.017 | Yes |
+| Comparison | $\tau$ | $p$ |
+|------------------|-----------------:|-----------------:|
+| Weight sensitivity — 2025 (equal vs adjusted) | 0.867 | 0.017 |
+| Weight sensitivity — 2024 (equal vs adjusted) | 0.733 | 0.056 |
+| Temporal stability — equal weights (2025 vs 2024) | 0.867| 0.017 |
+| Temporal stability — adjusted weights (2025 vs 2024) | 1.000 | 0.003 |
 
 : Kendall's tau concordance values across all ranking comparisons. {#tbl-kendall tbl-colwidths="[55,15,15,15]"}
+
+Given the sample of six services, these p-values are reported for transparency and interpreted as effect sizes rather than as accept or reject decisions consistent with the caution set out above.
 
 The 2025 weight sensitivity result ($\tau = 0.867$, $p = 0.017$) indicates strong concordance between configurations. The only change is that SVC-06 and SVC-02 swap positions at ranks 2 and 3: under adjusted weights, SVC-02's exceptionally high unsupported component months value and lower patch recency score become more prominent, pulling it above SVC-06. The top and bottom positions remain identical under both configurations.
 
@@ -43,7 +45,7 @@ SVC-04 consistently occupies rank 1 across all four calculations, indicating the
 
 At the opposite end, SVC-03 holds the lowest debt priority in every run, with the lowest incident frequency, a low MTTR, a low CFR, full patch recency and zero unsupported component exposure. This convergent profile anchors the negative ideal solution and provides a concrete reference for a well-maintained service in this portfolio.
 
-The most analytically informative service is SVC-02. Under equal weights it ranks third; under adjusted weights it rises to rank 2, driven by its unsupported component months value of 1,221 — by far the largest in the portfolio — combined with the lowest patch recency score. This is precisely the kind of signal the framework is designed to surface: a service that appears operationally stable in isolation but carries structural debt visible only through multi-criteria analysis, consistent with the infrastructure lifecycle debt category described by @hakiDigitalNudgingTechnical2023.
+The most analytically informative service is SVC-02. Under equal weights it ranks third; under adjusted weights it rises to rank 2, driven by its unsupported component months value of 1,221, by far the largest in the portfolio, combined with the lowest patch recency score. This is precisely the kind of signal the framework is designed to surface: a service that appears operationally stable in isolation but carries structural debt visible only through multi-criteria analysis, consistent with the infrastructure lifecycle debt category described by @hakiDigitalNudgingTechnical2023.
 
 These results address RQ2. While a strict causal claim cannot be established from cross-sectional data alone, the rankings are consistent with the operational debt profiles the literature would predict for services at each position [@hakiDigitalNudgingTechnical2023; @ramasubbuControllingTechnicalDebt2021; @nordExamplesTechnicalDebts2021]. The framework produces an ordinal priority signal interpretable in terms of the debt dimensions mapped in @tbl-indicators-lit.
 
