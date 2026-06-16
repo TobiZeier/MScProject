@@ -129,42 +129,11 @@ flowchart LR
 
 Two weight configurations are used. A baseline equal-weight configuration ($w_j = 0.20$) serves as the reference case. Equal weighting is the standard default in composite indicator construction in the absence of empirically justified differential weights [@grecoMethodologicalFrameworkComposite2019], and provides a transparent basis for the sensitivity analysis that follows. A secondary configuration assigns higher weight to MTTR and patch recency ($w_j = 0.30$ each) and lower weight to the remaining three indicators ($w_j = 0.13333$ each), reflecting a practitioner judgement that service recovery time and omitting to install updates and patches carry greater operational consequence in time-critical trading environments. This weighting is not derived from literature and is treated as an explicit assumption; its influence on rankings is assessed in @sec-chapter5. The sensitivity of rankings to weight perturbation more broadly is also assessed there, following the practice recommended by @grecoMethodologicalFrameworkComposite2019 for composite indicators.
 
-
 ### Evaluation Approach {#sec-evaluationapproach}
 
-The framework is an artefact, so it is evaluated using analytical and descriptive methods in the sense of @hevnerDesignScienceInformation2004 Guideline 3, rather than through observational study with human participants.
+No external ground-truth measure exists for the non-code debt this framework targets. Code-level tools disagree on the same codebase [@amanatidisEvaluatingAgreementTechnical2020]. Measurement tooling also remains predominantly code-level, so infrastructure, platform and vulnerability debt are weakly observed. This is the gap established in @sec-chapter2 [@biazottoTechnicalDebtManagement2024; @albuquerqueManagingTechnicalDebt2023]. The agreed governance scope further precluded interviewing service teams (@sec-ethics). The framework is therefore evaluated analytically, in the sense of @hevnerDesignScienceInformation2004 Guideline 3. It establishes robustness, method-independence and discriminant value, rather than criterion validity, which is left to future work.
 
-No external ground-truth measure of technical debt exists for the debt this
-framework targets. For code-level debt, where measurement tools are available,
-those tools disagree on the same codebase [@amanatidisEvaluatingAgreementTechnical2020].
-For the infrastructure, platform and vulnerability debt addressed here, no
-standardised or generally validated measurement instrument exists at all, which
-is the gap established in @sec-chapter2 [@biazottoTechnicalDebtManagement2024;
-@albuquerqueManagingTechnicalDebt2023]. The organisation-specific approaches that
-do exist, such as the infrastructure lifecycle measures used by
-@hakiDigitalNudgingTechnical2023, are not externally validated and cannot serve
-as ground truth. The governance scope agreed for this study also did not extend
-to interviewing service teams (@sec-ethics). The evaluation therefore establishes
-robustness, method-independence and discriminant value rather than criterion
-validity against a true measure, which is identified as future work.
-
-Four strands are used. First, robustness is assessed through weight perturbation
-and temporal comparison, reported as Kendall's $\tau$ between the baseline ranking
-and each variant, where $\tau$ scales rank agreement to $[-1, 1]$ and values near
-$+1$ indicate a preserved ordering. Second, convergent validity is assessed by
-re-ranking the same services with two alternative multi-criteria methods, Simple
-Additive Weighting and VIKOR, and measuring rank agreement with the TOPSIS
-ordering [@ciardielloComparisonBetweenTOPSIS2023; @shekhovtsovComparativeCaseStudy2020].
-High agreement indicates that the ordering reflects the underlying indicator
-profile rather than the mechanics of any single method. Third, discriminant value
-is assessed by comparing the multi-criteria ranking against a single-criterion
-ranking by incident frequency; meaningful divergence demonstrates that the
-framework surfaces debt that one operational signal alone would miss
-[@albarakManagingTechnicalDebt2022]. Fourth, structural rigour is assessed by a
-rank-reversal test that removes alternatives and checks whether the order of the
-remainder is preserved [@garcia-cascalesRankReversalTOPSIS2012; @yangIngeniousSolutionRank2020].
-Together these form an analytical evaluation that requires no human participants
-and no signal beyond the five indicators already extracted.
+Four strands are applied. The first tests robustness, using Kendall's $\tau$ to compare the baseline ranking against weight-perturbed and temporal variants. The second tests convergent validity. Here the same services are re-ranked with Simple Additive Weighting and VIKOR, and each ranking's agreement with the TOPSIS order is measured. Such comparison of multi-criteria methods is well established [@ciardielloComparisonTOPSISSAW2023; @shekhovtsovComparativeCaseStudy2020]. Strong agreement shows that the order reflects the indicator profile, not the mechanics of one method. The third tests discriminant value against a single-criterion ranking by incident frequency. Divergence here shows the framework catches debt a single signal would miss, consistent with @albarakManagingTechnicalDebt2022. The fourth tests structural rigour. It removes services one at a time and checks whether the order of those remaining holds, addressing the known rank-reversal effect in TOPSIS [@garcia-cascalesRankReversalTOPSIS2012; @yangIngeniousSolutionRank2020].
 
 ## Ethical and Professional Considerations {#sec-ethics}
 
