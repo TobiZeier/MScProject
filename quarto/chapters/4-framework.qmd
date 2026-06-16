@@ -26,7 +26,7 @@ These limitations do not invalidate the proxy approach. Scores should be interpr
 
 ### Operational Indicator Values
 
-@tbl-raw-data presents the extracted indicator values for all six services. The definition for these indicators have been described in @sec-datasources.
+@tbl-raw-data presents the extracted indicator values for all six services. The definitions of these indicators are given in @sec-datasources.
 
 | Service | Incident Freq. (per year) | MTTR (hrs) | CFR | Patch Recency | Unsup. Comp. Months |
 |------------|-----------:|-----------:|-----------:|-----------:|-----------:|

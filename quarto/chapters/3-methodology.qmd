@@ -12,18 +12,16 @@ Design Science Research (DSR) governs this study, as formalised by @hevnerDesign
 
 @hevnerDesignScienceInformation2004 specify seven guidelines for rigorous DSR, mapped to this study in @tbl-dsr-guidelines. On one side sits the problem space: the absence of a service-level TD framework. On the other sits the solution space: the TOPSIS artefact. These are connected through input knowledge, such as operational indicators and MCDM methods, and through research processes, including indicator selection and sensitivity analysis. This structure positions the framework as prescriptive design knowledge applicable to regulated enterprise contexts.
 
-
 | DSR Guideline | Implementation in this Study |
-|---|---|
+|------------------------------------|------------------------------------|
 | Design as an artefact | The TOPSIS-based prioritisation framework |
 | Problem relevance | Established in @sec-chapter2: no existing framework integrates service-level operational metrics for TD prioritisation in trading IT |
 | Design evaluation | Sensitivity analysis; criterion validity against historical operational records |
-| Research contributions | Novel indicator set; first application of TOPSIS to live ITSM data in financial trading IT |
-| Research rigour | Systematic indicator selection; reproducible TOPSIS computation; documented normalisation |
+| Research contributions | A novel operational indicator set; to the best of current knowledge, the first application of TOPSIS to live ITSM and CMDB data for technical debt prioritisation in financial trading IT |
 | Design as a search process | Iterative refinement of indicator selection (literature candidates audited against ITSM/CMDB availability) and weight assignment |
 | Communication of research | This dissertation; practitioner-accessible scoring output |
 
-: DSR guidelines and their implementation {#tbl-dsr-guidelines tbl-colwidths="[30,70]"}
+: DSR guidelines and their implementation {#tbl-dsr-guidelines tbl-colwidths="\[30,70\]"}
 
 The process follows @vombrockeIntroductionDesignScience2020's six-step model: problem identification and motivation (@sec-chapter1 and @sec-chapter2), definition of objectives (@sec-chapter2), design and development of the artefact (@sec-chapter4), demonstration, evaluation (@sec-chapter5), and communication (@sec-chapter6). The sequence is not strictly linear; indicator selection and evaluation criteria were refined iteratively as constraints in the available data emerged during development.
 
@@ -64,14 +62,14 @@ The literature review (@sec-chapter2) identified candidate indicators mapping te
 The five retained indicators are operationalisable from live records held in the organisation's ITSM instance and CMDB. Records were accessed under an agreed arrangement with the Head of Trading IT over a twelve-month observation window (January–December 2025) and anonymised at source, with service names replaced by alphanumeric identifiers and all team and vendor labels removed before analysis.
 
 | Indicator | Operational Definition | Source | Unit | Direction |
-|---|---|---|---|---|
+|---------------|---------------|---------------|---------------|---------------|
 | Incident frequency | Number of incidents per service per year. | ITSM | Incidents / year | Cost |
 | MTTR | Arithmetic mean resolution time for incidents. | ITSM | Hours | Cost |
 | CFR | Weighted incidents divided by the number of changes. | ITSM | Ratio | Cost |
 | Patch recency | Share of service components running within a supported release window. | CMDB | Percentage (0–100) | Benefit |
 | Unsupported component months | Total months of exposure to unsupported components in the service stack. | CMDB | Months | Cost |
 
-: Operational definition of indicators used in the TOPSIS framework {#tbl-indicators-def tbl-colwidths="[20,40,10,15,15]"}
+: Operational definition of indicators used in the TOPSIS framework {#tbl-indicators-def tbl-colwidths="\[20,40,10,15,15\]"}
 
 The operational definitions above should be read with two caveats. First, incident frequency and MTTR are based on P2, P3 and P4 incidents only, because these are the severity levels used consistently in the case organisation’s ITSM records. Second, CFR is a derived proxy rather than a directly tracked service metric, and is calculated from weighted incidents divided by the number of changes. It approximates the intent of the DORA change failure rate but is not identical to it: a true change failure rate requires deployment-outcome labelling that the case organisation does not record. Because the ratio shares its incident numerator with the incident-frequency indicator, the two criteria are not fully independent. This partial overlap is accepted as a constraint of working with operational data, and its effect on the ordering is bounded by the weight sensitivity analysis in @sec-stability.
 
@@ -131,11 +129,42 @@ flowchart LR
 
 Two weight configurations are used. A baseline equal-weight configuration ($w_j = 0.20$) serves as the reference case. Equal weighting is the standard default in composite indicator construction in the absence of empirically justified differential weights [@grecoMethodologicalFrameworkComposite2019], and provides a transparent basis for the sensitivity analysis that follows. A secondary configuration assigns higher weight to MTTR and patch recency ($w_j = 0.30$ each) and lower weight to the remaining three indicators ($w_j = 0.13333$ each), reflecting a practitioner judgement that service recovery time and omitting to install updates and patches carry greater operational consequence in time-critical trading environments. This weighting is not derived from literature and is treated as an explicit assumption; its influence on rankings is assessed in @sec-chapter5. The sensitivity of rankings to weight perturbation more broadly is also assessed there, following the practice recommended by @grecoMethodologicalFrameworkComposite2019 for composite indicators.
 
+
 ### Evaluation Approach {#sec-evaluationapproach}
 
-The framework is evaluated on two dimensions. First, ranking stability is assessed through sensitivity analysis following @grecoMethodologicalFrameworkComposite2019. Each criterion weight is perturbed by $±20$ percentage points, with remaining weights adjusted proportionally, and Kendall's $\tau$ is computed between the baseline ranking and each perturbed variant. $\tau$ counts how many service pairs appear in the same order across both rankings minus those that do not, scaled to $[-1, 1]$; values near $+1$ indicate the ranking is preserved. A consistently high $\tau$ across perturbations demonstrates that results are not sensitive to reasonable variation in weight assumptions.
-Second, criterion validity is assessed through convergent validation against normalised Problem record count per service, an independent ITSM metric not used as a TOPSIS input. Problem records document root cause investigations for recurring issues, making them a non-circular proxy for structural degradation. A positive Kendall's $\tau$ between $C_i$ scores and Problem density supports the core research hypothesis without circularity.
-Together, these dimensions constitute an analytical evaluation in the sense of @hevnerDesignScienceInformation2004 Guideline 3.
+The framework is an artefact, so it is evaluated using analytical and descriptive methods in the sense of @hevnerDesignScienceInformation2004 Guideline 3, rather than through observational study with human participants.
+
+No external ground-truth measure of technical debt exists for the debt this
+framework targets. For code-level debt, where measurement tools are available,
+those tools disagree on the same codebase [@amanatidisEvaluatingAgreementTechnical2020].
+For the infrastructure, platform and vulnerability debt addressed here, no
+standardised or generally validated measurement instrument exists at all, which
+is the gap established in @sec-chapter2 [@biazottoTechnicalDebtManagement2024;
+@albuquerqueManagingTechnicalDebt2023]. The organisation-specific approaches that
+do exist, such as the infrastructure lifecycle measures used by
+@hakiDigitalNudgingTechnical2023, are not externally validated and cannot serve
+as ground truth. The governance scope agreed for this study also did not extend
+to interviewing service teams (@sec-ethics). The evaluation therefore establishes
+robustness, method-independence and discriminant value rather than criterion
+validity against a true measure, which is identified as future work.
+
+Four strands are used. First, robustness is assessed through weight perturbation
+and temporal comparison, reported as Kendall's $\tau$ between the baseline ranking
+and each variant, where $\tau$ scales rank agreement to $[-1, 1]$ and values near
+$+1$ indicate a preserved ordering. Second, convergent validity is assessed by
+re-ranking the same services with two alternative multi-criteria methods, Simple
+Additive Weighting and VIKOR, and measuring rank agreement with the TOPSIS
+ordering [@ciardielloComparisonBetweenTOPSIS2023; @shekhovtsovComparativeCaseStudy2020].
+High agreement indicates that the ordering reflects the underlying indicator
+profile rather than the mechanics of any single method. Third, discriminant value
+is assessed by comparing the multi-criteria ranking against a single-criterion
+ranking by incident frequency; meaningful divergence demonstrates that the
+framework surfaces debt that one operational signal alone would miss
+[@albarakManagingTechnicalDebt2022]. Fourth, structural rigour is assessed by a
+rank-reversal test that removes alternatives and checks whether the order of the
+remainder is preserved [@garcia-cascalesRankReversalTOPSIS2012; @yangIngeniousSolutionRank2020].
+Together these form an analytical evaluation that requires no human participants
+and no signal beyond the five indicators already extracted.
 
 ## Ethical and Professional Considerations {#sec-ethics}
 

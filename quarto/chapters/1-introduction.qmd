@@ -17,7 +17,7 @@ This study develops a service-level quantitative framework for measuring and pri
 1. To review literature on technical debt measurement, prioritisation, financial enterprise IT governance and multi-criteria decision-making.
 2. To identify and operationally define quantifiable technical debt indicators derived from live ITSM and CMDB records.
 3. To design and apply a TOPSIS-based multi-criteria model for scoring and ranking services by technical debt priority.
-4. To evaluate the framework assessing ranking stability under criterion weight perturbation.
+4. To evaluate the framework by testing ranking stability under weight and temporal variation, and by assessing whether the resulting rankings are coherent with independent operational evidence.
 
 ## Research Questions
 
