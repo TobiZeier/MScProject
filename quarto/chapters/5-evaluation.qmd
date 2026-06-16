@@ -39,6 +39,18 @@ The 2024 weight sensitivity result ($\tau = 0.733$, $p = 0.056$) is the weakest 
 
 Taken together, the stability results address RQ3 directly. The rankings are robust to reasonable variation in criterion weights and consistent across observation years, with the top and bottom positions stable in every run.
 
+## Convergent Validity Across Methods {#sec-convergent}
+
+To test whether the ordering depends on the choice of aggregation method, the six services were re-ranked using Simple Additive Weighting and VIKOR on the same normalised indicators. For 2025 under equal weights, the TOPSIS ordering agreed completely with SAW ($\tau = 1.000$) and strongly with VIKOR ($\tau = 0.867$), the sole VIKOR difference being an exchange of the top two positions. Under the adjusted configuration agreement with SAW remained high ($\tau = 0.867$). The priority ordering is therefore substantially independent of the multi-criteria method applied, which indicates that it is driven by the service profiles rather than by the geometric mechanics of TOPSIS [@ciardielloComparisonTOPSISSAW2023; @shekhovtsovComparativeCaseStudy2020].
+
+## Discriminant Value Against a Single-Criterion Baseline {#sec-discriminant}
+
+Compared with a ranking by incident frequency alone, the multi-criteria ordering diverged ($\tau = 0.600$). The most consequential difference was SVC-02, which an incident-only view ranks fifth of six on its thirty incidents but which the framework ranks third, because its 1,221 component-months of unsupported exposure and depressed patch recency raise its debt priority. This divergence is the value the multi-criteria design adds: it surfaces infrastructure-lifecycle debt that a single operational signal would defer, consistent with the deferral effect reported by @albarakManagingTechnicalDebt2022.
+
+## Rank Reversal {#sec-rankreversal}
+
+A rank-reversal test removed individual services and re-ranked the remainder. Removing the lowest-priority service preserved the order of the rest. Removing the highest-priority service, or a high-priority middle service, induced a single adjacent exchange between SVC-01 and SVC-05, whose closeness coefficients differ by less than 0.04. Rank reversal is therefore present but confined to two closely tied middle-ranked services, while the top and bottom priorities that drive remediation decisions are unaffected. This is the known TOPSIS rank-reversal effect [@garcia-cascalesRankReversalTOPSIS2012]; where a fixed reference frame is required, the normalisation proposed by @yangIngeniousSolutionRank2020 removes it.
+
 ## Practical Validity {#sec-practicalvalidity}
 
 SVC-04 consistently occupies rank 1 across all four calculations, indicating the highest technical debt priority in the portfolio. Its 2025 profile combines the highest incident frequency at 574 per year with an MTTR of 41.91 hours and a CFR of 3.38, while carrying no unsupported component exposure and full patch recency. The elevated incident volume and change failure rate suggest that the dominant form of accumulated debt is operational rather than infrastructural, consistent with architectural debt manifestations identified in the literature [@ramasubbuControllingTechnicalDebt2021; @detoledoReducingIncidentsMicroservices2021].
@@ -56,5 +68,13 @@ The most fundamental limitation is that the framework is evaluated on the same d
 The small portfolio of six services limits the statistical power of the Kendall's tau tests. A concordance of $\tau = 0.733$ cannot achieve significance at the conventional threshold with only 720 possible permutations, even though the level of agreement is substantively meaningful. This limitation would diminish if the framework were applied to a larger service set.
 
 The cross-sectional design means the framework captures a snapshot. A service that recently completed significant remediation may appear worse than its current state warrants, and a service whose debt is actively increasing may not yet show the full consequences within a single annual window. Longitudinal evaluation is identified as a priority for future work in @sec-chapter6.
+
+The convergent validation against Problem record density set out in the research
+design could not be carried out, because the Problem record data was incomplete
+for the services in scope. The evaluation compensates through method
+triangulation and a single-criterion baseline. These establish convergent and
+discriminant validity rather than criterion validity against an independent
+measure of debt, which no available data source provides. External validation
+against such a measure remains the priority direction for future work.
 
 Finally, the data quality limitations documented in @sec-datalimitations apply equally here. Inconsistent incident recording, partial issue capture across the organisation's ITSM platform and its issue tracker, and CFR dependence on documentation discipline all introduce noise into the input data. The stability results partially mitigate this concern, but middle-position rankings should be interpreted with appropriate caution.
