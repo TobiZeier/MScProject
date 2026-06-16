@@ -4,13 +4,38 @@ Technical debt is not an abstract software quality concern; in mission-critical 
 
 ## Background and Motivation
 
+Technical debt describes the implied future cost of accepting short-term technical compromises in place of more robust solutions [@cunninghamWyCashPortfolioManagement1992]. Since its introduction, the concept has expanded from source code quality to encompass architectural, design, test and documentation dimensions of complex IT systems [@kruchtenTechnicalDebtMetaphor2012]. Its operational and financial consequences are measurable and compound over a small number of years, as @sec-chapter2 examines in detail [@bankerTechnicalDebtFirm2020]. The penalty more than doubled as debt compounded, and firms with median debt levels saw their system's net value turn negative by year five. In financial trading environments, these consequences are intensified by continuous availability requirements, vendor-dominated architectures and regulatory oversight. This makes the absence of a quantitative prioritisation mechanism particularly costly [@hakiDigitalNudgingTechnical2023; @ramasubbuControllingTechnicalDebt2021].
+
 ## Problem Statement
+
+The technical debt literature lacks a standardised, quantitative framework for measuring and prioritising debt at the service level in vendor-dominated enterprise IT. @lenarduzziSystematicLiteratureReview2021 reviewed 44 primary studies on prioritisation and found that quantitative multi-criteria approaches are uncommon and empirical validation on industrial datasets is rare. Dominant measurement tools operationalise debt as remediation effort derived from source code rule violations [@biazottoTechnicalDebtManagement2024], rendering them inapplicable where source code access is unavailable, as is typical in trading IT. Even where code is accessible, tools applied to the same codebase produce substantially divergent estimates [@amanatidisEvaluatingAgreementTechnical2020], leaving infrastructure lifecycle debt, platform obsolescence and vulnerability debt largely unaddressed. Although DORA metrics have been validated as predictors of software delivery performance [@forsgrenAccelerate2018], the inferential step from degraded operational indicators to elevated technical debt severity is not yet empirically established and is treated in this study as a testable hypothesis. None of the literature reviewed in the context of this thesis applied a multi-criteria decision-making framework to live operational service management data in order to produce a ranked technical debt prioritisation instrument for financial trading IT. This specific absence motivates the framework developed in this thesis.
 
 ## Research Aims and Objectives
 
+This study develops a service-level quantitative framework for measuring and prioritising technical debt in mission-critical trading systems, grounded in operational service management data rather than source code analysis. The specific objectives are as follows.
+
+1. To review literature on technical debt measurement, prioritisation, financial enterprise IT governance and multi-criteria decision-making.
+2. To identify and operationally define quantifiable technical debt indicators derived from live ITSM and CMDB records.
+3. To design and apply a TOPSIS-based multi-criteria model for scoring and ranking services by technical debt priority.
+4. To evaluate the framework assessing ranking stability under criterion weight perturbation.
+
 ## Research Questions
+
+The study is guided by the following primary research question.
+
+> RQ1: *How can technical debt in mission-critical trading systems be prioritised quantitatively at the service level using operational data?*
+
+Two secondary questions support the investigation.
+
+- RQ2: To what extent do operational service management metrics serve as valid proxies for technical debt severity in vendor-dominated enterprise IT environments?
+- RQ3: How stable are the resulting service rankings when criterion weights are perturbed?
 
 ## Significance of the Study
 
+The main academic contribution is a working prioritisation framework that did not previously exist for this type of environment, connecting how services are managed operationally with how technical debt is typically studied in the software engineering literature. To the best of current knowledge, no prior study has applied TOPSIS to live operational records from a financial trading institution for technical debt prioritisation. Practically, the framework operates on data routinely available in enterprise ITSM and CMDB systems without requiring source code access, making it directly applicable to vendor-dominated trading IT architectures and supporting auditable remediation decisions in regulated environments [@finmaCircular202312024].
+
+The framework measures debt indirectly, through operational proxies, and expresses the result as a relative priority rather than an absolute quantity. The word "measuring" in the title should be read in that sense: a quantitative, reproducible ordering of services by debt priority, not a claim to have quantified the debt itself.
+
 ## Thesis Structure
 
+@sec-chapter2 reviews the theoretical and empirical foundations across four bodies of literature and identifies the research gap. Chapter 3 describes the research design, methodology and ethical considerations. @sec-chapter4 presents the framework development and results, including TOPSIS computation and sensitivity analysis. @sec-chapter5 evaluates the framework against the criteria established in @sec-chapter3. @sec-chapter6 concludes with responses to the research questions, a critical self-evaluation, the academic and practical contributions, and directions for future work.

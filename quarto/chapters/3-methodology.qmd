@@ -10,7 +10,7 @@ This study is grounded in a pragmatist research philosophy. Pragmatism holds tha
 
 Design Science Research (DSR) governs this study, as formalised by @hevnerDesignScienceInformation2004. DSR is appropriate here because the primary output is an artefact rather than a theory: a TOPSIS-based prioritisation framework operating on live ITSM data. The framework is designed to address the gap identified in @sec-chapter2, where no existing approach integrates service-level operational metrics for technical debt prioritisation in trading IT. @lenarduzziSystematicLiteratureReview2021 confirm the broader absence of validated, quantitative prioritisation frameworks across the field; the service-level and enterprise-IT dimension of that gap is established through the synthesis in @sec-chapter2.
 
-@hevnerDesignScienceInformation2004 specify seven guidelines for rigorous DSR, mapped to this study in @tbl-dsr-guidelines. On one side sits the problem space: the absence of a service-level TD framework. On the other sits the solution space: the TOPSIS artefact. These are connected through input knowledge, such as DORA metrics and MCDM methods, and through research processes, including indicator selection and sensitivity analysis. This structure positions the framework as prescriptive design knowledge applicable to regulated enterprise contexts.
+@hevnerDesignScienceInformation2004 specify seven guidelines for rigorous DSR, mapped to this study in @tbl-dsr-guidelines. On one side sits the problem space: the absence of a service-level TD framework. On the other sits the solution space: the TOPSIS artefact. These are connected through input knowledge, such as operational indicators and MCDM methods, and through research processes, including indicator selection and sensitivity analysis. This structure positions the framework as prescriptive design knowledge applicable to regulated enterprise contexts.
 
 
 | DSR Guideline | Implementation in this Study |
@@ -34,11 +34,11 @@ The process follows @vombrockeIntroductionDesignScience2020's six-step model: pr
 
 graph TD
     P["Problem<br/>Absence of a quantitative<br/>service-level TD prioritisation<br/>framework for trading IT"]
-    IK["Input Knowledge<br/>TD taxonomy; DORA metrics;<br/>TOPSIS method; DSR foundations<br/>(Hevner et al., 2004)"]
+    IK["Input Knowledge<br/>TD taxonomy; operational indicators;<br/>TOPSIS method; DSR foundations<br/>(Hevner et al., 2004)"]
     RP["Research Process<br/>Literature review;<br/>indicator selection;<br/>TOPSIS construction;<br/>sensitivity analysis"]
     KC["Key Concepts<br/>Technical debt;<br/>operational proxies;<br/>MCDM; ITSM service data"]
     DSR(["DSR Project"])
-    S["Solution<br/>TOPSIS framework operating<br/>on live ITSM data<br/>(five DORA-derived indicators)"]
+    S["Solution<br/>TOPSIS framework operating<br/>on live ITSM data<br/>(five operational indicators,<br/>two DORA-derived)"]
     OK["Output Knowledge<br/>Prescriptive design entity;<br/>validity of operational TD<br/>proxies in regulated IT"]
 
     P --> DSR
@@ -51,7 +51,7 @@ graph TD
 
 ### Research Design
 
-The study is structured as a single-organisation embedded case study, situated within the trading IT division of one of Switzerland's three largest universal banks. @turnbullUseCaseStudy2021 define this design as an investigation into a single instance of observable complex phenomena, constrained by clearly identifiable boundaries. Discrete units of analysis, in this case individual IT services, are examined within that bounded organisational setting.
+The study is structured as a single-organisation embedded case study, situated within the trading IT division of a systemically important Swiss financial institution. @turnbullUseCaseStudy2021 define this design as an investigation into a single instance of observable complex phenomena, constrained by clearly identifiable boundaries. Discrete units of analysis, in this case individual IT services, are examined within that bounded organisational setting.
 
 Three factors make this design appropriate. First, the regulatory, operational, and vendor-platform characteristics specific to Swiss financial IT resist generalisation from software engineering studies conducted elsewhere. Second, access to granular ITSM records is unavailable through surveys or experiments. Third, @hevnerDesignScienceInformation2004 specify that a design artefact must be evaluated through rigorous, well-executed methods. The present study satisfies this requirement by evaluating the framework against operational data from the environment for which it was designed.
 
@@ -67,13 +67,13 @@ The five retained indicators are operationalisable from live records held in the
 |---|---|---|---|---|
 | Incident frequency | Number of incidents per service per year. | ITSM | Incidents / year | Cost |
 | MTTR | Arithmetic mean resolution time for incidents. | ITSM | Hours | Cost |
-| CFR | Weighted incidents divided by the number of changes. | ITSM | Percentage (0–100) | Cost |
+| CFR | Weighted incidents divided by the number of changes. | ITSM | Ratio | Cost |
 | Patch recency | Share of service components running within a supported release window. | CMDB | Percentage (0–100) | Benefit |
 | Unsupported component months | Total months of exposure to unsupported components in the service stack. | CMDB | Months | Cost |
 
 : Operational definition of indicators used in the TOPSIS framework {#tbl-indicators-def tbl-colwidths="[20,40,10,15,15]"}
 
-The operational definitions above should be read with two caveats. First, incident frequency and MTTR are based on P2, P3 and P4 incidents only, because these are the severity levels used consistently in the case organisation’s ITSM records. Second, CFR is a derived proxy rather than a directly tracked service metric, and is calculated from weighted incidents divided by the number of changes. 
+The operational definitions above should be read with two caveats. First, incident frequency and MTTR are based on P2, P3 and P4 incidents only, because these are the severity levels used consistently in the case organisation’s ITSM records. Second, CFR is a derived proxy rather than a directly tracked service metric, and is calculated from weighted incidents divided by the number of changes. It approximates the intent of the DORA change failure rate but is not identical to it: a true change failure rate requires deployment-outcome labelling that the case organisation does not record. Because the ratio shares its incident numerator with the incident-frequency indicator, the two criteria are not fully independent. This partial overlap is accepted as a constraint of working with operational data, and its effect on the ordering is bounded by the weight sensitivity analysis in @sec-stability.
 
 Incident frequency, MTTR and CFR proxy the operational consequences of architectural and infrastructure debt. Service instability and slow recovery are empirically linked to TD severity in vendor-managed portfolios [@ramasubbuControllingTechnicalDebt2021; @nielsenITPortfolioManagement2022]. Deployment instability is classified as a direct observable symptom of accumulated debt [@nordExamplesTechnicalDebts2021; @forsgrenAccelerate2018]. @nordExamplesTechnicalDebts2021 further ground the inclusion of MTTR and CFR specifically by classifying delivery tempo degradation as a diagnostic TD signal detectable from production records, independently of source code access. Patch recency captures the proportion of components currently within a vendor- or organisation-supported version window. Unsupported component months measures the cumulative duration of exposure to end-of-life components during the observation period. Together, these two CMDB-derived indicators operationalise infrastructure lifecycle and vulnerability debt following @hakiDigitalNudgingTechnical2023, differentiating services with similar current patch status but differing historical debt accumulation. Service-level operational indicators are treated as candidate proxies for technical debt prioritisation rather than established substitutes. The validity of this inference is the central empirical hypothesis tested in @sec-chapter5.
 
