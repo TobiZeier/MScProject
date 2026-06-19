@@ -1,6 +1,6 @@
 ---
-date: 2026-06-01
-time: 17:30 CET
+date: 2026-07-15
+time: 17:00 CET
 type: meeting-minutes
 project: MSc Computing Thesis
 participants:
@@ -8,8 +8,9 @@ participants:
   - Tobi Zeier (Student)
 tags:
   - supervisory-meeting
-  - framework
-  - metrics
-  - DSR
+  - planning
+  - deadlines
+  - presentation
 ---
-## 1. Feedback
+## 1. Feedback on Draft
+Zahir reviewed the draft and mentioned the following:

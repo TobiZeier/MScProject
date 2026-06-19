@@ -42,27 +42,27 @@ This table is to track the time that I have invested in my master thesis.
 | 03/05 | 2     | Incorporate supervisory feedback                                                             |
 | 05/05 | 2     | Reading through thesis and revising misalignments                                            |
 | 06/05 | 3     | Reading through thesis and revising misalignments                                            |
-| 08/05 | 7.5   | Revising Chapter 2 and 3, start working on Chapter 4                                         |
+| 08/05 | 7.5   | Revising chapter 2 and 3, start working on chapter 4                                         |
 | 10/05 | 3     | Working on chapter 4                                                                         |
 | 11/05 | 1     | Screening ITSM and CMDB data                                                                 |
-| 14/05 | 5     | Refining current state of work, working on Chapter 4                                         |
+| 14/05 | 5     | Refining current state of work, working on chapter 4                                         |
 | 19/05 | 2.5   | Refining current state of work                                                               |
-| 25/05 | 6.5   | Working on Chapter 4                                                                         |
-| 29/05 | 8     | Working on Chapter 4                                                                         |
+| 25/05 | 6.5   | Working on chapter 4                                                                         |
+| 29/05 | 8     | Working on chapter 4 and Python Script                                                       |
 | 02/06 | 2     | Collect and analyse data from ITSM and CMDB                                                  |
 | 03/06 | 2.5   | Collecting and analysing data                                                                |
 | 04/06 | 0.5   | Collecting and analysing data                                                                |
 | 05/06 | 1     | Extracting data                                                                              |
 | 07/06 | 1     | Scrubbing extracted data                                                                     |
 | 08/06 | 2.5   | Scrubbing extracted data                                                                     |
-| 09/06 | 1     | Scrubbing extracted data                                                                     |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
+| 09/06 | 2.5   | Scrubbing extracted data                                                                     |
+| 10/06 | 1.5   | Working on Python script                                                                     |
+| 11/06 | 2.5   | Working on Python script                                                                     |
+| 13/06 | 5.5   | Working on Python script and chapter 4                                                       |
+| 14/06 | 4     | Working on Python script and chapter 4                                                       |
+| 15/06 | 2     | Supervisory meeting and working on chapter 4                                                 |
+| 16/06 | 4.5   | Incorporate feedback and revising several sections                                           |
+| 19/06 | 8     | Working on chapter 5                                                                         |
 |       |       |                                                                                              |
 |       |       |                                                                                              |
 |       |       |                                                                                              |
