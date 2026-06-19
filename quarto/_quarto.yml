@@ -48,7 +48,6 @@ keywords:
  - CMDB
  - DORA metrics
  - composite score
-  
 
 bibliography: references.bib
 csl: harvard-cite-them-right-no-et-al.csl
@@ -65,6 +64,12 @@ toclinkcolor: black
 
 format:
   pdf:
+    citeproc: false
+    filters: 
+      - at: pre-quarto
+        path: _extensions/andrewheiss/wordcount/citeproc.lua
+      - at: pre-quarto
+        path: _extensions/andrewheiss/wordcount/wordcount.lua
     documentclass: MastersDoctoralThesis
     classoption: ["12pt", "oneside", "english", "onehalfspacing", "headsepline"]
     mainfont: "Times New Roman"
@@ -95,4 +100,6 @@ format:
     urlcolor: blue
     linkcolor: black
     citecolor: black
-  
+
+wordcount-pdf: default
+wordcount: "Word count: {{< words-body >}}"

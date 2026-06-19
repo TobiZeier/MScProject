@@ -1,5 +1,7 @@
 # Appendix A: Python Code {#sec-appendixa .appendix}
 
+The content in this appendix is the exact artefact which has been used to calculate the TOPSIS rankings. Further artefacts which have been used to do other calculations can be found on the authors GitHub Repository: <https://github.com/TobiZeier/MScProject>.
+
 ```{python}
 #| eval: false
 #| echo: true

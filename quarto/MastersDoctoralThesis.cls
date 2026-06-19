@@ -359,6 +359,8 @@ KOMA-script documentation for details.}]{fancyhdr}
 			{\normalsize\bfseries \@title \par}% Thesis title
 			\medskip
 			{\normalsize \byname{} \authorname~--~\thesistudentid \par}% Author name & Student ID
+			\medskip
+			{\normalsize \wordcount \par}% Word count
 			\bigskip
 		\end{center}
 	}

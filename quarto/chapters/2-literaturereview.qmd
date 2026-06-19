@@ -190,6 +190,11 @@ Existing TOPSIS applications to technical debt rely on controlled datasets, and 
 
 The following table maps the literature reviewed in this chapter to the thesis argument. For each thematic category, it identifies what existing sources cover, where the literature falls short, and precisely what this dissertation addresses in response. The table makes the novelty of the contribution explicit because no existing study combines all four elements, namely service level indicators, multi criteria prioritisation, live operational data, and a trading IT context, into a single auditable framework.
 
+```{=latex}
+\begingroup
+\scriptsize
+```
+
 | Reference | Focus | SL Ind. | Multi-crit. | Fin. IT | Key gap |
 |---|---|:---:|:---:|:---:|---|
 | [@kruchtenTechnicalDebtMetaphor2012]; [@fowlerTechnicalDebtQuadrant2009]; [@cunninghamWyCashPortfolioManagement1992] | TD taxonomy | ⨯ | ⨯ | ⨯ | No measurement mechanism |
@@ -204,6 +209,10 @@ The following table maps the literature reviewed in this chapter to the thesis a
 | **This thesis** | **TOPSIS on ITSM/CMDB data** | **✓** | **✓** | **✓** | **—** |
 
 : Overview of related work and research gap {#tbl-lit-overview tbl-colwidths="[30,20,10,10,8,22]"}
+
+```{=latex}
+\endgroup
+```
 
 The research gap identified in the final row of @tbl-lit-overview defines the problem that Chapter 3 translates into a concrete research design, and that Chapters 4 and 5 address through framework construction and evaluation.
 
