@@ -41,15 +41,59 @@ Taken together, the stability results address RQ3 directly. The rankings are rob
 
 ## Convergent Validity Across Methods {#sec-convergent}
 
-To test whether the ordering depends on the choice of aggregation method, the six services were re-ranked using Simple Additive Weighting and VIKOR on the same normalised indicators. For 2025 under equal weights, the TOPSIS ordering agreed completely with SAW ($\tau = 1.000$) and strongly with VIKOR ($\tau = 0.867$), the sole VIKOR difference being an exchange of the top two positions. Under the adjusted configuration agreement with SAW remained high ($\tau = 0.867$). The priority ordering is therefore substantially independent of the multi-criteria method applied, which indicates that it is driven by the service profiles rather than by the geometric mechanics of TOPSIS [@ciardielloComparisonTOPSISSAW2023; @shekhovtsovComparativeCaseStudy2020].
+Convergent validity was assessed by re-ranking the six services with Simple Additive Weighting (SAW) and with VIKOR, then measuring rank agreement with the TOPSIS order. Because the dataset contains zero values, SAW used the Weitendorf (min-max) normalisation, which avoids the division by zero that the classic cost normalisation would produce [@thienOvercomingLimitationsRAPS2024]. VIKOR followed the standard S, R and Q procedure with $v = 0.5$. @tbl-method-agreement reports the agreement across both configurations and both years, and @tbl-method-ranks shows the ranks each method assigns under the 2025 equal-weight reference case.
+
+Agreement is moderate rather than exact, with $\tau$ between 0.600 and 0.867. The pattern behind those figures is consistent. All three methods place the same three services in the high-priority half and the same three in the low-priority half, and SVC-03 is ranked last under every method, configuration and year. They differ only on the internal ordering of the high-priority cluster. TOPSIS ranks SVC-04 first, on its very high incident volume and CFR, whereas SAW and VIKOR both promote SVC-06, whose worst-in-portfolio patch recency and high unsupported-component exposure raise its maximum single-criterion regret. The coarse prioritisation is therefore largely method-independent, but the identity of the single highest-priority service is method-sensitive. This is a genuine limitation when the framework informs an individual remediation choice rather than portfolio-level triage, and it is revisited in @sec-evaluationlimitations.
+
+| Configuration | TOPSIS vs SAW | TOPSIS vs VIKOR |
+|---|---:|---:|
+| 2025, equal weights | 0.867 | 0.867 |
+| 2025, adjusted weights | 0.600 | 0.600 |
+| 2024, equal weights | 0.733 | 0.867 |
+| 2024, adjusted weights | 0.733 | 0.600 |
+
+: Rank agreement (Kendall's $\tau$) between TOPSIS and the two alternative methods. {#tbl-method-agreement tbl-colwidths="[50,25,25]"}
+
+| Service | TOPSIS | SAW | VIKOR |
+|---|---:|---:|---:|
+| SVC-04 | 1 | 2 | 2 |
+| SVC-06 | 2 | 1 | 1 |
+| SVC-02 | 3 | 3 | 3 |
+| SVC-01 | 4 | 4 | 4 |
+| SVC-05 | 5 | 5 | 5 |
+| SVC-03 | 6 | 6 | 6 |
+
+: Debt-priority rank by method, 2025 equal weights. {#tbl-method-ranks tbl-colwidths="[40,20,20,20]"}
 
 ## Discriminant Value Against a Single-Criterion Baseline {#sec-discriminant}
 
-Compared with a ranking by incident frequency alone, the multi-criteria ordering diverged ($\tau = 0.600$). The most consequential difference was SVC-02, which an incident-only view ranks fifth of six on its thirty incidents but which the framework ranks third, because its 1,221 component-months of unsupported exposure and depressed patch recency raise its debt priority. This divergence is the value the multi-criteria design adds: it surfaces infrastructure-lifecycle debt that a single operational signal would defer, consistent with the deferral effect reported by @albarakManagingTechnicalDebt2022.
+Discriminant value was assessed by comparing the TOPSIS ranking against a ranking by incident frequency alone, the simplest single-signal alternative. @tbl-discriminant reports the comparison for 2025. The orderings diverge, with Kendall's $\tau$ of 0.600 in 2025 and 0.200 in 2024. In 2025 the divergence concentrates in two services. SVC-02 rises relative to the incident-only view, because its infrastructure-lifecycle debt, carried in unsupported-component exposure and low patch recency, is invisible to an incident count. SVC-05 falls, because its high incident volume is offset by full patch recency and no unsupported components. This is the value the multi-criteria design adds over a single operational signal, consistent with @albarakManagingTechnicalDebt2022, who found that multi-criteria prioritisation surfaces items that single-factor approaches defer. The larger divergence in 2024 reflects the same mechanism operating more strongly, with services that carry infrastructure or recovery-time debt but modest incident counts ranked far higher by the framework than by incident volume alone.
+
+| Service | TOPSIS rank | Incident-only rank | Shift |
+|---|---:|---:|---:|
+| SVC-04 | 1 | 1 | 0 |
+| SVC-06 | 2 | 2 | 0 |
+| SVC-02 | 3 | 5 | +2 |
+| SVC-01 | 4 | 4 | 0 |
+| SVC-05 | 5 | 3 | -2 |
+| SVC-03 | 6 | 6 | 0 |
+
+: TOPSIS rank against an incident-frequency ranking, 2025 equal weights. {#tbl-discriminant tbl-colwidths="[28,24,24,24]"}
 
 ## Rank Reversal {#sec-rankreversal}
 
-A rank-reversal test removed individual services and re-ranked the remainder. Removing the lowest-priority service preserved the order of the rest. Removing the highest-priority service, or a high-priority middle service, induced a single adjacent exchange between SVC-01 and SVC-05, whose closeness coefficients differ by less than 0.04. Rank reversal is therefore present but confined to two closely tied middle-ranked services, while the top and bottom priorities that drive remediation decisions are unaffected. This is the known TOPSIS rank-reversal effect [@garcia-cascalesRankReversalTOPSIS2012]; where a fixed reference frame is required, the normalisation proposed by @yangIngeniousSolutionRank2020 removes it.
+Structural rigour was assessed with a rank-reversal test, removing each service in turn and re-ranking the remainder. @tbl-rankreversal reports the 2025 equal-weight results. The order of the remaining services is preserved in three of the six removals. In the other three a single adjacent pair exchanges places: removing SVC-02 swaps the two highest-priority services, SVC-04 and SVC-06, while removing SVC-04 or SVC-06 swaps the middle pair, SVC-01 and SVC-05. Each affected pair is separated by a small closeness-coefficient margin, and no service crosses between the high-priority and low-priority halves of the portfolio under any removal. The lowest-priority service is invariant throughout. Rank reversal is therefore present but confined to fine ordering within already adjacent clusters, the known limitation of distance-based aggregation identified by @garcia-cascalesRankReversalTOPSIS2012. Where a fixed reference frame is required, the normalisation proposed by @yangIngeniousSolutionRank2020 removes the effect.
+
+| Service removed | Outcome |
+|---|---|
+| SVC-01 | Order preserved |
+| SVC-02 | SVC-04 and SVC-06 exchange ranks 1 and 2 |
+| SVC-03 | Order preserved |
+| SVC-04 | SVC-01 and SVC-05 exchange ranks |
+| SVC-05 | Order preserved |
+| SVC-06 | SVC-01 and SVC-05 exchange ranks |
+
+: Effect of removing each service on the order of the remaining five, 2025 equal weights. {#tbl-rankreversal tbl-colwidths="[35,65]"}
 
 ## Practical Validity {#sec-practicalvalidity}
 
