@@ -17,6 +17,7 @@ book:
   appendices: 
     - appendices/appendixa.qmd
     - appendices/appendixb.qmd
+    - appendices/appendixc.qmd
 
 thesis:
   student: 
