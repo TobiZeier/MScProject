@@ -14,6 +14,11 @@ What the literature does not yet offer is a way to measure and rank technical de
 
 The literature search was conducted between January and April 2026 using a systematic and reproducible approach, drawing on four principal academic databases: the University of Essex library, Scopus, IEEE Xplore and Google Scholar. Search terms are summarised in @tbl-search-terms.
 
+```{=latex}
+\begingroup
+\scriptsize
+```
+
 | Theme | Search String |
 |---|---|
 | TD foundations | `"technical debt" AND (metaphor OR taxonomy OR typology OR theory)` |
@@ -27,7 +32,16 @@ The literature search was conducted between January and April 2026 using a syste
 
 : Search terms used for literature review {#tbl-search-terms tbl-colwidths="[30,70]"}
 
+```{=latex}
+\endgroup
+```
+
 Sources were screened against the pre-specified inclusion and exclusion criteria in @tbl-criteria.
+
+```{=latex}
+\begingroup
+\scriptsize
+```
 
 | Criterion | Rule |
 |---|---|
@@ -41,7 +55,11 @@ Sources were screened against the pre-specified inclusion and exclusion criteria
 
 : Inclusion and exclusion criteria {#tbl-criteria tbl-colwidths="[30,70]"}
 
-Screening was conducted in two stages. Titles and abstracts were first assessed against these criteria, reducing the initial pool. Remaining sources underwent full-text review to verify relevance and methodological quality. Forward and backward citation snowballing was subsequently applied to three anchor publications: @kruchtenTechnicalDebtMetaphor2012, @lenarduzziSystematicLiteratureReview2021 and @forsgrenAccelerate2018 to surface relevant studies not captured by database searches. The process yielded approximately 110 candidate sources, of which more than 50 were retained following full-text screening.
+```{=latex}
+\endgroup
+```
+
+Screening was conducted in two stages. Titles and abstracts were assessed against these criteria first, reducing the initial pool. Forward and backward citation snowballing on three anchor publications, @kruchtenTechnicalDebtMetaphor2012, @lenarduzziSystematicLiteratureReview2021 and @forsgrenAccelerate2018, then surfaced relevant studies not captured by the database searches. This produced a combined pool of approximately 110 candidate sources, of which more than 50 were retained after full-text review for relevance and methodological quality.
 
 The review uses narrative synthesis rather than a formal systematic review protocol. The research spans three disciplines, software engineering, enterprise IT governance and decision science, which differ significantly in their research methods, terminology and evidence standards. A single meta-analytic framework would not accommodate this heterogeneity, and the aim of the review is to build a coherent argument in support of a novel design science artefact, for which narrative synthesis is the appropriate approach [@hevnerDesignScienceInformation2004]. The following four sections build the theoretical and contextual case for the proposed framework in sequence.
 
@@ -79,9 +97,9 @@ Measurement is where the gap between the concept and current practice becomes mo
 
 ### The Dominance of Static Analysis and Its Limits
 
-Static code analysis tools such as SonarQube, SQALE and CAST dominate technical debt measurement, operationalising debt as estimated remediation effort derived from rule violations [@biazottoTechnicalDebtManagement2024]. In a systematic mapping of 178 primary studies, @biazottoTechnicalDebtManagement2024 found that most automation artefacts remain code-level, require substantial human intervention even at higher automation levels, and rarely support end-to-end technical debt management. The focus on code leaves infrastructure-level, platform-level and vendor-related debt only weakly observed.
+Static code analysis tools such as SonarQube, SQALE and CAST dominate technical debt measurement, operationalising debt as estimated remediation effort derived from rule violations [@biazottoTechnicalDebtManagement2024]. In a systematic mapping of 178 primary studies, @biazottoTechnicalDebtManagement2024 found that most automated measurement artefacts remain code-level, require substantial human intervention even at higher automation levels, and rarely support end-to-end technical debt management. The focus on code leaves infrastructure-level, platform-level and vendor-related debt only weakly observed.
 
-This limitation is material in enterprise environments where operational reliability depends on legacy infrastructure and third-party platforms rather than on in-house code alone. @ampatzoglouSDK4EDPlatformTechnical2022 presented SDK4ED as a comprehensive industry-oriented platform integrating several code-level techniques, reporting financial benefits over a three-year evaluation. Even so, its support for infrastructure and vendor-platform debt remains limited. @tornhillCodeRedBusiness2022 confirmed the business relevance of code-level debt across 39 proprietary codebases, demonstrating that poor code quality was statistically associated with higher defect density, slower remediation and lower developer throughput. However, this does not resolve the blind spots created by a code-only perspective. Organisations that concentrate remediation resources on refactoring may simultaneously leave critical legacy infrastructure and unsupported components unaddressed.
+This limitation is material in enterprise environments where operational reliability depends on legacy infrastructure and third-party platforms rather than on in-house code alone. @ampatzoglouSDK4EDPlatformTechnical2022 presented SDK4ED as a comprehensive industry-oriented platform integrating several code-level techniques, reporting financial benefits over a three-year evaluation. Still, its support for infrastructure and vendor-platform debt remains limited. @tornhillCodeRedBusiness2022 confirmed the business relevance of code-level debt across 39 proprietary codebases, demonstrating that poor code quality was statistically associated with higher defect density, slower remediation and lower developer throughput. However, this does not resolve the blind spots created by a code-only perspective. Organisations that concentrate remediation resources on refactoring may simultaneously leave critical legacy infrastructure and unsupported components unaddressed.
 
 A further concern is measurement consistency. @amanatidisEvaluatingAgreementTechnical2020 found substantial divergence among technical debt assessment tools applied to the same 50 open-source projects: different tools produced different estimates and highlighted different violation sets, with no single tool consistently dominating. A debt figure generated by any one tool therefore reflects that tool's ruleset and thresholds rather than an objective underlying quantity. @albuquerqueManagingTechnicalDebt2023 confirmed that infrastructure debt and process debt remain significantly understudied relative to code and architectural debt. Taken together, these findings support the view that static analysis is informative but insufficient for service-level prioritisation in vendor-dominated enterprise IT.
 
@@ -101,7 +119,7 @@ The limitations identified in the previous section are compounded in financial s
 
 Financial services organisations operate under continuous availability obligations, layered regulatory compliance requirements and long-lived vendor-managed architectures that cannot be freely refactored. These conditions shape both how technical debt accumulates and how it must be measured, and they define the context within which the studies reviewed in this section are read.
 
-The most directly relevant empirical grounding for the present framework comes from @hakiDigitalNudgingTechnical2023, who conducted clinical research at Credit Suisse across more than 3,000 IT applications and defined a technical debt taxonomy covering code quality debt, infrastructure lifecycle debt, vulnerability debt and automation debt. Infrastructure lifecycle debt was measured as cumulative months of unsupported components; vulnerability debt as weighted scanner-detected vulnerability counts. This taxonomy matters for a specific reason: it demonstrates that a major regulated financial institution treats infrastructure lifecycle debt and vulnerability debt as operationally significant categories alongside code-level debt, and measures both through infrastructure records rather than source code analysis. That precedent directly supports the broader measurement approach taken in this thesis. The conceptual contribution stands on its own; the empirical scope, however, does not support generalisation beyond that institution's specific context, as the quantitative evaluation covered only three development teams within a single organisation.
+The most directly relevant empirical grounding for the proposed framework comes from @hakiDigitalNudgingTechnical2023, who conducted clinical research at Credit Suisse across more than 3,000 IT applications and defined a technical debt taxonomy covering code quality debt, infrastructure lifecycle debt, vulnerability debt and automation debt. Infrastructure lifecycle debt was measured as cumulative months of unsupported components; vulnerability debt as weighted scanner-detected vulnerability counts. This taxonomy matters for a specific reason: it demonstrates that a major regulated financial institution treats infrastructure lifecycle debt and vulnerability debt as operationally significant categories alongside code-level debt, and measures both through infrastructure records rather than source code analysis. That precedent directly supports the broader measurement approach taken in this thesis. The conceptual contribution stands on its own; the empirical scope, however, does not support generalisation beyond that institution's specific context, as the quantitative evaluation covered only three development teams within a single organisation.
 
 @rollandExploringTensionsManagement2021 investigated architectural debt accumulation at a large Scandinavian financial institution, referred to in the study by the pseudonym BankAlpha, through eleven in-depth interviews. Two tensions emerged consistently: decentralised feature teams optimising for local throughput against the governance needed to manage debt at system level, and the pace of digital innovation against the long-term sustainability of the supporting architecture. Both are intensified in financial services by compliance obligations and competitive pressure to release products rapidly. The finding reinforces a pattern also visible in @hakiDigitalNudgingTechnical2023: organisational dynamics drive debt accumulation at least as much as technical decisions do, and management intent is the decisive governance variable in both cases.
 
@@ -124,6 +142,11 @@ The inferential step this thesis takes, however, goes beyond what the original v
 
 The following table maps each operational indicator to the technical debt dimension it proxies and the literature that justifies its inclusion.
 
+```{=latex}
+\begingroup
+\scriptsize
+```
+
 | Indicator | TD Dimension | Literature Justification |
 |---|---|---|
 | Incident frequency | Architectural debt | @detoledoReducingIncidentsMicroservices2021; @ramasubbuControllingTechnicalDebt2021; @ramasubbuManagingTechnicalDebt2015; @nielsenITPortfolioManagement2022 |
@@ -133,6 +156,10 @@ The following table maps each operational indicator to the technical debt dimens
 | Unsupported component months | Infrastructure lifecycle debt | @hakiDigitalNudgingTechnical2023 |
 
 : Mapping of operational indicators to technical debt dimensions and literature justification {#tbl-indicators-lit tbl-colwidths="[25,30,45]"}
+
+```{=latex}
+\endgroup
+```
 
 ### Security Debt and Patch Management
 
@@ -144,9 +171,9 @@ Security-related technical debt is most visible in the literature on patch manag
 
 ## Multi-Criteria Decision-Making and TOPSIS
 
-Prioritising technical debt involves balancing several criteria simultaneously: remediation cost, operational risk, security exposure and regulatory compliance. That is precisely the kind of problem multi-criteria decision-making methods are designed for, and this section makes the case for TOPSIS as the most appropriate choice among the available options.
+Prioritising technical debt involves balancing several criteria at once: remediation cost, operational risk, security exposure and regulatory compliance. Practitioners weigh these together rather than acting on a single factor [@alfayezHowSonarQubeidentifiedTechnical2023], which is the kind of problem multi-criteria decision-making (MCDM) methods are designed to solve.
 
-A weighted scoring matrix is the simplest alternative, but it assumes that criteria are independent and commensurable across scales. Neither assumption holds reliably when combining continuous cost metrics with ordinal or binary compliance indicators. A risk matrix is categorical and does not support fine-grained ranking of a large service portfolio. TOPSIS addresses both limitations by normalising heterogeneous criteria before aggregation and ranking alternatives by their geometric proximity to the ideal solution, making it well suited to contexts where criteria differ in type, scale and direction of preference [@ciardielloComparisonTOPSISSAW2023]. Practitioners weigh these dimensions together rather than applying a single factor [@alfayezHowSonarQubeidentifiedTechnical2023], and @lenarduzziSystematicLiteratureReview2021 concluded that the absence of a validated, quantitative, multi-criteria framework remains a central obstacle to evidence-based technical debt governance.
+The natural starting point is simple additive weighting (SAW), which scores each alternative as a weighted sum across the criteria. It is transparent, but assumes the criteria are independent and their raw scores commensurable, and neither holds when continuous cost metrics are combined with ordinal or binary compliance indicators. A risk matrix, the other common baseline, is categorical and cannot rank a large service portfolio finely. TOPSIS addresses both limitations: it normalises heterogeneous criteria before aggregation and ranks alternatives by their geometric proximity to the ideal solution, suiting contexts where criteria differ in type, scale and direction of preference [@ciardielloComparisonTOPSISSAW2023]. This is what recommends it here, and @lenarduzziSystematicLiteratureReview2021 found that the absence of such a validated, quantitative, multi-criteria framework remains a central obstacle to evidence-based technical debt governance.
 
 ### TOPSIS: Mechanics, Applications and Critical Limitations
 
