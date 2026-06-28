@@ -18,15 +18,20 @@ All CMDB records were found to be complete. No imputation or worst-case substitu
 
 ### Data Limitations {#sec-datalimitations}
 
-The data carry inherent quality limitations that must be acknowledged before interpreting the results. Incident P2/P3/P4 classifications vary across teams, reflecting local triage conventions rather than a uniform severity standard. Patch recency is bounded by CMDB coverage and scanner configuration, so services with incomplete configuration records may appear more current than they are.
+The data carry inherent quality limitations that must be acknowledged before interpreting the results. Because the organisation does not document CFR directly, it is derived from incident and change records as described in @sec-datasources. Incident frequency, MTTR and CFR all depend on the accuracy and completeness of the incidents opened and closed. Patch recency is bounded by CMDB coverage and scanner configuration, so services with incomplete records may appear more current than they are.
 
-Because the organisation does not document CFR directly, it is derived from incident and change records as described in @sec-datasources. This means incident frequency and CFR depend on the accuracy and completeness of the incidents that have been opened. Recording practices vary across teams: some contacts arrive by phone or email and whether these result in a formal ITSM record depends on the discipline of the receiving team. Others are handled as defects or bugs within a different issue tracker and never escalated into the ITSM instance. Services where informal handling is common may therefore show lower incident counts and CFR values than their true failure rate warrants, which would systematically compress their priority scores.
+Recording practices also vary across teams. Some contacts arrive by phone, email or chat and become a formal ITSM record only at the receiving team's discretion. Others are handled as defects in a separate issue tracker and never escalated. Services where informal handling is common may therefore record lower incident counts and CFR values than their true failure rate warrants, compressing their priority scores. MTTR is exposed at closure, since a team that leaves resolved incidents open will show a longer mean resolution time than its actual recovery warrants. Inconsistent severity labelling has limited influence here, as incident frequency and MTTR are computed across all severities.
 
-These limitations do not invalidate the proxy approach. Scores should be interpreted as ordinal priority signals rather than exact measurements. The sensitivity analysis in @sec-chapter5 tests whether the ranking is robust to the input variation these data quality factors may introduce.
+These limitations do not invalidate the proxy approach. Scores should be read as ordinal priority signals rather than exact measurements, and the sensitivity analysis in @sec-chapter5 tests whether the ranking is robust to the input variation they may introduce.
 
 ### Operational Indicator Values
 
 @tbl-raw-data presents the extracted indicator values for all six services. The definitions of these indicators are given in @sec-datasources.
+
+```{=latex}
+\begingroup
+\scriptsize
+```
 
 | Service | Incident Freq. (per year) | MTTR (hrs) | CFR | Patch Recency | Unsup. Comp. Months |
 |------------|-----------:|-----------:|-----------:|-----------:|-----------:|
@@ -39,18 +44,31 @@ These limitations do not invalidate the proxy approach. Scores should be interpr
 
 : Extracted indicator values per service (January-December 2025) {#tbl-raw-data tbl-colwidths="\[14,20,13,12,16,18\]"}
 
+```{=latex}
+\endgroup
+```
+
 The exact content of the files that have been used for the TOPSIS calculation can be found in the @sec-appendixb.
 
 ## Indicator Normalisation and Weighting
 
 Each indicator was normalised using vector normalisation, as specified in @sec-frameworkdesign. This removes differences in scale and unit while preserving proportional relationships between values. A service with an unusually high MTTR retains its full distance from lower-performing services in the normalised space, rather than being compressed toward a fixed upper bound. Min-max normalisation was considered and rejected on this basis. @grecoMethodologicalFrameworkComposite2019 recommend vector normalisation for composite indicators precisely because it does not reduce the discriminatory power of extreme observations.
 
-Two weight configurations are applied, as specified in @sec-frameworkdesign. The baseline equal-weight configuration assigns $w_j = 0.20$ to each of the five criteria and serves as the reference case. The differential configuration assigns higher weights to MTTR and patch recency, consistent with the design rationale established in @sec-chapter3. The differential weights are $w_{\text{MTTR}} = w_{\text{patch recency}} = 0.30$ and $w_{\text{IncFreq}} = w_{\text{Patch}} = w_{\text{UnsupComp}} = 0.1\overline{3}$.
+Two weight configurations are applied, as specified in @sec-frameworkdesign. The baseline equal-weight configuration assigns $w_j = 0.20$ to each of the five criteria and serves as the reference case. The differential configuration assigns higher weights to MTTR and patch recency, consistent with the design rationale established in @sec-chapter3. The differential weights are $w_{\text{MTTR}} = w_{\text{patch recency}} = 0.30$ and $w_{\text{IncFreq}} = w_{\text{CFR}} = w_{\text{UnsupComp}} = 0.1\overline{3}$.
+
+```{=latex}
+\begingroup
+\scriptsize
+```
 
 | Configuration | Incident Freq. | MTTR | CFR | Patch Recency | Unsup. Comp. Months |
 |------------|-----------:|-----------:|-----------:|-----------:|-----------:|
 | Equal (baseline) | $0.20$ | $0.20$ | $0.20$ | $0.20$ | $0.20$ |
 | Differential | $0.1\overline{3}$ | $0.30$ | $0.1\overline{3}$ | $0.30$ | $0.1\overline{3}$ |
+
+```{=latex}
+\endgroup
+```
 
 : Weight configurations {#tbl-weights tbl-colwidths="\[25,15,12,12,18,18\]"}
 
@@ -86,4 +104,4 @@ To assess temporal stability, the framework was applied to the 2024 dataset usin
 
 The change in SVC-02 between the two years is substantial: cumulative unsupported-component exposure rises from zero to 1,221 component-months. SVC-02 is built from more than two hundred components, and roughly half of these passed their vendor end-of-support date during 2025, derived from the same complete CMDB extract that underlies the unsupported-component-months indicator (@sec-appendixb).
 
-The calculations presented in this chapter constitute the analytical output of the framework. The closeness coefficients and rankings produced under both weight configurations, for 2025 and for temporal comparison for 2024, are carried forward as the empirical basis for the evaluation that follows. @sec-chapter5 assesses whether these rankings are stable under weight variation and across observation periods, tests their stability under weight and temporal variation, their agreement with alternative multi-criteria methods, and their divergence from a single-criterion baseline. Finally, it reflects on the implications for technical debt prioritisation within the organisation's trading IT portfolio.
+The calculations presented in this chapter constitute the analytical output of the framework. The closeness coefficients and rankings produced under both weight configurations, for 2025 and for the temporal comparison with 2024, are carried forward as the empirical basis for the evaluation that follows. @sec-chapter5 tests whether these rankings are stable under weight and temporal variation, agree with alternative multi-criteria methods, diverge from a single-criterion baseline and survive the removal of individual services. It then interprets the resulting priorities against the service profiles they describe.
