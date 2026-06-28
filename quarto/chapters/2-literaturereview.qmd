@@ -131,7 +131,7 @@ The most directly relevant empirical grounding for the proposed framework comes 
 
 ### DORA Metrics as Operational Debt Proxies
 
-@forsgrenAccelerate2018 drew on survey responses from over 2,000 unique organisations worldwide and showed that DORA metrics MTTR, CFR, deployment frequency and lead time can distinguish high-performing from low-performing delivery teams. This makes these indicators useful in a vendor-dominated environment where source code inspection is not available.
+@forsgrenAccelerate2018 drew on survey responses from over 2,000 unique organisations worldwide and showed that DORA metrics mean time to recover (MTTR), change failure rate (CFR), deployment frequency and lead time can distinguish high-performing from low-performing delivery teams. This makes these indicators useful in a vendor-dominated environment where source code inspection is not available.
 
 The inferential step this thesis takes, however, goes beyond what the original validation supports. @forsgrenAccelerate2018 established DORA metrics as delivery performance predictors. Using them as proxies for technical debt severity requires a further claim. Degraded operational performance reflects accumulated debt rather than inadequate staffing, immature release practices or organisational disruption. That claim is plausible but has not been established as a general empirical law. The framework therefore treats this as a hypothesis rather than a premise. The literature does not settle the question, and it would be misleading to present it as if it did.
 
@@ -197,7 +197,7 @@ The four thematic sections together define the conceptual, methodological, conte
 
 ### Cross-Pillar Convergence
 
-The four preceding sections converge on a common structural problem. The concept of technical debt has expanded beyond source code and now includes infrastructure, vendor platforms and operational dependencies, but the dominant measurement and prioritisation methods have not kept pace with that wider scope [@kleinwaksTechnicalDebtSystems2023; @yangTaxonomyTechnicalDebt2019; @biazottoTechnicalDebtManagement2024]. In regulated, vendor-heavy trading IT, that mismatch leaves important forms of debt only partially visible and difficult to govern effectively [@rinta-kahilaGettingTrappedTechnical2023].
+The four preceding sections converge on a common structural problem. The concept of technical debt has expanded beyond source code and now includes infrastructure, vendor platforms and operational dependencies, but the dominant measurement and prioritisation methods have not kept pace with that wider scope [@kleinwaksTechnicalDebtSystems2023; @yangTaxonomyTechnicalDebt2019; @biazottoTechnicalDebtManagement2024]. In vendor-dependent legacy environments, hidden dependencies can accumulate and make technical debt harder to observe and retire; this is consistent with @rinta-kahilaGettingTrappedTechnical2023 analysis of legacy-system replacement.
 
 The first implication is that the field now describes more forms of debt than its tools can reliably observe. Code-centric approaches remain useful, but they are poorly suited to environments where the most relevant liabilities sit in platform obsolescence, infrastructure lifecycle exposure or operational dependence on third-party systems [@biazottoTechnicalDebtManagement2024; @hakiDigitalNudgingTechnical2023]. As a result, the literature supports the existence of these broader debt types while still offering limited practical means of measuring them in service-level terms [@kleinwaksTechnicalDebtSystems2023].
 
