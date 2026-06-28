@@ -54,7 +54,7 @@ The exact content of the files that have been used for the TOPSIS calculation ca
 
 Each indicator was normalised using vector normalisation, as specified in @sec-frameworkdesign. This removes differences in scale and unit while preserving proportional relationships between values. A service with an unusually high MTTR retains its full distance from lower-performing services in the normalised space, rather than being compressed toward a fixed upper bound. Min-max normalisation was considered and rejected on this basis. @grecoMethodologicalFrameworkComposite2019 recommend vector normalisation for composite indicators precisely because it does not reduce the discriminatory power of extreme observations.
 
-Two weight configurations are applied, as specified in @sec-frameworkdesign. The baseline equal-weight configuration assigns $w_j = 0.20$ to each of the five criteria and serves as the reference case. The differential configuration assigns higher weights to MTTR and patch recency, consistent with the design rationale established in @sec-chapter3. The differential weights are $w_{\text{MTTR}} = w_{\text{patch recency}} = 0.30$ and $w_{\text{IncFreq}} = w_{\text{CFR}} = w_{\text{UnsupComp}} = 0.1\overline{3}$.
+Two weight configurations are applied, as specified in @sec-frameworkdesign. The baseline equal-weight configuration assigns $w_j = 0.20$ to each of the five criteria and serves as the reference case. The differential configuration assigns higher weights to MTTR and patch recency, consistent with the design rationale established in @sec-chapter3. The differential weights are $w_{\text{MTTR}} = w_{\text{Patch Recency}} = 0.30$ and $w_{\text{IncFreq}} = w_{\text{CFR}} = w_{\text{UnsupComp}} = 0.1\overline{3}$.
 
 ```{=latex}
 \begingroup
@@ -66,11 +66,11 @@ Two weight configurations are applied, as specified in @sec-frameworkdesign. The
 | Equal (baseline) | $0.20$ | $0.20$ | $0.20$ | $0.20$ | $0.20$ |
 | Differential | $0.1\overline{3}$ | $0.30$ | $0.1\overline{3}$ | $0.30$ | $0.1\overline{3}$ |
 
+: Weight configurations {#tbl-weights tbl-colwidths="\[25,15,12,12,18,18\]"}
+
 ```{=latex}
 \endgroup
 ```
-
-: Weight configurations {#tbl-weights tbl-colwidths="\[25,15,12,12,18,18\]"}
 
 ## TOPSIS Computation and Rankings {#sec-topsis-results}
 
