@@ -16,6 +16,10 @@ local appendix_words = 0
 local abstract_words = 0
 local total_words = 0
 
+local function comma(n)
+  return tostring(n):reverse():gsub("(%d%d%d)", "%1,"):reverse():gsub("^,", "")
+end
+
 function set_meta(m)
   m.wordcount_body_words = body_words
   m.wordcount_ref_words = ref_words

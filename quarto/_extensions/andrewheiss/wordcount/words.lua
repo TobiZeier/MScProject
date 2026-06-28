@@ -1,10 +1,14 @@
 
+local function comma(n)
+  return tostring(n):reverse():gsub("(%d%d%d)", "%1,"):reverse():gsub("^,", "")
+end
+
 as_str = function(meta_value, name)
   if (meta_value == nil) then
     print("cannot find " .. name .. " in meta data")
     return pandoc.Null()
   end
-  return pandoc.Str(meta_value) 
+  return pandoc.Str(comma(meta_value))
 end
 
 as_num = function(meta_value, name)
@@ -38,7 +42,7 @@ return {
     local nargs = #args
     local count = 0
     if nargs == 0  then
-      return pandoc.Str(0)
+      return pandoc.Str(comma(0))
     end
     --print(args)
     local arg = args[1]
@@ -58,6 +62,6 @@ return {
     if arg:match("note") then
       count = count + as_num(meta.wordcount_note_words, "wordcount_note_words")
     end
-    return pandoc.Str(count - nargs)
+    return pandoc.Str(comma(count - nargs))
   end
 }
