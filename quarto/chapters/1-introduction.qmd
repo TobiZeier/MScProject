@@ -1,6 +1,6 @@
 # Introduction {#sec-chapter1}
 
-Technical debt is not an abstract software quality concern; in mission-critical trading IT it translates into delayed recovery, accumulating infrastructure risk and governance blind spots. The following sections establish why the absence of a quantitative, service-level measurement mechanism represents a specific and costly gap, and how this thesis addresses it.
+Technical debt is not an abstract software quality concern; in mission-critical trading IT it translates into delayed recovery, accumulating infrastructure risk and governance blind spots. The sections below establish why the absence of a quantitative, service-level measurement mechanism represents a specific and costly gap, and how this thesis addresses it.
 
 ## Background and Motivation
 
@@ -38,4 +38,4 @@ The framework measures debt indirectly, through operational proxies, and express
 
 ## Thesis Structure
 
-@sec-chapter2 reviews the theoretical and empirical foundations across four bodies of literature and identifies the research gap. Chapter 3 describes the research design, methodology and ethical considerations. @sec-chapter4 presents the framework development and results, including TOPSIS computation and sensitivity analysis. @sec-chapter5 evaluates the framework against the criteria established in @sec-chapter3. @sec-chapter6 concludes with responses to the research questions, a critical self-evaluation, the academic and practical contributions, and directions for future work.
+@sec-chapter2 reviews the theoretical and empirical foundations across four bodies of literature and identifies the research gap. @sec-chapter3 describes the research design, methodology and ethical considerations. @sec-chapter4 presents the framework development and results, including TOPSIS computation and sensitivity analysis. @sec-chapter5 evaluates the framework against the criteria established in @sec-chapter3. @sec-chapter6 concludes with responses to the research questions, a critical self-evaluation, the academic and practical contributions, and directions for future work.
