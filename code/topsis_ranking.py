@@ -1,14 +1,22 @@
 #!/usr/bin/env python
 """
-TOPSIS scoring for technical debt prioritisation.
-Reads a CSV of services, scores them, prints a ranked table and saves a bar chart.
+This file is part of the master's thesis with the title Measuring Technical Debt in Mission Critical Trading Systems
+
+It carries several functionalities such as:
+- TOPSIS ranking in classic mode with two different weights
+- TOPSIS ranking in absolute mode with fixed bounds (min, max)
+- Graphical export of results
+
+running command: python topsis.py services2025.csv --mode absolute --weights equal
 """
 
 import argparse
 import sys
+import re
 
 import numpy as np
 import pandas as pd
+from pathlib import Path
 import plotly.graph_objects as go
 
 CRITERIA = [
@@ -16,103 +24,110 @@ CRITERIA = [
     "mttr_hrs",
     "cfr",
     "patch_recency",
-    "unsupported_months",
+    "unsupported_months"
 ]
 
-# patch_recency is a benefit criterion - higher = more recent = better
-# everything else - lower = better
 COST_CRITERIA = [
     "incident_freq",
     "mttr_hrs",
     "cfr",
-    "unsupported_months",
+    "unsupported_months"
 ]
 
-#WEIGHTS = np.array([0.2, 0.2, 0.2, 0.2, 0.2], dtype=float)
-WEIGHTS = np.array([0.4/3, 0.3, 0.4/3, 0.3, 0.4/3], dtype=float)
+#--- two different weight settings ------------------------------------------------------------------
+EQUAL_WEIGHTS = np.array([0.2, 0.2, 0.2, 0.2, 0.2], dtype=float)
+ADJUSTED_WEIGHTS = np.array([0.4/3, 0.3, 0.4/3, 0.3, 0.4/3], dtype=float)
 
-OUTPUT_CHART = "topsis_ranking.png"
+#--- fixed bounds to prevent rank reversal ------------------------------------------------------------
+ABSOLUTE_BOUNDS = {
+    "incident_freq": (0.0, 1000.0),
+    "mttr_hrs": (0.0, 120.0),
+    "cfr": (0.0, 5.0),
+    "patch_recency": (0.0 , 100.0),
+    "unsupported_months": (0.0, 2000.0)
+}
 
-
-def run_topsis(df, criteria, cost_criteria, weights):
-    if not np.isclose(weights.sum(), 1.0):
-        raise ValueError(f"Weights should sum to 1.0, got {weights.sum():.4f}")
+#--- classic TOPSIS ranking ---------------------------------------------------------------------------
+def topsis_classic(df, weights, criteria = CRITERIA, cost_criteria = COST_CRITERIA):
+    _check_weights(weights)
 
     X = df[criteria].to_numpy(dtype=float)
 
-    # normalise each column
     norms = np.sqrt((X ** 2).sum(axis=0))
     if np.any(norms == 0):
         raise ValueError("One or more criterion columns are all zeros - normalisation not possible.")
     R = X / norms
     V = R * weights
 
-    # figure out ideal best/worst per criterion
     benefit = np.array([c not in cost_criteria for c in criteria])
-    ideal_best  = np.where(benefit, V.max(axis=0), V.min(axis=0))
+    ideal_best = np.where(benefit, V.max(axis=0), V.min(axis=0))
     ideal_worst = np.where(benefit, V.min(axis=0), V.max(axis=0))
 
-    d_best  = np.sqrt(((V - ideal_best)  ** 2).sum(axis=1))
+    d_best = np.sqrt(((V - ideal_best) ** 2).sum(axis=1))
     d_worst = np.sqrt(((V - ideal_worst) ** 2).sum(axis=1))
 
     total = d_best + d_worst
     if np.any(total == 0):
         raise ValueError("A row is equidistant from both ideals - closeness coefficient is undefined.")
-
-    # Ci close to 0 = closest to worst (highest debt priority)
-    Ci = d_worst / total
-    #print(Ci)
-
-    out = df[["service"]].copy()
-    out["closeness_coeff"] = Ci
-    out["rank"] = out["closeness_coeff"].rank(ascending=True, method="min").astype(int)
-    return out.sort_values(["rank", "closeness_coeff", "service"]).reset_index(drop=True)
+    return d_worst / total
 
 
-def load_data(path):
-    try:
-        df = pd.read_csv(path)
-    except FileNotFoundError:
-        sys.exit(f"Couldn't find file: {path}")
+#--- absolute TOPSIS ranking ------------------------------------------------------------------
+def topsis_absolute(df, weights, criteria = CRITERIA, cost_criteria = COST_CRITERIA, bounds=ABSOLUTE_BOUNDS):
+    _check_weights(weights)
 
-    needed = {"service"} | set(CRITERIA)
-    missing = needed - set(df.columns)
-    if missing:
-        sys.exit(f"CSV is missing these columns: {sorted(missing)}")
+    X = df[criteria].to_numpy(dtype=float)
 
-    for col in CRITERIA:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
+    lo = np.array([bounds[c][0] for c in criteria], dtype=float)
+    hi = np.array([bounds[c][1] for c in criteria], dtype=float)
+    if np.any(hi <= lo):
+        raise ValueError("Each criterion bound must satisfy upper > lower.")
+    if np.any(X > hi) or np.any(X < lo):
+        raise ValueError("An observed value lies outside its fixed criterion bounds; widen the bounds.")
 
-    bad = [c for c in CRITERIA if df[c].isnull().any()]
-    if bad:
-        sys.exit(f"Non-numeric or missing values found in: {bad}")
+    benefit = np.array([c not in cost_criteria for c in criteria])
 
-    if df["service"].isnull().any():
-        sys.exit("Some rows in the service column are empty.")
+    # Max normalisation against the fixed ceiling (Garcia-Cascales: n = z / max).
+    R = X / hi
 
-    return df
+    V = R * weights
+
+    best_raw = np.where(benefit, hi, lo)
+    worst_raw = np.where(benefit, lo, hi)
+    ideal_best = (best_raw / hi) * weights
+    ideal_worst = (worst_raw / hi) * weights
+
+    d_best = np.sqrt(((V - ideal_best) ** 2).sum(axis=1))
+    d_worst = np.sqrt(((V - ideal_worst) ** 2).sum(axis=1))
+
+    total = d_best + d_worst
+    if np.any(total == 0):
+        raise ValueError("A row is equidistant from both ideals - closeness coefficient is undefined.")
+    return d_worst / total
 
 
 
-def print_results(result):
-    print()
-    print("=" * 56)
-    print("  TOPSIS Results - Adjusted Weight")
-    print("=" * 56)
+SCORERS = {"classic": topsis_classic, "absolute": topsis_absolute}
+
+#--- printing results and charts --------------------------------------------------------------
+
+def print_results(df, weights, scorer, mode, year, weight_label):
+    result = rank_table(df, scorer(df, weights))
+    title = f"TOPSIS ranking ({year}, {weight_label} weights, {mode} mode)"
+    print("\n" + "=" * 70)
+    print(f"  {title}")
+    print("=" * 70)
     print(f"  {'Service':<12} {'Closeness Coeff (Ci)':>22} {'Rank':>6}")
-    print("-" * 56)
+    print("-" * 70)
     for _, row in result.iterrows():
         print(f"  {row['service']:<12} {row['closeness_coeff']:>22.4f} {row['rank']:>6}")
-    print("=" * 56)
-    print("  Rank 1 = highest TD priority  |  Ci near 0 = worst")
-    print(f"  Rank {len(result)} = lowest TD priority   |  Ci near 1 = best")
-    print()
+    print("=" * 70)
+    print("  Rank 1 = highest TD priority  |  Ci near 0 = worst profile\n")
 
 
-def save_chart(result, output_path):
+def save_chart(result, output_path, subtitle):
     df_plot = result.sort_values(["rank", "closeness_coeff"], ascending=[True, False]).reset_index(drop=True)
     df_plot["label"] = df_plot.apply(lambda r: f"Rank {int(r['rank'])} · {r['closeness_coeff']:.4f}", axis=1)
-
 
     colors = ["#c0392b" if r == 1 else "#2471a3" for r in df_plot["rank"]]
 
@@ -133,10 +148,7 @@ def save_chart(result, output_path):
         title=dict(
             text=(
                 "Technical Debt Priority<br>"
-                "<span style='font-size:15px;font-weight:normal;'>"
-                "Weights: 0.3 MTTR and Patch recency, rest 0.13333 | "
-                "Red = Rank 1 (highest remediation priority)"
-                "</span>"
+                f"<span style='font-size:15px;font-weight:normal;'>{subtitle}</span>"
             ),
             font=dict(size=19),
             y=0.93,
@@ -166,44 +178,70 @@ def save_chart(result, output_path):
         fig.write_image(output_path)
     except Exception as exc:
         raise RuntimeError(
-            "Chart export failed"
+            "Chart export failed - is kaleido installed? Try: pip install kaleido"
         ) from exc
 
     print(f"Chart saved: {output_path}")
 
 
-def _run_tests():
-    # sanity check: A is ideal, C is worst, B sits in the middle
-    test = pd.DataFrame({
-        "service":  ["A", "B", "C"],
-        "cost1":    [1.4, 2.6, 4.9],
-        "benefit1": [5.2, 3.1, 0.8],
-    })
-    w  = np.array([0.5, 0.5])
-    cr = ["cost1", "benefit1"]
-    cc = ["cost1"]
+#--- input handling ---------------------------------------------------------------------------
+def _check_weights(weights):
+    if not np.isclose(weights.sum(), 1.0):
+        raise ValueError(f"Weights should sum to 1.0, got {weights.sum():.4f}")
 
-    res = run_topsis(test, cr, cc, w)
-    ci  = res.set_index("service")["closeness_coeff"]
+def rank_table(df, closeness):
+    out = df[["service"]].copy()
+    out["closeness_coeff"] = closeness
+    out["rank"] = out["closeness_coeff"].rank(ascending=True, method="min").astype(int)
+    return out.sort_values(["rank", "closeness_coeff", "service"]).reset_index(drop=True)
 
-    assert abs(ci["A"] - 1.0) < 1e-6, f"Expected Ci(A)≈1.0, got {ci['A']}"
-    assert abs(ci["C"] - 0.0) < 1e-6, f"Expected Ci(C)≈0.0, got {ci['C']}"
-    assert 0.0 < ci["B"] < 1.0,        f"Expected 0 < Ci(B) < 1, got {ci['B']}"
-    assert res.loc[res["service"] == "C", "rank"].values[0] == 1
-    assert res.loc[res["service"] == "A", "rank"].values[0] == 3
+def load_csv(path):
+    try:
+        df = pd.read_csv(path)
+    except FileNotFoundError:
+        sys.exit(f"File not found: {path}")
+
+    needed = {"service"} | set(CRITERIA)
+    missing = needed - set(df.columns)
+    if missing:
+        sys.exit(f"CSV is missing these columns: {sorted(missing)}")
+
+    for col in CRITERIA:
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    bad = [c for c in CRITERIA if df[c].isnull().any()]
+    if bad:
+        sys.exit(f"Non-numeric or missing values found in: {bad}")
+
+    if df["service"].isnull().any():
+        sys.exit("Some rows in the service column are empty.")
+    return df
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("csv_file", help="Path to input CSV file")
+    parser = argparse.ArgumentParser(description=__doc__,
+                                     formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("csv_file", nargs="?", help="Path to the input CSV file")
+    parser.add_argument("--mode", choices=["classic", "absolute"], default="absolute",
+                        help="Scoring variant (default: absolute, the rank-reversal-safe method)")
+    parser.add_argument("--weights", choices=["equal", "adjusted"], default="equal",
+                        help="Weight configuration for the point ranking and reversal test")
     args = parser.parse_args()
 
-    #_run_tests()
-    df     = load_data(args.csv_file)
-    result = run_topsis(df, CRITERIA, COST_CRITERIA, WEIGHTS)
-    print_results(result)
-    save_chart(result, OUTPUT_CHART)
+    df = load_csv(args.csv_file)
+
+    match = re.search(r"\d{4}", Path(args.csv_file).stem)
+    year = match.group() if match else "unknown"
+
+    scorer = SCORERS[args.mode]
+    weights = EQUAL_WEIGHTS if args.weights == "equal" else ADJUSTED_WEIGHTS
+
+    result = rank_table(df, scorer(df, weights))
+    output_path = f"topsis_ranking_{year}_{args.mode}_{args.weights}.png"
+
+    print_results(df, weights, scorer, args.mode, year, args.weights)
+    save_chart(result, output_path, f"{args.mode} mode, {args.weights} weights, {year}")
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
