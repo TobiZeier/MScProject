@@ -24,8 +24,55 @@ def ranked_order(df, closeness):
     return list(tmp["service"])
 
 
-def montecarlo(df):
-    print("tbd")
+def monte_carlo_weights(df, scorer, n_samples=20000, seed=None, concentration=None):
+    rng = np.random.default_rng(seed)
+    n_services = len(df)
+    n_criteria = len(CRITERIA)
+    alpha = np.ones(n_criteria) if concentration is None else np.asarray(concentration, dtype=float)
+
+    counts = np.zeros((n_services, n_services), dtype=float)
+    top_service_hits = 0
+    bottom_service_hits = 0
+
+    ref_ci = scorer(df, EQUAL_WEIGHTS)
+    ref_order = ranked_order(df, ref_ci)
+    ref_top, ref_bottom = ref_order[0], ref_order[-1]
+    services = list(df["service"])
+    top_idx = services.index(ref_top)
+    bottom_idx = services.index(ref_bottom)
+
+    for _ in range(n_samples):
+        w = rng.dirichlet(alpha)
+        ci = scorer(df, w)
+        # Position 0 = highest priority (smallest closeness coefficient).
+        order_positions = pd.Series(ci).rank(method="first").astype(int).to_numpy() - 1
+        for i, pos in enumerate(order_positions):
+            counts[i, pos] += 1.0
+        if order_positions[top_idx] == 0:
+            top_service_hits += 1
+        if order_positions[bottom_idx] == n_services - 1:
+            bottom_service_hits += 1
+
+    acceptability = counts / n_samples
+    rank_labels = [f"R{j + 1}" for j in range(n_services)]
+    acc_df = pd.DataFrame(acceptability, index=services, columns=rank_labels)
+
+    rank_values = np.arange(1, n_services + 1)
+    half = n_services // 2
+    summary = pd.DataFrame({
+        "modal_rank": acceptability.argmax(axis=1) + 1,
+        "mean_rank": (acceptability * rank_values).sum(axis=1),
+        "p_high_priority_half": acceptability[:, :half].sum(axis=1),
+    }, index=services)
+
+    preservation = {
+        "reference_top": ref_top,
+        "reference_bottom": ref_bottom,
+        "top_preserved_rate": top_service_hits / n_samples,
+        "bottom_preserved_rate": bottom_service_hits / n_samples,
+        "n_samples": n_samples,
+    }
+    return acc_df, summary, preservation
 
 
 
@@ -60,7 +107,26 @@ def print_reversal(df, weights, scorer, mode):
     print(f"  Reversals detected: {n_reversed} of {len(results)} removals\n")
 
 
+def print_monte_carlo(df, scorer, mode, n_samples, seed):
+    acc_df, summary, preservation = monte_carlo_weights(
+        df, scorer, n_samples=n_samples, seed=seed
+    )
+    print("\n" + "=" * 60)
+    print(f"  Monte Carlo weight-space analysis ({mode} mode)")
+    print(f"  {n_samples} Dirichlet samples, seed = {seed}")
+    print("=" * 60)
+    print("  Rank-acceptability (probability of each priority rank):")
+    print(acc_df.round(3).to_string())
+    print("\n  Per-service summary:")
+    print(summary.round(3).to_string())
+    print("-" * 60)
+    print(f"  Reference top service    : {preservation['reference_top']} "
+          f"kept at rank 1 in {preservation['top_preserved_rate'] * 100:.1f}% of samples")
+    print(f"  Reference bottom service : {preservation['reference_bottom']} "
+          f"kept at last rank in {preservation['bottom_preserved_rate'] * 100:.1f}% of samples\n")
 
+
+#--- main -----------------------------------------------------------------------------
 def main():
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -80,7 +146,8 @@ def main():
     weights = EQUAL_WEIGHTS if args.weights == "equal" else ADJUSTED_WEIGHTS
 
     print_reversal(df, weights, scorer, args.mode)
-
+    if args.montecarlo > 0:
+        print_monte_carlo(df, scorer, args.mode, args.montecarlo, args.seed)
 
 if __name__ == '__main__':
     main()
