@@ -50,7 +50,7 @@ This appendix records the complete output behind the summary tables in @sec-chap
 
 ## Per-Service Scores and Rankings TOPSIS Absolute Mode
 
-Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for both TOPSIS versus SAW and TOPSIS versus VIKOR), and SVC-06 and SVC-04 exchange the top two positions relative to the standard formulation in @tbl-appc-2025e. This reflects the effect of the fixed reference frame on the closely scored high-priority cluster and accompanies the rank-reversal results in @tbl-appc-rankreversal-abs.
+Under TOPSIS absolute-mode the three methods agree exactly ($\tau = 1.000$ for both TOPSIS versus SAW and TOPSIS versus VIKOR), and SVC-06 and SVC-04 exchange the top two positions relative to the standard formulation in @tbl-appc-2025e. This reflects the effect of the fixed reference frame on the closely scored high-priority cluster and accompanies the rank-reversal results in @tbl-appc-rankreversal-abs.
 
 | Service |  $C_i$ |    SAW |    $S$ |    $R$ |    $Q$ | Rank (T, S, V) |
 |---------|-------:|-------:|-------:|-------:|-------:|:--------------:|
@@ -78,21 +78,21 @@ Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for b
 
 | Year | TOPSIS order | Incident-only order | $\tau$ |
 |--------------|----------------------|----------------------|-------------:|
-| 2025 | SVC-04, SVC-06, SVC-02, SVC-01, SVC-05, SVC-03 | SVC-04, SVC-06, SVC-05, SVC-01, SVC-02, SVC-03 | 0.600 |
-| 2024 | SVC-04, SVC-06, SVC-02, SVC-05, SVC-01, SVC-03 | SVC-04, SVC-05, SVC-01, SVC-03, SVC-06, SVC-02 | 0.200 |
+| 2025 | $SVC-04 \succ SVC-06 \succ SVC-02 \succ SVC-01 \succ SVC-05 \succ SVC-03 | SVC-04 \succ SVC-06 \succ SVC-05 \succ SVC-01 \succ SVC-02 \succ SVC-03$ | 0.600 |
+| 2024 | $SVC-04 \succ SVC-06 \succ SVC-02 \succ SVC-05 \succ SVC-01 \succ SVC-03 | SVC-04 \succ SVC-05 \succ SVC-01 \succ SVC-03 \succ SVC-06 \succ SVC-02$ | 0.200 |
 
-: TOPSIS ranking against a ranking by incident frequency alone, equal weights. {#tbl-appc-discriminant}
+: TOPSIS ranking against a ranking by incident frequency alone \succ equal weights. {#tbl-appc-discriminant}
 
 ## Rank-Reversal Detail
 
 | Service removed | 2025 outcome | 2024 outcome |
 |-----------------|---------------------------|---------------------------|
 | SVC-01 | preserved | preserved |
-| SVC-02 | SVC-06, SVC-04, SVC-01, SVC-05, SVC-03 | preserved |
-| SVC-03 | preserved | SVC-04, SVC-06, SVC-05, SVC-02, SVC-01 |
-| SVC-04 | SVC-06, SVC-02, SVC-05, SVC-01, SVC-03 | SVC-06, SVC-05, SVC-02, SVC-01, SVC-03 |
+| SVC-02 | $SVC-06 \succ SVC-04 \succ SVC-01 \succ SVC-05 \succ SVC-03$ | preserved |
+| SVC-03 | preserved | $SVC-04 \succ SVC-06 \succ SVC-05 \succ SVC-02 \succ SVC-01$ |
+| SVC-04 | $SVC-06 \succ SVC-02 \succ SVC-05 \succ SVC-01 \succ SVC-03$ | $SVC-06 \succ SVC-05 \succ SVC-02 \succ SVC-01 \succ SVC-03$ |
 | SVC-05 | preserved | preserved |
-| SVC-06 | SVC-04, SVC-02, SVC-05, SVC-01, SVC-03 | SVC-04, SVC-05, SVC-02, SVC-01, SVC-03 |
+| SVC-06 | $SVC-04 \succ SVC-02 \succ SVC-05 \succ SVC-01 \succ SVC-03$ | $SVC-04 \succ SVC-05 \succ SVC-02 \succ SVC-01 \succ SVC-03$ |
 
 : Order of the remaining five services after each removal, equal weights. Entries reading preserved leave the reference order unchanged. {#tbl-appc-rankreversal}
 
@@ -113,7 +113,7 @@ Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for b
 
 | Configuration | 2025 order | 2024 order | $\tau$ |
 |--------------|----------------------|----------------------|-------------:|
-| Equal | SVC-04, SVC-06, SVC-02, SVC-01, SVC-05, SVC-03 | SVC-04, SVC-06, SVC-02, SVC-05, SVC-01, SVC-03 | 0.867 |
-| Adjusted | SVC-04, SVC-02, SVC-06, SVC-01, SVC-05, SVC-03 | SVC-04, SVC-02, SVC-06, SVC-01, SVC-05, SVC-03 | 1.000 |
+| Equal | $SVC-04 \succ SVC-06 \succ SVC-02 \succ SVC-01 \succ SVC-05 \succ SVC-03$ | $SVC-04 \succ SVC-06 \succ SVC-02 \succ SVC-05 \succ SVC-01 \succ SVC-03$ | 0.867 |
+| Adjusted | $SVC-04 \succ SVC-02 \succ SVC-06 \succ SVC-01 \succ SVC-05 \succ SVC-03$ | $SVC-04 \succ SVC-02 \succ SVC-06 \succ SVC-01 \succ SVC-05 \succ SVC-03$ | 1.000 |
 
 : TOPSIS rankings across the two observation years. {#tbl-appc-temporal}
