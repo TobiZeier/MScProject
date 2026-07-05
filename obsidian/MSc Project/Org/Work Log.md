@@ -63,13 +63,13 @@ This table is to track the time that I have invested in my master thesis.
 | 15/06 | 2     | Supervisory meeting and working on chapter 4                                                 |
 | 16/06 | 4.5   | Incorporate feedback and revising several sections                                           |
 | 19/06 | 8     | Working on chapter 5                                                                         |
+| 21/06 | 4     | Working on chapter 5                                                                         |
+| 27/06 | 4     | Revising all chapters                                                                        |
+| 30/06 | 2     | Revising Python script                                                                       |
+| 03/07 | 8     | Working on chapter 5                                                                         |
+| 05/07 | 2     | Working on chapter 5                                                                         |
 |       |       |                                                                                              |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
+| 10/07 |       | Working on chapter 6                                                                         |
 |       |       |                                                                                              |
 |       |       |                                                                                              |
 |       |       |                                                                                              |

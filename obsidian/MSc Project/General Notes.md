@@ -23,7 +23,6 @@
 	- [x] remove equations from chapter 4
 	- [x] Rewrite **Data Preparation** section, using actual numbers.  Inclusion and exclusion criteria - justify which services from the trading IT portfolio have been excluded and why
 	- [x] Rewrite **Indicator Extraction and Quality Checks** use actual numbers and checks
-	- [ ] **Imputation rationale**: The Greco et al. citation for portfolio mean imputation of CFR needs verification — check whether they actually recommend this for sparse operational datasets specifically.
 - [ ] revise section 1.6 Thesis Structure - depending on actual evaluation in Chapter 5
 - [ ] decide how to evaluate and review
 	- [ ] 2.8.3 "validating indicator scores against historical operational records"
@@ -31,10 +30,14 @@
 	- [ ] 3.1.2 "by evaluating the framework against operational data"
 	- [ ] decide which term to use and adjust accordingly (Swiss securities trading institution, trading IT, financial trading IT, Swiss financial institution,)
 - [ ] rewrite abstract
+- [ ] weight perturbation for composite rankings according to greco et al.?
+	- [ ] refine section 2.6.1
+	- [ ] refine section 2.7
+	- [ ] 
 
 - [x] recalculate TOPSIS rankings to make sure python calculation is accurate
-- [ ] recalculate Kendall's Tau and P-Values
-- [ ] write chapter 5 and include graphs
+- [x] recalculate Kendall's Tau and P-Values
+- [x] write chapter 5 and include graphs
 
 
 abstract: "This thesis develops a service-level quantitative framework for measuring and prioritising technical debt in mission-critical trading systems. Existing measurement approaches rely predominantly on static code analysis, which is inapplicable to vendor-dominated enterprise environments where operational risks manifest in service instability, patch delay and infrastructure obsolescence rather than source code. The framework applies TOPSIS to five operational indicators, incident frequency, mean time to restore, change failure rate and patch recency, derived from live ITSM and CMDB records at a Swiss securities trading institution. Indicator selection is grounded in a critical review of technical debt theory, measurement frameworks, financial enterprise IT governance, and multi-criteria decision-making. The study adopts a Design Science Research paradigm and a pragmatist stance, treating the relationship between degraded operational indicators and technical debt severity as a testable hypothesis rather than an established premise. The framework's evaluation centres on ranking stability under criterion weight perturbation, contributing a reproducible prioritisation instrument that bridges IT service management and software quality engineering in a domain currently underserved by the technical debt literature."
