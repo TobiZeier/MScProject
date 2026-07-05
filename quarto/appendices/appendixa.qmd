@@ -9,11 +9,11 @@ The content in this appendix is the exact artefact which has been used to calcul
 
 #!/usr/bin/env python
 """
-This file is part of the master's thesis with the title Measuring Technical Debt in Mission Critical Trading Systems
+This file is part of the master's thesis with the title Measuring Technical Debt in Mission Critical Trading Systems.
 
 It carries several functionalities such as:
-- TOPSIS ranking in classic mode with two different weights
-- TOPSIS ranking in absolute mode with fixed bounds (min, max)
+- TOPSIS ranking in classic mode with two different weight settings
+- TOPSIS ranking in absolute mode with fixed bounds and a pre defined best/worst alternative
 - Graphical export of results
 
 running command: python topsis_ranking.py services2025.csv --mode absolute --weights equal
