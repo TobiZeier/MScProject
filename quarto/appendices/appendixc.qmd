@@ -2,7 +2,7 @@
 
 This appendix records the complete output behind the summary tables in @sec-chapter5. It lists, for every weight configuration and both observation years, the per-service scores produced by each method, together with the full convergent, discriminant, rank-reversal and temporal results. In the score tables, $C_i$ is the TOPSIS closeness coefficient, SAW is the Simple Additive Weighting score, and $S$, $R$ and $Q$ are the VIKOR utility, regret and compromise measures. The final column gives each service's rank under TOPSIS, SAW and VIKOR in that order, where rank 1 is the highest debt priority. Rows are ordered by TOPSIS rank.
 
-## Per-Service Scores and Rankings
+## Per-Service Scores and Rankings TOPSIS Classic Mode
 
 | Service |  $C_i$ |    SAW |    $S$ |    $R$ |    $Q$ | Rank (T, S, V) |
 |---------|-------:|-------:|-------:|-------:|-------:|:--------------:|
@@ -48,6 +48,21 @@ This appendix records the complete output behind the summary tables in @sec-chap
 
 : Full scores and rankings, 2024 adjusted weights. {#tbl-appc-2024a}
 
+## Per-Service Scores and Rankings TOPSIS Absolute Mode
+
+Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for both TOPSIS versus SAW and TOPSIS versus VIKOR), and SVC-06 and SVC-04 exchange the top two positions relative to the standard formulation in @tbl-appc-2025e. This reflects the effect of the fixed reference frame on the closely scored high-priority cluster and accompanies the rank-reversal results in @tbl-appc-rankreversal-abs.
+
+| Service |  $C_i$ |    SAW |    $S$ |    $R$ |    $Q$ | Rank (T, S, V) |
+|---------|-------:|-------:|-------:|-------:|-------:|:--------------:|
+| SVC-06  | 0.609  | 0.441  | 0.559  | 0.200  | 1.000  |    1, 1, 1     |
+| SVC-04  | 0.633  | 0.452  | 0.548  | 0.200  | 0.989  |    2, 2, 2     |
+| SVC-02  | 0.695  | 0.538  | 0.462  | 0.200  | 0.911  |    3, 3, 3     |
+| SVC-01  | 0.820  | 0.709  | 0.291  | 0.200  | 0.755  |    4, 4, 4     |
+| SVC-05  | 0.830  | 0.809  | 0.191  | 0.071  | 0.323  |    5, 5, 5     |
+| SVC-03  | 0.940  | 0.989  | 0.011  | 0.010  | 0.000  |    6, 6, 6     |
+
+: Full scores and rankings under absolute-mode TOPSIS, 2025 equal weights. {#tbl-appc-2025e-abs}
+
 ## Convergent Agreement
 
 | Configuration  | TOPSIS vs SAW | TOPSIS vs VIKOR |
@@ -80,6 +95,19 @@ This appendix records the complete output behind the summary tables in @sec-chap
 | SVC-06 | SVC-04, SVC-02, SVC-05, SVC-01, SVC-03 | SVC-04, SVC-05, SVC-02, SVC-01, SVC-03 |
 
 : Order of the remaining five services after each removal, equal weights. Entries reading preserved leave the reference order unchanged. {#tbl-appc-rankreversal}
+
+## Rank-Reversal Detail, Absolute Mode
+
+| Service removed | 2025 outcome | 2024 outcome |
+|-----------------|--------------|--------------|
+| SVC-01 | preserved | [preserved] |
+| SVC-02 | preserved | [preserved] |
+| SVC-03 | preserved | [preserved] |
+| SVC-04 | preserved | [preserved] |
+| SVC-05 | preserved | [preserved] |
+| SVC-06 | preserved | [preserved] |
+
+: Order of the remaining services after each removal under absolute-mode TOPSIS, equal weights. {#tbl-appc-rankreversal-abs}
 
 ## Temporal Stability
 

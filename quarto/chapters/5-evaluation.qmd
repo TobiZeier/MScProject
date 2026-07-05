@@ -1,18 +1,14 @@
 # Evaluation and Discussion {#sec-chapter5}
 
-The framework developed in @sec-chapter4 ranks six production services from five operational indicators held in the organisation's ITSM instance and CMDB. A ranking only earns trust once it behaves predictably, so this chapter tests the order before interpreting it: whether it is stable under varying weights and observation years, whether alternative multi-criteria methods reproduce it, whether it diverges from a single-criterion view and whether it survives the removal of individual services. A final section reads the rankings against the research questions.
+The framework developed in @sec-chapter4 ranks six production services from five operational indicators held in the organisation's ITSM instance and CMDB. This chapter tests the order before interpreting it: whether it is stable under varying weights and observation years, whether alternative multi-criteria methods reproduce it, whether it diverges from a single-criterion view, and whether it survives the removal of individual services. A final section reads the rankings against the research questions.
 
 ## Evaluation Criteria {#sec-evaluationcriteria}
 
-The framework is evaluated against the criteria set out in @sec-evaluationapproach, which together form an analytical evaluation in the sense of @hevnerDesignScienceInformation2004 Guideline 3. Five properties are at issue. Ranking stability means the priority order is insensitive to reasonable weight variation and holds across observation periods, assessed with Kendall's tau ($\tau$) across the equal-weight and adjusted-weight rankings for 2025 and 2024. Convergent validity means alternative multi-criteria methods reproduce the ordering; discriminant value means it departs from a single-criterion incident-frequency baseline. Structural rigour means the order of the remaining services holds when any one is removed, and practical validity means the rankings can be read in terms of the service profiles they describe.
+The framework is evaluated against the criteria set out in @sec-evaluationapproach, forming an analytical evaluation in the sense of @hevnerDesignScienceInformation2004 Guideline 3. Five properties are at issue: ranking stability under reasonable weight variation and across observation periods, assessed with Kendall's tau ($\tau$); convergent validity, meaning alternative methods reproduce the ordering; discriminant value against a single-criterion incident-frequency baseline; structural rigour, meaning the remaining order holds when any service is removed; and practical validity, meaning the rankings can be read in terms of the service profiles they describe.
 
 ## Stability Results {#sec-stability}
 
-Kendall's tau measures the similarity between two rankings and is well established in MCDA evaluation [@shekhovtsovHowStronglyRank2021]. For every pair of services it counts the concordant pairs, subtracts the discordant ones and scales the result to $[-1, 1]$, where $\tau = 1$ is perfect agreement and $\tau = -1$ a complete reversal. @shekhovtsovHowStronglyRank2021 demonstrate through exhaustive permutation analysis that it tracks Spearman's and Weighted Spearman's coefficients closely ($r = 0.982$ and $r = 0.970$ respectively).
-
-With only six services, the p-value is obtained exactly. All $6! = 720$ orderings are enumerated, and the p-value is the share producing a $|\tau|$ at least as large as the one observed. This small sample limits the test's power, but the limitation comes from the size of the portfolio rather than weak agreement between rankings, since p-values tend to fall as the sample grows when a real effect is present [@chenRolesChallengesMerits2023]. A value near the conventional 0.05 threshold should therefore not be read as a clean verdict of independence. As @chenRolesChallengesMerits2023 note, borderline cases call for contextual judgement rather than mechanical rejection.
-
-@tbl-kendall reports the concordance values for all four comparisons.
+Kendall's tau measures the similarity between two rankings and is well established in MCDA evaluation [@shekhovtsovHowStronglyRank2021]. It scales concordant minus discordant pairs to $[-1, 1]$, where $\tau = 1$ is perfect agreement. With only six services the p-value is obtained exactly by enumerating all $6! = 720$ orderings. The small sample limits the test's power, but the limitation reflects portfolio size rather than weak agreement, since p-values fall as the sample grows when a real effect is present [@chenRolesChallengesMerits2023]. The p-values in @tbl-kendall are therefore read as effect sizes rather than accept-or-reject decisions.
 
 | Comparison | $\tau$ | $p$ |
 |------------------|-----------------:|-----------------:|
@@ -21,70 +17,27 @@ With only six services, the p-value is obtained exactly. All $6! = 720$ ordering
 | Temporal stability equal weights (2025 vs 2024) | 0.867| 0.017 |
 | Temporal stability adjusted weights (2025 vs 2024) | 1.000 | 0.003 |
 
-: Kendall's tau concordance values across all ranking comparisons. {#tbl-kendall tbl-colwidths="[55,15,15,15]"}
+: Kendall's tau concordance values across all ranking comparisons. {#tbl-kendall tbl-colwidths="[55,15,15]"}
 
-Given the small sample, these p-values are reported for transparency and read as effect sizes rather than accept-or-reject decisions, in line with the caution above.
-
-The 2025 weight sensitivity result ($\tau = 0.867$, $p = 0.017$) shows strong agreement between the two configurations. The only movement is a swap between SVC-06 and SVC-02 at ranks 2 and 3: under adjusted weights, SVC-02's very high unsupported component months and weaker patch recency pull it above SVC-06. The top and bottom of the ranking are identical under both.
+Weight sensitivity in 2025 is strong ($\tau = 0.867$): the only movement is a swap between SVC-06 and SVC-02 at ranks 2 and 3, as SVC-02's high unsupported component months and weaker patch recency pull it above SVC-06 under adjusted weights. Temporal stability is perfect under adjusted weights ($\tau = 1.000$) and strong under equal weights ($\tau = 0.867$), where only SVC-01 and SVC-05 trade ranks 4 and 5, reflecting a real year-on-year shift in their profiles rather than model instability. The 2024 weight sensitivity result ($\tau = 0.733$) is the weakest: two pairs swap because the middle-ranking services have more tightly grouped scores that year, showing that differential weighting matters more when services carry similar profiles. In every run the top and bottom positions are identical, which addresses RQ3 directly.
 
 ![Technical debt priority ranking for 2025, equal weights.](images/topsis_ranking2025_equal.png){#fig-topsis-equal-2025 fig-pos="H"}
 
 ![Technical debt priority ranking for 2025, adjusted weights.](images/topsis_ranking2025_adjust.png){#fig-topsis-adjusted-2025 fig-pos="H"}
 
-Temporal stability under the adjusted configuration is perfect ($\tau = 1.000$, $p = 0.003$): the ordering is identical across both years. Under equal weights it stays strong ($\tau = 0.867$, $p = 0.017$), with only SVC-01 and SVC-05 trading ranks 4 and 5. That reflects a real year-on-year shift in their incident, recovery and patch profiles rather than instability in the model.
-
-The 2024 weight sensitivity result ($\tau = 0.733$, $p = 0.056$) is the weakest in the set. Two pairs swap rather than the single swap seen in 2025, because the middle-ranking services have more tightly grouped scores in 2024, making their order more sensitive to a change in weights. This is not a structural weakness; it shows that differential weighting matters more when services carry similar profiles.
-
-![Technical debt priority ranking for 2024, equal weights.](images/topsis_ranking2024_equal.png){#fig-topsis-equal-2024 fig-pos="H"}
-
-![Technical debt priority ranking for 2024, adjusted weights.](images/topsis_ranking2024_adjust.png){#fig-topsis-adjusted-2024 fig-pos="H"}
-
-Taken together, these results address RQ3 directly: the rankings are robust to reasonable variation in criterion weights and consistent across observation years, with the top and bottom positions stable in every run.
-
 ## Convergent Validity Across Methods {#sec-convergent}
 
-To test convergent validity, the six services were re-ranked with SAW and VIKOR and each ordering compared against the TOPSIS result. Because the dataset contains zero values, SAW used Weitendorf (min-max) normalisation, which avoids the division by zero that classic cost normalisation would produce [@thienOvercomingLimitationsRAPS2024]. VIKOR followed the standard S, R and Q procedure with $v = 0.5$. @tbl-method-agreement reports agreement across both configurations and years; @tbl-method-ranks gives the ranks each method assigns in the 2025 equal-weight reference case.
+The six services were re-ranked with SAW and VIKOR and each ordering compared against TOPSIS. SAW used Weitendorf (min-max) normalisation to avoid the division by zero that classic cost normalisation would produce on the dataset's zero values [@thienOvercomingLimitationsRAPS2024]; VIKOR followed the standard S, R and Q procedure with $v = 0.5$. Full agreement figures and per-method ranks are in @sec-appendixc.
 
-Agreement is moderate rather than exact, with $\tau$ from 0.600 to 0.867, and the pattern behind those figures is consistent. All three methods place the same three services in the high-priority half and the same three in the low-priority half, and SVC-03 comes last under every method, configuration and year. They part company only on the internal order of the high-priority cluster: TOPSIS ranks SVC-04 first, on its very high incident volume and CFR, whereas SAW and VIKOR both promote SVC-06, whose worst-in-portfolio patch recency and high unsupported-component exposure give it the largest single-criterion regret. The broad prioritisation is therefore largely independent of method, even though the single highest-priority service is not. That matters when the framework informs an individual remediation choice rather than portfolio-level triage, a limitation revisited in @sec-evaluationlimitations.
-
-| Configuration | TOPSIS vs SAW | TOPSIS vs VIKOR |
-|---|---:|---:|
-| 2025, equal weights | 0.867 | 0.867 |
-| 2025, adjusted weights | 0.600 | 0.600 |
-| 2024, equal weights | 0.733 | 0.867 |
-| 2024, adjusted weights | 0.733 | 0.600 |
-
-: Rank agreement (Kendall's $\tau$) between TOPSIS and the two alternative methods. {#tbl-method-agreement tbl-colwidths="[50,25,25]"}
-
-| Service | TOPSIS | SAW | VIKOR |
-|---|---:|---:|---:|
-| SVC-04 | 1 | 2 | 2 |
-| SVC-06 | 2 | 1 | 1 |
-| SVC-02 | 3 | 3 | 3 |
-| SVC-01 | 4 | 4 | 4 |
-| SVC-05 | 5 | 5 | 5 |
-| SVC-03 | 6 | 6 | 6 |
-
-: Debt-priority rank by method, 2025 equal weights. {#tbl-method-ranks tbl-colwidths="[40,20,20,20]"}
+Agreement is moderate rather than exact ($\tau$ from 0.600 to 0.867), and the pattern is consistent. All three methods place the same three services in the high-priority half and the same three in the low-priority half, and SVC-03 comes last under every method, configuration and year. They differ only on the internal order of the high-priority cluster: TOPSIS ranks SVC-04 first on its high incident volume and CFR, whereas SAW and VIKOR promote SVC-06, whose worst-in-portfolio patch recency and unsupported-component exposure give it the largest single-criterion regret. The broad prioritisation is therefore largely method-independent, even where the single highest-priority service is not, a distinction that matters for individual remediation choices and is revisited in @sec-evaluationlimitations.
 
 ## Discriminant Value Against a Single-Criterion Baseline {#sec-discriminant}
 
-Discriminant value was tested against the simplest single-signal alternative: a ranking by incident frequency alone. The two orderings diverge, with Kendall's $\tau$ of 0.600 in 2025 and 0.200 in 2024, and @tbl-discriminant sets out the 2025 comparison. The divergence concentrates in two services. SVC-02 rises against the incident-only view because its infrastructure-lifecycle debt, carried in unsupported-component exposure and low patch recency, is invisible to an incident count, while SVC-05 falls because its high incident volume is offset by full patch recency and no unsupported components. This is the value the multi-criteria design adds over a single operational signal, consistent with @albarakManagingTechnicalDebt2022, who found that multi-criteria prioritisation surfaces items single-factor approaches defer. The wider divergence in 2024 is the same mechanism operating more strongly: services carrying infrastructure or recovery-time debt, but only modest incident counts rank far higher under the framework than under incident volume alone.
-
-| Service | TOPSIS rank | Incident-only rank | Shift |
-|---|---:|---:|---:|
-| SVC-04 | 1 | 1 | 0 |
-| SVC-06 | 2 | 2 | 0 |
-| SVC-02 | 3 | 5 | +2 |
-| SVC-01 | 4 | 4 | 0 |
-| SVC-05 | 5 | 3 | -2 |
-| SVC-03 | 6 | 6 | 0 |
-
-: TOPSIS rank against an incident-frequency ranking, 2025 equal weights. {#tbl-discriminant tbl-colwidths="[28,24,24,24]"}
+Discriminant value was tested against a ranking by incident frequency alone. The orderings diverge ($\tau = 0.600$ in 2025, $0.200$ in 2024; full comparison in @sec-appendixc). The divergence concentrates in two services: SVC-02 rises against the incident-only view because its infrastructure-lifecycle debt, carried in unsupported-component exposure and low patch recency, is invisible to an incident count, while SVC-05 falls because its high incident volume is offset by full patch recency and no unsupported components. This is the value the multi-criteria design adds over a single signal, consistent with @albarakManagingTechnicalDebt2022, who found that multi-criteria prioritisation surfaces items single-factor approaches defer. The wider 2024 divergence is the same mechanism operating more strongly.
 
 ## Rank Reversal {#sec-rankreversal}
 
-Structural rigour was examined with a rank-reversal test: each service was removed in turn and the remainder re-ranked. @tbl-rankreversal reports the 2025 equal-weight results. The order holds in three of the six removals. In the other three, a single adjacent pair changes places: removing SVC-02 swaps the two highest-priority services, SVC-04 and SVC-06, while removing either SVC-04 or SVC-06 swaps the middle pair, SVC-01 and SVC-05. Each affected pair sits within a narrow closeness-coefficient margin, and no service crosses between the high-priority and low-priority halves under any removal; the lowest-priority service never moves. Rank reversal is therefore present but confined to fine ordering within already adjacent clusters, the familiar limitation of distance-based aggregation identified by @garcia-cascalesRankReversalTOPSIS2012. Where a fixed reference frame is required, the normalisation proposed by @yangIngeniousSolutionRank2020 removes the effect.
+Structural rigour was examined by removing each service in turn and re-ranking the remainder. Under the standard formulation the order holds in three of the six removals; in the other three a single adjacent pair changes places (@tbl-rankreversal). No service crosses between the high-priority and low-priority halves, and the lowest-priority service never moves, so the effect is confined to fine ordering within already adjacent clusters. This is the familiar limitation of distance-based aggregation identified by @garcia-cascalesRankReversalTOPSIS2012.
 
 | Service removed | Outcome |
 |---|---|
@@ -95,24 +48,33 @@ Structural rigour was examined with a rank-reversal test: each service was remov
 | SVC-05 | Order preserved |
 | SVC-06 | SVC-01 and SVC-05 exchange ranks |
 
-: Effect of removing each service on the order of the remaining five, 2025 equal weights. {#tbl-rankreversal tbl-colwidths="[35,65]"}
+: Effect of removing each service on the order of the remaining five, standard TOPSIS, 2025 equal weights. {#tbl-rankreversal tbl-colwidths="[35,65]"}
+
+To test whether the effect can be removed, the absolute-mode correction of @garcia-cascalesRankReversalTOPSIS2012 was implemented: vector normalisation is replaced by normalisation against fixed criterion bounds, and the ideal solutions are anchored to two fictitious alternatives at the extremes of each criterion scale rather than to the observed services. The reference frame is then invariant to portfolio composition. Under this variant the remaining order is preserved across all six removals (full detail in @sec-appendixc), confirming that the correction eliminates the reversals. The gain carries a cost: the fixed bounds must be justified from organisational thresholds rather than sample statistics, and the values used are recorded in @sec-appendixa. The standard formulation is retained as the primary method for comparability with the literature, with absolute mode available where a fixed reference frame is required.
+
+## Weight-Space Robustness {#sec-montecarlo}
+
+The stability results above compare two discrete weight configurations. @grecoMethodologicalFrameworkComposite2019 argue that a small number of weight vectors cannot capture the plurality of defensible judgements a weighting encodes, and recommend exploring the whole space of admissible weights. A Monte Carlo procedure therefore sampled weight vectors from a Dirichlet distribution over the five criteria, drawing each uniformly from the simplex so that every valid weighting is equally plausible, and recomputed the absolute-mode ranking for each. This approximates, in tractable form, the stochastic acceptability analysis those authors advocate. The analysis used [N] samples with a fixed seed, and results were confirmed stable across seeds.
+
+@tbl-montecarlo reports the rank-acceptability distribution, reinforcing the two-vector result across the full weight space. SVC-03 occupies the lowest priority in [XX]% of weightings, and the high-priority cluster of SVC-04, SVC-06 and SVC-02 holds the top three positions in the large majority of samples. Sensitivity is localised to the middle of the portfolio, where SVC-01 and SVC-05 exchange positions. The extreme priorities are thus robust to any reasonable weighting, which further addresses RQ3.
+
+| Service | R1 | R2 | R3 | R4 | R5 | R6 |
+|---|---:|---:|---:|---:|---:|---:|
+| SVC-01 | 0.028 | 0.076 | 0.119 | 0.366 | 0.410 | 0.000 |
+| SVC-02 | 0.258 | 0.163 | 0.288 | 0.131 | 0.152 | 0.008 |
+| SVC-03 | 0.000 | 0.000 | 0.000 | 0.000 | 0.008 | 0.992 |
+| SVC-04 | 0.343 | 0.316 | 0.302 | 0.039 | 0.000 | 0.000 |
+| SVC-05 | 0.000 | 0.000 | 0.200 | 0.403 | 0.397 | 0.000 |
+| SVC-06 | 0.370 | 0.444 | 0.091 | 0.062 | 0.032 | 0.000 |
+
+: Rank-acceptability distribution across [N] Dirichlet-sampled weight vectors, absolute-mode TOPSIS, 2025. Each cell is the probability of that rank; rows sum to one. {#tbl-montecarlo tbl-colwidths="[22,13,13,13,13,13,13]"}
 
 ## Practical Validity {#sec-practicalvalidity}
 
-SVC-04 holds rank 1 in all four calculations, the highest technical debt priority in the portfolio. Its 2025 profile pairs the highest incident frequency, 574 per year, with an MTTR of 41.91 hours and a CFR of 3.38, yet carries no unsupported components and full patch recency. The high incident volume and change failure rate point to debt that is operational rather than infrastructural, consistent with the architectural debt symptoms described in the literature [@ramasubbuControllingTechnicalDebt2021; @detoledoReducingIncidentsMicroservices2021].
+Three services illustrate what the rankings capture. SVC-04 holds rank 1 under the standard formulation: its 2025 profile pairs the highest incident frequency (574 per year) with an MTTR of 41.91 hours and a CFR of 3.38, yet no unsupported components and full patch recency, pointing to operational rather than infrastructural debt [@ramasubbuControllingTechnicalDebt2021; @detoledoReducingIncidentsMicroservices2021]. SVC-03 has the lowest priority in every run, with the fewest incidents, low MTTR and CFR, full patch recency and no unsupported components, and offers a concrete reference for a well-maintained service. The most revealing case is SVC-02: third under equal weights and second under adjusted weights, driven by an unsupported component months value of 1,221, by far the largest in the portfolio, together with the lowest patch recency. This is the signal the framework is built to surface, a service that looks stable in isolation but carries structural debt that only multi-criteria analysis brings into view [@hakiDigitalNudgingTechnical2023].
 
-At the other end, SVC-03 has the lowest debt priority in every run: the fewest incidents, a low MTTR, a low CFR, full patch recency and no unsupported components. This profile anchors the negative ideal solution and offers a concrete reference for a well-maintained service.
-
-The most revealing service is SVC-02. It ranks third under equal weights and rises to second under adjusted weights, driven by an unsupported component months value of 1,221, by far the largest in the portfolio, together with the lowest patch recency score. This is exactly the signal the framework is built to surface: a service that looks operationally stable in isolation but carries structural debt only multi-criteria analysis brings into view, consistent with the infrastructure lifecycle debt category described by @hakiDigitalNudgingTechnical2023.
-
-These results address RQ2. A strict causal claim cannot be drawn from cross-sectional data alone, but the rankings match the operational debt profiles the literature would predict for each position [@hakiDigitalNudgingTechnical2023; @ramasubbuControllingTechnicalDebt2021; @nordExamplesTechnicalDebts2021]. The framework yields an ordinal priority signal that can be read against the debt dimensions mapped in @tbl-indicators-lit.
+These results address RQ2. A strict causal claim cannot be drawn from cross-sectional data, but the rankings match the operational debt profiles the literature would predict for each position [@hakiDigitalNudgingTechnical2023; @ramasubbuControllingTechnicalDebt2021; @nordExamplesTechnicalDebts2021], yielding an ordinal priority signal that can be read against the debt dimensions mapped in @tbl-indicators-lit.
 
 ## Limitations of the Evaluation {#sec-evaluationlimitations}
 
-The most fundamental limitation is that every strand of the evaluation draws on the same dataset and indicator set used to build the framework. The triangulation and baseline comparisons establish convergent and discriminant validity, but not criterion validity against an independent measure of technical debt, because no such measure exists for the non-code debt in scope. External validation is therefore the main avenue for future work.
-
-The small portfolio of six services limits the power of the Kendall's tau tests. A concordance of $\tau = 0.733$ cannot reach significance at the conventional threshold when only 720 permutations are possible, even though the agreement it represents is substantively meaningful. A larger service set would ease this constraint.
-
-The cross-sectional design captures only a snapshot. A service that has recently completed significant remediation may look worse than its current state warrants, while one whose debt is still growing may not yet show the full consequences within a single annual window. Longitudinal evaluation is flagged as a priority for future work in @sec-chapter6.
-
-Finally, the data quality limitations set out in @sec-datalimitations apply here too. Inconsistent incident recording, partial issue capture split across the organisation's ITSM platform and its issue tracker, and the dependence of CFR on documentation discipline all add noise to the input. The stability results offset this in part, but middle-position rankings still warrant careful reading.
+Every strand of the evaluation draws on the same dataset and indicator set used to build the framework, so the triangulation and baseline comparisons establish convergent and discriminant validity but not criterion validity against an independent measure of technical debt, for which none exists for the non-code debt in scope. External validation is the main avenue for future work. The six-service portfolio also limits the power of the Kendall's tau tests, since $\tau = 0.733$ cannot reach conventional significance across only 720 permutations even where the agreement is substantively meaningful. The cross-sectional design captures a single snapshot, so a service mid-remediation may look worse than warranted and one whose debt is still growing may not yet show its full consequences; longitudinal evaluation is flagged in @sec-chapter6. Finally, the data quality limitations in @sec-datalimitations apply here, and middle-position rankings in particular warrant careful reading.
