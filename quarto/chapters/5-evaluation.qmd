@@ -21,9 +21,9 @@ Kendall's tau measures the similarity between two rankings and is well establish
 
 Weight sensitivity in 2025 is strong ($\tau = 0.867$): the only movement is a swap between SVC-06 and SVC-02 at ranks 2 and 3, as SVC-02's high unsupported component months and weaker patch recency pull it above SVC-06 under adjusted weights. Temporal stability is perfect under adjusted weights ($\tau = 1.000$) and strong under equal weights ($\tau = 0.867$), where only SVC-01 and SVC-05 trade ranks 4 and 5, reflecting a real year-on-year shift in their profiles rather than model instability. The 2024 weight sensitivity result ($\tau = 0.733$) is the weakest: two pairs swap because the middle-ranking services have more tightly grouped scores that year, showing that differential weighting matters more when services carry similar profiles. In every run the top and bottom positions are identical, which addresses RQ3 directly.
 
-![Technical debt priority ranking for 2025, equal weights.](images/topsis_ranking2025_equal.png){#fig-topsis-equal-2025 fig-pos="H"}
+![Technical debt priority ranking for 2025, equal weights.](images/topsis_ranking2025_classic_equal.png){#fig-topsis-classic-equal-2025 fig-pos="H"}
 
-![Technical debt priority ranking for 2025, adjusted weights.](images/topsis_ranking2025_adjust.png){#fig-topsis-adjusted-2025 fig-pos="H"}
+![Technical debt priority ranking for 2025, adjusted weights.](images/topsis_ranking2025_classic_adjust.png){#fig-topsis-classic-adjusted-2025 fig-pos="H"}
 
 ## Convergent Validity Across Methods {#sec-convergent}
 
