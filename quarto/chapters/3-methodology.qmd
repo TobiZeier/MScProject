@@ -33,11 +33,11 @@ Design Science Research (DSR) governs this study, as formalised by @hevnerDesign
 \endgroup
 ```
 
-The process follows @vombrockeIntroductionDesignScience2020's six-step model: problem identification and motivation (@sec-chapter1 and @sec-chapter2), definition of objectives (@sec-chapter2), design and development of the artefact (@sec-chapter4), demonstration, evaluation (@sec-chapter5), and communication (@sec-chapter6). The sequence is not strictly linear; indicator selection and evaluation criteria were refined iteratively as constraints in the available data emerged during development.
+The process follows @peffersDesignScienceResearch2007's six-step model: problem identification and motivation (@sec-chapter1 and @sec-chapter2), definition of objectives (@sec-chapter2), design and development of the artefact (@sec-chapter4), demonstration, evaluation (@sec-chapter5), and communication (@sec-chapter6). The sequence is not strictly linear; indicator selection and evaluation criteria were refined iteratively as constraints in the available data emerged during development.
 
 ```{mermaid}
 %%| label: fig-dsr-grid
-%%| fig-cap: "DSR Grid for the present study, adapted from vom Brocke, Hevner and Maedche (2020)"
+%%| fig-cap: "DSR Grid for the present study, adapted from Peffers, Tuunanen, Rothenberger and Chatterjee (2007)"
 %%| fig-width: 6
 
 graph TD
