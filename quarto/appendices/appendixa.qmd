@@ -1,6 +1,6 @@
 # Appendix A: Python Code {#sec-appendixa .appendix}
 
-The content in this appendix is the exact artefact which has been used to calculate the TOPSIS rankings. Further artefacts which have been used to do other calculations can be found on the authors GitHub Repository: <https://github.com/TobiZeier/MScProject>.
+The content in this appendix is the exact artefact which has been used to calculate the TOPSIS rankings. Further artefacts which have been used to do other calculations can be found on the author's GitHub repository: <https://github.com/TobiZeier/MScProject>.
 
 ```{python}
 #| eval: false
@@ -16,6 +16,7 @@ It carries several functionalities such as:
 - TOPSIS ranking in absolute mode with fixed bounds and a pre defined best/worst alternative
 - Graphical export of results
 
+running command: python topsis_ranking.py services2025.csv --mode classic --weights equal
 running command: python topsis_ranking.py services2025.csv --mode absolute --weights equal
 """
 

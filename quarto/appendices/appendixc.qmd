@@ -2,7 +2,7 @@
 
 This appendix records the complete output behind the summary tables in @sec-chapter5. It lists, for every weight configuration and both observation years, the per-service scores produced by each method, together with the full convergent, discriminant, rank-reversal and temporal results. In the score tables, $C_i$ is the TOPSIS closeness coefficient, SAW is the Simple Additive Weighting score, and $S$, $R$ and $Q$ are the VIKOR utility, regret and compromise measures. The final column gives each service's rank under TOPSIS, SAW and VIKOR in that order, where rank 1 is the highest debt priority. Rows are ordered by TOPSIS rank.
 
-## Per-Service Scores and Rankings TOPSIS Classic Mode
+## Per-Service Scores and Rankings, TOPSIS Classic Mode
 
 | Service |  $C_i$ |    SAW |    $S$ |    $R$ |    $Q$ | Rank (T, S, V) |
 |---------|-------:|-------:|-------:|-------:|-------:|:--------------:|
@@ -48,9 +48,9 @@ This appendix records the complete output behind the summary tables in @sec-chap
 
 : Full scores and rankings, 2024 adjusted weights. {#tbl-appc-2024a}
 
-## Per-Service Scores and Rankings TOPSIS Absolute Mode
+## Per-Service Scores and Rankings, TOPSIS Absolute Mode
 
-Under TOPSIS absolute-mode the three methods agree exactly ($\tau = 1.000$ for both TOPSIS versus SAW and TOPSIS versus VIKOR), and SVC-06 and SVC-04 exchange the top two positions relative to the standard formulation in @tbl-appc-2025e. This reflects the effect of the fixed reference frame on the closely scored high-priority cluster and accompanies the rank-reversal results in @tbl-appc-rankreversal-abs.
+Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for both TOPSIS versus SAW and TOPSIS versus VIKOR), and SVC-06 and SVC-04 exchange the top two positions relative to the standard formulation in @tbl-appc-2025e. This reflects the effect of the fixed reference frame on the closely scored high-priority cluster and accompanies the rank-reversal results in @tbl-appc-rankreversal-abs.
 
 | Service |  $C_i$ |    SAW |    $S$ |    $R$ |    $Q$ | Rank (T, S, V) |
 |---------|-------:|-------:|-------:|-------:|-------:|:--------------:|
@@ -78,21 +78,21 @@ Under TOPSIS absolute-mode the three methods agree exactly ($\tau = 1.000$ for b
 
 | Year | TOPSIS order | Incident-only order | $\tau$ |
 |--------------|----------------------|----------------------|-------------:|
-| 2025 | $SVC-04 \succ SVC-06 \succ SVC-02 \succ SVC-01 \succ SVC-05 \succ SVC-03 | SVC-04 \succ SVC-06 \succ SVC-05 \succ SVC-01 \succ SVC-02 \succ SVC-03$ | 0.600 |
-| 2024 | $SVC-04 \succ SVC-06 \succ SVC-02 \succ SVC-05 \succ SVC-01 \succ SVC-03 | SVC-04 \succ SVC-05 \succ SVC-01 \succ SVC-03 \succ SVC-06 \succ SVC-02$ | 0.200 |
+| 2025 | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-02} \succ \text{SVC-03}$ | 0.600 |
+| 2024 | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03} \succ \text{SVC-06} \succ \text{SVC-02}$ | 0.200 |
 
-: TOPSIS ranking against a ranking by incident frequency alone \succ equal weights. {#tbl-appc-discriminant}
+: TOPSIS ranking against a ranking by incident frequency alone, equal weights. {#tbl-appc-discriminant}
 
 ## Rank-Reversal Detail
 
 | Service removed | 2025 outcome | 2024 outcome |
 |-----------------|---------------------------|---------------------------|
 | SVC-01 | preserved | preserved |
-| SVC-02 | $SVC-06 \succ SVC-04 \succ SVC-01 \succ SVC-05 \succ SVC-03$ | preserved |
-| SVC-03 | preserved | $SVC-04 \succ SVC-06 \succ SVC-05 \succ SVC-02 \succ SVC-01$ |
-| SVC-04 | $SVC-06 \succ SVC-02 \succ SVC-05 \succ SVC-01 \succ SVC-03$ | $SVC-06 \succ SVC-05 \succ SVC-02 \succ SVC-01 \succ SVC-03$ |
+| SVC-02 | $\text{$SVC-06} \succ \text{SVC-04} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$ | preserved |
+| SVC-03 | preserved | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-01}$ |
+| SVC-04 | $\text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03}$ | $\text{SVC-06} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-03}$ |
 | SVC-05 | preserved | preserved |
-| SVC-06 | $SVC-04 \succ SVC-02 \succ SVC-05 \succ SVC-01 \succ SVC-03$ | $SVC-04 \succ SVC-05 \succ SVC-02 \succ SVC-01 \succ SVC-03$ |
+| SVC-06 | $\text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-03}$ |
 
 : Order of the remaining five services after each removal, equal weights. Entries reading preserved leave the reference order unchanged. {#tbl-appc-rankreversal}
 

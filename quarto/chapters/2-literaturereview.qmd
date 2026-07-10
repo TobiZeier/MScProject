@@ -197,7 +197,7 @@ The four thematic sections together define the conceptual, methodological, conte
 
 ### Cross-Pillar Convergence
 
-The four preceding sections converge on a common structural problem. The concept of technical debt has expanded beyond source code and now includes infrastructure, vendor platforms and operational dependencies, but the dominant measurement and prioritisation methods have not kept pace with that wider scope [@kleinwaksTechnicalDebtSystems2023; @yangTaxonomyTechnicalDebt2019; @biazottoTechnicalDebtManagement2024]. In vendor-dependent legacy environments, hidden dependencies can accumulate and make technical debt harder to observe and retire; this is consistent with @rinta-kahilaGettingTrappedTechnical2023 analysis of legacy-system replacement.
+The four preceding sections converge on a common structural problem. The concept of technical debt has expanded beyond source code and now includes infrastructure, vendor platforms and operational dependencies, but the dominant measurement and prioritisation methods have not kept pace with that wider scope [@kleinwaksTechnicalDebtSystems2023; @yangTaxonomyTechnicalDebt2019; @biazottoTechnicalDebtManagement2024]. In vendor-dependent legacy environments, hidden dependencies can accumulate and make technical debt harder to observe and retire; consistent with the analysis of legacy-system replacement by @rinta-kahilaGettingTrappedTechnical2023.
 
 The first implication is that the field now describes more forms of debt than its tools can reliably observe. Code-centric approaches remain useful, but they are poorly suited to environments where the most relevant liabilities sit in platform obsolescence, infrastructure lifecycle exposure or operational dependence on third-party systems [@biazottoTechnicalDebtManagement2024; @hakiDigitalNudgingTechnical2023]. As a result, the literature supports the existence of these broader debt types while still offering limited practical means of measuring them in service-level terms [@kleinwaksTechnicalDebtSystems2023].
 
@@ -233,7 +233,7 @@ The following table maps the literature reviewed in this chapter to the thesis a
 | [@forsgrenAccelerate2018]; [@nordExamplesTechnicalDebts2021]; [@paudelExploringRelationshipTechnical2025] | DORA metrics as TD proxies | ✓ | ⨯ | Partial | No ranking instrument |
 | [@tizioSoftwareUpdatesStrategies2023]; [@markkanenPatchManagementPlanning2023]; [@nursePatchNotPatch2025] | Patch and vulnerability debt | Partial | ⨯ | Partial | Not linked to TD prioritisation |
 | [@albarakManagingTechnicalDebt2022]; [@khanIntegratedMethodologyRanking2022]; [@zytoonDecisionSupportModel2020] | TOPSIS / MCDM in IT | ⨯ | ✓ | ⨯ | No live data; no trading IT context |
-| **This thesis** | **TOPSIS on ITSM/CMDB data** | **✓** | **✓** | **✓** | **⨯** |
+| **This thesis** | **TOPSIS on ITSM/CMDB data** | **✓** | **✓** | **✓** | **None** |
 
 : Overview of related work and research gap {#tbl-lit-overview tbl-colwidths="[30,20,10,10,8,22]"}
 
