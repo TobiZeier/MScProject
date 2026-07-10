@@ -1,8 +1,8 @@
 # Appendix C: Full Evaluation Results {#sec-appendixc .appendix}
 
-This appendix records the complete output behind the summary tables in @sec-chapter5. It lists, for every weight configuration and both observation years, the per-service scores produced by each method, together with the full convergent, discriminant, rank-reversal and temporal results. In the score tables, $C_i$ is the TOPSIS closeness coefficient, SAW is the Simple Additive Weighting score, and $S$, $R$ and $Q$ are the VIKOR utility, regret and compromise measures. The final column gives each service's rank under TOPSIS, SAW and VIKOR in that order, where rank 1 is the highest debt priority. Rows are ordered by TOPSIS rank.
+This appendix records the complete output behind the summary tables in @sec-chapter5. It lists, for every weight configuration and both observation years, the per-service scores produced by each method, together with the full convergent, discriminant, rank-reversal, weight-space and temporal results. Absolute-mode results are reported alongside the standard formulation as the rank-reversal-safe variant discussed in @sec-rankreversal. In the score tables, $C_i$ is the TOPSIS closeness coefficient, SAW is the Simple Additive Weighting score, and $S$, $R$ and $Q$ are the VIKOR utility, regret and compromise measures. The final column gives each service's rank under TOPSIS, SAW and VIKOR in that order, where rank 1 is the highest debt priority. Rows are ordered by TOPSIS rank.
 
-## Per-Service Scores and Rankings, TOPSIS Classic Mode
+## Per-Service Scores and Rankings (Classic Mode)
 
 | Service |  $C_i$ |    SAW |    $S$ |    $R$ |    $Q$ | Rank (T, S, V) |
 |---------|-------:|-------:|-------:|-------:|-------:|:--------------:|
@@ -48,22 +48,22 @@ This appendix records the complete output behind the summary tables in @sec-chap
 
 : Full scores and rankings, 2024 adjusted weights. {#tbl-appc-2024a}
 
-## Per-Service Scores and Rankings, TOPSIS Absolute Mode
+## Per-Service Scores and Rankings (Absolute Mode)
 
 Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for both TOPSIS versus SAW and TOPSIS versus VIKOR), and SVC-06 and SVC-04 exchange the top two positions relative to the standard formulation in @tbl-appc-2025e. This reflects the effect of the fixed reference frame on the closely scored high-priority cluster and accompanies the rank-reversal results in @tbl-appc-rankreversal-abs.
 
 | Service |  $C_i$ |    SAW |    $S$ |    $R$ |    $Q$ | Rank (T, S, V) |
 |---------|-------:|-------:|-------:|-------:|-------:|:--------------:|
-| SVC-06  | 0.609  | 0.441  | 0.559  | 0.200  | 1.000  |    1, 1, 1     |
-| SVC-04  | 0.633  | 0.452  | 0.548  | 0.200  | 0.989  |    2, 2, 2     |
-| SVC-02  | 0.695  | 0.538  | 0.462  | 0.200  | 0.911  |    3, 3, 3     |
-| SVC-01  | 0.820  | 0.709  | 0.291  | 0.200  | 0.755  |    4, 4, 4     |
-| SVC-05  | 0.830  | 0.809  | 0.191  | 0.071  | 0.323  |    5, 5, 5     |
-| SVC-03  | 0.940  | 0.989  | 0.011  | 0.010  | 0.000  |    6, 6, 6     |
+| SVC-06 | 0.6093 | 0.4406 | 0.5594 | 0.2000 | 1.0000 | 1, 1, 1 |
+| SVC-04 | 0.6333 | 0.4521 | 0.5479 | 0.2000 | 0.9895 | 2, 2, 2 |
+| SVC-02 | 0.6946 | 0.5382 | 0.4618 | 0.2000 | 0.9109 | 3, 3, 3 |
+| SVC-01 | 0.8204 | 0.7088 | 0.2912 | 0.2000 | 0.7553 | 4, 4, 4 |
+| SVC-05 | 0.8297 | 0.8094 | 0.1906 | 0.0706 | 0.3228 | 5, 5, 5 |
+| SVC-03 | 0.9404 | 0.9887 | 0.0113 | 0.0101 | 0.0000 | 6, 6, 6 |
 
 : Full scores and rankings under absolute-mode TOPSIS, 2025 equal weights. {#tbl-appc-2025e-abs}
 
-## Convergent Agreement
+## Convergent Agreement (Classic Mode)
 
 | Configuration  | TOPSIS vs SAW | TOPSIS vs VIKOR |
 |----------------|--------------:|----------------:|
@@ -72,7 +72,18 @@ Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for b
 | 2024, equal    |         0.733 |           0.867 |
 | 2024, adjusted |         0.733 |           0.600 |
 
-: Rank agreement (Kendall's $\tau$) between TOPSIS and the alternative methods. {#tbl-appc-convergent}
+: Rank agreement (Kendall's $\tau$) between classic TOPSIS and the alternative methods. {#tbl-appc-convergentclassic}
+
+## Convergent Agreement (Absolute Mode)
+
+| Configuration  | TOPSIS vs SAW | TOPSIS vs VIKOR |
+|----------------|--------------:|----------------:|
+| 2025, equal    |         1.000 |           1.000 |
+| 2025, adjusted |         1.000 |           1.000 |
+| 2024, equal    |         0.200 |           0.333 |
+| 2024, adjusted |         0.200 |           0.333 |
+
+: Rank agreement (Kendall's $\tau$) between absolute TOPSIS and the alternative methods. {#tbl-appc-convergentabsolute}
 
 ## Discriminant Comparison
 
@@ -83,37 +94,52 @@ Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for b
 
 : TOPSIS ranking against a ranking by incident frequency alone, equal weights. {#tbl-appc-discriminant}
 
-## Rank-Reversal Detail
+## Rank-Reversal Detail (Classic Mode)
 
 | Service removed | 2025 outcome | 2024 outcome |
 |-----------------|---------------------------|---------------------------|
 | SVC-01 | preserved | preserved |
-| SVC-02 | $\text{$SVC-06} \succ \text{SVC-04} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$ | preserved |
+| SVC-02 | $\text{SVC-06} \succ \text{SVC-04} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$ | preserved |
 | SVC-03 | preserved | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-01}$ |
 | SVC-04 | $\text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03}$ | $\text{SVC-06} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-03}$ |
 | SVC-05 | preserved | preserved |
 | SVC-06 | $\text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-03}$ |
 
-: Order of the remaining five services after each removal, equal weights. Entries reading preserved leave the reference order unchanged. {#tbl-appc-rankreversal}
+: Order of the remaining five services after each removal, standard TOPSIS, equal weights. Entries reading preserved leave the reference order unchanged. {#tbl-appc-rankreversal}
 
-## Rank-Reversal Detail, Absolute Mode
+## Rank-Reversal Detail (Absolute Mode)
 
 | Service removed | 2025 outcome | 2024 outcome |
 |-----------------|--------------|--------------|
-| SVC-01 | preserved | [preserved] |
-| SVC-02 | preserved | [preserved] |
-| SVC-03 | preserved | [preserved] |
-| SVC-04 | preserved | [preserved] |
-| SVC-05 | preserved | [preserved] |
-| SVC-06 | preserved | [preserved] |
+| SVC-01 | preserved | preserved |
+| SVC-02 | preserved | preserved |
+| SVC-03 | preserved | preserved |
+| SVC-04 | preserved | preserved |
+| SVC-05 | preserved | preserved |
+| SVC-06 | preserved | preserved |
 
-: Order of the remaining services after each removal under absolute-mode TOPSIS, equal weights. {#tbl-appc-rankreversal-abs}
+: Order of the remaining services after each removal under absolute-mode TOPSIS, equal weights. Reference orders: 2025 $\text{SVC-06} \succ \text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$; 2024 $\text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-06} \succ \text{SVC-03}$. {#tbl-appc-rankreversal-abs}
+
+## Weight-Space Robustness Detail
+
+The 2025 rank-acceptability distribution is reported in @tbl-montecarlo. The corresponding 2024 distribution, summarised in @sec-montecarlo, is given below.
+
+| Service | R1 | R2 | R3 | R4 | R5 | R6 |
+|---|---:|---:|---:|---:|---:|---:|
+| SVC-01 | 0.0000 | 0.1736 | 0.2281 | 0.1996 | 0.2650 | 0.1336 |
+| SVC-02 | 0.3168 | 0.2142 | 0.1359 | 0.0917 | 0.0938 | 0.1476 |
+| SVC-03 | 0.0000 | 0.0000 | 0.0124 | 0.2096 | 0.0744 | 0.7036 |
+| SVC-04 | 0.5504 | 0.2122 | 0.1982 | 0.0391 | 0.0000 | 0.0000 |
+| SVC-05 | 0.0000 | 0.2617 | 0.2104 | 0.3446 | 0.1833 | 0.0000 |
+| SVC-06 | 0.1328 | 0.1384 | 0.2150 | 0.1154 | 0.3834 | 0.0152 |
+
+: Rank-acceptability distribution across 20,000 Dirichlet-sampled weight vectors, absolute-mode TOPSIS, 2024, seed 20000. Each cell is the probability of that rank; rows sum to one. {#tbl-appc-montecarlo2024}
 
 ## Temporal Stability
 
 | Configuration | 2025 order | 2024 order | $\tau$ |
 |--------------|----------------------|----------------------|-------------:|
-| Equal | $SVC-04 \succ SVC-06 \succ SVC-02 \succ SVC-01 \succ SVC-05 \succ SVC-03$ | $SVC-04 \succ SVC-06 \succ SVC-02 \succ SVC-05 \succ SVC-01 \succ SVC-03$ | 0.867 |
-| Adjusted | $SVC-04 \succ SVC-02 \succ SVC-06 \succ SVC-01 \succ SVC-05 \succ SVC-03$ | $SVC-04 \succ SVC-02 \succ SVC-06 \succ SVC-01 \succ SVC-05 \succ SVC-03$ | 1.000 |
+| Equal | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03}$ | 0.867 |
+| Adjusted | $\text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-06} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-06} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$ | 0.867 |
 
 : TOPSIS rankings across the two observation years. {#tbl-appc-temporal}

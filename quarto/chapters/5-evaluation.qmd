@@ -54,20 +54,22 @@ To remove the effect, the absolute-mode correction of @garcia-cascalesRankRevers
 
 ## Weight-Space Robustness {#sec-montecarlo}
 
-The stability results above compare two discrete weight configurations. @grecoMethodologicalFrameworkComposite2019 argue that a small number of weight vectors cannot capture the plurality of defensible judgements a weighting encodes, and recommend exploring the whole space of admissible weights. A Monte Carlo procedure therefore sampled weight vectors from a Dirichlet distribution over the five criteria, drawing each uniformly from the simplex so that every valid weighting is equally plausible, and recomputed the absolute-mode ranking for each. The absolute-mode scorer is used here because each sampled weighting constitutes a distinct decision context, and a set-invariant reference frame prevents rank-reversal effects from contaminating the weight-space result. This approximates, in tractable form, the stochastic acceptability analysis those authors advocate. The analysis used [N] samples with a fixed seed, and results were confirmed stable across seeds.
+The stability results above compare two discrete weight configurations. @grecoMethodologicalFrameworkComposite2019 argue that a small number of weight vectors cannot capture the plurality of defensible judgements a weighting encodes, and recommend exploring the whole space of admissible weights. A Monte Carlo procedure therefore sampled 20,000 weight vectors from a Dirichlet distribution over the five criteria, drawing each uniformly from the simplex so that every valid weighting is equally plausible, and recomputed the ranking for each. The absolute-mode scorer is used because each sampled weighting constitutes a distinct decision context, and a set-invariant reference frame prevents rank-reversal effects from contaminating the weight-space result. This approximates, in tractable form, the stochastic acceptability analysis those authors advocate. The run is reproducible from a fixed seed, and repeating it with a different seed and sample size changed no reported figure by more than 0.01.
 
-@tbl-montecarlo reports the rank-acceptability distribution, reinforcing the two-vector result across the full weight space. SVC-03 occupies the lowest priority in [XX]% of weightings, and the high-priority cluster of SVC-04, SVC-06 and SVC-02 holds the top three positions in the large majority of samples. Sensitivity is localised to the middle of the portfolio, where SVC-01 and SVC-05 exchange positions. The extreme priorities are thus robust to any reasonable weighting, which further addresses RQ3.
+@tbl-montecarlo reports the rank-acceptability distribution for 2025, reinforcing the two-vector result across the full weight space. SVC-03 occupies the lowest priority in 99.1% of weightings, and the high-priority cluster of SVC-04, SVC-06 and SVC-02 holds the top three positions in the large majority of samples. Sensitivity is localised to the middle of the portfolio, where SVC-01 and SVC-05 exchange positions. The extreme priorities are thus robust to any reasonable weighting, which further addresses RQ3.
 
 | Service | R1 | R2 | R3 | R4 | R5 | R6 |
 |---|---:|---:|---:|---:|---:|---:|
-| SVC-01 | 0.028 | 0.076 | 0.119 | 0.366 | 0.410 | 0.000 |
-| SVC-02 | 0.258 | 0.163 | 0.288 | 0.131 | 0.152 | 0.008 |
-| SVC-03 | 0.000 | 0.000 | 0.000 | 0.000 | 0.008 | 0.992 |
-| SVC-04 | 0.343 | 0.316 | 0.302 | 0.039 | 0.000 | 0.000 |
-| SVC-05 | 0.000 | 0.000 | 0.200 | 0.403 | 0.397 | 0.000 |
-| SVC-06 | 0.370 | 0.444 | 0.091 | 0.062 | 0.032 | 0.000 |
+| SVC-01 | 0.0287 | 0.0737 | 0.1224 | 0.3714 | 0.4038 | 0.0000 |
+| SVC-02 | 0.2608 | 0.1630 | 0.2790 | 0.1318 | 0.1568 | 0.0088 |
+| SVC-03 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0088 | 0.9912 |
+| SVC-04 | 0.3412 | 0.3152 | 0.3047 | 0.0390 | 0.0000 | 0.0000 |
+| SVC-05 | 0.0000 | 0.0000 | 0.2008 | 0.4028 | 0.3964 | 0.0000 |
+| SVC-06 | 0.3693 | 0.4482 | 0.0931 | 0.0551 | 0.0343 | 0.0000 |
 
-: Rank-acceptability distribution across [N] Dirichlet-sampled weight vectors, absolute-mode TOPSIS, 2025. Each cell is the probability of that rank; rows sum to one. {#tbl-montecarlo tbl-colwidths="[22,13,13,13,13,13,13]"}
+: Rank-acceptability distribution across 20,000 Dirichlet-sampled weight vectors, absolute-mode TOPSIS, 2025, seed 20000. Each cell is the probability of that rank; rows sum to one. {#tbl-montecarlo tbl-colwidths="[22,13,13,13,13,13,13]"}
+
+Repeating the analysis on the 2024 data yields a visibly flatter distribution (@tbl-appc-montecarlo2024): SVC-03 occupies the lowest rank in 70.4% of weightings rather than 99.1%, and only SVC-04 retains a dominant top position. This mirrors the weaker 2024 weight-sensitivity result in @sec-stability and has the same cause, namely the more tightly grouped 2024 service profiles, confirming that weight sensitivity in this portfolio is a property of the data rather than of the method.
 
 ## Practical Validity {#sec-practicalvalidity}
 

@@ -4,8 +4,8 @@ Reproducible analytical evaluation for the technical debt prioritisation framewo
 
 Strands:
   1. Robustness    : Kendall's tau for weight and temporal comparisons (TOPSIS)
-  2. Convergent    : TOPSIS vs standard SAW (min-max) and vs VIKOR
-  3. Discriminant  : TOPSIS vs a single-criterion incident-frequency baseline
+  2. Convergent    : TOPSIS (absolute) vs standard SAW (min-max) and vs VIKOR
+  3. Discriminant  : TOPSIS (absolute) vs a single-criterion incident-frequency baseline
   4. Rank reversal : order preservation of the remainder when a service is removed
 """
 import argparse
@@ -96,18 +96,18 @@ def evaluate(df, label):
         print(f"     TOPSIS  closeness C* : {ranked(tC)}")
         print(f"     SAW     score        : {ranked(sS)}")
         print(f"     VIKOR   Q            : "
-              + " > ".join(f"{n}={vk['Q'][n]:.3f}" for n in debt))
+              + " > ".join(f"{n}={vk['Q'][n]:.4f}" for n in debt))
         print(f"     VIKOR   S (utility)  : "
-              + ", ".join(f"{n}={vk['S'][n]:.3f}" for n in debt))
+              + ", ".join(f"{n}={vk['S'][n]:.4f}" for n in debt))
         print(f"     VIKOR   R (regret)   : "
-              + ", ".join(f"{n}={vk['R'][n]:.3f}" for n in debt))
-        print(f"     TOPSIS vs SAW   tau = {kendall_tau(ot, osaw):+.3f}")
-        print(f"     TOPSIS vs VIKOR tau = {kendall_tau(ot, ov):+.3f}")
+              + ", ".join(f"{n}={vk['R'][n]:.4f}" for n in debt))
+        print(f"     TOPSIS vs SAW   tau = {kendall_tau(ot, osaw):+.4f}")
+        print(f"     TOPSIS vs VIKOR tau = {kendall_tau(ot, ov):+.4f}")
     ot = order(topsis(df, EQUAL_WEIGHTS))
     oi = list(df["incident_freq"].sort_values(ascending=False).index)
     print("  [discriminant, equal weights]")
     print(f"     incident-only: {' > '.join(oi)}")
-    print(f"     TOPSIS vs incident-only tau = {kendall_tau(ot, oi):+.3f}")
+    print(f"     TOPSIS vs incident-only tau = {kendall_tau(ot, oi):+.4f}")
 
 
 def main():
@@ -128,7 +128,7 @@ def main():
         print(f"  [{nm} weights]")
         print(f"     {args.csv_current}: {' > '.join(oc)}")
         print(f"     {args.csv_prior}: {' > '.join(op)}")
-        print(f"     tau = {kendall_tau(oc, op):+.3f}")
+        print(f"     tau = {kendall_tau(oc, op):+.4f}")
 
 
 if __name__ == "__main__":
