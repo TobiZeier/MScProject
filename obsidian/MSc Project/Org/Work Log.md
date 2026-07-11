@@ -1,4 +1,4 @@
-
+	
 This table is to track the time that I have invested in my master thesis.
 
 | Date  | Hours | Work                                                                                         |
@@ -68,8 +68,8 @@ This table is to track the time that I have invested in my master thesis.
 | 30/06 | 2     | Revising Python script                                                                       |
 | 03/07 | 8     | Working on chapter 5                                                                         |
 | 05/07 | 2     | Working on chapter 5                                                                         |
-|       |       |                                                                                              |
-| 10/07 |       | Working on chapter 6                                                                         |
+| 10/07 | 8     | Working on chapter 5 and 6                                                                   |
+| 12/7  |       | Working on chapter 6                                                                         |
 |       |       |                                                                                              |
 |       |       |                                                                                              |
 |       |       |                                                                                              |
@@ -77,10 +77,3 @@ This table is to track the time that I have invested in my master thesis.
 |       |       |                                                                                              |
 | Tot   | SUM^  |                                                                                              |
 |       |       |                                                                                              |
-
-
-
-
-
-
-![[Pasted image 20260503083926.png]]

@@ -30,6 +30,8 @@
 	- [ ] 3.1.2 "by evaluating the framework against operational data"
 	- [ ] decide which term to use and adjust accordingly (Swiss securities trading institution, trading IT, financial trading IT, Swiss financial institution,)
 - [ ] rewrite abstract
+- [x] absolute-mode table in appendix c has three decimals against four everywhere else
+- [x] rerun monte carlo simulation and add results to appendix c
 - [ ] weight perturbation for composite rankings according to greco et al.?
 	- [ ] refine section 2.6.1
 	- [ ] refine section 2.7
@@ -40,8 +42,5 @@
 - [x] write chapter 5 and include graphs
 
 
-abstract: "This thesis develops a service-level quantitative framework for measuring and prioritising technical debt in mission-critical trading systems. Existing measurement approaches rely predominantly on static code analysis, which is inapplicable to vendor-dominated enterprise environments where operational risks manifest in service instability, patch delay and infrastructure obsolescence rather than source code. The framework applies TOPSIS to five operational indicators, incident frequency, mean time to restore, change failure rate and patch recency, derived from live ITSM and CMDB records at a Swiss securities trading institution. Indicator selection is grounded in a critical review of technical debt theory, measurement frameworks, financial enterprise IT governance, and multi-criteria decision-making. The study adopts a Design Science Research paradigm and a pragmatist stance, treating the relationship between degraded operational indicators and technical debt severity as a testable hypothesis rather than an established premise. The framework's evaluation centres on ranking stability under criterion weight perturbation, contributing a reproducible prioritisation instrument that bridges IT service management and software quality engineering in a domain currently underserved by the technical debt literature."
-
-
-
+abstract: "Technical debt in mission-critical trading IT accumulates largely outside source code, in infrastructure lifecycle exposure, patch delay and operational instability, where the dominant code-centric measurement tools cannot observe it. This thesis develops and evaluates a quantitative framework for prioritising technical debt at the service level using operational data alone. Following a Design Science approach, five indicators (incident frequency, mean time to restore, change failure rate, patch recency and unsupported component months) were extracted from two years of live ITSM and CMDB records at a regulated Swiss financial trading institution and combined in a TOPSIS model that ranks services by debt priority under two weight configurations. The evaluation tests the ranking's stability under weight and temporal variation, its convergence with SAW and VIKOR, its divergence from an incident-only baseline and its structural rigour under service removal, including a rank-reversal-free absolute-mode TOPSIS variant. The extreme priorities prove robust across 20,000 sampled weightings, the multi-criteria design surfaces infrastructure lifecycle debt that an incident count misses, and method disagreement localises to services with concentrated debt profiles, exposing a substantive choice about whether debt dimensions are compensatory. The contribution is, to the best of current knowledge, the first application of TOPSIS to live service management records for technical debt prioritisation in financial trading IT, together with an auditable evaluation logic suited to regulated environments. The rankings are ordinal decision-support signals rather than measurements of debt, and external and longitudinal validation are identified as the principal directions for future work."
 

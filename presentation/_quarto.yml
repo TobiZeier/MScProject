@@ -1,0 +1,23 @@
+project:
+  title: "Thesis Defence"
+
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    width: 1280
+    height: 720
+    margin: 0.08
+    slide-number: c/t
+    show-slide-number: all
+    hash: true
+    transition: fade
+    transition-speed: fast
+    backgroundTransition: none
+    center: false
+    menu: false
+    controls: false
+    progress: true
+    history: false
+    pdf-separate-fragments: false
+    fig-align: center
+    code-line-numbers: false
