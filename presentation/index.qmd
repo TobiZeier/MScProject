@@ -8,25 +8,15 @@ link-citations: true
 
 ## {#title-slide-custom .center-y}
 
-<img src="logo_dark.png" alt="University of Essex" style="position:absolute; top:0; right:0; width:170px;">
+<img src="logo_dark.png" class="deck-logo" width="170" alt="University of Essex">
 
 <span class="tag">MSc thesis defence</span>
 
 <div class="deck-title">Measuring and Prioritising Technical Debt in Mission-Critical Trading Systems</div>
 <div class="deck-sub">A TOPSIS framework on live ITSM and CMDB data from a regulated Swiss trading institution</div>
-<div class="deck-author"><strong>Tobias Zeier</strong> · Master of Science, Enterprise IT Management · Computing Department, University of Essex</div>
+<div class="deck-author"><strong>Tobias Zeier</strong> · MSc Enterprise IT Management, University of Essex</div>
 
-<div class="rankbars">
-<div class="rankrow hot"><span class="svc">SVC-04</span><span class="bar"><span style="width:52%"></span></span><span class="ci">0.478</span></div>
-<div class="rankrow hot"><span class="svc">SVC-06</span><span class="bar"><span style="width:49%"></span></span><span class="ci">0.510</span></div>
-<div class="rankrow hot"><span class="svc">SVC-02</span><span class="bar"><span style="width:48%"></span></span><span class="ci">0.524</span></div>
-<div class="rankrow"><span class="svc">SVC-01</span><span class="bar"><span style="width:26%"></span></span><span class="ci">0.743</span></div>
-<div class="rankrow"><span class="svc">SVC-05</span><span class="bar"><span style="width:22%"></span></span><span class="ci">0.779</span></div>
-<div class="rankrow"><span class="svc">SVC-03</span><span class="bar"><span style="width:2%"></span></span><span class="ci">0.977</span></div>
-</div>
-<p class="small muted">2025 technical debt priority, equal weights. Bar length = distance from the ideal profile (1 − C<sub>i</sub>).</p>
-
-<div class="deck-meta">DESIGN SCIENCE RESEARCH · JAN 2024 – DEC 2025 · 6 SERVICES · 5 OPERATIONAL INDICATORS<br>STUDENT ID 12696372 · SUPERVISOR DR ZAHID ULLAH · CO-SUPERVISOR DOUG MILLWARD · 12 JULY 2026</div>
+<div class="deck-meta">STUDENT ID 12696372 · SUPERVISOR DR ZAHID ULLAH · CO-SUPERVISOR DOUG MILLWARD · 15 AUGUST 2026</div>
 
 ::: notes
 0:00–0:45. This chart is the thesis in one image: six production trading services, ranked by technical debt priority, computed entirely from operational records. No source code was read to produce it. The next 15 minutes explain why that matters, how it was built, and why you can trust it.

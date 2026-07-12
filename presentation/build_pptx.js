@@ -111,29 +111,23 @@ function colHead(slide, text, x, y, w, color = INK) {
 {
   const s = pres.addSlide();
   s.background = { color: INK };
-  s.addImage({ path: "logo_white.png", x: 10.35, y: 0.55, w: 2.2, h: 1.1 });
+  s.addImage({ path: "logo_white.png", x: 10.7, y: 0.55, w: 1.85, h: 0.92 });
   s.addText("MSC THESIS DEFENCE", {
-    x: ML, y: 0.7, w: 8, h: 0.3, fontFace: MONO, fontSize: 12, bold: true, charSpacing: 3, color: AMBER, margin: 0,
+    x: ML, y: 1.55, w: 8, h: 0.3, fontFace: MONO, fontSize: 12, bold: true, charSpacing: 3, color: AMBER, margin: 0,
   });
   s.addText("Measuring and Prioritising Technical Debt in Mission-Critical Trading Systems", {
-    x: ML, y: 1.15, w: 9.4, h: 1.5, fontFace: SANS, fontSize: 32, bold: true, color: PAPER, margin: 0,
+    x: ML, y: 2.05, w: 10.2, h: 1.6, fontFace: SANS, fontSize: 34, bold: true, color: PAPER, margin: 0,
   });
   s.addText("A TOPSIS framework on live ITSM and CMDB data from a regulated Swiss trading institution", {
-    x: ML, y: 2.68, w: 10.5, h: 0.4, fontFace: SANS, fontSize: 15.5, color: "AFC2D4", margin: 0,
+    x: ML, y: 3.55, w: 10.5, h: 0.45, fontFace: SANS, fontSize: 16, color: "AFC2D4", margin: 0,
   });
   s.addText([
     { text: "Tobias Zeier", options: { bold: true, color: PAPER } },
-    { text: "  \u00B7  Master of Science, Enterprise IT Management  \u00B7  Computing Department, University of Essex", options: { color: "AFC2D4" } },
-  ], { x: ML, y: 3.12, w: 11.8, h: 0.35, fontFace: SANS, fontSize: 13, margin: 0 });
-  rankBars(s, RANK25, ML, 3.7, 8.6, { dark: true, rowH: 0.41 });
-  s.addText("2025 technical debt priority, equal weights. Bar length = distance from the ideal profile (1 \u2212 Ci).", {
-    x: ML, y: 6.22, w: 9, h: 0.3, fontFace: SANS, fontSize: 11, italic: true, color: "8FA6BC", margin: 0,
-  });
-  s.addText("DESIGN SCIENCE RESEARCH  \u00B7  JAN 2024 \u2013 DEC 2025  \u00B7  6 SERVICES  \u00B7  5 OPERATIONAL INDICATORS", {
-    x: ML, y: 6.62, w: 11.5, h: 0.28, fontFace: MONO, fontSize: 10, charSpacing: 2, color: "8FA6BC", margin: 0,
-  });
+    { text: "  \u00B7  MSc Enterprise IT Management, University of Essex", options: { color: "AFC2D4" } },
+  ], { x: ML, y: 4.35, w: 11.8, h: 0.4, fontFace: SANS, fontSize: 15, margin: 0 });
+  s.addShape("line", { x: ML, y: 4.15, w: 2.2, h: 0, line: { color: AMBER, width: 2 } });
   s.addText("STUDENT ID 12696372  \u00B7  SUPERVISOR DR ZAHID ULLAH  \u00B7  CO-SUPERVISOR DOUG MILLWARD  \u00B7  12 JULY 2026", {
-    x: ML, y: 6.95, w: 11.8, h: 0.28, fontFace: MONO, fontSize: 10, charSpacing: 2, color: "8FA6BC", margin: 0,
+    x: ML, y: 6.85, w: 11.8, h: 0.28, fontFace: MONO, fontSize: 10, charSpacing: 2, color: "8FA6BC", margin: 0,
   });
   s.addNotes("0:00-0:45. This chart is the thesis in one image: six production trading services, ranked by technical debt priority, computed entirely from operational records. No source code was read to produce it. The next 15 minutes explain why that matters, how it was built, and why you can trust it.");
 }

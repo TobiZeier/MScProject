@@ -11,7 +11,7 @@ Target length 15 minutes at a measured pace of roughly 140 words per minute. Tim
 
 Good morning, and thank you for your time. My name is Tobias Zeier, and this is the defence of my thesis on measuring and prioritising technical debt in mission-critical trading systems.
 
-The chart on this slide is the thesis in a single image. Six production trading services, ranked by technical debt priority, computed entirely from operational records. No source code was read to produce this ranking, because in the environment I studied, source code is largely not available to be read. The next fifteen minutes explain why that matters, how this ranking was built, and, most importantly, why you can trust it.
+In one sentence, the thesis is this: six production trading services, ranked by technical debt priority, computed entirely from operational records, without reading a single line of source code, because in the environment I studied, source code is largely not available to be read. You will see that ranking in a few minutes. The next fifteen minutes explain why it matters, how it was built, and, most importantly, why you can trust it.
 
 ## Slide 2, The problem lives outside the code (0:45 to 2:00)
 
