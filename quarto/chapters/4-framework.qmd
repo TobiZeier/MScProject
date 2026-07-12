@@ -48,11 +48,11 @@ These limitations do not invalidate the proxy approach. Scores should be read as
 \endgroup
 ```
 
-The exact content of the files that have been used for the TOPSIS calculation can be found in the @sec-appendixb.
+The exact content of the files that have been used for the TOPSIS calculation can be found in @sec-appendixb.
 
 ## Indicator Normalisation and Weighting
 
-Each indicator was normalised using vector normalisation, as specified in @sec-frameworkdesign, which removes differences in scale and unit while preserving proportional relationships between observations. Min-max normalisation was considered but not adopted, since it rescales values to fixed bounds and can compress the distribution of extreme observations, altering the relative distances between alternatives on which distance-based methods such as TOPSIS rely. This choice is discussed further in relation to rank reversal in @sec-rankreversal, where the normalisation method is identified as one of two structural sources of rank instability in TOPSIS [@garcia-cascalesOnRankReversal2012].
+Each indicator was normalised using vector normalisation, as specified in @sec-frameworkdesign, which removes differences in scale and unit while preserving proportional relationships between observations. Min-max normalisation was considered but not adopted, since it rescales values to fixed bounds and can compress the distribution of extreme observations, altering the relative distances between alternatives on which distance-based methods such as TOPSIS rely. This choice is discussed further in relation to rank reversal in @sec-rankreversal, where the normalisation method is identified as one of two structural sources of rank instability in TOPSIS [@garcia-cascalesRankReversalTOPSIS2012].
 
 Two weight configurations are applied, as specified in @sec-frameworkdesign. The baseline equal-weight configuration assigns $w_j = 0.20$ to each of the five criteria and serves as the reference case. The differential configuration assigns higher weights to MTTR and patch recency, consistent with the design rationale established in @sec-chapter3. The differential weights are $w_{\text{MTTR}} = w_{\text{Patch Recency}} = 0.30$ and $w_{\text{IncFreq}} = w_{\text{CFR}} = w_{\text{UnsupComp}} = 0.1\overline{3}$.
 

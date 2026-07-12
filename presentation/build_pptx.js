@@ -205,7 +205,7 @@ function colHead(slide, text, x, y, w, color = INK) {
   const rows = [
     [{ text: "INDICATOR", options: { bold: true } }, { text: "SOURCE", options: { bold: true } }, { text: "DEBT DIMENSION (TABLE 2.3)", options: { bold: true } }],
     ["Incident frequency", "ITSM", "Architectural"],
-    ["Mean time to restore (MTTR)", "ITSM", "Architectural (recovery capability)"],
+    ["Mean time to restore (MTTR)", "ITSM", "Infrastructure / platform"],
     ["Change failure rate (CFR)", "ITSM", "Process"],
     ["Patch recency", "CMDB", "Vulnerability"],
     ["Unsupported component months", "CMDB", "Infrastructure lifecycle"],
@@ -286,7 +286,7 @@ function colHead(slide, text, x, y, w, color = INK) {
   rankBars(s, RANK25, ML, 2.0, 7.2, { rowH: 0.45 });
 
   const profiles = [
-    { h: "SVC-04 \u00B7 rank 1", t: "574 incidents/yr, MTTR 41.9 h, CFR 3.38, yet clean infrastructure \u2192 architectural & process debt" },
+    { h: "SVC-04 \u00B7 rank 1", t: "574 incidents/yr, MTTR 41.9 h, CFR 3.38, yet a clean lifecycle record \u2192 architectural, platform & process debt" },
     { h: "SVC-02 \u00B7 rank 3", t: "Only 30 incidents/yr, but 1,221 unsupported component months \u2192 the debt an incident count cannot see" },
     { h: "SVC-03 \u00B7 rank 6", t: "The portfolio's reference for a well-maintained service" },
   ];
@@ -366,7 +366,7 @@ function colHead(slide, text, x, y, w, color = INK) {
   ], { x: ML, y: 1.95, w: CW, h: 0.4, fontFace: SANS, fontSize: 15, color: INK, margin: 0 });
 
   const two = [
-    { h: "SVC-02 rises", t: "Infrastructure lifecycle debt (1,221 unsupported component months, lowest patch recency) is invisible to an incident count. This is precisely the signal the framework was built to surface.", hot: true },
+    { h: "SVC-02 rises", t: "Infrastructure lifecycle debt (1,221 unsupported component months, patch recency of 59.93, second lowest) is invisible to an incident count. This is precisely the signal the framework was built to surface.", hot: true },
     { h: "SVC-05 falls", t: "High incident volume (171/yr) offset by full patch recency and zero unsupported components: noisy, but structurally sound.", hot: false },
   ];
   two.forEach((c, i) => {
@@ -410,7 +410,7 @@ function colHead(slide, text, x, y, w, color = INK) {
     x: 9.55, y: 3.05, w: 2.85, h: 2.05, fontFace: SANS, fontSize: 10.5, color: INKSOFT, margin: 0, valign: "top", lineSpacingMultiple: 1.12,
   });
   takeaway(s, "SVC-06's 2024 debt was concentrated; by 2025 it had broadened in absolute magnitude (VIKOR utility 0.491 \u2192 0.559, regret still capped) and every method converged. Two lenses, one coherent story.", 5.55, CW, ML);
-  s.addNotes("10:00-11:15. The distinctive finding. SVC-06's 2024 debt was concentrated (worst patch recency and unsupported components), so the compensatory, absolutely anchored variant read it as mid-ranking while sample-relative methods flagged it first. By 2025 the deterioration had broadened and everything converged.");
+  s.addNotes("10:00-11:15. The distinctive finding. SVC-06's 2024 debt was concentrated (worst-in-portfolio patch recency and unsupported components in 2024; by 2025 patch recency and change failure rate), so the compensatory, absolutely anchored variant read it as mid-ranking in 2024 while sample-relative methods flagged it first. By 2025 the deterioration had broadened and everything converged.");
 }
 
 // ══════════ SLIDE 12 · DIVISION OF LABOUR ══════════

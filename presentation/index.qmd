@@ -74,7 +74,7 @@ Design Science Research [@hevnerDesignScienceInformation2004]; single-organisati
 | Indicator | Source | Debt dimension (Table 2.3) |
 |---|---|---|
 | Incident frequency | ITSM | Architectural |
-| Mean time to restore (MTTR) | ITSM | Architectural (recovery capability) |
+| Mean time to restore (MTTR) | ITSM | Infrastructure / platform |
 | Change failure rate (CFR) | ITSM | Process |
 | Patch recency | CMDB | Vulnerability |
 | Unsupported component months | CMDB | Infrastructure lifecycle |
@@ -149,7 +149,7 @@ Design Science Research [@hevnerDesignScienceInformation2004]; single-organisati
 <div class="rankrow"><span class="svc">SVC-03</span><span class="bar"><span style="width:2%"></span></span><span class="ci">0.977</span></div>
 </div>
 
-- **SVC-04**, rank 1: <span class="n">574</span> incidents/yr, MTTR <span class="n">41.9 h</span>, CFR <span class="n">3.38</span>, yet clean infrastructure → architectural & process debt
+- **SVC-04**, rank 1: <span class="n">574</span> incidents/yr, MTTR <span class="n">41.9 h</span>, CFR <span class="n">3.38</span>, yet a clean lifecycle record → architectural, platform & process debt
 - **SVC-02**, rank 3: only <span class="n">30</span> incidents/yr, but <span class="n n-hot">1,221</span> unsupported component months → the debt an incident count cannot see
 - **SVC-03**, rank 6: the portfolio's reference for a well-maintained service
 
@@ -212,7 +212,7 @@ Against a ranking by incident frequency alone: <span class="n">τ = 0.600</span>
 <div>
 **SVC-02 rises**
 
-Infrastructure lifecycle debt (<span class="n n-hot">1,221</span> unsupported component months, lowest patch recency) is invisible to an incident count. This is precisely the signal the framework was built to surface.
+Infrastructure lifecycle debt (<span class="n n-hot">1,221</span> unsupported component months, patch recency of <span class="n">59.93</span>, second lowest) is invisible to an incident count. This is precisely the signal the framework was built to surface.
 </div>
 <div>
 **SVC-05 falls**
@@ -243,7 +243,7 @@ All methods agree on the **portfolio halves** and on SVC-03 last, in every year 
 **Mechanism:** sample-relative methods punish a worst-in-portfolio value however moderate it is absolutely; VIKOR's regret term is built so a concentrated weakness cannot be averaged away. Absolute-mode TOPSIS measures distance to fixed anchors, so squared aggregation lets strong criteria dilute one weak one.
 
 ::: notes
-10:00–11:15. The distinctive finding. SVC-06's 2024 debt was concentrated (worst patch recency and unsupported components), so the compensatory, absolutely anchored variant read it as mid-ranking while sample-relative methods flagged it first. By 2025 the deterioration had broadened in absolute magnitude (VIKOR utility 0.491→0.559 with regret still capped) and everything converged. Two lenses, one coherent story.
+10:00–11:15. The distinctive finding. SVC-06's 2024 debt was concentrated (worst-in-portfolio patch recency and unsupported components in 2024; by 2025 patch recency and change failure rate), so the compensatory, absolutely anchored variant read it as mid-ranking in 2024 while sample-relative methods flagged it first. By 2025 the deterioration had broadened in absolute magnitude (VIKOR utility 0.491→0.559 with regret still capped) and everything converged. Two lenses, one coherent story.
 :::
 
 ## Division of labour, not a winner

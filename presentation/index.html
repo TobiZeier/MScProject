@@ -6,8 +6,8 @@
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.42">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
   <title>index</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,7 +47,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-fea789bddb673cbc5b9141272342caf3.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-5f3a96d95b76cf317cbbd0240aa89c51.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -277,11 +277,6 @@ How stable are the resulting rankings when criterion weights are perturbed?
 <p><span class="tag">METHOD · DSR</span></p>
 <p>Design Science Research <span class="citation" data-cites="hevnerDesignScienceInformation2004">(<a href="#/references" role="doc-biblioref" onclick="">Hevner <em>et al.</em>, 2004</a>)</span>; single-organisation embedded case study; unit of analysis = the IT service as a configuration item.</p>
 <table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Indicator</th>
@@ -298,7 +293,7 @@ How stable are the resulting rankings when criterion weights are perturbed?
 <tr class="even">
 <td>Mean time to restore (MTTR)</td>
 <td>ITSM</td>
-<td>Architectural (recovery capability)</td>
+<td>Infrastructure / platform</td>
 </tr>
 <tr class="odd">
 <td>Change failure rate (CFR)</td>
@@ -430,7 +425,7 @@ Dimension assignments are this study’s literature-grounded synthesis. Document
 </div>
 </div>
 <ul>
-<li><strong>SVC-04</strong>, rank 1: <span class="n">574</span> incidents/yr, MTTR <span class="n">41.9 h</span>, CFR <span class="n">3.38</span>, yet clean infrastructure → architectural &amp; process debt</li>
+<li><strong>SVC-04</strong>, rank 1: <span class="n">574</span> incidents/yr, MTTR <span class="n">41.9 h</span>, CFR <span class="n">3.38</span>, yet a clean lifecycle record → architectural, platform &amp; process debt</li>
 <li><strong>SVC-02</strong>, rank 3: only <span class="n">30</span> incidents/yr, but <span class="n n-hot">1,221</span> unsupported component months → the debt an incident count cannot see</li>
 <li><strong>SVC-03</strong>, rank 6: the portfolio’s reference for a well-maintained service</li>
 </ul>
@@ -562,7 +557,7 @@ Cross-year movement is read as descriptive context, not a quality criterion: ser
 <div class="cols" style="margin-top:0.5em">
 <div>
 <p><strong>SVC-02 rises</strong></p>
-<p>Infrastructure lifecycle debt (<span class="n n-hot">1,221</span> unsupported component months, lowest patch recency) is invisible to an incident count. This is precisely the signal the framework was built to surface.</p>
+<p>Infrastructure lifecycle debt (<span class="n n-hot">1,221</span> unsupported component months, patch recency of <span class="n">59.93</span>, second lowest) is invisible to an incident count. This is precisely the signal the framework was built to surface.</p>
 </div>
 <div>
 <p><strong>SVC-05 falls</strong></p>
@@ -628,7 +623,7 @@ The divergence is not noise; it concentrates exactly where multi-criteria measur
 </table>
 <p><strong>Mechanism:</strong> sample-relative methods punish a worst-in-portfolio value however moderate it is absolutely; VIKOR’s regret term is built so a concentrated weakness cannot be averaged away. Absolute-mode TOPSIS measures distance to fixed anchors, so squared aggregation lets strong criteria dilute one weak one.</p>
 <aside class="notes">
-<p>10:00–11:15. The distinctive finding. SVC-06’s 2024 debt was concentrated (worst patch recency and unsupported components), so the compensatory, absolutely anchored variant read it as mid-ranking while sample-relative methods flagged it first. By 2025 the deterioration had broadened in absolute magnitude (VIKOR utility 0.491→0.559 with regret still capped) and everything converged. Two lenses, one coherent story.</p>
+<p>10:00–11:15. The distinctive finding. SVC-06’s 2024 debt was concentrated (worst-in-portfolio patch recency and unsupported components in 2024; by 2025 patch recency and change failure rate), so the compensatory, absolutely anchored variant read it as mid-ranking in 2024 while sample-relative methods flagged it first. By 2025 the deterioration had broadened in absolute magnitude (VIKOR utility 0.491→0.559 with regret still capped) and everything converged. Two lenses, one coherent story.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -814,13 +809,13 @@ Thank you. I welcome your questions.
 <p><span class="tag">Works cited on these slides</span></p>
 <div id="refs" class="small references csl-bib-body" role="list">
 <div id="ref-ahmadTechnicalDebtNot2026" class="csl-entry" role="listitem">
-Ahmad, M.O., Mandić, V., Taušan, N., Katin, A. and Herath, P. (2026) <span>“Technical debt is not just technical: <span>An</span> industrial case study in large agile software development,”</span> <em>Journal of Systems and Software</em>, 234, p. 112719. Available at: <a href="https://doi.org/10.1016/j.jss.2025.112719">https://doi.org/10.1016/j.jss.2025.112719</a>.
+Ahmad, M.O., Mandić, V., Taušan, N., Katin, A. and Herath, P. (2026) 'Technical debt is not just technical: <span>An</span> industrial case study in large agile software development', <em>Journal of Systems and Software</em>, 234, p. 112719. Available at: <a href="https://doi.org/10.1016/j.jss.2025.112719">https://doi.org/10.1016/j.jss.2025.112719</a>.
 </div>
 <div id="ref-albarakManagingTechnicalDebt2022" class="csl-entry" role="listitem">
-Albarak, M., Bahsoon, R., Ozkaya, I. and Nord, R.L. (2022) <span>“Managing <span>Technical Debt</span> in <span>Database Normalization</span>,”</span> <em>IEEE Transactions on Software Engineering</em>, 48(3), pp. 755–772. Available at: <a href="https://doi.org/10.1109/TSE.2020.3001339">https://doi.org/10.1109/TSE.2020.3001339</a>.
+Albarak, M., Bahsoon, R., Ozkaya, I. and Nord, R.L. (2022) 'Managing <span>Technical Debt</span> in <span>Database Normalization</span>', <em>IEEE Transactions on Software Engineering</em>, 48(3), pp. 755–772. Available at: <a href="https://doi.org/10.1109/TSE.2020.3001339">https://doi.org/10.1109/TSE.2020.3001339</a>.
 </div>
 <div id="ref-bankerTechnicalDebtFirm2020" class="csl-entry" role="listitem">
-Banker, R., Liang, Y. and Ramasubbu, N. (2020) <span>“Technical <span>Debt</span> and <span>Firm Performance</span>,”</span> <em>Management Science</em>, 67(5), pp. 3174–3194. Available at: <a href="https://doi.org/10.1287/mnsc.2019.3542">https://doi.org/10.1287/mnsc.2019.3542</a>.
+Banker, R., Liang, Y. and Ramasubbu, N. (2020) 'Technical <span>Debt</span> and <span>Firm Performance</span>', <em>Management Science</em>, 67(5), pp. 3174–3194. Available at: <a href="https://doi.org/10.1287/mnsc.2019.3542">https://doi.org/10.1287/mnsc.2019.3542</a>.
 </div>
 <div id="ref-finmaCircular202312024" class="csl-entry" role="listitem">
 <em><span>FINMA Circular</span> 2023/1 - <span>Operational</span> risks and resilience – banks</em> (2024). Available at: <a href="https://www.finma.ch/en/~/media/finma/dokumente/dokumentencenter/myfinma/rundschreiben/finma-rs-2023-01-20221207.pdf">https://www.finma.ch/en/~/media/finma/dokumente/dokumentencenter/myfinma/rundschreiben/finma-rs-2023-01-20221207.pdf</a> (Accessed: March 29, 2026).
@@ -829,25 +824,25 @@ Banker, R., Liang, Y. and Ramasubbu, N. (2020) <span>“Technical <span>Debt</sp
 Forsgren, N., Humble, J. and Kim, G. (2018) <em>Accelerate: <span>The Science</span> of <span>Lean Software</span> and <span>DevOps</span>: <span>Building</span> and <span>Scaling High Performing Technology Organizations</span></em>. Portland, OR: IT Revolution Press.
 </div>
 <div id="ref-garcia-cascalesRankReversalTOPSIS2012" class="csl-entry" role="listitem">
-García-Cascales, M.S. and Lamata, M.T. (2012) <span>“On rank reversal and <span>TOPSIS</span> method,”</span> <em>Mathematical and Computer Modelling</em>, 56(5), pp. 123–132. Available at: <a href="https://doi.org/10.1016/j.mcm.2011.12.022">https://doi.org/10.1016/j.mcm.2011.12.022</a>.
+García-Cascales, M.S. and Lamata, M.T. (2012) 'On rank reversal and <span>TOPSIS</span> method', <em>Mathematical and Computer Modelling</em>, 56(5), pp. 123–132. Available at: <a href="https://doi.org/10.1016/j.mcm.2011.12.022">https://doi.org/10.1016/j.mcm.2011.12.022</a>.
 </div>
 <div id="ref-hevnerDesignScienceInformation2004" class="csl-entry" role="listitem">
-Hevner, A.R., March, S.T., Park, J. and Ram, S. (2004) <span>“Design <span>Science</span> in <span>Information Systems Research</span>,”</span> <em>MIS Quarterly</em>, 28(1), pp. 75–105. Available at: <a href="https://doi.org/10.2307/25148625">https://doi.org/10.2307/25148625</a>.
+Hevner, A.R., March, S.T., Park, J. and Ram, S. (2004) 'Design <span>Science</span> in <span>Information Systems Research</span>', <em>MIS Quarterly</em>, 28(1), pp. 75–105. Available at: <a href="https://doi.org/10.2307/25148625">https://doi.org/10.2307/25148625</a>.
 </div>
 <div id="ref-lenarduzziSystematicLiteratureReview2021" class="csl-entry" role="listitem">
-Lenarduzzi, V., Besker, T., Taibi, D., Martini, A. and Arcelli Fontana, F. (2021) <span>“A systematic literature review on <span>Technical Debt</span> prioritization: <span>Strategies</span>, processes, factors, and tools,”</span> <em>Journal of Systems and Software</em>, 171, p. 110827. Available at: <a href="https://doi.org/10.1016/j.jss.2020.110827">https://doi.org/10.1016/j.jss.2020.110827</a>.
+Lenarduzzi, V., Besker, T., Taibi, D., Martini, A. and Arcelli Fontana, F. (2021) 'A systematic literature review on <span>Technical Debt</span> prioritization: <span>Strategies</span>, processes, factors, and tools', <em>Journal of Systems and Software</em>, 171, p. 110827. Available at: <a href="https://doi.org/10.1016/j.jss.2020.110827">https://doi.org/10.1016/j.jss.2020.110827</a>.
 </div>
 <div id="ref-nordExamplesTechnicalDebts2021" class="csl-entry" role="listitem">
 Nord, R.L., Ozkaya, I. and Woody, C. (2021) <em>Examples of <span>Technical Debt</span>’s <span>Cybersecurity Impact</span></em>. Pittsburgh, PA, USA: Carnegie Mellon University, pp. 1–21. Available at: <a href="https://apps.dtic.mil/sti/trecms/pdf/AD1144728.pdf">https://apps.dtic.mil/sti/trecms/pdf/AD1144728.pdf</a> (Accessed: April 27, 2026).
 </div>
 <div id="ref-tizioSoftwareUpdatesStrategies2023" class="csl-entry" role="listitem">
-Tizio, G.D., Armellini, M. and Massacci, F. (2023) <span>“Software <span>Updates Strategies</span>: <span>A Quantitative Evaluation Against Advanced Persistent Threats</span>,”</span> <em>IEEE Transactions on Software Engineering</em>, 49(3), pp. 1359–1373. Available at: <a href="https://doi.org/10.1109/TSE.2022.3176674">https://doi.org/10.1109/TSE.2022.3176674</a>.
+Tizio, G.D., Armellini, M. and Massacci, F. (2023) 'Software <span>Updates Strategies</span>: <span>A Quantitative Evaluation Against Advanced Persistent Threats</span>', <em>IEEE Transactions on Software Engineering</em>, 49(3), pp. 1359–1373. Available at: <a href="https://doi.org/10.1109/TSE.2022.3176674">https://doi.org/10.1109/TSE.2022.3176674</a>.
 </div>
 <div id="ref-detoledoReducingIncidentsMicroservices2021" class="csl-entry" role="listitem">
-de Toledo, S.S., Martini, A., Sjøberg, D.I.K., Przybyszewska, A. and Frandsen, J.S. (2021) <span>“Reducing <span>Incidents</span> in <span>Microservices</span> by <span>Repaying Architectural Technical Debt</span>,”</span> <em>2021 47th <span>Euromicro Conference</span> on <span>Software Engineering</span> and <span>Advanced Applications</span> (<span>SEAA</span>)</em>. <em>2021 47th <span>Euromicro Conference</span> on <span>Software Engineering</span> and <span>Advanced Applications</span> (<span>SEAA</span>)</em>, pp. 196–205. Available at: <a href="https://doi.org/10.1109/SEAA53835.2021.00033">https://doi.org/10.1109/SEAA53835.2021.00033</a>.
+de Toledo, S.S., Martini, A., Sjøberg, D.I.K., Przybyszewska, A. and Frandsen, J.S. (2021) 'Reducing <span>Incidents</span> in <span>Microservices</span> by <span>Repaying Architectural Technical Debt</span>', <em>2021 47th <span>Euromicro Conference</span> on <span>Software Engineering</span> and <span>Advanced Applications</span> (<span>SEAA</span>)</em>. <em>2021 47th <span>Euromicro Conference</span> on <span>Software Engineering</span> and <span>Advanced Applications</span> (<span>SEAA</span>)</em>, pp. 196–205. Available at: <a href="https://doi.org/10.1109/SEAA53835.2021.00033">https://doi.org/10.1109/SEAA53835.2021.00033</a>.
 </div>
 <div id="ref-yangIngeniousSolutionRank2020" class="csl-entry" role="listitem">
-Yang, W. (2020) <span>“Ingenious <span>Solution</span> for the <span>Rank Reversal Problem</span> of <span>TOPSIS Method</span>,”</span> <em>Mathematical Problems in Engineering</em>, 2020(1), p. 9676518. Available at: <a href="https://doi.org/10.1155/2020/9676518">https://doi.org/10.1155/2020/9676518</a>.
+Yang, W. (2020) 'Ingenious <span>Solution</span> for the <span>Rank Reversal Problem</span> of <span>TOPSIS Method</span>', <em>Mathematical Problems in Engineering</em>, 2020(1), p. 9676518. Available at: <a href="https://doi.org/10.1155/2020/9676518">https://doi.org/10.1155/2020/9676518</a>.
 </div>
 </div>
 
@@ -1041,7 +1036,7 @@ Yang, W. (2020) <span>“Ingenious <span>Solution</span> for the <span>Rank Reve
         margin: 8.0e-2,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1068,190 +1063,173 @@ Yang, W. (2020) <span>“Ingenious <span>Solution</span> for the <span>Rank Reve
       });
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
           }
+          return false;
         }
-        return false;
-      }
-      const onCopySuccess = function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
           for (const childEl of codeEl.children) {
             if (isCodeAnnotation(childEl)) {
               childEl.remove();
             }
           }
           return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
-      });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
             }
           }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
           }
-        });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
           }
-        } else {
-          return undefined;
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
           });
         }
-      }
-    });
-    </script>
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
     
 
 </body></html>
