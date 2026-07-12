@@ -17,7 +17,7 @@ Kendall's tau measures the similarity between two rankings and is well establish
 | Temporal stability equal weights (2025 vs 2024) | 0.867| 0.017 |
 | Temporal stability adjusted weights (2025 vs 2024) | 1.000 | 0.003 |
 
-: Kendall's tau concordance values across all ranking comparisons, standard TOPSIS formulation. {#tbl-kendall tbl-colwidths="[55,15,15]"}
+: Kendall's tau across ranking comparisons, standard TOPSIS {#tbl-kendall tbl-colwidths="[55,15,15]"}
 
 Weight sensitivity in 2025 is strong ($\tau = 0.867$). The only movement is a swap between SVC-06 and SVC-02 at ranks 2 and 3, as SVC-02's high unsupported component months and weaker patch recency pull it above SVC-06 once those criteria receive more weight. Temporal stability is perfect under adjusted weights ($\tau = 1.000$) and strong under equal weights ($\tau = 0.867$), where only SVC-01 and SVC-05 trade ranks 4 and 5. Cross-year stability is reported as descriptive context rather than as a quality criterion in its own right: services genuinely evolve between periods, and a faithful ranking should follow such change, as this single swap follows a real shift in the two profiles. The weakest result is the 2024 weight sensitivity ($\tau = 0.733$), where two pairs swap because the middle-ranking services carry more tightly grouped scores that year; differential weighting matters more where profiles are similar. In every run, however, the top and bottom positions are identical, which addresses RQ3 directly.
 
@@ -48,7 +48,7 @@ Structural rigour was examined by removing each service in turn and re-ranking t
 | SVC-05 | Order preserved |
 | SVC-06 | SVC-01 and SVC-05 exchange ranks |
 
-: Effect of removing each service on the order of the remaining five, standard TOPSIS, 2025 equal weights. {#tbl-rankreversal tbl-colwidths="[35,65]"}
+: Leave-one-out rank changes, standard TOPSIS, 2025 equal weights {#tbl-rankreversal tbl-colwidths="[35,65]"}
 
 To remove the effect, the absolute-mode correction of @garcia-cascalesRankReversalTOPSIS2012 was implemented. Vector normalisation is replaced by normalisation against fixed criterion bounds, and the ideal solutions are anchored direction-aware to fictitious alternatives at the extremes of each criterion scale, addressing the cost-attribute limitation that @yangIngeniousSolutionRank2020 identify in the original formulation. Under this variant the order is preserved across all six removals (@sec-appendixc), an outcome guaranteed rather than incidental: @yangIngeniousSolutionRank2020 prove that variants whose bounds and ideals are fixed independently of the alternative set are ranking stable by construction. The gain carries a cost, since the fixed bounds must be justified from organisational thresholds rather than sample statistics (values in @sec-appendixa). Anchoring the ranking to a fixed frame, however, changes more than its stability properties.
 
@@ -75,7 +75,7 @@ Because two discrete configurations cannot capture the plurality of defensible j
 | SVC-05 | 0.0000 | 0.0000 | 0.2008 | 0.4028 | 0.3964 | 0.0000 |
 | SVC-06 | 0.3693 | 0.4482 | 0.0931 | 0.0551 | 0.0343 | 0.0000 |
 
-: Rank-acceptability distribution across 20,000 Dirichlet-sampled weight vectors, absolute-mode TOPSIS, 2025, seed 20000. Each cell is the probability of that rank; rows sum to one. {#tbl-montecarlo tbl-colwidths="[22,13,13,13,13,13,13]"}
+: Rank-acceptability distribution, absolute-mode TOPSIS, 2025 (20,000 weight samples, seed 20000); cells are rank probabilities {#tbl-montecarlo tbl-colwidths="[22,13,13,13,13,13,13]"}
 
 Repeating the analysis on 2024 data yields a visibly flatter distribution (@tbl-appc-montecarlo2024): SVC-03 occupies the lowest rank in 70.4% of weightings rather than 99.1%, and only SVC-04 retains a dominant top position. This mirrors the weaker 2024 weight-sensitivity result in @sec-stability and has the same cause, the more tightly grouped 2024 profiles, confirming that weight sensitivity here is a property of the data rather than of the method.
 

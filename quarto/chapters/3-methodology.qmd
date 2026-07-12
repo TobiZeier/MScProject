@@ -84,7 +84,7 @@ The five retained indicators are operationalisable from live records held in the
 | Patch recency | Share of service components running within a supported release window. | CMDB | Percentage (0–100) | Benefit |
 | Unsupported component months | Total months of exposure to unsupported components in the service stack. | CMDB | Months | Cost |
 
-: Operational definition of indicators used in the TOPSIS framework {#tbl-indicators-def tbl-colwidths="\[20,40,10,15,15\]"}
+: Operational indicator definitions {#tbl-indicators-def tbl-colwidths="\[20,40,10,15,15\]"}
 
 ```{=latex}
 \endgroup

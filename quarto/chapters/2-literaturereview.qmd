@@ -154,7 +154,7 @@ The following table maps each operational indicator to the technical debt dimens
 | Patch recency | Vulnerability debt | @tizioSoftwareUpdatesStrategies2023; @markkanenPatchManagementPlanning2023 |
 | Unsupported component months | Infrastructure lifecycle debt | @hakiDigitalNudgingTechnical2023 |
 
-: Mapping of operational indicators to technical debt dimensions and literature justification {#tbl-indicators-lit tbl-colwidths="[25,30,45]"}
+: Operational indicators mapped to technical debt dimensions {#tbl-indicators-lit tbl-colwidths="[25,30,45]"}
 
 ```{=latex}
 \endgroup

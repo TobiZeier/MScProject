@@ -96,6 +96,8 @@ Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for b
 
 ## Rank-Reversal Detail (Classic Mode)
 
+Entries reading preserved leave the reference order unchanged.
+
 | Service removed | 2025 outcome | 2024 outcome |
 |-----------------|---------------------------|---------------------------|
 | SVC-01 | preserved | preserved |
@@ -105,9 +107,11 @@ Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for b
 | SVC-05 | preserved | preserved |
 | SVC-06 | $\text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-03}$ |
 
-: Order of the remaining five services after each removal, standard TOPSIS, equal weights. Entries reading preserved leave the reference order unchanged. {#tbl-appc-rankreversal}
+: Leave-one-out rank order, standard TOPSIS, equal weights {#tbl-appc-rankreversal}
 
 ## Rank-Reversal Detail (Absolute Mode)
+
+Reference orders: 2025 $\text{SVC-06} \succ \text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$; 2024 $\text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-06} \succ \text{SVC-03}$.
 
 | Service removed | 2025 outcome | 2024 outcome |
 |-----------------|--------------|--------------|
@@ -118,7 +122,7 @@ Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for b
 | SVC-05 | preserved | preserved |
 | SVC-06 | preserved | preserved |
 
-: Order of the remaining services after each removal under absolute-mode TOPSIS, equal weights. Reference orders: 2025 $\text{SVC-06} \succ \text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$; 2024 $\text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-06} \succ \text{SVC-03}$. {#tbl-appc-rankreversal-abs}
+: Leave-one-out rank order, absolute-mode TOPSIS, equal weights {#tbl-appc-rankreversal-abs}
 
 ## Weight-Space Robustness Detail
 
@@ -133,7 +137,7 @@ The 2025 rank-acceptability distribution is reported in @tbl-montecarlo. The cor
 | SVC-05 | 0.0000 | 0.2617 | 0.2104 | 0.3446 | 0.1833 | 0.0000 |
 | SVC-06 | 0.1328 | 0.1384 | 0.2150 | 0.1154 | 0.3834 | 0.0152 |
 
-: Rank-acceptability distribution across 20,000 Dirichlet-sampled weight vectors, absolute-mode TOPSIS, 2024, seed 20000. Each cell is the probability of that rank; rows sum to one. {#tbl-appc-montecarlo2024}
+: Rank-acceptability distribution, absolute-mode TOPSIS, 2024 (20,000 weight samples, seed 20000); cells are rank probabilities {#tbl-appc-montecarlo2024}
 
 ## Temporal Stability
 
