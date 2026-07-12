@@ -1,7 +1,22 @@
-# Defence Speaking Script
-
-Measuring and Prioritising Technical Debt in Mission-Critical Trading Systems
-Tobias Zeier, MSc Enterprise IT Management, University of Essex
+---
+title: "Defence Speaking Script"
+subtitle: "Measuring and Prioritising Technical Debt in Mission-Critical Trading Systems"
+author: "Tobias Zeier"
+date: "12 July 2026"
+lang: en-GB
+format:
+  pdf:
+    documentclass: article
+    fontsize: 11pt
+    geometry:
+      - a4paper
+      - margin=2.5cm
+    mainfont: "Times New Roman"
+    linestretch: 1.15
+    colorlinks: true
+    toc: false
+    number-sections: false
+---
 
 Target length 15 minutes at a measured pace of roughly 140 words per minute. Timings are cumulative. Sentences in square brackets are stage directions, not spoken text. The script matches the corrected deck of 12 July 2026.
 

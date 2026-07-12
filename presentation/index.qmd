@@ -16,7 +16,7 @@ link-citations: true
 <div class="deck-sub">A TOPSIS framework on live ITSM and CMDB data from a regulated Swiss trading institution</div>
 <div class="deck-author"><strong>Tobias Zeier</strong> · MSc Enterprise IT Management, University of Essex</div>
 
-<div class="deck-meta">STUDENT ID 12696372 · SUPERVISOR DR ZAHID ULLAH · CO-SUPERVISOR DOUG MILLWARD · 15 AUGUST 2026</div>
+<div class="deck-meta">STUDENT ID 12696372 · SUPERVISOR DR ZAHID ULLAH · CO-SUPERVISOR DOUG MILLWARD · 12 JULY 2026</div>
 
 ::: notes
 0:00–0:45. This chart is the thesis in one image: six production trading services, ranked by technical debt priority, computed entirely from operational records. No source code was read to produce it. The next 15 minutes explain why that matters, how it was built, and why you can trust it.
