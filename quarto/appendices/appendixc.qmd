@@ -85,7 +85,7 @@ Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for b
 
 : Rank agreement (Kendall's $\tau$) between absolute TOPSIS and the alternative methods. {#tbl-appc-convergentabsolute}
 
-## Discriminant Comparison
+## Discriminant Detail
 
 | Year | TOPSIS order | Incident-only order | $\tau$ |
 |--------------|----------------------|----------------------|-------------:|

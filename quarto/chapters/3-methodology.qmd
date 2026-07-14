@@ -2,7 +2,7 @@
 
 The philosophical approach, research strategy, and design decisions that govern the construction and evaluation of the proposed framework are developed in this chapter. It proceeds in two parts: the first covers the research design from philosophical positioning through to the evaluation approach; the second addresses the ethical and professional considerations arising from the use of operational data in a regulated financial institution.
 
-## Research Design
+## Case Study Design
 
 This study is grounded in a pragmatist research philosophy. Pragmatism holds that the value of a knowledge claim is determined by whether the resulting artefact works in the context for which it was designed [@kellyThreePrinciplesPragmatism2020]. This position suits the present study because the objective is not to establish universal laws about technical debt, but to construct a quantitative framework useful for prioritisation decisions in a specific enterprise IT environment. Technical debt is treated here as a construct without a single measurement, since tools applied to the same codebase produce substantially different estimates [@amanatidisEvaluatingAgreementTechnical2020]. The framework therefore grounds its estimates in operationally defined proxies and acknowledges that the resulting scores are representations, not facts.
 

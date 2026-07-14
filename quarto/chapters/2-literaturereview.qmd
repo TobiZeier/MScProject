@@ -2,7 +2,7 @@
 
 Four bodies of literature intersect at the problem this thesis addresses: the theory of technical debt, approaches to its measurement and prioritisation, its governance in regulated financial IT, and multi-criteria decision-making. None of these streams alone is sufficient. Read together and critically, they expose a gap that the proposed framework is designed to fill.
 
-## Context of the Topic
+## Scope and Rationale of the Review
 
 Technical debt has become both a central concept and a persistent governance problem in software engineering and enterprise IT [@avgeriouTechnicalDebtManagement2023]. Ward Cunningham introduced the metaphor in 1992, describing technical debt as the long-term cost of short-term technical compromises [@cunninghamWyCashPortfolioManagement1992]. Over time, the concept expanded from source code quality to encompass architectural, infrastructure, organisational and process dimensions of complex IT systems [@kruchtenTechnicalDebtMetaphor2012].
 
@@ -174,7 +174,7 @@ Prioritising technical debt involves balancing several criteria at once: remedia
 
 The natural starting point is simple additive weighting (SAW), which scores each alternative as a weighted sum across the criteria. It is transparent, but its strictly linear aggregation offsets a weak score on one criterion against a strong score on another in direct proportion to their weights. A risk matrix, the other common baseline, is categorical and cannot finely separate a large service portfolio. TOPSIS and SAW are both compensatory, yet TOPSIS scores each alternative by its distance to both an ideal best and an ideal worst rather than by a single sum, which suits a benchmarking task with criteria of differing scale and direction. This is a difference of aggregation structure rather than guaranteed outcome. @ciardielloComparisonTOPSISSAW2023 show that under some distance metrics TOPSIS reproduces SAW closely. Method choice is therefore treated here as a robustness question, examined in @sec-chapter5, rather than as a matter of correctness. Against this background, @lenarduzziSystematicLiteratureReview2021 found the absence of a validated, quantitative, multi-criteria framework to be a central obstacle to evidence-based technical debt governance.
 
-### TOPSIS: Mechanics, Applications and Critical Limitations
+### TOPSIS: Capabilities and Limitations
 
 @hwangMultipleAttributeDecision1981 introduced TOPSIS, which ranks alternatives by their proximity to a hypothetical ideal that scores best on every criterion. @zanakisMultiattributeDecisionMaking1998 found it produces stable rankings close to the Pareto-optimal ordering across varied problem structures. The procedure builds a normalised, weighted decision matrix, identifies the ideal best and worst value per criterion, and ranks alternatives by a closeness coefficient, the ratio of the distance to the ideal worst to the sum of both distances [@albarakManagingTechnicalDebt2022].
 
@@ -190,7 +190,7 @@ Although the preceding sections provide strong motivation for the proposed frame
 
 Using such data also raises ethical questions, since rankings derived from operational records may influence budgets, staffing and reputational assessments. These considerations are addressed in @sec-ethics.
 
-## Synthesis: Converging Evidence and the Research Gap
+## Synthesis
 
 The four thematic sections together define the conceptual, methodological, contextual and technical landscape within which this research is situated.
 

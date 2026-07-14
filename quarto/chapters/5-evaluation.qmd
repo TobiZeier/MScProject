@@ -6,7 +6,7 @@ The framework developed in @sec-chapter4 ranks six production services from five
 
 The framework is evaluated against the criteria set out in @sec-evaluationapproach, forming an analytical evaluation in the sense of @hevnerDesignScienceInformation2004 Guideline 3. Five properties are at issue. Ranking stability asks whether the order survives reasonable weight variation and holds across observation periods, assessed throughout with Kendall's tau ($\tau$). Convergent validity asks whether alternative methods reproduce the ordering, and discriminant value whether the ranking adds anything over a single-criterion incident-frequency baseline. Structural rigour requires the remaining order to hold when any service is removed. Practical validity, finally, asks whether the rankings can be read sensibly against the service profiles they describe.
 
-## Stability Results {#sec-stability}
+## Ranking Stability {#sec-stability}
 
 Kendall's tau measures the similarity between two rankings and is well established in MCDA evaluation [@shekhovtsovHowStronglyRank2021]. It scales concordant minus discordant pairs to $[-1, 1]$, where $\tau = 1$ is perfect agreement. With only six services the p-value is obtained exactly across all $6! = 720$ orderings. The small sample limits the test's power, but the limitation reflects portfolio size rather than weak agreement, since p-values fall as the sample grows when a real effect is present [@chenRolesChallengesMerits2023]. The p-values in @tbl-kendall are therefore read as effect sizes rather than accept-or-reject decisions. All figures refer to the standard formulation; the absolute-mode variant is examined in @sec-absolutemode.
 
@@ -35,7 +35,7 @@ Agreement is moderate rather than exact ($\tau$ from 0.600 to 0.867), and the pa
 
 A multi-criteria framework only earns its complexity if it says something an obvious single signal would not. Tested against a ranking by incident frequency alone, the orderings diverge ($\tau = 0.600$ in 2025, $0.200$ in 2024; full comparison in @sec-appendixc). The divergence concentrates in two services. SVC-02 rises against the incident-only view because its infrastructure-lifecycle debt, carried in unsupported-component exposure and low patch recency, is invisible to an incident count. SVC-05 falls for the mirror-image reason: high incident volume offset by full patch recency and no unsupported components. This is the value the multi-criteria design adds, consistent with @albarakManagingTechnicalDebt2022. The wider 2024 divergence is the same mechanism operating more strongly.
 
-## Rank Reversal {#sec-rankreversal}
+## Structural Rigour Under Service Removal {#sec-rankreversal}
 
 Structural rigour was examined by removing each service in turn and re-ranking the remainder. Under the standard formulation the order holds in three of the six removals; in the other three a single adjacent pair changes places (@tbl-rankreversal). No service crosses between the halves and the lowest-priority service never moves, so the effect is confined to fine ordering within already adjacent clusters. This is the familiar limitation of distance-based aggregation identified by @garcia-cascalesRankReversalTOPSIS2012.
 
