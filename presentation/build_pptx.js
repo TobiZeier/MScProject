@@ -387,7 +387,7 @@ function colHead(slide, text, x, y, w, color = INK) {
   const rows = [
     [{ text: "2024, equal weights", options: { bold: true } }, { text: "TOPSIS classic", options: { bold: true } }, { text: "SAW \u00B7 VIKOR \u00B7 TOPSIS absolute", options: { bold: true } }],
     ["Top-ranked service", "SVC-04 (C* = 0.4847)", "SVC-01"],
-    ["Margin", "\u0394C* = 0.004 to SVC-01 (0.4886)", "VIKOR regret capped on SVC-01"],
+    ["Margin", "\u0394C* = 0.004 to SVC-01 (0.4886)", "Each worst on exactly 2 criteria"],
     ["Agreement", "vs SAW \u03C4 = 0.600", "absolute vs VIKOR \u03C4 = 1.000"],
     ["2025 and 2024 adjusted", "SVC-01 first under every method", ""],
   ];
@@ -400,11 +400,11 @@ function colHead(slide, text, x, y, w, color = INK) {
 
   s.addShape("rect", { x: 9.35, y: 2.6, w: 3.2, h: 2.6, fill: { color: "FBF4E8" } });
   s.addText("MECHANISM", { x: 9.55, y: 2.75, w: 2.8, h: 0.25, fontFace: MONO, fontSize: 10, bold: true, charSpacing: 2, color: AMBER, margin: 0 });
-  s.addText("Vector normalisation lets SVC-04\u2019s 410-incident load dominate the incident axis. Fixed anchors and VIKOR\u2019s regret register SVC-01\u2019s concentrated structural exposure, the worst patch recency (65.83) and 4,054 unsupported months, at full strength.", {
+  s.addText("Both are worst on exactly two criteria. SVC-04 is perfect on the other two; SVC-01 is only good. Linear aggregation puts SVC-01 first; vector normalisation, preserving SVC-04\u2019s outlying 410 incidents, reverses the pair by 0.004.", {
     x: 9.55, y: 3.05, w: 2.85, h: 2.05, fontFace: SANS, fontSize: 10.5, color: INKSOFT, margin: 0, valign: "top", lineSpacingMultiple: 1.12,
   });
-  takeaway(s, "Concentrated structural exposure versus diffuse operational load, separated by 0.004: the framework reports the photo-finish rather than hiding it. By 2025 every method places SVC-01 first.", 5.55, CW, ML);
-  s.addNotes("10:00-11:15. The distinctive finding. The 2024 equal-weight top rank is a photo-finish: classic TOPSIS puts SVC-04 first by 0.004; SAW, VIKOR and the absolute variant put SVC-01 first, because regret capping and fixed anchors register SVC-01's worst patch recency and 4,054 unsupported months at full strength while vector normalisation is dominated by SVC-04's incident mass. In 2025 and under 2024 adjusted weights everything agrees on SVC-01.");
+  takeaway(s, "A 0.004 margin decided by normalisation, not by a real gap. Three of four scorers say SVC-01. The framework reports the photo-finish rather than hiding it; by 2025 every method agrees.", 5.55, CW, ML);
+  s.addNotes("10:00-11:15. The 2024 equal-weight top rank is a photo-finish: classic TOPSIS puts SVC-04 first by 0.004; SAW, VIKOR and the absolute variant put SVC-01 first. Both services are worst on exactly two criteria; SVC-04 is perfect on its other two while SVC-01 is only good, so linear aggregation favours SVC-01 while vector normalisation, which preserves SVC-04's outlying incident count, does not. If pressed: VIKOR's utility term is algebraically 1 minus SAW, so those two are not fully independent; VIKOR adds information only through regret. In 2025 everything agrees on SVC-01.");
 }
 
 // ══════════ SLIDE 12 · DIVISION OF LABOUR ══════════
@@ -416,7 +416,7 @@ function colHead(slide, text, x, y, w, color = INK) {
   colHead(s, "Standard TOPSIS + SAW / VIKOR", ML, 1.95, 5.8);
   bullets(s, [
     { text: "Primary prioritisation signal" },
-    { text: "VIKOR's regret and the absolute anchor both flag SVC-01's concentrated structural exposure, which distance aggregation alone underweights" },
+    { text: "Triangulation, not a single number: where scorers split by 0.004, the margin is too small to carry a remediation decision" },
   ], ML, 2.45, 5.7, { size: 13.5, space: 10, h: 2.6 });
 
   colHead(s, "Absolute-mode TOPSIS", 7.2, 1.95, 5.3);

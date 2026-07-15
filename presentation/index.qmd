@@ -226,11 +226,11 @@ In 2025 all methods agree exactly under equal weights, with SVC-01 first, and SV
 | 2024, equal weights | TOPSIS classic | SAW · VIKOR · TOPSIS absolute |
 |---|---|---|
 | Top-ranked service | SVC-04 (C\* 0.4847) | SVC-01 |
-| Margin | ΔC\* = 0.004 to SVC-01 (0.4886) | VIKOR regret capped on SVC-01 |
+| Margin | ΔC\* = 0.004 to SVC-01 (0.4886) | Each worst on exactly 2 criteria |
 | Agreement | vs SAW τ = 0.600 | absolute vs VIKOR τ = 1.000 |
 | 2025 and 2024 adjusted | SVC-01 first under every method | |
 
-**Mechanism:** vector normalisation lets SVC-04's 410-incident load dominate the incident axis. Fixed anchors and VIKOR's regret register SVC-01's concentrated structural exposure, the worst patch recency (65.83) and 4,054 unsupported months, at full strength.
+**Mechanism:** both are worst on exactly two criteria. SVC-04 is perfect on the other two; SVC-01 is only good. Linear aggregation puts SVC-01 first; vector normalisation, preserving SVC-04's outlying 410 incidents, reverses the pair by 0.004.
 
 ::: notes
 10:00–11:15. The distinctive finding. The 2024 equal-weight top rank is a photo-finish: classic TOPSIS puts SVC-04 first by 0.004; SAW, VIKOR and the absolute variant put SVC-01 first, because regret capping and fixed anchors register SVC-01's worst patch recency and 4,054 unsupported months at full strength while vector normalisation is dominated by SVC-04's incident mass. In 2025 and under 2024 adjusted weights everything agrees on SVC-01.
@@ -245,7 +245,7 @@ In 2025 all methods agree exactly under equal weights, with SVC-01 first, and SV
 **Standard TOPSIS + SAW/VIKOR**
 
 - Primary prioritisation signal
-- VIKOR's regret and the absolute anchor both flag SVC-01's concentrated structural exposure, which distance aggregation alone underweights
+- Triangulation, not a single number: where scorers split by 0.004, the margin is too small to carry a remediation decision
 </div>
 <div>
 **Absolute-mode TOPSIS**
