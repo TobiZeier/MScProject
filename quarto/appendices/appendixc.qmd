@@ -6,60 +6,60 @@ This appendix records the complete output behind the summary tables in @sec-chap
 
 | Service |  $C_i$ |    SAW |    $S$ |    $R$ |    $Q$ | Rank (T, S, V) |
 |---------|-------:|-------:|-------:|-------:|-------:|:--------------:|
-| SVC-04  | 0.4784 | 0.4521 | 0.5479 | 0.2000 | 0.9895 |    1, 2, 2     |
-| SVC-06  | 0.5095 | 0.4406 | 0.5594 | 0.2000 | 1.0000 |    2, 1, 1     |
-| SVC-02  | 0.5241 | 0.5382 | 0.4618 | 0.2000 | 0.9109 |    3, 3, 3     |
-| SVC-01  | 0.7426 | 0.7088 | 0.2912 | 0.2000 | 0.7553 |    4, 4, 4     |
-| SVC-05  | 0.7792 | 0.8094 | 0.1906 | 0.0706 | 0.3228 |    5, 5, 5     |
+| SVC-01  | 0.4696 | 0.4030 | 0.5970 | 0.2000 | 1.0000 |    1, 1, 1     |
+| SVC-04  | 0.4782 | 0.4521 | 0.5479 | 0.2000 | 0.9580 |    2, 2, 2     |
+| SVC-06  | 0.5541 | 0.4799 | 0.5201 | 0.2000 | 0.9343 |    3, 3, 3     |
+| SVC-02  | 0.7675 | 0.7167 | 0.2833 | 0.1413 | 0.5775 |    4, 4, 4     |
+| SVC-05  | 0.7792 | 0.8094 | 0.1906 | 0.0706 | 0.3123 |    5, 5, 5     |
 | SVC-03  | 0.9774 | 0.9887 | 0.0113 | 0.0101 | 0.0000 |    6, 6, 6     |
 
 : Full scores and rankings, 2025 equal weights. {#tbl-appc-2025e}
 
 | Service |  $C_i$ |    SAW |    $S$ |    $R$ |    $Q$ | Rank (T, S, V) |
 |---------|-------:|-------:|-------:|-------:|-------:|:--------------:|
-| SVC-04  | 0.4457 | 0.4859 | 0.5141 | 0.2680 | 0.9214 |    1, 3, 3     |
-| SVC-02  | 0.5238 | 0.4767 | 0.5233 | 0.2748 | 0.9416 |    2, 2, 2     |
-| SVC-06  | 0.5677 | 0.4604 | 0.5396 | 0.3000 | 1.0000 |    3, 1, 1     |
-| SVC-01  | 0.5786 | 0.6104 | 0.3896 | 0.3000 | 0.8587 |    4, 4, 4     |
-| SVC-05  | 0.7593 | 0.8181 | 0.1819 | 0.0987 | 0.3201 |    5, 5, 5     |
-| SVC-03  | 0.9808 | 0.9914 | 0.0086 | 0.0067 | 0.0000 |    6, 6, 6     |
+| SVC-01  | 0.3995 | 0.3123 | 0.6877 | 0.3000 | 1.0000 |    1, 1, 1     |
+| SVC-04  | 0.4536 | 0.4859 | 0.5141 | 0.2680 | 0.8177 |    2, 2, 3     |
+| SVC-06  | 0.5836 | 0.4866 | 0.5134 | 0.3000 | 0.8717 |    3, 3, 2     |
+| SVC-02  | 0.6923 | 0.6306 | 0.3694 | 0.2119 | 0.6154 |    4, 4, 4     |
+| SVC-05  | 0.7625 | 0.8181 | 0.1819 | 0.0987 | 0.2845 |    5, 5, 5     |
+| SVC-03  | 0.9810 | 0.9914 | 0.0086 | 0.0067 | 0.0000 |    6, 6, 6     |
 
 : Full scores and rankings, 2025 adjusted weights. {#tbl-appc-2025a}
 
 | Service |  $C_i$ |    SAW |    $S$ |    $R$ |    $Q$ | Rank (T, S, V) |
 |---------|-------:|-------:|-------:|-------:|-------:|:--------------:|
-| SVC-04  | 0.4838 | 0.5113 | 0.4887 | 0.2000 | 0.9968 |    1, 2, 2     |
-| SVC-06  | 0.5162 | 0.5087 | 0.4913 | 0.2000 | 1.0000 |    2, 1, 1     |
-| SVC-02  | 0.7006 | 0.8000 | 0.2000 | 0.2000 | 0.6415 |    3, 4, 3     |
-| SVC-05  | 0.7059 | 0.7632 | 0.2368 | 0.1250 | 0.3935 |    4, 3, 4     |
-| SVC-01  | 0.7774 | 0.8413 | 0.1587 | 0.1274 | 0.3069 |    5, 5, 5     |
-| SVC-03  | 0.8492 | 0.9149 | 0.0851 | 0.0721 | 0.0000 |    6, 6, 6     |
+| SVC-04  | 0.4847 | 0.5113 | 0.4887 | 0.2000 | 0.9261 |    1, 2, 2     |
+| SVC-01  | 0.4886 | 0.4413 | 0.5587 | 0.2000 | 1.0000 |    2, 1, 1     |
+| SVC-02  | 0.6982 | 0.7883 | 0.2117 | 0.2000 | 0.6336 |    3, 5, 3     |
+| SVC-05  | 0.7064 | 0.7632 | 0.2368 | 0.1250 | 0.3670 |    4, 3, 4     |
+| SVC-06  | 0.8312 | 0.7815 | 0.2185 | 0.1097 | 0.2880 |    5, 4, 5     |
+| SVC-03  | 0.8495 | 0.9149 | 0.0851 | 0.0721 | 0.0000 |    6, 6, 6     |
 
 : Full scores and rankings, 2024 equal weights. {#tbl-appc-2024e}
 
 | Service |  $C_i$ |    SAW |    $S$ |    $R$ |    $Q$ | Rank (T, S, V) |
 |---------|-------:|-------:|-------:|-------:|-------:|:--------------:|
-| SVC-04  | 0.5041 | 0.6002 | 0.3998 | 0.1333 | 0.5490 |    1, 2, 3     |
-| SVC-02  | 0.5113 | 0.7000 | 0.3000 | 0.3000 | 0.7693 |    2, 3, 2     |
-| SVC-06  | 0.6044 | 0.4916 | 0.5084 | 0.3000 | 1.0000 |    3, 1, 1     |
-| SVC-01  | 0.6251 | 0.7880 | 0.2120 | 0.1911 | 0.4558 |    4, 4, 4     |
-| SVC-05  | 0.7093 | 0.7943 | 0.2057 | 0.0860 | 0.2403 |    5, 5, 5     |
-| SVC-03  | 0.8816 | 0.9433 | 0.0567 | 0.0481 | 0.0000 |    6, 6, 6     |
+| SVC-01  | 0.4496 | 0.3547 | 0.6453 | 0.3000 | 1.0000 |    1, 1, 1     |
+| SVC-04  | 0.5097 | 0.6002 | 0.3998 | 0.1333 | 0.4606 |    2, 2, 3     |
+| SVC-02  | 0.5121 | 0.6872 | 0.3128 | 0.3000 | 0.7176 |    3, 3, 2     |
+| SVC-05  | 0.7124 | 0.7943 | 0.2057 | 0.0860 | 0.2019 |    4, 5, 5     |
+| SVC-06  | 0.8402 | 0.7487 | 0.2513 | 0.1646 | 0.3966 |    5, 4, 4     |
+| SVC-03  | 0.8827 | 0.9433 | 0.0567 | 0.0481 | 0.0000 |    6, 6, 6     |
 
 : Full scores and rankings, 2024 adjusted weights. {#tbl-appc-2024a}
 
 ## Per-Service Scores and Rankings (Absolute Mode)
 
-Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for both TOPSIS versus SAW and TOPSIS versus VIKOR), and SVC-06 and SVC-04 exchange the top two positions relative to the standard formulation in @tbl-appc-2025e. This reflects the effect of the fixed reference frame on the closely scored high-priority cluster and accompanies the rank-reversal results in @tbl-appc-rankreversal-abs.
+Under absolute-mode TOPSIS the 2025 equal-weight agreement with SAW and VIKOR is $\tau = 0.867$: the variant places SVC-06 above SVC-04 at ranks 2 and 3, where the standard formulation and both alternative methods place SVC-04 second. This reflects the effect of the fixed reference frame on the closely scored cluster below SVC-01 and accompanies the rank-reversal results in @tbl-appc-rankreversal-abs. In 2024 the variant places SVC-01 first under both configurations, agreeing exactly with VIKOR under equal weights.
 
 | Service |  $C_i$ |    SAW |    $S$ |    $R$ |    $Q$ | Rank (T, S, V) |
 |---------|-------:|-------:|-------:|-------:|-------:|:--------------:|
-| SVC-06 | 0.6093 | 0.4406 | 0.5594 | 0.2000 | 1.0000 | 1, 1, 1 |
-| SVC-04 | 0.6333 | 0.4521 | 0.5479 | 0.2000 | 0.9895 | 2, 2, 2 |
-| SVC-02 | 0.6946 | 0.5382 | 0.4618 | 0.2000 | 0.9109 | 3, 3, 3 |
-| SVC-01 | 0.8204 | 0.7088 | 0.2912 | 0.2000 | 0.7553 | 4, 4, 4 |
-| SVC-05 | 0.8297 | 0.8094 | 0.1906 | 0.0706 | 0.3228 | 5, 5, 5 |
-| SVC-03 | 0.9404 | 0.9887 | 0.0113 | 0.0101 | 0.0000 | 6, 6, 6 |
+| SVC-01  | 0.5853 | 0.4030 | 0.5970 | 0.2000 | 1.0000 |    1, 1, 1     |
+| SVC-06  | 0.6097 | 0.4799 | 0.5201 | 0.2000 | 0.9343 |    2, 3, 3     |
+| SVC-04  | 0.6333 | 0.4521 | 0.5479 | 0.2000 | 0.9580 |    3, 2, 2     |
+| SVC-02  | 0.7839 | 0.7167 | 0.2833 | 0.1413 | 0.5775 |    4, 4, 4     |
+| SVC-05  | 0.8297 | 0.8094 | 0.1906 | 0.0706 | 0.3123 |    5, 5, 5     |
+| SVC-03  | 0.9404 | 0.9887 | 0.0113 | 0.0101 | 0.0000 |    6, 6, 6     |
 
 : Full scores and rankings under absolute-mode TOPSIS, 2025 equal weights. {#tbl-appc-2025e-abs}
 
@@ -67,10 +67,10 @@ Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for b
 
 | Configuration  | TOPSIS vs SAW | TOPSIS vs VIKOR |
 |----------------|--------------:|----------------:|
-| 2025, equal    |         0.867 |           0.867 |
-| 2025, adjusted |         0.600 |           0.600 |
-| 2024, equal    |         0.733 |           0.867 |
-| 2024, adjusted |         0.733 |           0.600 |
+| 2025, equal    |         1.000 |           1.000 |
+| 2025, adjusted |         1.000 |           0.867 |
+| 2024, equal    |         0.600 |           0.867 |
+| 2024, adjusted |         0.867 |           0.733 |
 
 : Rank agreement (Kendall's $\tau$) between classic TOPSIS and the alternative methods. {#tbl-appc-convergentclassic}
 
@@ -78,10 +78,10 @@ Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for b
 
 | Configuration  | TOPSIS vs SAW | TOPSIS vs VIKOR |
 |----------------|--------------:|----------------:|
-| 2025, equal    |         1.000 |           1.000 |
-| 2025, adjusted |         1.000 |           1.000 |
-| 2024, equal    |         0.200 |           0.333 |
-| 2024, adjusted |         0.200 |           0.333 |
+| 2025, equal    |         0.867 |           0.867 |
+| 2025, adjusted |         0.867 |           1.000 |
+| 2024, equal    |         0.733 |           1.000 |
+| 2024, adjusted |         0.733 |           0.867 |
 
 : Rank agreement (Kendall's $\tau$) between absolute TOPSIS and the alternative methods. {#tbl-appc-convergentabsolute}
 
@@ -89,8 +89,8 @@ Under absolute-mode TOPSIS the three methods agree exactly ($\tau = 1.000$ for b
 
 | Year | TOPSIS order | Incident-only order | $\tau$ |
 |--------------|----------------------|----------------------|-------------:|
-| 2025 | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-02} \succ \text{SVC-03}$ | 0.600 |
-| 2024 | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03} \succ \text{SVC-06} \succ \text{SVC-02}$ | 0.200 |
+| 2025 | $\text{SVC-01} \succ \text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-02} \succ \text{SVC-03}$ | 0.467 |
+| 2024 | $\text{SVC-04} \succ \text{SVC-01} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-06} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03} \succ \text{SVC-06} \succ \text{SVC-02}$ | 0.333 |
 
 : TOPSIS ranking against a ranking by incident frequency alone, equal weights. {#tbl-appc-discriminant}
 
@@ -100,18 +100,18 @@ Entries reading preserved leave the reference order unchanged.
 
 | Service removed | 2025 outcome | 2024 outcome |
 |-----------------|---------------------------|---------------------------|
-| SVC-01 | preserved | preserved |
-| SVC-02 | $\text{SVC-06} \succ \text{SVC-04} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$ | preserved |
-| SVC-03 | preserved | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-01}$ |
-| SVC-04 | $\text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03}$ | $\text{SVC-06} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-03}$ |
-| SVC-05 | preserved | preserved |
-| SVC-06 | $\text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-03}$ |
+| SVC-01 | preserved | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-03}$ |
+| SVC-02 | preserved | $\text{SVC-01} \succ \text{SVC-04} \succ \text{SVC-05} \succ \text{SVC-06} \succ \text{SVC-03}$ |
+| SVC-03 | preserved | $\text{SVC-04} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-06}$ |
+| SVC-04 | $\text{SVC-06} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-03}$ | $\text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-06} \succ \text{SVC-03}$ |
+| SVC-05 | $\text{SVC-04} \succ \text{SVC-01} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-03}$ | preserved |
+| SVC-06 | $\text{SVC-04} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-03}$ | preserved |
 
 : Leave-one-out rank order, standard TOPSIS, equal weights {#tbl-appc-rankreversal}
 
 ## Rank-Reversal Detail (Absolute Mode)
 
-Reference orders: 2025 $\text{SVC-06} \succ \text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$; 2024 $\text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-06} \succ \text{SVC-03}$.
+Reference orders: 2025 $\text{SVC-01} \succ \text{SVC-06} \succ \text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-03}$; 2024 $\text{SVC-01} \succ \text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-06} \succ \text{SVC-03}$.
 
 | Service removed | 2025 outcome | 2024 outcome |
 |-----------------|--------------|--------------|
@@ -130,20 +130,20 @@ The 2025 rank-acceptability distribution is reported in @tbl-montecarlo. The cor
 
 | Service | R1 | R2 | R3 | R4 | R5 | R6 |
 |---|---:|---:|---:|---:|---:|---:|
-| SVC-01 | 0.0000 | 0.1736 | 0.2281 | 0.1996 | 0.2650 | 0.1336 |
-| SVC-02 | 0.3168 | 0.2142 | 0.1359 | 0.0917 | 0.0938 | 0.1476 |
-| SVC-03 | 0.0000 | 0.0000 | 0.0124 | 0.2096 | 0.0744 | 0.7036 |
-| SVC-04 | 0.5504 | 0.2122 | 0.1982 | 0.0391 | 0.0000 | 0.0000 |
-| SVC-05 | 0.0000 | 0.2617 | 0.2104 | 0.3446 | 0.1833 | 0.0000 |
-| SVC-06 | 0.1328 | 0.1384 | 0.2150 | 0.1154 | 0.3834 | 0.0152 |
+| SVC-01 | 0.5578 | 0.2545 | 0.1269 | 0.0282 | 0.0261 | 0.0066 |
+| SVC-02 | 0.1340 | 0.2615 | 0.1816 | 0.1206 | 0.0862 | 0.2161 |
+| SVC-03 | 0.0000 | 0.0000 | 0.0070 | 0.0417 | 0.1995 | 0.7518 |
+| SVC-04 | 0.3082 | 0.2958 | 0.3462 | 0.0498 | 0.0000 | 0.0000 |
+| SVC-05 | 0.0000 | 0.1077 | 0.1979 | 0.5203 | 0.1741 | 0.0000 |
+| SVC-06 | 0.0000 | 0.0804 | 0.1403 | 0.2396 | 0.5142 | 0.0256 |
 
-: Rank-acceptability distribution, absolute-mode TOPSIS, 2024 (20,000 weight samples, seed 20000); cells are rank probabilities {#tbl-appc-montecarlo2024}
+: Rank-acceptability distribution, absolute-mode TOPSIS, 2024 (20,000 weight samples, seed 50); cells are rank probabilities {#tbl-appc-montecarlo2024}
 
 ## Temporal Stability
 
 | Configuration | 2025 order | 2024 order | $\tau$ |
 |--------------|----------------------|----------------------|-------------:|
-| Equal | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03}$ | 0.867 |
-| Adjusted | $\text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-06} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-06} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-03}$ | 0.867 |
+| Equal | $\text{SVC-01} \succ \text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-03}$ | $\text{SVC-04} \succ \text{SVC-01} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-06} \succ \text{SVC-03}$ | 0.600 |
+| Adjusted | $\text{SVC-01} \succ \text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-03}$ | $\text{SVC-01} \succ \text{SVC-04} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-06} \succ \text{SVC-03}$ | 0.733 |
 
 : TOPSIS rankings across the two observation years. {#tbl-appc-temporal}

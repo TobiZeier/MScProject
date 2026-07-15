@@ -54,7 +54,7 @@ ABSOLUTE_BOUNDS = {
     "mttr_hrs": (0.0, 120.0),
     "cfr": (0.0, 5.0),
     "patch_recency": (0.0 , 100.0),
-    "unsupported_months": (0.0, 2000.0)
+    "unsupported_months": (0.0, 4500.0)
 }
 
 #--- classic TOPSIS ranking ---------------------------------------------------------------------------

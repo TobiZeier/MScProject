@@ -24,7 +24,7 @@ Filesize: `253 bytes`
 
 ````
 service,incident_freq,mttr_hrs,cfr,patch_recency,unsupported_months
-SVC-01,65,55.37,0.29,99.56,4054
+SVC-01,65,55.37,0.29,65.83,4054
 SVC-02,39,81.35,0.11,98.96,113
 SVC-03,63,9.77,0.86,100.00,0
 SVC-04,410,41.53,2.19,100.00,0

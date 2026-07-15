@@ -35,12 +35,12 @@ These limitations do not invalidate the proxy approach. Scores should be read as
 
 | Service | Incident Freq. (per year) | MTTR (hrs) | CFR | Patch Recency | Unsup. Comp. Months |
 |------------|-----------:|-----------:|-----------:|-----------:|-----------:|
-| SVC-01 | 64 | 45.35 | 0.83 | 92.45 | 44 |
-| SVC-02 | 30 | 25.26 | 0.19 | 59.93 | 1221 |
+| SVC-01 | 64 | 45.35 | 0.83 | 63.18 | 4210 |
+| SVC-02 | 30 | 25.26 | 0.19 | 64.75 | 1334 |
 | SVC-03 | 21 | 13.31 | 0.38 | 100.00 | 0 |
 | SVC-04 | 574 | 41.91 | 3.38 | 100.00 | 0 |
 | SVC-05 | 171 | 23.72 | 1.52 | 100.00 | 0 |
-| SVC-06 | 302 | 13.11 | 3.96 | 56.25 | 353 |
+| SVC-06 | 302 | 13.11 | 3.96 | 50.09 | 389 |
 
 : Indicator values per service, 2025 {#tbl-raw-data tbl-colwidths="\[14,20,13,12,16,18\]"}
 
@@ -80,12 +80,12 @@ The computation follows the TOPSIS formulation specified in @sec-frameworkdesign
 
 | Service | $C_i$ (Equal) | Rank (Equal) | $C_i$ (Adjusted) | Rank (Adjusted) |
 |---|---:|---:|---:|---:|
-| SVC-04 | 0.4784 | 1 | 0.4457 | 1 |
-| SVC-06 | 0.5095 | 2 | 0.5677 | 3 |
-| SVC-02 | 0.5241 | 3 | 0.5238 | 2 |
-| SVC-01 | 0.7426 | 4 | 0.5786 | 4 |
-| SVC-05 | 0.7792 | 5 | 0.7593 | 5 |
-| SVC-03 | 0.9774 | 6 | 0.9808 | 6 |
+| SVC-01 | 0.4696 | 1 | 0.3995 | 1 |
+| SVC-04 | 0.4782 | 2 | 0.4536 | 2 |
+| SVC-06 | 0.5541 | 3 | 0.5836 | 3 |
+| SVC-02 | 0.7675 | 4 | 0.6923 | 4 |
+| SVC-05 | 0.7792 | 5 | 0.7625 | 5 |
+| SVC-03 | 0.9774 | 6 | 0.9810 | 6 |
 
 : TOPSIS results, 2025 (higher $C_i$, lower debt priority) {#tbl-topsis-results2025 tbl-colwidths="\[20,20,20,20,20\]"}
 
@@ -93,15 +93,15 @@ To assess temporal stability, the framework was applied to the 2024 dataset usin
 
 | Service | $C_i$ (Equal) | Rank (Equal) | $C_i$ (Adjusted) | Rank (Adjusted) |
 |---|---:|---:|---:|---:|
-| SVC-04 | 0.4838 | 1 | 0.5041 | 1 |
-| SVC-06 | 0.5162 | 2 | 0.6044 | 3 |
-| SVC-02 | 0.7006 | 3 | 0.5113 | 2 |
-| SVC-05 | 0.7059 | 4 | 0.7093 | 5 |
-| SVC-01 | 0.7774 | 5 | 0.6251 | 4 |
-| SVC-03 | 0.8492 | 6 | 0.8816 | 6 |
+| SVC-04 | 0.4847 | 1 | 0.5097 | 2 |
+| SVC-01 | 0.4886 | 2 | 0.4496 | 1 |
+| SVC-02 | 0.6982 | 3 | 0.5121 | 3 |
+| SVC-05 | 0.7064 | 4 | 0.7124 | 4 |
+| SVC-06 | 0.8312 | 5 | 0.8402 | 5 |
+| SVC-03 | 0.8495 | 6 | 0.8827 | 6 |
 
 : TOPSIS results, 2024 (higher $C_i$, lower debt priority) {#tbl-topsis-results2024 tbl-colwidths="\[20,20,20,20,20\]"}
 
-The change in SVC-02 between the two years is substantial: cumulative unsupported-component exposure rises from zero to 1,221 component-months. SVC-02 is built from more than two hundred components, and roughly half of these passed their vendor end-of-support date during 2025, derived from the same complete CMDB extract that underlies the unsupported-component-months indicator (@sec-appendixb).
+Two year-on-year changes are substantial. SVC-06 deteriorated broadly: its incident count rose from 43 to 302, its change failure rate from 0.86 to 3.96, and its patch recency fell from 81.25 to 50.09. SVC-02's unsupported-component exposure rose from 113 to 1,334 component-months, an increase of 1,221; SVC-02 is built from more than two hundred components, and roughly half of these passed their vendor end-of-support date during 2025, derived from the same complete CMDB extract that underlies the indicator (@sec-appendixb). SVC-01's profile, the portfolio's largest structural exposure in both years, changed comparatively little.
 
 The closeness coefficients and rankings produced under both weight configurations and both years constitute the analytical output of the framework and the empirical basis for @sec-chapter5, which tests their stability, method-independence, discriminant value and structural rigour before interpreting the resulting priorities.
