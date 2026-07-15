@@ -69,11 +69,13 @@ This table is to track the time that I have invested in my master thesis.
 | 03/07 | 8     | Working on chapter 5                                                                         |
 | 05/07 | 2     | Working on chapter 5                                                                         |
 | 10/07 | 8     | Working on chapter 5 and 6                                                                   |
-| 12/7  |       | Working on chapter 6                                                                         |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
+| 12/07 | 4.5   | Working on chapter 6                                                                         |
+| 14/07 | 4     | Fixing data issues in all chapters incl. recalculations                                      |
+| 15/07 | 3     | Fixing data issues in all chapters incl. recalculations                                      |
 |       |       |                                                                                              |
 |       |       |                                                                                              |
 |       |       |                                                                                              |
 | Tot   | SUM^  |                                                                                              |
 |       |       |                                                                                              |
+
+
