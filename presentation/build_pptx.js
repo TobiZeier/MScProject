@@ -76,11 +76,11 @@ function rankBars(slide, rows, x, y, w, opts = {}) {
 }
 
 const RANK25 = [
-  { svc: "SVC-01", ci: "0.470", width: 0.53, hot: true },
-  { svc: "SVC-04", ci: "0.478", width: 0.52, hot: true },
-  { svc: "SVC-06", ci: "0.554", width: 0.45, hot: true },
-  { svc: "SVC-02", ci: "0.768", width: 0.23, hot: false },
-  { svc: "SVC-05", ci: "0.779", width: 0.22, hot: false },
+  { svc: "SVC-01", ci: "0.465", width: 0.53, hot: true },
+  { svc: "SVC-04", ci: "0.479", width: 0.52, hot: true },
+  { svc: "SVC-06", ci: "0.549", width: 0.45, hot: true },
+  { svc: "SVC-02", ci: "0.779", width: 0.22, hot: false },
+  { svc: "SVC-05", ci: "0.780", width: 0.22, hot: false },
   { svc: "SVC-03", ci: "0.977", width: 0.02, hot: false },
 ];
 
@@ -280,7 +280,7 @@ function colHead(slide, text, x, y, w, color = INK) {
   rankBars(s, RANK25, ML, 2.0, 7.2, { rowH: 0.45 });
 
   const profiles = [
-    { h: "SVC-01 \u00B7 rank 1", t: "Only 64 incidents/yr, but 4,210 unsupported component months and patch recency 63.2 \u2192 the debt an incident count cannot see" },
+    { h: "SVC-01 \u00B7 rank 1", t: "Only 64 incidents/yr, but 2,565 unsupported component months and patch recency 53.1 \u2192 the debt an incident count cannot see" },
     { h: "SVC-04 \u00B7 rank 2", t: "574 incidents/yr, MTTR 41.9 h, CFR 3.38, yet a clean lifecycle record \u2192 architectural & process debt" },
     { h: "SVC-03 \u00B7 rank 6", t: "The portfolio's reference for a well-maintained service" },
   ];
@@ -303,7 +303,7 @@ function colHead(slide, text, x, y, w, color = INK) {
   const cards = [
     { h: "Stability", t: "Weight & temporal variation, Kendall's \u03C4, exact p over 720 permutations", v: "\u03C4 = 0.60\u20131.00" },
     { h: "Weight space", t: "20,000 Dirichlet-sampled weightings, rank-acceptability analysis", v: "extremes robust" },
-    { h: "Convergent", t: "Re-ranked with SAW & VIKOR", v: "\u03C4 = 0.60\u20131.00" },
+    { h: "Convergent", t: "Re-ranked with SAW & VIKOR", v: "\u03C4 = 0.73\u20131.00" },
     { h: "Discriminant", t: "Against an incident-only baseline", v: "\u03C4 = 0.47 / 0.33" },
     { h: "Structural", t: "Leave-one-out rank reversal; absolute-mode variant", v: "reversal-free by construction", hot: true },
   ];
@@ -337,8 +337,8 @@ function colHead(slide, text, x, y, w, color = INK) {
 
   s.addShape("rect", { x: 7.2, y: 2.0, w: 5.35, h: 3.7, fill: { color: "F7F9FA" }, shadow: { type: "outer", color: "9AA7B2", blur: 6, offset: 2, angle: 90, opacity: 0.25 } });
   s.addText("FULL WEIGHT SPACE \u00B7 20,000 DRAWS", { x: 7.5, y: 2.25, w: 4.8, h: 0.3, fontFace: MONO, fontSize: 11, bold: true, charSpacing: 2, color: STEEL, margin: 0 });
-  s.addText("98.3%", { x: 7.5, y: 2.6, w: 4.8, h: 1.1, fontFace: MONO, fontSize: 60, bold: true, color: INK, margin: 0 });
-  s.addText("of all admissible weightings place SVC-03 last, and rank 1 falls to SVC-01, SVC-06 or SVC-04 in every single draw (41%, 32%, 27%). The bottom is weight-independent; the single top rank is a property of the cluster.", {
+  s.addText("98.1%", { x: 7.5, y: 2.6, w: 4.8, h: 1.1, fontFace: MONO, fontSize: 60, bold: true, color: INK, margin: 0 });
+  s.addText("of all admissible weightings place SVC-03 last, and rank 1 falls to SVC-01, SVC-06 or SVC-04 in every single draw (46%, 27%, 27%). The bottom is weight-independent; the single top rank is a property of the cluster.", {
     x: 7.5, y: 3.8, w: 4.8, h: 1.7, fontFace: SANS, fontSize: 12.5, color: INKSOFT, margin: 0, valign: "top", lineSpacingMultiple: 1.15,
   });
   takeaway(s, "Cross-year movement is read as descriptive context, not a quality criterion: services genuinely evolve, and a faithful ranking should follow them.", 6.35, CW, ML);
@@ -360,7 +360,7 @@ function colHead(slide, text, x, y, w, color = INK) {
   ], { x: ML, y: 1.95, w: CW, h: 0.4, fontFace: SANS, fontSize: 15, color: INK, margin: 0 });
 
   const two = [
-    { h: "SVC-01 rises, fourth to first", t: "Infrastructure lifecycle debt (4,210 unsupported component months, patch recency 63.18) is invisible to an incident count. This is precisely the signal the framework was built to surface.", hot: true },
+    { h: "SVC-01 rises, fourth to first", t: "Infrastructure lifecycle debt (2,565 unsupported component months, patch recency 53.10) is invisible to an incident count. This is precisely the signal the framework was built to surface.", hot: true },
     { h: "SVC-05 falls, third to fifth", t: "High incident volume (171/yr) offset by full patch recency and zero unsupported components: noisy, but structurally sound.", hot: false },
   ];
   two.forEach((c, i) => {
@@ -386,9 +386,9 @@ function colHead(slide, text, x, y, w, color = INK) {
 
   const rows = [
     [{ text: "2024, equal weights", options: { bold: true } }, { text: "TOPSIS classic", options: { bold: true } }, { text: "SAW \u00B7 VIKOR \u00B7 TOPSIS absolute", options: { bold: true } }],
-    ["Top-ranked service", "SVC-04 (C* = 0.4847)", "SVC-01"],
-    ["Margin", "\u0394C* = 0.004 to SVC-01 (0.4886)", "Each worst on exactly 2 criteria"],
-    ["Agreement", "vs SAW \u03C4 = 0.600", "absolute vs VIKOR \u03C4 = 1.000"],
+    ["Top-ranked service", "SVC-04 (C* = 0.4858)", "SVC-01"],
+    ["Margin", "\u0394C* = 0.0018 to SVC-01 (0.4876)", "Each worst on exactly 2 criteria"],
+    ["Agreement", "vs SAW \u03C4 = 0.733", "absolute vs VIKOR \u03C4 = 1.000"],
     ["2025 and 2024 adjusted", "SVC-01 first under every method", ""],
   ];
   s.addTable(rows, {
@@ -403,8 +403,8 @@ function colHead(slide, text, x, y, w, color = INK) {
   s.addText("Both are worst on exactly two criteria. SVC-04 is perfect on the other two; SVC-01 is only good. Linear aggregation puts SVC-01 first; vector normalisation, preserving SVC-04\u2019s outlying 410 incidents, reverses the pair by 0.004.", {
     x: 9.55, y: 3.05, w: 2.85, h: 2.05, fontFace: SANS, fontSize: 10.5, color: INKSOFT, margin: 0, valign: "top", lineSpacingMultiple: 1.12,
   });
-  takeaway(s, "A 0.004 margin decided by normalisation, not by a real gap. Three of four scorers say SVC-01. The framework reports the photo-finish rather than hiding it; by 2025 every method agrees.", 5.55, CW, ML);
-  s.addNotes("10:00-11:15. The 2024 equal-weight top rank is a photo-finish: classic TOPSIS puts SVC-04 first by 0.004; SAW, VIKOR and the absolute variant put SVC-01 first. Both services are worst on exactly two criteria; SVC-04 is perfect on its other two while SVC-01 is only good, so linear aggregation favours SVC-01 while vector normalisation, which preserves SVC-04's outlying incident count, does not. If pressed: VIKOR's utility term is algebraically 1 minus SAW, so those two are not fully independent; VIKOR adds information only through regret. In 2025 everything agrees on SVC-01.");
+  takeaway(s, "A 0.0018 margin decided by normalisation, not by a real gap. Three of four scorers say SVC-01. The framework reports the photo-finish rather than hiding it; by 2025 every method agrees.", 5.55, CW, ML);
+  s.addNotes("10:00-11:15. The 2024 equal-weight top rank is a photo-finish: classic TOPSIS puts SVC-04 first by 0.0018; SAW, VIKOR and the absolute variant put SVC-01 first. Both services are worst on exactly two criteria; SVC-04 is perfect on its other two while SVC-01 is only good, so linear aggregation favours SVC-01 while vector normalisation, which preserves SVC-04's outlying incident count, does not. If pressed: VIKOR's utility term is algebraically 1 minus SAW, so those two are not fully independent; VIKOR adds information only through regret. In 2025 everything agrees on SVC-01.");
 }
 
 // ══════════ SLIDE 12 · DIVISION OF LABOUR ══════════
@@ -416,7 +416,7 @@ function colHead(slide, text, x, y, w, color = INK) {
   colHead(s, "Standard TOPSIS + SAW / VIKOR", ML, 1.95, 5.8);
   bullets(s, [
     { text: "Primary prioritisation signal" },
-    { text: "Triangulation, not a single number: where scorers split by 0.004, the margin is too small to carry a remediation decision" },
+    { text: "Triangulation, not a single number: where scorers split by 0.0018, the margin is too small to carry a remediation decision" },
   ], ML, 2.45, 5.7, { size: 13.5, space: 10, h: 2.6 });
 
   colHead(s, "Absolute-mode TOPSIS", 7.2, 1.95, 5.3);
@@ -458,7 +458,7 @@ qaSlide([
 
 // ══════════ SLIDE 14 · Q&A 2 ══════════
 qaSlide([
-  { q: "Aren't the differential weights arbitrary?", a: "Yes, and they are declared as a practitioner assumption. That is why the evaluation does not depend on them: across 20,000 Dirichlet-sampled weightings the lowest priority holds in 98.3% of draws and rank 1 stays inside the same three-service cluster in all of them.", h: 0.75 },
+  { q: "Aren't the differential weights arbitrary?", a: "Yes, and they are declared as a practitioner assumption. That is why the evaluation does not depend on them: across 20,000 Dirichlet-sampled weightings the lowest priority holds in 98.1% of draws and rank 1 stays inside the same three-service cluster in all of them.", h: 0.75 },
   { q: "Could this be misused to judge teams?", a: "Governance scope was agreed with the Head of Trading IT at the outset: decision-support for portfolio conversations, not a binding instrument. High-debt profiles typically reflect historical design decisions, not current custodians (Ahmad et al., 2026). No team, vendor or individual identifiers exist in the dataset.", h: 1.0 },
 ], "Anticipated questions \u00B7 2 of 2", "Anticipated questions, continued",
 "13:15-14:00. The takeaway restates the scope sentence from Chapter 1: 'measuring' means a quantitative, reproducible ordering, not a claim to have quantified the debt itself. Ending the pre-emption block on it shows claim discipline from first page to last.",

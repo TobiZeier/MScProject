@@ -6,13 +6,13 @@ Two years of live ITSM and CMDB records (January 2024 to December 2025) from a r
 
 The trading IT portfolio includes 108 services. Fifty-three of these are small vendor applications such as trading graphical user interfaces and were excluded from the analysis because they require no significant ongoing activity from the portfolio's IT teams.
 
-From the remaining services, six were selected for demonstration on the basis of data completeness. Each holds a continuous record across all five indicators for the full two-year window in both systems, is registered as an active configuration item and has been in operation for more than thirty-six months. Service identifiers were replaced with alphanumeric codes before analysis in line with the anonymisation procedure described in @sec-ethics. The dataset contains no team, vendor, or individual identifiers. This is a deliberately small demonstration set, and two consequences follow. First, the services selected tend to carry higher operational activity, so the absolute indicator values are not representative of the full portfolio. Second, a six-service decision matrix limits the discriminatory power of the rank-stability tests, as discussed in @sec-evaluationlimitations. The contribution is therefore the working instrument and its evaluation logic, not a portfolio-wide ranking, which is identified as future work once indicator coverage across the portfolio is complete.
+From the remaining services, six were selected for demonstration on the basis of data completeness. Each holds a continuous record across all five indicators for the full two-year window in both systems, is registered as an active configuration item and has been in operation for more than thirty-six months. Service identifiers were replaced with alphanumeric codes before analysis (@sec-ethics), and the dataset contains no team, vendor or individual identifiers. Two consequences follow from so small a demonstration set. First, the services selected tend to carry higher operational activity, so absolute indicator values are not representative of the full portfolio. Second, a six-service decision matrix limits the discriminatory power of the rank-stability tests (@sec-evaluationlimitations). The contribution is therefore the working instrument and its evaluation logic, not a portfolio-wide ranking, which is identified as future work once indicator coverage across the portfolio is complete.
 
 ### Indicator Extraction and Quality Checks
 
 The five indicators defined in @sec-datasources were extracted from the organisation's ITSM instance and CMDB on 11 June 2026. Only production records were included in the extraction; incidents, changes, and configuration items classified under non-production environments were excluded.
 
-Prior to normalisation, several quality filters were applied to the raw incident data. Incidents sharing a common root cause but recorded as multiple separate tickets, a pattern typical of alarm storms, were consolidated and counted as a single incident to avoid inflating frequency counts. Incidents with an MTTR below 0.1 hours were excluded on the grounds that resolutions at that speed are highly likely to reflect automatic closure following a false alarm or instant recovery rather than genuine remediation effort. A 98th percentile cap addressed the upper tail of the MTTR distribution, excluding incidents whose resolution times more plausibly reflect administrative inactivity than active resolution effort.
+Prior to normalisation, several quality filters were applied to the raw incident data. Incidents sharing a common root cause but recorded as separate tickets, a pattern typical of alarm storms, were consolidated into a single incident to avoid inflating frequency counts. Incidents with an MTTR below 0.1 hours were excluded, since resolutions at that speed most likely reflect automatic closure after a false alarm rather than genuine remediation effort. A 98th percentile cap addressed the upper tail of the MTTR distribution, excluding incidents whose resolution times more plausibly reflect administrative inactivity than active resolution effort.
 
 All CMDB records were found to be complete. No imputation or worst-case substitution was required.
 
@@ -35,12 +35,12 @@ These limitations do not invalidate the proxy approach. Scores should be read as
 
 | Service | Incident Freq. (per year) | MTTR (hrs) | CFR | Patch Recency | Unsup. Comp. Months |
 |------------|-----------:|-----------:|-----------:|-----------:|-----------:|
-| SVC-01 | 64 | 45.35 | 0.83 | 63.18 | 4210 |
-| SVC-02 | 30 | 25.26 | 0.19 | 64.75 | 1334 |
+| SVC-01 | 64 | 45.35 | 0.83 | 53.10 | 2565 |
+| SVC-02 | 30 | 25.26 | 0.19 | 61.90 | 712 |
 | SVC-03 | 21 | 13.31 | 0.38 | 100.00 | 0 |
 | SVC-04 | 574 | 41.91 | 3.38 | 100.00 | 0 |
 | SVC-05 | 171 | 23.72 | 1.52 | 100.00 | 0 |
-| SVC-06 | 302 | 13.11 | 3.96 | 50.09 | 389 |
+| SVC-06 | 302 | 13.11 | 3.96 | 52.94 | 321 |
 
 : Indicator values per service, 2025 {#tbl-raw-data tbl-colwidths="\[14,20,13,12,16,18\]"}
 
@@ -80,12 +80,12 @@ The computation follows the TOPSIS formulation specified in @sec-frameworkdesign
 
 | Service | $C_i$ (Equal) | Rank (Equal) | $C_i$ (Adjusted) | Rank (Adjusted) |
 |---|---:|---:|---:|---:|
-| SVC-01 | 0.4696 | 1 | 0.3995 | 1 |
-| SVC-04 | 0.4782 | 2 | 0.4536 | 2 |
-| SVC-06 | 0.5541 | 3 | 0.5836 | 3 |
-| SVC-02 | 0.7675 | 4 | 0.6923 | 4 |
-| SVC-05 | 0.7792 | 5 | 0.7625 | 5 |
-| SVC-03 | 0.9774 | 6 | 0.9810 | 6 |
+| SVC-01 | 0.4652 | 1 | 0.3896 | 1 |
+| SVC-04 | 0.4793 | 2 | 0.4523 | 2 |
+| SVC-06 | 0.5490 | 3 | 0.5833 | 3 |
+| SVC-02 | 0.7788 | 4 | 0.6913 | 4 |
+| SVC-05 | 0.7796 | 5 | 0.7620 | 5 |
+| SVC-03 | 0.9775 | 6 | 0.9810 | 6 |
 
 : TOPSIS results, 2025 (higher $C_i$, lower debt priority) {#tbl-topsis-results2025 tbl-colwidths="\[20,20,20,20,20\]"}
 
@@ -93,15 +93,15 @@ To assess temporal stability, the framework was applied to the 2024 dataset usin
 
 | Service | $C_i$ (Equal) | Rank (Equal) | $C_i$ (Adjusted) | Rank (Adjusted) |
 |---|---:|---:|---:|---:|
-| SVC-04 | 0.4847 | 1 | 0.5097 | 2 |
-| SVC-01 | 0.4886 | 2 | 0.4496 | 1 |
-| SVC-02 | 0.6982 | 3 | 0.5121 | 3 |
-| SVC-05 | 0.7064 | 4 | 0.7124 | 4 |
-| SVC-06 | 0.8312 | 5 | 0.8402 | 5 |
-| SVC-03 | 0.8495 | 6 | 0.8827 | 6 |
+| SVC-04 | 0.4858 | 1 | 0.5151 | 2 |
+| SVC-01 | 0.4876 | 2 | 0.4448 | 1 |
+| SVC-02 | 0.6997 | 3 | 0.5175 | 3 |
+| SVC-05 | 0.7070 | 4 | 0.7154 | 4 |
+| SVC-06 | 0.8232 | 5 | 0.8374 | 5 |
+| SVC-03 | 0.8497 | 6 | 0.8836 | 6 |
 
 : TOPSIS results, 2024 (higher $C_i$, lower debt priority) {#tbl-topsis-results2024 tbl-colwidths="\[20,20,20,20,20\]"}
 
-Two year-on-year changes are substantial. SVC-06 deteriorated broadly: its incident count rose from 43 to 302, its change failure rate from 0.86 to 3.96, and its patch recency fell from 81.25 to 50.09. SVC-02's unsupported-component exposure rose from 113 to 1,334 component-months, an increase of 1,221; SVC-02 is built from more than two hundred components, and roughly half of these passed their vendor end-of-support date during 2025, derived from the same complete CMDB extract that underlies the indicator (@sec-appendixb). SVC-01's profile, the portfolio's largest structural exposure in both years, changed comparatively little.
+Two year-on-year changes are substantial. SVC-06 deteriorated broadly: its incident count rose from 43 to 302, its change failure rate from 0.86 to 3.96, and its patch recency fell from 82.35 to 52.94. SVC-02's unsupported-component exposure rose from 46 to 712 component-months; SVC-02 is built from more than two hundred components, and a substantial share of these passed their vendor end-of-support date during 2025, derived from the same complete CMDB extract that underlies the indicator (@sec-appendixb). SVC-01's profile, the portfolio's largest structural exposure in both years, changed comparatively little.
 
 The closeness coefficients and rankings produced under both weight configurations and both years constitute the analytical output of the framework and the empirical basis for @sec-chapter5, which tests their stability, method-independence, discriminant value and structural rigour before interpreting the resulting priorities.

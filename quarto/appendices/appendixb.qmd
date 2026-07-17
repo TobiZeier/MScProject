@@ -5,29 +5,29 @@ This appendix contains the contents of the CSV files that were used as input for
 \vspace{1.5cm}
 
 Filename: `services2025.csv`\
-Filesize: `255 bytes`
+Filesize: `254 bytes`
 
 ````
 service,incident_freq,mttr_hrs,cfr,patch_recency,unsupported_months
-SVC-01,64,45.35,0.83,63.18,4210
-SVC-02,30,25.26,0.19,64.75,1334
+SVC-01,64,45.35,0.83,53.10,2565
+SVC-02,30,25.26,0.19,61.90,712
 SVC-03,21,13.31,0.38,100.00,0
 SVC-04,574,41.91,3.38,100.00,0
 SVC-05,171,23.72,1.52,100.00,0
-SVC-06,302,13.11,3.96,50.09,389
+SVC-06,302,13.11,3.96,52.94,321
 ````
 
 \vspace{1cm}
 
 Filename: `services2024.csv`\
-Filesize: `253 bytes`
+Filesize: `252 bytes`
 
 ````
 service,incident_freq,mttr_hrs,cfr,patch_recency,unsupported_months
-SVC-01,65,55.37,0.29,65.83,4054
-SVC-02,39,81.35,0.11,98.96,113
+SVC-01,65,55.37,0.29,55.53,2520
+SVC-02,39,81.35,0.11,99.66,46
 SVC-03,63,9.77,0.86,100.00,0
 SVC-04,410,41.53,2.19,100.00,0
 SVC-05,140,30.30,1.41,100.00,0
-SVC-06,43,15.87,0.86,81.25,354
+SVC-06,43,15.87,0.86,82.35,315
 ````

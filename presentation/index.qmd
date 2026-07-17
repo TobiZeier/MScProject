@@ -131,15 +131,15 @@ Design Science Research [@hevnerDesignScienceInformation2004]; single-organisati
 <span class="tag">RESULTS</span>
 
 <div class="rankbars">
-<div class="rankrow hot"><span class="svc">SVC-01</span><span class="bar"><span style="width:53%"></span></span><span class="ci">0.470</span></div>
-<div class="rankrow hot"><span class="svc">SVC-04</span><span class="bar"><span style="width:52%"></span></span><span class="ci">0.478</span></div>
-<div class="rankrow hot"><span class="svc">SVC-06</span><span class="bar"><span style="width:45%"></span></span><span class="ci">0.554</span></div>
-<div class="rankrow"><span class="svc">SVC-02</span><span class="bar"><span style="width:23%"></span></span><span class="ci">0.768</span></div>
-<div class="rankrow"><span class="svc">SVC-05</span><span class="bar"><span style="width:22%"></span></span><span class="ci">0.779</span></div>
+<div class="rankrow hot"><span class="svc">SVC-01</span><span class="bar"><span style="width:53%"></span></span><span class="ci">0.465</span></div>
+<div class="rankrow hot"><span class="svc">SVC-04</span><span class="bar"><span style="width:52%"></span></span><span class="ci">0.479</span></div>
+<div class="rankrow hot"><span class="svc">SVC-06</span><span class="bar"><span style="width:45%"></span></span><span class="ci">0.549</span></div>
+<div class="rankrow"><span class="svc">SVC-02</span><span class="bar"><span style="width:22%"></span></span><span class="ci">0.779</span></div>
+<div class="rankrow"><span class="svc">SVC-05</span><span class="bar"><span style="width:22%"></span></span><span class="ci">0.780</span></div>
 <div class="rankrow"><span class="svc">SVC-03</span><span class="bar"><span style="width:2%"></span></span><span class="ci">0.977</span></div>
 </div>
 
-- **SVC-01**, rank 1: only <span class="n">64</span> incidents/yr, but <span class="n n-hot">4,210</span> unsupported component months and patch recency <span class="n">63.2</span> → the debt an incident count cannot see
+- **SVC-01**, rank 1: only <span class="n">64</span> incidents/yr, but <span class="n n-hot">2,565</span> unsupported component months and patch recency <span class="n">53.1</span> → the debt an incident count cannot see
 - **SVC-04**, rank 2: <span class="n">574</span> incidents/yr, MTTR <span class="n">41.9 h</span>, CFR <span class="n">3.38</span>, yet a clean lifecycle record → architectural & process debt
 - **SVC-03**, rank 6: the portfolio's reference for a well-maintained service
 
@@ -154,7 +154,7 @@ Design Science Research [@hevnerDesignScienceInformation2004]; single-organisati
 <div class="cols3" style="margin-top:0.4em">
 <div class="card"><h3>Stability</h3><p>Weight & temporal variation, Kendall's τ, exact p over 720 permutations</p><span class="verdict">τ = 0.60–1.00</span></div>
 <div class="card"><h3>Weight space</h3><p>20,000 Dirichlet-sampled weightings, rank-acceptability analysis</p><span class="verdict">extremes robust</span></div>
-<div class="card"><h3>Convergent</h3><p>Re-ranked with SAW & VIKOR</p><span class="verdict">τ = 0.60–1.00</span></div>
+<div class="card"><h3>Convergent</h3><p>Re-ranked with SAW & VIKOR</p><span class="verdict">τ = 0.73–1.00</span></div>
 <div class="card"><h3>Discriminant</h3><p>Against incident-only baseline</p><span class="verdict">τ = 0.60 / 0.20</span></div>
 <div class="card hot"><h3>Structural</h3><p>Leave-one-out rank reversal; absolute-mode variant</p><span class="verdict">reversal-free by construction</span></div>
 </div>
@@ -181,8 +181,8 @@ Design Science Research [@hevnerDesignScienceInformation2004]; single-organisati
 <div>
 **Full weight space, 20,000 draws**
 
-<div class="big">98.3<span class="unit">%</span></div>
-<p class="small">of all admissible weightings place SVC-03 last, and rank 1 falls to SVC-01, SVC-06 or SVC-04 in every single draw (41%, 32%, 27%). The bottom is weight-independent; the single top rank is a property of the cluster.</p>
+<div class="big">98.1<span class="unit">%</span></div>
+<p class="small">of all admissible weightings place SVC-03 last, and rank 1 falls to SVC-01, SVC-06 or SVC-04 in every single draw (46%, 27%, 27%). The bottom is weight-independent; the single top rank is a property of the cluster.</p>
 </div>
 </div>
 
@@ -202,7 +202,7 @@ Against a ranking by incident frequency alone: <span class="n">τ = 0.467</span>
 <div>
 **SVC-01 rises, fourth to first**
 
-Infrastructure lifecycle debt (<span class="n n-hot">4,210</span> unsupported component months, patch recency <span class="n">63.18</span>) is invisible to an incident count. This is precisely the signal the framework was built to surface.
+Infrastructure lifecycle debt (<span class="n n-hot">2,565</span> unsupported component months, patch recency <span class="n">53.10</span>) is invisible to an incident count. This is precisely the signal the framework was built to surface.
 </div>
 <div>
 **SVC-05 falls, third to fifth**
@@ -225,15 +225,15 @@ In 2025 all methods agree exactly under equal weights, with SVC-01 first, and SV
 
 | 2024, equal weights | TOPSIS classic | SAW · VIKOR · TOPSIS absolute |
 |---|---|---|
-| Top-ranked service | SVC-04 (C\* 0.4847) | SVC-01 |
-| Margin | ΔC\* = 0.004 to SVC-01 (0.4886) | Each worst on exactly 2 criteria |
-| Agreement | vs SAW τ = 0.600 | absolute vs VIKOR τ = 1.000 |
+| Top-ranked service | SVC-04 (C\* 0.4858) | SVC-01 |
+| Margin | ΔC\* = 0.0018 to SVC-01 (0.4876) | Each worst on exactly 2 criteria |
+| Agreement | vs SAW τ = 0.733 | absolute vs VIKOR τ = 1.000 |
 | 2025 and 2024 adjusted | SVC-01 first under every method | |
 
 **Mechanism:** both are worst on exactly two criteria. SVC-04 is perfect on the other two; SVC-01 is only good. Linear aggregation puts SVC-01 first; vector normalisation, preserving SVC-04's outlying 410 incidents, reverses the pair by 0.004.
 
 ::: notes
-10:00–11:15. The distinctive finding. The 2024 equal-weight top rank is a photo-finish: classic TOPSIS puts SVC-04 first by 0.004; SAW, VIKOR and the absolute variant put SVC-01 first, because regret capping and fixed anchors register SVC-01's worst patch recency and 4,054 unsupported months at full strength while vector normalisation is dominated by SVC-04's incident mass. In 2025 and under 2024 adjusted weights everything agrees on SVC-01.
+10:00–11:15. The distinctive finding. The 2024 equal-weight top rank is a photo-finish: classic TOPSIS puts SVC-04 first by 0.0018; SAW, VIKOR and the absolute variant put SVC-01 first, because regret capping and fixed anchors register SVC-01's worst patch recency and 2,520 unsupported months at full strength while vector normalisation is dominated by SVC-04's incident mass. In 2025 and under 2024 adjusted weights everything agrees on SVC-01.
 :::
 
 ## Division of labour, not a winner
@@ -245,7 +245,7 @@ In 2025 all methods agree exactly under equal weights, with SVC-01 first, and SV
 **Standard TOPSIS + SAW/VIKOR**
 
 - Primary prioritisation signal
-- Triangulation, not a single number: where scorers split by 0.004, the margin is too small to carry a remediation decision
+- Triangulation, not a single number: where scorers split by 0.0018, the margin is too small to carry a remediation decision
 </div>
 <div>
 **Absolute-mode TOPSIS**
@@ -284,7 +284,7 @@ In 2025 all methods agree exactly under equal weights, with SVC-01 first, and SV
 <span class="tag">Anticipated questions · 2 of 2</span>
 
 <div class="qa"><div class="q">Aren't the differential weights arbitrary?</div>
-<div class="a">Yes, and they are declared as a practitioner assumption. That is why the evaluation does not depend on them: across 20,000 Dirichlet-sampled weightings the lowest priority holds in 98.3% of draws and rank 1 stays inside the same three-service cluster in all of them.</div></div>
+<div class="a">Yes, and they are declared as a practitioner assumption. That is why the evaluation does not depend on them: across 20,000 Dirichlet-sampled weightings the lowest priority holds in 98.1% of draws and rank 1 stays inside the same three-service cluster in all of them.</div></div>
 
 <div class="qa"><div class="q">Could this be misused to judge teams?</div>
 <div class="a">Governance scope was agreed with the Head of Trading IT at the outset: decision-support for portfolio conversations, not a binding instrument. High-debt profiles typically reflect historical design decisions, not current custodians [@ahmadTechnicalDebtNot2026]. No team, vendor or individual identifiers exist in the dataset.</div></div>

@@ -383,26 +383,26 @@ Dimension assignments are this study’s literature-grounded synthesis. Document
 <p><span class="tag">RESULTS</span></p>
 <div class="rankbars">
 <div class="rankrow hot">
-<span class="svc">SVC-01</span><span class="bar"><span style="width:53%"></span></span><span class="ci">0.470</span>
+<span class="svc">SVC-01</span><span class="bar"><span style="width:53%"></span></span><span class="ci">0.465</span>
 </div>
 <div class="rankrow hot">
-<span class="svc">SVC-04</span><span class="bar"><span style="width:52%"></span></span><span class="ci">0.478</span>
+<span class="svc">SVC-04</span><span class="bar"><span style="width:52%"></span></span><span class="ci">0.479</span>
 </div>
 <div class="rankrow hot">
-<span class="svc">SVC-06</span><span class="bar"><span style="width:45%"></span></span><span class="ci">0.554</span>
+<span class="svc">SVC-06</span><span class="bar"><span style="width:45%"></span></span><span class="ci">0.549</span>
 </div>
 <div class="rankrow">
-<span class="svc">SVC-02</span><span class="bar"><span style="width:23%"></span></span><span class="ci">0.768</span>
+<span class="svc">SVC-02</span><span class="bar"><span style="width:22%"></span></span><span class="ci">0.779</span>
 </div>
 <div class="rankrow">
-<span class="svc">SVC-05</span><span class="bar"><span style="width:22%"></span></span><span class="ci">0.779</span>
+<span class="svc">SVC-05</span><span class="bar"><span style="width:22%"></span></span><span class="ci">0.780</span>
 </div>
 <div class="rankrow">
 <span class="svc">SVC-03</span><span class="bar"><span style="width:2%"></span></span><span class="ci">0.977</span>
 </div>
 </div>
 <ul>
-<li><strong>SVC-01</strong>, rank 1: only <span class="n">64</span> incidents/yr, but <span class="n n-hot">4,210</span> unsupported component months and patch recency <span class="n">63.2</span> → the debt an incident count cannot see</li>
+<li><strong>SVC-01</strong>, rank 1: only <span class="n">64</span> incidents/yr, but <span class="n n-hot">2,565</span> unsupported component months and patch recency <span class="n">53.1</span> → the debt an incident count cannot see</li>
 <li><strong>SVC-04</strong>, rank 2: <span class="n">574</span> incidents/yr, MTTR <span class="n">41.9 h</span>, CFR <span class="n">3.38</span>, yet a clean lifecycle record → architectural &amp; process debt</li>
 <li><strong>SVC-03</strong>, rank 6: the portfolio’s reference for a well-maintained service</li>
 </ul>
@@ -449,7 +449,7 @@ Convergent
 <p>
 Re-ranked with SAW &amp; VIKOR
 </p>
-<span class="verdict">τ = 0.60–1.00</span>
+<span class="verdict">τ = 0.73–1.00</span>
 </div>
 <div class="card">
 <h3>
@@ -503,10 +503,10 @@ No external ground truth exists for non-code debt, so validity is triangulated: 
 <div>
 <p><strong>Full weight space, 20,000 draws</strong></p>
 <div class="big">
-98.3<span class="unit">%</span>
+98.1<span class="unit">%</span>
 </div>
 <p class="small">
-of all admissible weightings place SVC-03 last, and rank 1 falls to SVC-01, SVC-06 or SVC-04 in every single draw (41%, 32%, 27%). The bottom is weight-independent; the single top rank is a property of the cluster.
+of all admissible weightings place SVC-03 last, and rank 1 falls to SVC-01, SVC-06 or SVC-04 in every single draw (46%, 27%, 27%). The bottom is weight-independent; the single top rank is a property of the cluster.
 </p>
 </div>
 </div>
@@ -534,7 +534,7 @@ Cross-year movement is read as descriptive context, not a quality criterion: ser
 <div class="cols" style="margin-top:0.5em">
 <div>
 <p><strong>SVC-01 rises, fourth to first</strong></p>
-<p>Infrastructure lifecycle debt (<span class="n n-hot">4,210</span> unsupported component months, patch recency <span class="n">63.18</span>) is invisible to an incident count. This is precisely the signal the framework was built to surface.</p>
+<p>Infrastructure lifecycle debt (<span class="n n-hot">2,565</span> unsupported component months, patch recency <span class="n">53.10</span>) is invisible to an incident count. This is precisely the signal the framework was built to surface.</p>
 </div>
 <div>
 <p><strong>SVC-05 falls, third to fifth</strong></p>
@@ -578,17 +578,17 @@ The divergence is not noise; it concentrates exactly where multi-criteria measur
 <tbody>
 <tr class="odd">
 <td>Top-ranked service</td>
-<td>SVC-04 (C* 0.4847)</td>
+<td>SVC-04 (C* 0.4858)</td>
 <td>SVC-01</td>
 </tr>
 <tr class="even">
 <td>Margin</td>
-<td>ΔC* = 0.004 to SVC-01 (0.4886)</td>
+<td>ΔC* = 0.0018 to SVC-01 (0.4876)</td>
 <td>Each worst on exactly 2 criteria</td>
 </tr>
 <tr class="odd">
 <td>Agreement</td>
-<td>vs SAW τ = 0.600</td>
+<td>vs SAW τ = 0.733</td>
 <td>absolute vs VIKOR τ = 1.000</td>
 </tr>
 <tr class="even">
@@ -600,7 +600,7 @@ The divergence is not noise; it concentrates exactly where multi-criteria measur
 </table>
 <p><strong>Mechanism:</strong> both are worst on exactly two criteria. SVC-04 is perfect on the other two; SVC-01 is only good. Linear aggregation puts SVC-01 first; vector normalisation, preserving SVC-04’s outlying 410 incidents, reverses the pair by 0.004.</p>
 <aside class="notes">
-<p>10:00–11:15. The distinctive finding. The 2024 equal-weight top rank is a photo-finish: classic TOPSIS puts SVC-04 first by 0.004; SAW, VIKOR and the absolute variant put SVC-01 first, because regret capping and fixed anchors register SVC-01’s worst patch recency and 4,054 unsupported months at full strength while vector normalisation is dominated by SVC-04’s incident mass. In 2025 and under 2024 adjusted weights everything agrees on SVC-01.</p>
+<p>10:00–11:15. The distinctive finding. The 2024 equal-weight top rank is a photo-finish: classic TOPSIS puts SVC-04 first by 0.0018; SAW, VIKOR and the absolute variant put SVC-01 first, because regret capping and fixed anchors register SVC-01’s worst patch recency and 2,520 unsupported months at full strength while vector normalisation is dominated by SVC-04’s incident mass. In 2025 and under 2024 adjusted weights everything agrees on SVC-01.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -621,7 +621,7 @@ The divergence is not noise; it concentrates exactly where multi-criteria measur
 <p><strong>Standard TOPSIS + SAW/VIKOR</strong></p>
 <ul>
 <li>Primary prioritisation signal</li>
-<li>Triangulation, not a single number: where scorers split by 0.004, the margin is too small to carry a remediation decision</li>
+<li>Triangulation, not a single number: where scorers split by 0.0018, the margin is too small to carry a remediation decision</li>
 </ul>
 </div>
 <div>
@@ -699,7 +699,7 @@ Treated as the central testable hypothesis, never a premise. <span class="citati
 Aren’t the differential weights arbitrary?
 </div>
 <div class="a">
-Yes, and they are declared as a practitioner assumption. That is why the evaluation does not depend on them: across 20,000 Dirichlet-sampled weightings the lowest priority holds in 98.3% of draws and rank 1 stays inside the same three-service cluster in all of them.
+Yes, and they are declared as a practitioner assumption. That is why the evaluation does not depend on them: across 20,000 Dirichlet-sampled weightings the lowest priority holds in 98.1% of draws and rank 1 stays inside the same three-service cluster in all of them.
 </div>
 </div>
 <div class="qa">
