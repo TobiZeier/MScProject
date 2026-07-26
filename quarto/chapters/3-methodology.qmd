@@ -37,12 +37,12 @@ The process follows @peffersDesignScienceResearch2007 six-step model: problem id
 
 ```{mermaid}
 %%| label: fig-dsr-grid
-%%| fig-cap: "DSR Grid for the present study, adapted from Peffers <i>et al.</i> (2007)"
+%%| fig-cap: "DSR Grid for the present study, adapted from Peffers *et al.* (2007)"
 %%| fig-width: 6
 
 graph TD
     P["**Problem**<br/>Absence of a quantitative<br/>service-level TD prioritisation<br/>framework for trading IT"]
-    IK["**Input Knowledge**<br/>TD taxonomy; operational indicators;<br/>TOPSIS method; DSR foundations<br/>(Hevner et al., 2004)"]
+    IK["**Input Knowledge**<br/>TD taxonomy; operational indicators;<br/>TOPSIS method; DSR foundations<br/>(Hevner *et al.*, 2004)"]
     RP["**Research Process**<br/>Literature review;<br/>indicator selection;<br/>TOPSIS construction;<br/>sensitivity analysis"]
     KC["**Key Concepts**<br/>Technical debt;<br/>operational proxies;<br/>MCDM; ITSM service data"]
     DSR(["DSR Project"])
@@ -92,7 +92,7 @@ The five retained indicators are operationalisable from live records held in the
 
 Two caveats apply. Incident frequency and MTTR are computed from all recorded incidents irrespective of severity, so both describe the overall incident profile. CFR is a derived proxy, calculated as weighted incidents divided by the number of changes, the formula the case organisation itself applies. It approximates the DORA change failure rate without the deployment-outcome labelling a true CFR requires. Because it shares its incident numerator with incident frequency, the two criteria are not fully independent, a constraint whose effect on the ordering is bounded by the weight sensitivity analysis in @sec-stability.
 
-Incident frequency, MTTR and CFR proxy the operational consequences of architectural, infrastructure/platform and process debt. Service instability and slow recovery are empirically linked to TD severity in vendor-managed portfolios [@ramasubbuControllingTechnicalDebt2021; @nielsenITPortfolioManagement2022], and delivery tempo degradation is a diagnostic TD signal detectable from production records without source code access [@nordExamplesTechnicalDebts2021; @forsgrenAccelerate2018]. The two CMDB-derived indicators, patch recency and unsupported component months, operationalise vulnerability and infrastructure lifecycle debt following @hakiDigitalNudgingTechnical2023, differentiating services with similar current patch status but different historical accumulation. Throughout, operational indicators are treated as candidate proxies rather than established substitutes. The validity of this inference is the central empirical hypothesis tested in @sec-chapter5.
+Incident frequency, MTTR and CFR proxy the operational consequences of architectural, infrastructure/platform and process debt. Service instability and slow recovery are empirically linked to TD severity in vendor-managed portfolios [@ramasubbuControllingTechnicalDebt2021; @nielsenITPortfolioManagement2022], and change failure rate is a further operational signal detectable from production records without source code access !!!!!!TBV!!!!!! [@nordExamplesTechnicalDebts2021; @forsgrenAccelerate2018]. The two CMDB-derived indicators, patch recency and unsupported component months, operationalise vulnerability and infrastructure lifecycle debt following @hakiDigitalNudgingTechnical2023, differentiating services with similar current patch status but different historical accumulation. Throughout, operational indicators are treated as candidate proxies rather than established substitutes. The validity of this inference is the central empirical hypothesis tested in @sec-chapter5.
 
 ### Framework Design {#sec-frameworkdesign}
 
