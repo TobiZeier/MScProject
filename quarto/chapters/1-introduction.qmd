@@ -1,6 +1,6 @@
 # Introduction {#sec-chapter1}
 
-Technical debt is not an abstract software quality concern; in mission-critical trading IT, it translates into delayed recovery, accumulating infrastructure risk and governance blind spots. The sections below establish why the absence of a quantitative, service-level measurement mechanism represents a specific and costly gap, and how this thesis addresses it.
+Technical debt is not an abstract software quality concern. In mission-critical trading IT, it translates into delayed recovery, accumulating infrastructure risk and governance blind spots. The sections below establish why the absence of a quantitative, service-level measurement mechanism represents a specific and costly gap, and how this thesis addresses it.
 
 ## Background and Motivation
 
