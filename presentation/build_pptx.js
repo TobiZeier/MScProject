@@ -330,8 +330,8 @@ function colHead(slide, text, x, y, w, color = INK) {
   colHead(s, "Discrete configurations", ML, 1.95, 5.7);
   bullets(s, [
     { text: "Weight sensitivity 2025: \u03C4 = 1.000 (identical order)" },
-    { text: "Weight sensitivity 2024: \u03C4 = 0.867 (one swap at the top)" },
-    { text: "Temporal 2025 vs 2024: \u03C4 = 0.600 / 0.733, tracking real profile change, above all SVC-06's broad deterioration" },
+    { text: "Weight sensitivity 2024: \u03C4 = 0.600 (middle of the field reorders)" },
+    { text: "Temporal 2025 vs 2024: \u03C4 = 0.600 / 0.467, tracking real profile change, above all SVC-01's shift" },
     { text: "The lowest-priority position is identical in every run", bold: true },
   ], ML, 2.45, 5.7, { size: 13.5, space: 10, h: 3.5 });
 
@@ -380,16 +380,16 @@ function colHead(slide, text, x, y, w, color = INK) {
   tag(s, "Convergent validity \u00B7 Section 5.6");
   title(s, "Where the methods disagree, and why that is a finding");
   s.addText([
-    { text: "In 2025 all methods agree exactly under equal weights, with SVC-01 first. The one disagreement is the 2024 equal-weights top rank, and it is a ", options: {} },
-    { text: "photo-finish.", options: { bold: true, color: AMBER } },
+    { text: "In 2025 all methods agree exactly under equal weights, with SVC-01 first. In 2024 they agree on the top pair but ", options: {} },
+    { text: "split on its order.", options: { bold: true, color: AMBER } },
   ], { x: ML, y: 1.95, w: CW, h: 0.45, fontFace: SANS, fontSize: 14.5, color: INK, margin: 0 });
 
   const rows = [
-    [{ text: "2024, equal weights", options: { bold: true } }, { text: "TOPSIS classic", options: { bold: true } }, { text: "SAW \u00B7 VIKOR \u00B7 TOPSIS absolute", options: { bold: true } }],
-    ["Top-ranked service", "SVC-04 (C* = 0.4858)", "SVC-01"],
-    ["Margin", "\u0394C* = 0.0018 to SVC-01 (0.4876)", "Each worst on exactly 2 criteria"],
-    ["Agreement", "vs SAW \u03C4 = 0.733", "absolute vs VIKOR \u03C4 = 1.000"],
-    ["2025 and 2024 adjusted", "SVC-01 first under every method", ""],
+    [{ text: "2024, equal weights", options: { bold: true } }, { text: "TOPSIS classic", options: { bold: true } }, { text: "SAW \u00B7 VIKOR", options: { bold: true } }],
+    ["Top-ranked service", "SVC-04", "SVC-06"],
+    ["High-priority pair", "SVC-04, SVC-06 (both agree)", "SVC-06, SVC-04"],
+    ["Next pair (near-tie)", "SVC-02, SVC-01 (\u0394C* = 0.005)", "SVC-02, SVC-01"],
+    ["Classic vs SAW / VIKOR", "\u03C4 = 0.600 / 0.867", ""],
   ];
   s.addTable(rows, {
     x: ML, y: 2.6, w: 8.3, colW: [2.5, 2.9, 2.9],
@@ -400,11 +400,11 @@ function colHead(slide, text, x, y, w, color = INK) {
 
   s.addShape("rect", { x: 9.35, y: 2.6, w: 3.2, h: 2.6, fill: { color: "FBF4E8" } });
   s.addText("MECHANISM", { x: 9.55, y: 2.75, w: 2.8, h: 0.25, fontFace: MONO, fontSize: 10, bold: true, charSpacing: 2, color: AMBER, margin: 0 });
-  s.addText("Both are worst on exactly two criteria. SVC-04 is perfect on the other two; SVC-01 is only good. Linear aggregation puts SVC-01 first; vector normalisation, preserving SVC-04\u2019s outlying 410 incidents, reverses the pair by 0.004.", {
+  s.addText("All four scorers name SVC-04 and SVC-06 as the high-priority pair. TOPSIS leads with SVC-04, whose 574 incidents vector normalisation preserves; SAW and VIKOR lead with SVC-06, whose worst-in-portfolio CFR their linear and regret terms weight more heavily.", {
     x: 9.55, y: 3.05, w: 2.85, h: 2.05, fontFace: SANS, fontSize: 10.5, color: INKSOFT, margin: 0, valign: "top", lineSpacingMultiple: 1.12,
   });
-  takeaway(s, "A 0.0018 margin decided by normalisation, not by a real gap. Three of four scorers say SVC-01. The framework reports the photo-finish rather than hiding it; by 2025 every method agrees.", 5.55, CW, ML);
-  s.addNotes("10:00-11:15. The 2024 equal-weight top rank is a photo-finish: classic TOPSIS puts SVC-04 first by 0.0018; SAW, VIKOR and the absolute variant put SVC-01 first. Both services are worst on exactly two criteria; SVC-04 is perfect on its other two while SVC-01 is only good, so linear aggregation favours SVC-01 while vector normalisation, which preserves SVC-04's outlying incident count, does not. If pressed: VIKOR's utility term is algebraically 1 minus SAW, so those two are not fully independent; VIKOR adds information only through regret. In 2025 everything agrees on SVC-01.");
+  takeaway(s, "Every method agrees SVC-04 and SVC-06 are the two highest-priority services. They differ only on which leads. The disagreement localises where a ranking should not be over-read; by 2025 every method agrees on SVC-01.", 5.55, CW, ML);
+  s.addNotes("10:00-11:15. In 2024 all methods agree SVC-04 and SVC-06 are the high-priority pair; they split on which leads. TOPSIS puts SVC-04 first because vector normalisation preserves its 574-incident magnitude; SAW and VIKOR put SVC-06 first because its worst-in-portfolio change failure rate drives their linear and regret terms. Beneath the pair, all methods place SVC-02 and SVC-01 at ranks three and four, only 0.005 apart. If pressed: VIKOR utility is algebraically 1 minus SAW, so those two are not fully independent; VIKOR adds information only through regret. In 2025 everything agrees on SVC-01.");
 }
 
 // ══════════ SLIDE 12 · DIVISION OF LABOUR ══════════
@@ -416,7 +416,7 @@ function colHead(slide, text, x, y, w, color = INK) {
   colHead(s, "Standard TOPSIS + SAW / VIKOR", ML, 1.95, 5.8);
   bullets(s, [
     { text: "Primary prioritisation signal" },
-    { text: "Triangulation, not a single number: where scorers split by 0.0018, the margin is too small to carry a remediation decision" },
+    { text: "Triangulation, not a single number: methods agree on the high-priority pair and split only on its internal order" },
   ], ML, 2.45, 5.7, { size: 13.5, space: 10, h: 2.6 });
 
   colHead(s, "Absolute-mode TOPSIS", 7.2, 1.95, 5.3);

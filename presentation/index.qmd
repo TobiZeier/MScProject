@@ -174,8 +174,8 @@ Design Science Research [@hevnerDesignScienceInformation2004]; single-organisati
 **Discrete configurations**
 
 - Weight sensitivity 2025: <span class="n">τ = 1.000</span> (identical order)
-- Weight sensitivity 2024: <span class="n">τ = 0.867</span> (one swap at the top)
-- Temporal 2025 vs 2024: <span class="n">τ = 0.600 / 0.733</span>, tracking real profile change, above all SVC-06's broad deterioration
+- Weight sensitivity 2024: <span class="n">τ = 0.600</span> (middle of the field reorders)
+- Temporal 2025 vs 2024: <span class="n">τ = 0.600 / 0.467</span>, tracking real profile change, above all SVC-01's shift
 - The lowest-priority position is **identical in every run**
 </div>
 <div>
@@ -221,19 +221,19 @@ High incident volume (<span class="n">171</span>/yr) offset by full patch recenc
 
 <span class="tag">CONVERGENT VALIDITY · §5.6</span>
 
-In 2025 all methods agree exactly under equal weights, with SVC-01 first, and SVC-03 is last everywhere. The one disagreement is the 2024 equal-weights top rank, and it is a **photo-finish**.
+In 2025 all methods agree exactly under equal weights, with SVC-01 first, and SVC-03 is last everywhere. In 2024 they agree on the top pair but **split on its order**.
 
-| 2024, equal weights | TOPSIS classic | SAW · VIKOR · TOPSIS absolute |
+| 2024, equal weights | TOPSIS classic | SAW · VIKOR |
 |---|---|---|
-| Top-ranked service | SVC-04 (C\* 0.4858) | SVC-01 |
-| Margin | ΔC\* = 0.0018 to SVC-01 (0.4876) | Each worst on exactly 2 criteria |
-| Agreement | vs SAW τ = 0.733 | absolute vs VIKOR τ = 1.000 |
-| 2025 and 2024 adjusted | SVC-01 first under every method | |
+| Top-ranked service | SVC-04 | SVC-06 |
+| High-priority pair | SVC-04, SVC-06 | SVC-06, SVC-04 |
+| Next pair (near-tie) | SVC-02, SVC-01 (ΔC\* = 0.005) | SVC-02, SVC-01 |
+| Classic vs SAW / VIKOR | τ = 0.600 / 0.867 | |
 
-**Mechanism:** both are worst on exactly two criteria. SVC-04 is perfect on the other two; SVC-01 is only good. Linear aggregation puts SVC-01 first; vector normalisation, preserving SVC-04's outlying 410 incidents, reverses the pair by 0.004.
+**Mechanism:** all four scorers name SVC-04 and SVC-06 as the high-priority pair. TOPSIS leads with SVC-04, whose 574 incidents vector normalisation preserves; SAW and VIKOR lead with SVC-06, whose worst-in-portfolio change failure rate their linear and regret terms weight more heavily.
 
 ::: notes
-10:00–11:15. The distinctive finding. The 2024 equal-weight top rank is a photo-finish: classic TOPSIS puts SVC-04 first by 0.0018; SAW, VIKOR and the absolute variant put SVC-01 first, because regret capping and fixed anchors register SVC-01's worst patch recency and 2,520 unsupported months at full strength while vector normalisation is dominated by SVC-04's incident mass. In 2025 and under 2024 adjusted weights everything agrees on SVC-01.
+10:00–11:15. In 2024 all methods agree SVC-04 and SVC-06 are the high-priority pair and split only on which leads. TOPSIS puts SVC-04 first because vector normalisation preserves its 574-incident magnitude; SAW and VIKOR put SVC-06 first because its worst-in-portfolio change failure rate drives their linear and regret terms. Beneath the pair, all methods place SVC-02 and SVC-01 at ranks three and four, only 0.005 apart. In 2025 everything agrees on SVC-01.
 :::
 
 ## Division of labour, not a winner
@@ -245,7 +245,7 @@ In 2025 all methods agree exactly under equal weights, with SVC-01 first, and SV
 **Standard TOPSIS + SAW/VIKOR**
 
 - Primary prioritisation signal
-- Triangulation, not a single number: where scorers split by 0.0018, the margin is too small to carry a remediation decision
+- Triangulation, not a single number: methods agree on the high-priority pair and split only on its internal order
 </div>
 <div>
 **Absolute-mode TOPSIS**

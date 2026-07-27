@@ -107,12 +107,12 @@ To assess temporal stability, the framework was applied to the 2024 dataset usin
 
 | Service | $C_i$ (Equal) | Rank (Equal) | $C_i$ (Adjusted) | Rank (Adjusted) |
 |---|---:|---:|---:|---:|
-| SVC-04 | 0.4858 | 1 | 0.5151 | 2 |
-| SVC-01 | 0.4876 | 2 | 0.4448 | 1 |
-| SVC-02 | 0.6997 | 3 | 0.5175 | 3 |
-| SVC-05 | 0.7070 | 4 | 0.7154 | 4 |
-| SVC-06 | 0.8232 | 5 | 0.8374 | 5 |
-| SVC-03 | 0.8497 | 6 | 0.8836 | 6 |
+| SVC-04 | 0.4671 | 1 | 0.4927 | 2 |
+| SVC-06 | 0.5339 | 2 | 0.6210 | 4 |
+| SVC-02 | 0.6796 | 3 | 0.4898 | 1 |
+| SVC-01 | 0.6843 | 4 | 0.5660 | 3 |
+| SVC-05 | 0.6964 | 5 | 0.7032 | 5 |
+| SVC-03 | 0.8450 | 6 | 0.8796 | 6 |
 
 : TOPSIS results, 2024 (higher $C_i$, lower debt priority) {#tbl-topsis-results2024 tbl-colwidths="\[20,20,20,20,20\]"}
 
@@ -120,6 +120,18 @@ To assess temporal stability, the framework was applied to the 2024 dataset usin
 \endgroup
 ```
 
-Two year-on-year changes are substantial. SVC-06 deteriorated broadly. Its incident count rose from 43 to 302, its change failure rate from 0.86 to 3.96, and its patch recency fell from 82.35 to 52.94. SVC-02's unsupported-component exposure rose from 46 to 712 component-months. SVC-02 is built from more than two hundred components, and a substantial share of these passed their vendor end-of-support date during 2025, derived from the same complete CMDB extract that underlies the indicator (@sec-appendixb). SVC-01's profile, the portfolio's largest structural exposure in both years, changed comparatively little.
+Two year-on-year changes are substantial. SVC-01 shifted the most: in 2024 it was well maintained, with patch recency of 98.23 and only 108 unsupported component-months, but by 2025 its patch recency had fallen to 53.10 and its unsupported exposure had risen to 2,565 component-months, the largest in the portfolio. SVC-06 also deteriorated broadly, its incident count rising from 43 to 302, its change failure rate from 0.86 to 3.96, and its patch recency falling from 82.35 to 52.94. SVC-02's unsupported-component exposure rose from 34 to 712 component-months, drawn from the same complete CMDB extract that underlies the indicator (@sec-appendixb).
 
 The closeness coefficients and rankings produced under both weight configurations and both years constitute the analytical output of the framework and the empirical basis for @sec-chapter5, which tests their stability, method-independence, discriminant value and structural rigour before interpreting the resulting priorities.
+
+## Design Principles {#sec-designprinciples}
+
+Since the transferable contribution of a design science artefact is the design knowledge it embodies rather than the instance itself [@hevnerDesignScienceInformation2004], the framework's key decisions are stated below as five design principles (DP). Each names the context in which it applies, the design intervention, and its rationale, and each traces to an evaluation strand in @sec-chapter5.
+
+- **DP1.** Where platforms are vendor-managed and source code cannot be inspected, derive debt indicators from operational ITSM and CMDB records, because the consequences of architectural, infrastructure and process debt surface as incidents, recovery times and lifecycle exposure even where the code is opaque (@sec-discriminant).
+- **DP2.** When debt is distributed across several dimensions that no single record captures, combine multiple operational indicators rather than ranking on one, because debt concentrated in one dimension is invisible to a metric capturing another (@sec-discriminant).
+- **DP3.** When defensible criterion weights cannot be derived from theory, treat weights as a robustness parameter and test conclusions across the weight space, because conclusions that hold under any admissible weighting do not depend on contestable choices (@sec-stability, @sec-montecarlo).
+- **DP4.** When a single method's mechanics could shape the result, establish confidence by triangulating across aggregation methods, because agreement between different structures is evidence of a real ordering and disagreement marks where not to over-interpret (@sec-convergent).
+- **DP5.** When portfolio membership changes or scores must be compared across periods, pair the sample-relative ranking with an absolutely anchored variant, because a fixed-bound variant keeps scores comparable and its order survives changes in the alternative set (@sec-rankreversal).
+
+These are design propositions supported by a single instantiation, not generalised laws. External validation (@sec-chapter6) would confirm their scope.
