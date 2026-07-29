@@ -2,7 +2,7 @@
 
 This appendix contains the contents of the CSV files that were used as input for the TOPSIS calculations presented in @sec-chapter4.
 
-\vspace{1.5cm}
+\vspace{1cm}
 
 Filename: `services2025.csv`\
 Filesize: `254 bytes`

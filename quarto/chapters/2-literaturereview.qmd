@@ -28,7 +28,7 @@ The literature search was conducted between January and April 2026 using a syste
 | TD automation | `"technical debt management" AND ("machine learning" OR intelligent OR automation)` |
 | MCDM and TOPSIS | `TOPSIS AND ("multi-criteria" OR MCDM OR "SAW" OR "VIKOR" OR "decision making" OR priorit*)` |
 | Patch management | `"patch management" AND (priorit* OR risk OR vulnerability OR SLA OR enterprise)` |
-| Operational risk and DORA | `("DORA metrics" OR "mean time to restore") AND ("technical debt" OR "software delivery")` |
+| Operational risk and DORA | `("DORA metrics" OR "mean time to recover") AND ("technical debt" OR "software delivery")` |
 
 : Search terms used for literature review {#tbl-search-terms tbl-colwidths="[30,70]"}
 
@@ -61,7 +61,7 @@ Sources were screened against the pre-specified inclusion and exclusion criteria
 
 Titles and abstracts were screened against these criteria first. Forward and backward citation snowballing on three anchor publications, @kruchtenTechnicalDebtMetaphor2012, @lenarduzziSystematicLiteratureReview2021 and @forsgrenAccelerate2018, then surfaced relevant studies not captured by the database searches. This produced a combined pool of approximately 110 candidate sources, of which more than 50 were retained after full-text review for relevance and methodological quality.
 
-The review uses narrative synthesis rather than a formal systematic review protocol, since the research spans three     iplines with differing methods and evidence standards. This approach supports the aim of building a coherent argument for a design science artefact [@hevnerDesignScienceInformation2004].
+The review uses narrative synthesis rather than a formal systematic review protocol, since the research spans three disciplines with differing methods and evidence standards. This approach supports the aim of building a coherent argument for a design science artefact [@hevnerDesignScienceInformation2004].
 
 ## Conceptual Foundations of Technical Debt
 
@@ -149,7 +149,7 @@ The following table maps each operational indicator to the technical debt dimens
 | Indicator | TD Dimension | Literature Justification |
 |---|---|---|
 | Incident frequency | Architectural debt | @detoledoReducingIncidentsMicroservices2021; @ramasubbuControllingTechnicalDebt2021; @ramasubbuManagingTechnicalDebt2015; @nielsenITPortfolioManagement2022 |
-| Mean Time to Restore (MTTR) | Infrastructure / platform debt | @forsgrenAccelerate2018; @nordExamplesTechnicalDebts2021; @paudelExploringRelationshipTechnical2025 |
+| Mean Time to Recover (MTTR) | Infrastructure / platform debt | @forsgrenAccelerate2018; @nordExamplesTechnicalDebts2021; @paudelExploringRelationshipTechnical2025 |
 | Change failure rate | Process debt | @forsgrenAccelerate2018; @nordExamplesTechnicalDebts2021; @paudelExploringRelationshipTechnical2025 |
 | Patch recency | Vulnerability debt | @tizioSoftwareUpdatesStrategies2023; @markkanenPatchManagementPlanning2023 |
 | Unsupported component months | Infrastructure lifecycle debt | @hakiDigitalNudgingTechnical2023 |

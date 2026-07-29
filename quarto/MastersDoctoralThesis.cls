@@ -20,14 +20,28 @@
 % LPPL v1.3c (http://www.latex-project.org/lppl)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% ---------------------------------------------------------------------------------------
+% MODIFIED VERSION (2026) - renamed from MastersDoctoralThesis to ThesisClean.
+% Changes vs. the original v1.6 are confined to three front-matter environments in their
+% non-consistentlayout (default) form:
+%   * abstract         - chapter-consistent heading; thesis title auto-fit to a single
+%                        line (capped at \large, scaled down only if it would overflow);
+%                        author + student ID; word count; hairline rule; single-spaced,
+%                        top-aligned body. The repeated university/faculty/department/
+%                        degree block was removed (it already appears on the title page).
+%   * acknowledgements - chapter-consistent heading + hairline rule; top-aligned body.
+%   * declaration      - chapter-consistent heading + hairline rule; top-aligned body.
+% Everything else is unchanged from LaTeXTemplates.com v1.6.
+% ---------------------------------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
 %	CLASS DEFINITION AND PARAMETERS
 %----------------------------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}[1996/12/01]
-\newcommand{\classname}{MastersDoctoralThesis}
-\ProvidesClass{\classname}[2017/08/27 v1.6 LaTeXTemplates.com]
+\newcommand{\classname}{ThesisClean}
+\ProvidesClass{\classname}[2026/07/29 v1.6-clean Modified from LaTeXTemplates.com]
 \providecommand{\baseclass}{book}
 \RequirePackage{etoolbox}
 \RequirePackage{xparse}
@@ -341,57 +355,37 @@ KOMA-script documentation for details.}]{fancyhdr}
 	}%
 	{}%end alt-abstract
 }{%
-	\DeclareDocumentEnvironment{abstract}{ O{\null\vfill} }{
+	% --- Refined abstract: chapter-consistent heading, restrained metadata, single-spaced body ---
+	\DeclareDocumentEnvironment{abstract}{ O{} }{%
 		\checktoopen
 		\tttypeout{\abstractname}
-		#1%added to be able to have abstract more than one page long
-		\thispagestyle{plain}
-		\begin{center}
-			{\normalsize \MakeUppercase{\univname} \par}% University name in capitals
-			\bigskip
-			{\huge\textit{\abstractname} \par}
-			\bigskip
-			{\normalsize \facname \par}% Faculty name
-			{\normalsize \deptname \par}% Department name
-			\bigskip
-			{\normalsize \degreename\par}% Degree name
-			\bigskip
-			{\normalsize\bfseries \@title \par}% Thesis title
-			\medskip
-			{\normalsize \byname{} \authorname~--~\thesistudentid \par}% Author name & Student ID
-			\medskip
-			{\normalsize \wordcount \par}% Word count
-			\bigskip
-		\end{center}
+		#1% keep the escape hatch for a multi-page abstract (pass an optional arg)
+		\thispagestyle{plain}%
+		\begingroup
+			\parindent\z@ \raggedright \normalfont
+			{\chapterfont \abstractname\par}% Heading, matching the other front-matter chapters
+			\vskip 1.4\baselineskip
+			% Thesis title: capped at \large, scaled down only if it would exceed one line
+			\sbox\@tempboxa{\large\itshape\@title}%
+			\ifdim\wd\@tempboxa>\linewidth
+				\resizebox{\linewidth}{!}{\usebox\@tempboxa}%
+			\else
+				\usebox\@tempboxa
+			\fi
+			\par
+			\vskip .35\baselineskip
+			{\normalsize \authorname~--~\thesistudentid\par}% Author name & Student ID
+			\vskip .15\baselineskip
+			{\footnotesize\textcolor{black!55}{\wordcount}\par}% Word count, understated
+		\endgroup
+		\vskip .7\baselineskip
+		\noindent\textcolor{black!30}{\rule{\linewidth}{.4pt}}\par
+		\vskip 1.1\baselineskip
+		\singlespacing
+		\noindent\ignorespaces
+	}{%
+		\par\vfill\null
 	}
-	{
-		\vfill\null
-	}
-}
-
-\DeclareDocumentEnvironment{extraAbstract}{ O{\null\vfill} }{
-	\checktoopen
-	\tttypeout{\abstractname}
-	#1%added to be able to have abstract more than one page long
-	\thispagestyle{empty}
-	\begin{center}
-		{\normalsize \MakeUppercase{\univname} \par}% University name in capitals
-		\bigskip
-		{\huge\textit{\abstractname} \par}
-		\bigskip
-		{\normalsize \facname \par}% Faculty name
-		{\normalsize \deptname \par}% Department name
-		\bigskip
-		{\normalsize \degreename\par}% Degree name
-		\bigskip
-		{\normalsize\bfseries \@title \par}% Thesis title
-		\medskip
-		{\normalsize \byname{} \authorname~--~\thesistudentid \par}% Author name & Student ID
-		\bigskip
-	\end{center}
-}
-{
-	\vfill\null
 }
 
 %----------------------------------------------------------------------------------------
@@ -411,14 +405,21 @@ KOMA-script documentation for details.}]{fancyhdr}
 	}
 }
 {
+	% --- Refined acknowledgements: chapter-consistent heading + hairline rule ---
 	\DeclareDocumentEnvironment{acknowledgements}{}{%
 		\checktoopen
 		\tttypeout{\acknowledgementname}
-		\thispagestyle{plain}
-		\begin{center}{\huge\textit{\acknowledgementname}\par}\end{center}
-	}
-	{
-		\vfil\vfil\null
+		\thispagestyle{plain}%
+		\begingroup
+			\parindent\z@ \raggedright \normalfont
+			{\chapterfont \acknowledgementname\par}%
+		\endgroup
+		\vskip .7\baselineskip
+		\noindent\textcolor{black!30}{\rule{\linewidth}{.4pt}}\par
+		\vskip 1.1\baselineskip
+		\noindent\ignorespaces
+	}{%
+		\par\vfill\null
 	}
 }
 
@@ -435,13 +436,22 @@ KOMA-script documentation for details.}]{fancyhdr}
 		\addchap*{\authorshipname}
 		}{}%
 }{
-	\DeclareDocumentEnvironment{declaration}{}{
+	% --- Refined declaration: chapter-consistent heading + hairline rule ---
+	\DeclareDocumentEnvironment{declaration}{}{%
 		\checktoopen
 		\tttypeout{\authorshipname}
-		\thispagestyle{plain}
-		\null\vfil
-		{\noindent\huge\bfseries\authorshipname\par\vspace{10pt}}
-	}{}
+		\thispagestyle{plain}%
+		\begingroup
+			\parindent\z@ \raggedright \normalfont
+			{\chapterfont \authorshipname\par}%
+		\endgroup
+		\vskip .7\baselineskip
+		\noindent\textcolor{black!30}{\rule{\linewidth}{.4pt}}\par
+		\vskip 1.1\baselineskip
+		\noindent\ignorespaces
+	}{%
+		\par\vfill\null
+	}
 }
 
 %----------------------------------------------------------------------------------------
