@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Masters/Doctoral Thesis
+% Masters/Doctoral Thesis 
 % Class File
 % Version 1.6 (27/8/17)
 %
@@ -10,16 +10,11 @@
 % Vel (vel@latextemplates.com)
 % Johannes Böttcher
 %
-% Modified version:
-% The abstract, declaration and acknowledgements front-matter pages have been
-% restyled for a cleaner, more consistent look. All three now share the same
-% chapter-consistent heading (\chapterfont) followed by a thin hairline rule.
-% The abstract no longer repeats the title-page metadata (university, faculty,
-% department, degree); it shows the thesis title (understated, kept to a single
-% line), the author and student ID, and the word count, then a single-spaced body.
-% Changes are confined to the ABSTRACT, ACKNOWLEDGEMENTS and DECLARATION sections
-% and are flagged with "% MODIFIED" comments. The class name has been changed to
-% MastersDoctoralThesisClean so the original class is left untouched.
+% Notes:
+% 1) This class file defines the structure and layout of the template file (main.tex).
+% 2) It has been written in such a way that under most circumstances you should not need
+% to edit it; updating it to a newer version will be harder. If you do make changes, please change the name of
+% the file and add comments to make your changes more visible.
 %
 % Class license:
 % LPPL v1.3c (http://www.latex-project.org/lppl)
@@ -31,7 +26,7 @@
 %----------------------------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}[1996/12/01]
-\newcommand{\classname}{MastersDoctoralThesisClean}
+\newcommand{\classname}{MastersDoctoralThesis}
 \ProvidesClass{\classname}[2017/08/27 v1.6 LaTeXTemplates.com]
 \providecommand{\baseclass}{book}
 \RequirePackage{etoolbox}
@@ -237,7 +232,7 @@
 \NewDocumentCommand{\bhrule}{}{\typeout{--------------------}}
 \NewDocumentCommand{\tttypeout}{m}{\bhrule\typeout{\space #1}\bhrule}
 
-\newcommand{\HRule}{\textcolor{black!30}{\rule{\linewidth}{.4pt}}} % MODIFIED: thin hairline matching the front-matter dividers (used on the title page)
+\newcommand{\HRule}{\rule{.9\linewidth}{.6pt}} % New command to make the lines in the title page
 \newcommand{\decoRule}{\rule{.8\textwidth}{.4pt}} % New command for a rule to be used under figures
 
 \ProvideDocumentCommand{\addchaptertocentry}{ m }{%
@@ -327,10 +322,8 @@ KOMA-script documentation for details.}]{fancyhdr}
 }
 
 %----------------------------------------------------------------------------------------
-%	ABSTRACT PAGE DESIGN          % MODIFIED
+%	ABSTRACT PAGE DESIGN
 %----------------------------------------------------------------------------------------
-% The non-consistentlayout branch below has been restyled. The consistentlayout
-% branch is left as in the original template.
 
 \DeclareDocumentCommand{\abstractauthorfont}{}{}
 \DeclareDocumentCommand{\abstracttitlefont}{}{}
@@ -338,7 +331,6 @@ KOMA-script documentation for details.}]{fancyhdr}
 \newcommand{\abstractname}{Abstract}
 \providecaptionname{german,ngerman,austrian,naustrian}{\byname}{von}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\byname}{by}
-\newsavebox{\mdt@titlebox}% MODIFIED: scratch box used to keep the abstract title on one line
 \ifbool{consistentlayout}{
 	\DeclareDocumentEnvironment{abstract}{ O{} }{%
 		\addchap*{\abstractname}%
@@ -349,34 +341,31 @@ KOMA-script documentation for details.}]{fancyhdr}
 	}%
 	{}%end alt-abstract
 }{%
-	% MODIFIED: clean abstract - chapter-consistent heading, understated metadata, hairline rule
-	\DeclareDocumentEnvironment{abstract}{ O{} }{%
+	\DeclareDocumentEnvironment{abstract}{ O{} }{
 		\checktoopen
 		\tttypeout{\abstractname}
-		#1%
-		\thispagestyle{plain}%
-		\abovechapterskip% MODIFIED: match the top spacing of the ToC / List-of headings
-		% Heading in the same style as the other unnumbered chapters
-		\begingroup
-			\parindent\z@ \raggedright \normalfont
-			{\chapterfont \abstractname\par}%
-			\vskip 1.4\baselineskip
-			% Thesis title, understated and kept to a single line (scaled down only if it would overflow)
-			\sbox\mdt@titlebox{\large\itshape\@title}%
-			\noindent\resizebox{\ifdim\wd\mdt@titlebox>\linewidth \linewidth\else \wd\mdt@titlebox\fi}{!}{\usebox\mdt@titlebox}\par
-			\vskip .35\baselineskip
-			{\normalsize \authorname~--~\thesistudentid\par}% Author name & Student ID
-			\vskip .15\baselineskip
-			{\footnotesize\textcolor{black!55}{\wordcount}\par}% Word count, understated
-		\endgroup
-		\vskip 10pt
-		\noindent\textcolor{black!30}{\rule{\linewidth}{.4pt}}\par
-		\vskip 16pt
-		\singlespacing
-		\noindent\ignorespaces
-	}%
-	{%
-		\par\vfill\null
+		#1%added to be able to have abstract more than one page long
+		\thispagestyle{plain}
+		\begin{center}
+			%{\normalsize \MakeUppercase{\univname} \par}% University name in capitals
+			%\bigskip
+			{\huge\textit{\abstractname} \par}
+			\bigskip
+			{\normalsize \facname \par}% Faculty name
+			{\normalsize \deptname \par}% Department name
+			\bigskip
+			{\normalsize \degreename\par}% Degree name
+			\bigskip
+			{\normalsize\bfseries \@title \par}% Thesis title
+			\medskip
+			{\normalsize \byname{} \authorname~--~\thesistudentid \par}% Author name & Student ID
+			\medskip
+			{\normalsize \wordcount \par}% Word count
+			\bigskip
+		\end{center}
+	}
+	{
+		\vfill\null
 	}
 }
 
@@ -406,7 +395,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 }
 
 %----------------------------------------------------------------------------------------
-%	ACKNOWLEDGEMENTS PAGE DESIGN          % MODIFIED
+%	ACKNOWLEDGEMENTS PAGE DESIGN
 %----------------------------------------------------------------------------------------
 
 \usepackage{xcolor}
@@ -422,29 +411,19 @@ KOMA-script documentation for details.}]{fancyhdr}
 	}
 }
 {
-	% MODIFIED: clean acknowledgements - chapter-consistent heading, hairline rule
 	\DeclareDocumentEnvironment{acknowledgements}{}{%
 		\checktoopen
 		\tttypeout{\acknowledgementname}
-		\thispagestyle{plain}%
-		\abovechapterskip% MODIFIED: match the top spacing of the ToC / List-of headings
-		% Heading in the same style as the other unnumbered chapters
-		\begingroup
-			\parindent\z@ \raggedright \normalfont
-			{\chapterfont \acknowledgementname\par}%
-		\endgroup
-		\vskip 10pt
-		\noindent\textcolor{black!30}{\rule{\linewidth}{.4pt}}\par
-		\vskip 16pt
-		\noindent\ignorespaces
-	}%
-	{%
-		\par\vfill\null
+		\thispagestyle{plain}
+		\begin{center}{\huge\textit{\acknowledgementname}\par}\end{center}
+	}
+	{
+		\vfil\vfil\null
 	}
 }
 
 %----------------------------------------------------------------------------------------
-%	DECLARATION PAGE DESIGN          % MODIFIED
+%	DECLARATION PAGE DESIGN
 %----------------------------------------------------------------------------------------
 
 \newcommand{\authorshipname}{Declaration of Authorship}
@@ -456,25 +435,13 @@ KOMA-script documentation for details.}]{fancyhdr}
 		\addchap*{\authorshipname}
 		}{}%
 }{
-	% MODIFIED: clean declaration - chapter-consistent heading, hairline rule
-	\DeclareDocumentEnvironment{declaration}{}{%
+	\DeclareDocumentEnvironment{declaration}{}{
 		\checktoopen
 		\tttypeout{\authorshipname}
-		\thispagestyle{plain}%
-		\abovechapterskip% MODIFIED: match the top spacing of the ToC / List-of headings
-		% Heading in the same style as the other unnumbered chapters
-		\begingroup
-			\parindent\z@ \raggedright \normalfont
-			{\chapterfont \authorshipname\par}%
-		\endgroup
-		\vskip 10pt
-		\noindent\textcolor{black!30}{\rule{\linewidth}{.4pt}}\par
-		\vskip 16pt
-		\noindent\ignorespaces
-	}%
-	{%
-		\par\vfill\null
-	}
+		\thispagestyle{plain}
+		\null\vfil
+		{\noindent\huge\bfseries\authorshipname\par\vspace{10pt}}
+	}{}
 }
 
 %----------------------------------------------------------------------------------------
