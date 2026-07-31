@@ -1,10 +1,10 @@
 # Framework Development and Results {#sec-chapter4}
 
-Two years of live ITSM and CMDB records (January 2024 to December 2025) from a regulated Swiss trading institution supply the raw material for this chapter. The indicator values extracted from those records, the normalisation and weighting decisions applied to them, and the TOPSIS scores that result are each documented and justified in the sections below.
+Two years of live ITSM and CMDB records, from January 2024 to December 2025, at a regulated Swiss trading institution supply the raw material for this chapter. The sections below document and justify the indicator values extracted from those records, the normalisation and weighting decisions applied to them, and the resulting TOPSIS scores.
 
 ## Data Preparation {#sec-dataprep}
 
-The trading IT portfolio includes 108 services. Fifty-three of these are small vendor applications such as trading graphical user interfaces and were excluded from the analysis because they require no significant ongoing activity from the portfolio's IT teams.
+The trading IT portfolio includes 108 services. Fifty-three are small vendor applications such as trading graphical user interfaces, and were excluded because they require no significant ongoing activity from the portfolio's IT teams.
 
 From the remaining services, six were selected for demonstration on the basis of data completeness. Each holds a continuous record across all five indicators for the full two-year window in both systems, is registered as an active configuration item and has been in operation for more than thirty-six months. Service identifiers were replaced with alphanumeric codes before analysis (@sec-ethics), and the dataset contains no team, vendor or individual identifiers. Two consequences follow from such a small demonstration set. First, the services selected tend to carry higher operational activity, so absolute indicator values are not representative of the full portfolio. Second, a six-service decision matrix limits the discriminatory power of the rank-stability tests (@sec-evaluationlimitations). The contribution is therefore the working instrument and its evaluation logic, not a portfolio-wide ranking, which is identified as future work once indicator coverage across the portfolio is complete.
 
@@ -14,11 +14,11 @@ The five indicators defined in @sec-datasources were extracted from the organisa
 
 Prior to normalisation, several quality filters were applied to the raw incident data. Incidents sharing a common root cause but recorded as separate tickets, a pattern typical of alarm storms, were consolidated into a single incident to avoid inflating frequency counts. Incidents with an MTTR below 0.1 hours were excluded, since resolutions at that speed most likely reflect automatic closure after a false alarm rather than genuine remediation effort. A 98th percentile cap addressed the upper tail of the MTTR distribution, excluding incidents whose resolution times more plausibly reflect administrative inactivity than active resolution effort.
 
-All CMDB records were found to be complete. No imputation or worst-case substitution was required.
+All CMDB records were found to be complete. No imputation or worst-case substitution was required. The cumulative unsupported-component-months figure extracted from the CMDB was then divided by each service's registered component count to yield the per-component intensity defined in @sec-datasources, with numerator and denominator drawn from the same extract.
 
 ### Data Limitations {#sec-datalimitations}
 
-The data carry inherent quality limitations that must be acknowledged before interpreting the results. Because the organisation does not document CFR directly, it is derived from incident and change records as described in @sec-datasources. Incident frequency, MTTR and CFR all depend on the accuracy and completeness of the incidents opened and closed. Patch recency is bounded by CMDB coverage and scanner configuration, so services with incomplete records may appear more current than they are.
+The data carry inherent quality limitations that must be acknowledged before interpreting the results. Because the organisation does not document CFR directly, it is derived from incident and change records as described in @sec-datasources. Incident frequency, MTTR and CFR all depend on the accuracy and completeness of the incidents opened and closed. Patch recency is bounded by CMDB coverage and scanner configuration, so services with incomplete records may appear more current than they are. Because unsupported component months is expressed per component (@sec-datasources), the accuracy of the CMDB component count becomes a dependency of the indicator: a mis-scoped denominator would bias a service's lifecycle-debt intensity, though component records were complete for the six demonstration services.
 
 Recording practices also vary across teams. Some contacts arrive by phone, email or chat and become a formal ITSM record only at the receiving team's discretion. Others are handled as defects in a separate issue tracker and never escalated. Services where informal handling is common may therefore record lower incident counts and CFR values than their true failure rate warrants, compressing their priority scores. MTTR is exposed at closure, since a team that leaves resolved incidents open will show a longer mean resolution time than its actual recovery warrants. Inconsistent severity labelling has limited influence here, as incident frequency and MTTR are computed across all severities.
 
@@ -26,21 +26,21 @@ These limitations do not invalidate the proxy approach. Scores should be read as
 
 ### Operational Indicator Values
 
-@tbl-raw-data presents the extracted indicator values for all six services. The definitions of these indicators are given in @sec-datasources.
+@tbl-raw-data presents the extracted indicator values for all six services. Their definitions are given in @sec-datasources.
 
 ```{=latex}
 \begingroup
 \scriptsize
 ```
 
-| Service | Incident Freq. (per year) | MTTR (hrs) | CFR | Patch Recency | Unsup. Comp. Months |
+| Service | Incident Freq. (per year) | MTTR (hrs) | CFR | Patch Recency | Unsup. Comp. Mo. / comp. |
 |------------|-----------:|-----------:|-----------:|-----------:|-----------:|
-| SVC-01 | 64 | 45.35 | 0.83 | 53.10 | 2565 |
-| SVC-02 | 30 | 25.26 | 0.19 | 61.90 | 712 |
-| SVC-03 | 21 | 13.31 | 0.38 | 100.00 | 0 |
-| SVC-04 | 574 | 41.91 | 3.38 | 100.00 | 0 |
-| SVC-05 | 171 | 23.72 | 1.52 | 100.00 | 0 |
-| SVC-06 | 302 | 13.11 | 3.96 | 52.94 | 321 |
+| SVC-01 | 64 | 45.35 | 0.83 | 53.10 | 5.67 |
+| SVC-02 | 30 | 25.26 | 0.19 | 61.90 | 2.42 |
+| SVC-03 | 21 | 13.31 | 0.38 | 100.00 | 0.00 |
+| SVC-04 | 574 | 41.91 | 3.38 | 100.00 | 0.00 |
+| SVC-05 | 171 | 23.72 | 1.52 | 100.00 | 0.00 |
+| SVC-06 | 302 | 13.11 | 3.96 | 52.94 | 18.88 |
 
 : Indicator values per service, 2025 {#tbl-raw-data tbl-colwidths="\[14,20,13,12,16,18\]"}
 
@@ -85,12 +85,12 @@ The computation follows the TOPSIS formulation specified in @sec-frameworkdesign
 
 | Service | $C_i$ (Equal) | Rank (Equal) | $C_i$ (Adjusted) | Rank (Adjusted) |
 |---|---:|---:|---:|---:|
-| SVC-01 | 0.4652 | 1 | 0.3896 | 1 |
-| SVC-04 | 0.4793 | 2 | 0.4523 | 2 |
-| SVC-06 | 0.5490 | 3 | 0.5833 | 3 |
-| SVC-02 | 0.7788 | 4 | 0.6913 | 4 |
-| SVC-05 | 0.7796 | 5 | 0.7620 | 5 |
-| SVC-03 | 0.9775 | 6 | 0.9810 | 6 |
+| SVC-06 | 0.3204 | 1 | 0.4415 | 1 |
+| SVC-04 | 0.4778 | 2 | 0.4512 | 2 |
+| SVC-01 | 0.6619 | 3 | 0.4976 | 3 |
+| SVC-05 | 0.7790 | 4 | 0.7615 | 5 |
+| SVC-02 | 0.8297 | 5 | 0.7175 | 4 |
+| SVC-03 | 0.9774 | 6 | 0.9809 | 6 |
 
 : TOPSIS results, 2025 (higher $C_i$, lower debt priority) {#tbl-topsis-results2025 tbl-colwidths="\[20,20,20,20,20\]"}
 
@@ -107,12 +107,12 @@ To assess temporal stability, the framework was applied to the 2024 dataset usin
 
 | Service | $C_i$ (Equal) | Rank (Equal) | $C_i$ (Adjusted) | Rank (Adjusted) |
 |---|---:|---:|---:|---:|
-| SVC-04 | 0.4671 | 1 | 0.4927 | 2 |
-| SVC-06 | 0.5339 | 2 | 0.6210 | 4 |
-| SVC-02 | 0.6796 | 3 | 0.4898 | 1 |
-| SVC-01 | 0.6843 | 4 | 0.5660 | 3 |
-| SVC-05 | 0.6964 | 5 | 0.7032 | 5 |
-| SVC-03 | 0.8450 | 6 | 0.8796 | 6 |
+| SVC-04 | 0.4837 | 1 | 0.5038 | 1 |
+| SVC-06 | 0.5163 | 2 | 0.6048 | 3 |
+| SVC-02 | 0.6999 | 3 | 0.5102 | 2 |
+| SVC-05 | 0.7058 | 4 | 0.7092 | 5 |
+| SVC-01 | 0.7759 | 5 | 0.6231 | 4 |
+| SVC-03 | 0.8492 | 6 | 0.8816 | 6 |
 
 : TOPSIS results, 2024 (higher $C_i$, lower debt priority) {#tbl-topsis-results2024 tbl-colwidths="\[20,20,20,20,20\]"}
 
@@ -120,6 +120,6 @@ To assess temporal stability, the framework was applied to the 2024 dataset usin
 \endgroup
 ```
 
-Two year-on-year changes are substantial. SVC-01 shifted the most: in 2024 it was well maintained, with patch recency of 98.23 and only 108 unsupported component-months, but by 2025 its patch recency had fallen to 53.10 and its unsupported exposure had risen to 2,565 component-months, the largest in the portfolio. SVC-06 also deteriorated broadly, its incident count rising from 43 to 302, its change failure rate from 0.86 to 3.96, and its patch recency falling from 82.35 to 52.94. SVC-02's unsupported-component exposure rose from 34 to 712 component-months, drawn from the same complete CMDB extract that underlies the indicator (@sec-appendixb).
+The dominant lifecycle-debt signal now sits with SVC-06 in both years. Its per-component exposure is the highest in the portfolio (16.41 months per component in 2024, rising to 18.88 in 2025), and by 2025 this combines with the worst change failure rate (3.96) and the worst patch recency (52.94) to place it first for remediation under both weight configurations. SVC-01's exposure also rose year on year, from 0.24 to 5.67 months per component, but spread across a large component base it remains a second-order signal; together with the portfolio's highest MTTR (45.35 hours) and second-worst patch recency (53.10) it places SVC-01 third in 2025. The comparison illustrates the effect of the per-component normalisation directly: under the earlier cumulative measure SVC-01's large estate produced the biggest raw figure and would have drawn it to the top of the ranking, whereas the size-adjusted intensity correctly subordinates it to SVC-06, a compact service almost entirely out of support. These movements are drawn from the same complete CMDB extract that underlies the indicator (@sec-appendixb).
 
 The closeness coefficients and rankings produced under both weight configurations and both years constitute the analytical output of the framework and the empirical basis for @sec-chapter5, which tests their stability, method-independence, discriminant value and structural rigour before interpreting the resulting priorities.

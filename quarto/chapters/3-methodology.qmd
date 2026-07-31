@@ -1,10 +1,10 @@
 # Research Design and Methodology {#sec-chapter3}
 
-The philosophical approach, research strategy, and design decisions that govern the construction and evaluation of the proposed framework are developed in this chapter. It proceeds in two parts. The first covers the research design from philosophical positioning through to the evaluation approach, and the second addresses the ethical and professional considerations arising from the use of operational data in a regulated financial institution.
+This chapter develops the philosophical approach, research strategy and design decisions that govern the construction and evaluation of the proposed framework. It proceeds in two parts. The first covers the research design from philosophical positioning through to the evaluation approach. The second addresses the ethical and professional considerations arising from the use of operational data in a regulated financial institution.
 
 ## Research Design
 
-This study is grounded in a pragmatist research philosophy. Pragmatism holds that the value of a knowledge claim is determined by whether the resulting artefact works in the context for which it was designed [@kellyThreePrinciplesPragmatism2020]. This position suits the present study because the objective is not to establish universal laws about technical debt, but to construct a quantitative framework useful for prioritisation decisions in a specific enterprise IT environment. Technical debt is treated here as a construct without a single measurement, since tools applied to the same codebase produce substantially different estimates [@amanatidisEvaluatingAgreementTechnical2020]. The framework therefore grounds its estimates in operationally defined proxies and acknowledges that the resulting scores are representations, not facts.
+This study is grounded in a pragmatist research philosophy. Pragmatism holds that the value of a knowledge claim rests on whether the resulting artefact works in the context it was designed for [@kellyThreePrinciplesPragmatism2020]. This suits the present study, because the aim is not to establish universal laws about technical debt but to build a quantitative framework useful for prioritisation decisions in a specific enterprise IT environment. Technical debt is treated here as a construct without a single measurement, since tools applied to the same codebase produce substantially different estimates [@amanatidisEvaluatingAgreementTechnical2020]. The framework therefore grounds its estimates in operationally defined proxies and treats the resulting scores as representations, not facts.
 
 ### Research Strategy
 
@@ -20,12 +20,12 @@ Design Science Research (DSR) governs this study, as formalised by @hevnerDesign
 | DSR Guideline | Implementation in this Study |
 |------------------------------------|------------------------------------|
 | Design as an artefact | The TOPSIS-based prioritisation framework |
-| Problem relevance | Established in @sec-chapter2: no existing framework integrates service-level operational metrics for TD prioritisation in trading IT |
-| Design evaluation | Sensitivity analysis; convergent validation across alternative methods; discriminant baseline; rank-reversal test |
-| Research contributions | A novel operational indicator set; to the best of current knowledge, the first application of TOPSIS to live ITSM and CMDB data for technical debt prioritisation in financial trading IT |
-| Research rigour | TOPSIS applied per its formal specification (@sec-frameworkdesign); evaluation uses established rank-correlation and robustness procedures (@sec-evaluationapproach) |
+| Problem relevance | Established in @sec-chapter2, no existing framework integrates service-level operational metrics for TD prioritisation in trading IT |
+| Design evaluation | Sensitivity analysis, convergent validation across alternative methods, discriminant baseline, rank-reversal test |
+| Research contributions | A novel operational indicator set, and to the best of current knowledge the first application of TOPSIS to live ITSM and CMDB data for technical debt prioritisation in financial trading IT |
+| Research rigour | TOPSIS applied per its formal specification (@sec-frameworkdesign), with evaluation using established rank-correlation and robustness procedures (@sec-evaluationapproach) |
 | Design as a search process | Iterative refinement of indicator selection (literature candidates audited against ITSM/CMDB availability) and weight assignment |
-| Communication of research | This dissertation; practitioner-accessible scoring output |
+| Communication of research | This dissertation, plus practitioner-accessible scoring output |
 
 : DSR guidelines and their implementation {#tbl-dsr-guidelines tbl-colwidths="\[30,70\]"}
 
@@ -42,12 +42,12 @@ The process follows @peffersDesignScienceResearch2007 six-step model: problem id
 
 graph TD
     P["**Problem**<br/>Absence of a quantitative<br/>service-level TD prioritisation<br/>framework for trading IT"]
-    IK["**Input Knowledge**<br/>TD taxonomy; operational indicators;<br/>TOPSIS method; DSR foundations<br/>(Hevner *et al.*, 2004)"]
-    RP["**Research Process**<br/>Literature review;<br/>indicator selection;<br/>TOPSIS construction;<br/>sensitivity analysis"]
-    KC["**Key Concepts**<br/>Technical debt;<br/>operational proxies;<br/>MCDM; ITSM service data"]
+    IK["**Input Knowledge**<br/>TD taxonomy, operational indicators,<br/>TOPSIS method, DSR foundations<br/>(Hevner *et al.*, 2004)"]
+    RP["**Research Process**<br/>Literature review,<br/>indicator selection,<br/>TOPSIS construction,<br/>sensitivity analysis"]
+    KC["**Key Concepts**<br/>Technical debt,<br/>operational proxies,<br/>MCDM, ITSM service data"]
     DSR(["DSR Project"])
     S["**Solution**<br/>TOPSIS framework operating<br/>on live ITSM data<br/>(five operational indicators,<br/>two DORA-derived)"]
-    OK["**Output Knowledge**<br/>Prescriptive design entity;<br/>validity of operational TD<br/>proxies in regulated IT"]
+    OK["**Output Knowledge**<br/>Prescriptive design entity,<br/>validity of operational TD<br/>proxies in regulated IT"]
 
     P --> DSR
     IK --> DSR
@@ -63,7 +63,7 @@ The study is structured as a single-organisation embedded case study, situated w
 
 Three factors make this design appropriate. First, the regulatory, operational and vendor-platform characteristics of Swiss financial IT resist generalisation from studies conducted elsewhere. Second, granular ITSM records are unavailable through surveys or experiments. Third, evaluating the artefact against operational data from its target environment satisfies the rigorous-evaluation requirement of @hevnerDesignScienceInformation2004.
 
-The study adopts the individual IT service as the unit of analysis, defined as a distinct configuration item in the organisation's ITSM instance. In this vendor-heavy enterprise environment, source-code access is unavailable for both outsourced components and on-premises vendor software [@ramasubbuControllingTechnicalDebt2021]. Service-level operational indicators are therefore tested as candidate proxies for technical debt prioritisation, rather than assumed as established substitutes. The study is cross-sectional, analysing a fixed observation window rather than tracking changes over time, consistent with the objective of demonstrating ranking validity at a point in time. Longitudinal evaluation is identified as a direction for future work.
+The unit of analysis is the individual IT service, defined as a distinct configuration item in the organisation's ITSM instance. In this vendor-heavy environment, source-code access is unavailable for both outsourced components and on-premises vendor software [@ramasubbuControllingTechnicalDebt2021]. Service-level operational indicators are therefore tested as candidate proxies for technical debt prioritisation rather than assumed as established substitutes. The study is cross-sectional, analysing a fixed observation window rather than tracking change over time, consistent with the aim of demonstrating ranking validity at a point in time. Longitudinal evaluation is a direction for future work.
 
 ### Data Sources and Collection {#sec-datasources}
 
@@ -82,7 +82,7 @@ The five retained indicators are operationalisable from live records held in the
 | MTTR | Arithmetic mean resolution time for incidents. | ITSM | Hours | Cost |
 | CFR | Weighted incidents divided by the number of changes. | ITSM | Ratio | Cost |
 | Patch recency | Share of service components running within a supported release window. | CMDB | Percentage (0–100) | Benefit |
-| Unsupported component months | Total months of exposure to unsupported components in the service stack. | CMDB | Months | Cost |
+| Unsupported component months | Total months of exposure to unsupported components in the service stack, divided by the service's component count (per-component intensity). | CMDB | Months / component | Cost |
 
 : Operational indicator definitions {#tbl-indicators-def tbl-colwidths="\[20,40,10,15,15\]"}
 
@@ -96,36 +96,40 @@ Incident frequency, MTTR and CFR proxy the operational consequences of architect
 
 The two CMDB-derived indicators, patch recency and unsupported component months, operationalise vulnerability and infrastructure lifecycle debt following @hakiDigitalNudgingTechnical2023, differentiating services with similar current patch status but different historical accumulation. Throughout, operational indicators are treated as candidate proxies rather than established substitutes. The validity of this inference is the central empirical hypothesis tested in @sec-chapter5.
 
+One of these indicators requires an additional normalisation step before it enters the decision matrix. In raw form, unsupported component months is an extensive quantity: a cumulative count of component-months that grows mechanically with the number of components a service comprises. Left uncorrected, a large microservice estate carrying a small proportion of unsupported components would outscore a compact monolith whose entire stack is out of support, so the indicator would partly measure service size rather than lifecycle debt [@ampatzoglouReusabilityIndexMeasure2018]. The same validity concern that already motivates expressing patch recency as a share rather than a count. To remove it, unsupported component months is converted to a size-relative intensity by dividing the cumulative figure by the number of components registered for the service, $u_i = (\text{unsupported component months})_i / (\text{component count})_i$. This denominator (exposure) normalisation is a standard construction step for composite indicators whose sub-indicators differ in scale or size dependence [@nardoToolsCompositeIndicators2005; @grecoMethodologicalFrameworkComposite2019]. It is distinct from, and applied prior to, the vector normalisation performed inside TOPSIS (@sec-frameworkdesign): the vector step rescales each criterion column to unit length so that criteria are comparable with one another, whereas the per-component conversion removes size dependence within this single indicator before any cross-criterion comparison. A per-component intensity is preferred over a simple percentage-of-components-unsupported share because the share would discard the duration dimension, counting a component unsupported for many months identically to one unsupported briefly, whereas the intensity preserves both how many components are affected and for how long. Services whose components are all currently supported have a numerator of zero and therefore a clean intensity of zero irrespective of size; a divide-by-zero guard applies to any service with no registered components, though none occurs in the dataset. The resulting values are computed at full precision and reported to two decimal places.
+
 ### Framework Design {#sec-frameworkdesign}
 
 The analytical core is the TOPSIS method, formulated by @hwangMultipleAttributeDecision1981 and validated through comprehensive reviews of its enterprise applications [@pandeyReviewTOPSISMethod2023]. TOPSIS addresses the single-criterion prioritisation limitation identified in @sec-chapter2 by ranking services according to their geometric proximity to ideal solutions after normalisation and weighting. Given a decision matrix with $m$ services and $n$ indicators, the method proceeds as follows.
 
-The matrix is normalised using vector normalisation, which scales each value relative to the column norm to ensure comparability across indicators with different units and ranges [@pandeyReviewTOPSISMethod2023]:
+The matrix is normalised using vector normalisation, which scales each value relative to the column norm to ensure comparability across indicators with different units and ranges [@pandeyReviewTOPSISMethod2023].
 
 $$
 r_{ij} = \frac{x_{ij}}{\sqrt{\sum_{i=1}^{m} x_{ij}^2}}
 $$
 
-A weighted normalised matrix is constructed using criterion weight $w_j$:
+This vector normalisation operates across services within each criterion. It is separate from the per-component conversion applied to unsupported component months in @sec-datasources, which is a pre-processing step on a single raw indicator, applied before the decision matrix is assembled.
+
+A weighted normalised matrix is constructed using criterion weight $w_j$.
 
 $$
 v_{ij} = w_j \cdot r_{ij}
 $$
 
-The positive and negative ideal solutions are identified:
+The positive and negative ideal solutions are identified.
 
 $$
 A^{\text{+}} = \{ v_1^{\text{+}}, \ldots, v_n^{\text{+}} \}, \quad A^{\text{-}} = \{ v_1^{\text{-}}, \ldots, v_n^{\text{-}} \}
 $$
 
-Euclidean distances from each ideal are calculated:
+Euclidean distances from each ideal are calculated.
 
 $$
 S_i^{\text{+}} = \sqrt{\sum_{j=1}^{n}(v_{ij} - v_j^{\text{+}})^2}, \quad
 S_i^{\text{-}} = \sqrt{\sum_{j=1}^{n}(v_{ij} - v_j^{\text{-}})^2}
 $$
 
-The relative closeness coefficient $C_i$ constitutes the final score:
+The relative closeness coefficient $C_i$ constitutes the final score.
 
 $$
 C_i = \frac{S_i^{\text{-}}}{S_i^{\text{+}} + S_i^{\text{-}}}, \quad C_i \in [0, 1]
@@ -174,10 +178,10 @@ As a systemically significant institution, the organisation is also subject to F
 
 A relative rank assigned to a service carries a risk of being misused to evaluate team performance. High-debt service profiles typically reflect historical design decisions or legacy constraints rather than the competence of the team currently managing the service [@ahmadTechnicalDebtNot2026]. This risk is not hypothetical in regulated financial institutions, where priority scores can influence budgets, staffing allocations and post-incident accountability.
 
-The governance scope of this framework was agreed with the Head of Trading IT at the outset of the study. The explicit understanding was that the framework would support a broader, portfolio-level view of service health and inform governance conversations, rather than serve as a definitive or binding prioritisation instrument. The closeness coefficient is a decision-support signal derived from operational proxies, and it was presented as such from the start of the engagement.
+The governance scope of this framework was agreed with the Head of Trading IT at the outset. The explicit understanding was that the framework would support a broader, portfolio-level view of service health and inform governance conversations, rather than serve as a definitive or binding prioritisation instrument. The closeness coefficient is a decision-support signal derived from operational proxies, and it was presented as such from the start of the engagement.
 
 Team leads were not involved in the creation of this framework, as the study was conducted solely by the author as part of a master's thesis. No outputs were shared with service teams during the research period. Any operational use of the priority scores beyond the agreed portfolio management scope would require a separate governance decision by the Head of Trading IT before deployment.
 
 ### Professional Standards and Limitations
 
-This study was conducted in accordance with the BCS Code of Conduct [@CodeConductBCS2022], including the obligations to act with integrity, to respect the rights of third parties, and to ensure that the artefact is fit for purpose. Three limitations clarify scope. The single-site design means that indicator weights and TOPSIS configuration are calibrated for one organisation and should not be transferred without revalidation. The cross-sectional window means the framework captures a snapshot, so recently remediated services may be under-ranked. Finally, the five indicators do not exhaust all dimensions of operational technical debt. Indicators related to documentation, test coverage, or architectural coupling were excluded due to data availability and remain candidates for future iterations.
+This study followed the BCS Code of Conduct [@CodeConductBCS2022], including the obligations to act with integrity, respect the rights of third parties and ensure the artefact is fit for purpose. Three limitations clarify scope. The single-site design means indicator weights and TOPSIS configuration are calibrated for one organisation and should not be transferred without revalidation. The cross-sectional window means the framework captures a snapshot, so recently remediated services may be under-ranked. Finally, the five indicators do not exhaust all dimensions of operational technical debt. Indicators for documentation, test coverage or architectural coupling were excluded on data availability and remain candidates for future iterations.
