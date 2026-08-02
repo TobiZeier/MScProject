@@ -69,7 +69,7 @@ Before examining how technical debt is measured, it helps to see how the concept
 
 ### Origins and the Metaphor
 
-@cunninghamWyCashPortfolioManagement1992 introduced the metaphor to explain a refactoring strategy to non-technical stakeholders. In his original formulation, shipping code that is "not quite right" resembles taking on financial debt, each subsequent maintenance effort represents interest. If the principal is not repaid through refactoring, the cost of working with the system compounds until change becomes untenable.
+@cunninghamWyCashPortfolioManagement1992 introduced the metaphor to explain a refactoring strategy to non-technical stakeholders. In his original formulation, shipping code that is "not quite right" resembles taking on financial debt, and each subsequent maintenance effort represents interest. If the principal is not repaid through refactoring, the cost of working with the system compounds until change becomes untenable.
 
 The metaphor has proved productive but carries inherent limits. Unlike financial debt, the principal is an estimated remediation cost that changes as systems evolve, and the interest depends on uncertain future development activity. The proposed framework therefore does not rely on the metaphor for rigour. It grounds its estimates in service-level operational data, making interest costs concrete and observable.
 
