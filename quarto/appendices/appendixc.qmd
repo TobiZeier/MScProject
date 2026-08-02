@@ -96,7 +96,7 @@ Under absolute-mode TOPSIS the 2025 equal-weight agreement with SAW and VIKOR is
 
 ## Rank-Reversal Detail (Classic Mode)
 
-Entries reading preserved leave the reference order unchanged.
+Entries reading preserved leave the reference order unchanged. The 2025 reference order is $\text{SVC-06} \succ \text{SVC-04} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-03}$. The 2024 reference order is $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03}$.
 
 | Service removed | 2025 outcome | 2024 outcome |
 |-----------------|---------------------------|---------------------------|
@@ -107,7 +107,7 @@ Entries reading preserved leave the reference order unchanged.
 | SVC-05 | preserved | preserved |
 | SVC-06 | preserved | $\text{SVC-04} \succ \text{SVC-01} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-03}$ |
 
-: Leave-one-out rank order, standard TOPSIS, equal weights. Reference orders: 2025 $\text{SVC-06} \succ \text{SVC-04} \succ \text{SVC-01} \succ \text{SVC-05} \succ \text{SVC-02} \succ \text{SVC-03}$; 2024 $\text{SVC-04} \succ \text{SVC-06} \succ \text{SVC-02} \succ \text{SVC-05} \succ \text{SVC-01} \succ \text{SVC-03}$. {#tbl-appc-rankreversal}
+: Leave-one-out rank order, standard TOPSIS, equal weights. {#tbl-appc-rankreversal}
 
 ## Rank-Reversal Detail (Absolute Mode)
 

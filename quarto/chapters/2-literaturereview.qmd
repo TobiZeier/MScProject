@@ -89,7 +89,7 @@ The conceptual perimeter of technical debt has progressively widened beyond sour
 
 @hanssenIdentifyingScalabilityDebt2019 identified an important mechanism, regulatory change as a debt trigger. In an open banking case study, architectural decisions that were adequate before the EU Payment Services Directive 2 (PSD2) became sources of scalability debt once new requirements were imposed without architectural review. The pattern is directly relevant to trading IT, where evolving compliance requirements can render existing architectures inadequate.
 
-@yangTaxonomyTechnicalDebt2019 proposed a taxonomy of Commercial Off-the-Shelf (COTS) related technical debt covering seven key types, including vendor platform obsolescence and integration constraints. This broader view is essential for financial trading IT. Vendor platforms and COTS products form the core of the operational stack, and platform, infrastructure and vulnerability debt are invisible to standard static analysis. Managing them requires indicators from infrastructure records and operational monitoring rather than code repositories.
+@yangTaxonomyTechnicalDebt2019 proposed a taxonomy of Commercial Off-the-Shelf (COTS) related technical debt covering seven key types, including vendor platform obsolescence and integration constraints. This broader view is essential for financial trading IT. Vendor platforms and COTS products often form the core of the operational stack (@hakiDigitalNudgingTechnical2023), and platform, infrastructure and vulnerability debt are invisible to standard static analysis. Managing them requires indicators from infrastructure records and operational monitoring rather than code repositories.
 
 ## Measurement and Prioritisation Frameworks
 
@@ -219,15 +219,15 @@ Existing TOPSIS applications to technical debt rely on controlled datasets, and 
 
 | Reference | Focus | SL Ind. | Multi-crit. | Fin. IT | Key gap |
 |---|---|:---:|:---:|:---:|---|
-| [@kruchtenTechnicalDebtMetaphor2012]; [@fowlerTechnicalDebtQuadrant2009]; [@cunninghamWyCashPortfolioManagement1992] | TD taxonomy | ⨯ | ⨯ | ⨯ | No measurement mechanism |
-| [@biazottoTechnicalDebtManagement2024]; [@amanatidisEvaluatingAgreementTechnical2020]; [@ampatzoglouSDK4EDPlatformTechnical2022] | Static analysis tools | ⨯ | ⨯ | ⨯ | Inapplicable to vendor platforms |
-| [@lenarduzziSystematicLiteratureReview2021]; [@pinaTechnicalDebtPrioritization2022]; [@alfayezHowSonarQubeidentifiedTechnical2023] | TD prioritisation | ⨯ | Partial | ⨯ | Single criterion, no operational data |
-| [@stochelBusinessdrivenTechnicalDebt2023]; [@wieseITManagersPerspective2023] | Business-driven valuation | ⨯ | ⨯ | ⨯ | No service-level signals |
-| [@hakiDigitalNudgingTechnical2023]; [@rollandExploringTensionsManagement2021] | TD in financial services | Partial | ⨯ | ✓ | No quantitative ranking output |
-| [@bankerTechnicalDebtFirm2020]; [@ramasubbuControllingTechnicalDebt2021]; [@rinta-kahilaGettingTrappedTechnical2023] | Enterprise COTS and outsourcing | ⨯ | ⨯ | ✓ | No prioritisation framework |
-| [@forsgrenAccelerate2018]; [@nordExamplesTechnicalDebts2021]; [@paudelExploringRelationshipTechnical2025] | DORA metrics as TD proxies | ✓ | ⨯ | Partial | No ranking instrument |
-| [@tizioSoftwareUpdatesStrategies2023]; [@markkanenPatchManagementPlanning2023]; [@nursePatchNotPatch2025] | Patch and vulnerability debt | Partial | ⨯ | Partial | Not linked to TD prioritisation |
-| [@albarakManagingTechnicalDebt2022]; [@khanIntegratedMethodologyRanking2022]; [@zytoonDecisionSupportModel2020] | TOPSIS / MCDM in IT | ⨯ | ✓ | ⨯ | No live data, no trading IT context |
+| @kruchtenTechnicalDebtMetaphor2012; @fowlerTechnicalDebtQuadrant2009; @cunninghamWyCashPortfolioManagement1992 | TD taxonomy | ⨯ | ⨯ | ⨯ | No measurement mechanism |
+| @biazottoTechnicalDebtManagement2024; @amanatidisEvaluatingAgreementTechnical2020; @ampatzoglouSDK4EDPlatformTechnical2022 | Static analysis tools | ⨯ | ⨯ | ⨯ | Inapplicable to vendor platforms |
+| @lenarduzziSystematicLiteratureReview2021; @pinaTechnicalDebtPrioritization2022; @alfayezHowSonarQubeidentifiedTechnical2023 | TD prioritisation | ⨯ | Partial | ⨯ | Single criterion, no operational data |
+| @stochelBusinessdrivenTechnicalDebt2023; @wieseITManagersPerspective2023 | Business-driven valuation | ⨯ | ⨯ | ⨯ | No service-level signals |
+| @hakiDigitalNudgingTechnical2023; @rollandExploringTensionsManagement2021 | TD in financial services | Partial | ⨯ | ✓ | No quantitative ranking output |
+| @bankerTechnicalDebtFirm2020; @ramasubbuControllingTechnicalDebt2021; @rinta-kahilaGettingTrappedTechnical2023 | Enterprise COTS and outsourcing | ⨯ | ⨯ | ✓ | No prioritisation framework |
+| @forsgrenAccelerate2018; @nordExamplesTechnicalDebts2021; @paudelExploringRelationshipTechnical2025 | DORA metrics as TD proxies | ✓ | ⨯ | Partial | No ranking instrument |
+| @tizioSoftwareUpdatesStrategies2023; @markkanenPatchManagementPlanning2023; @nursePatchNotPatch2025 | Patch and vulnerability debt | Partial | ⨯ | Partial | Not linked to TD prioritisation |
+| @albarakManagingTechnicalDebt2022; @khanIntegratedMethodologyRanking2022; @zytoonDecisionSupportModel2020 | TOPSIS / MCDM in IT | ⨯ | ✓ | ⨯ | No live data, no trading IT context |
 | **This thesis** | **TOPSIS on ITSM/CMDB data** | **✓** | **✓** | **✓** | **None** |
 
 : Overview of related work and research gap {#tbl-lit-overview tbl-colwidths="[30,20,10,10,8,22]"}
