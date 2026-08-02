@@ -13,7 +13,7 @@ Design Science Research (DSR) governs this study, as formalised by @hevnerDesign
 @hevnerDesignScienceInformation2004 specify seven guidelines for rigorous DSR, mapped to this study in @tbl-dsr-guidelines. The problem space, the absence of a service-level TD framework, connects to the solution space, the TOPSIS artefact, through input knowledge and research processes, positioning the framework as prescriptive design knowledge for regulated enterprise contexts.
 
 ```{=latex}
-\begingroup
+\begin{samepage}
 \scriptsize
 ```
 
@@ -30,7 +30,7 @@ Design Science Research (DSR) governs this study, as formalised by @hevnerDesign
 : DSR guidelines and their implementation {#tbl-dsr-guidelines tbl-colwidths="\[30,70\]"}
 
 ```{=latex}
-\endgroup
+\end{samepage}
 ```
 
 The process follows the six-step model of @peffersDesignScienceResearch2007: problem identification and motivation (@sec-chapter1 and @sec-chapter2), definition of objectives (@sec-chapter2), design and development of the artefact (@sec-chapter4), demonstration, evaluation (@sec-chapter5), and communication (@sec-chapter6). The sequence is not strictly linear, as indicator selection and evaluation criteria were refined iteratively when constraints in the available data emerged during development.
@@ -72,7 +72,7 @@ The literature review (@sec-chapter2) identified candidate indicators mapping te
 The five retained indicators are operationalisable from live records held in the organisation's ITSM instance and CMDB. Records were accessed under an agreed arrangement with the Head of Trading IT over a two-year observation window (January 2024 – December 2025) and anonymised at source, with service names replaced by alphanumeric identifiers and all team and vendor labels removed before analysis.
 
 ```{=latex}
-\begingroup
+\begin{samepage}
 \scriptsize
 ```
 
@@ -87,7 +87,7 @@ The five retained indicators are operationalisable from live records held in the
 : Operational indicator definitions {#tbl-indicators-def tbl-colwidths="\[20,40,10,15,15\]"}
 
 ```{=latex}
-\endgroup
+\end{samepage}
 ```
 
 Two caveats apply. Incident frequency and MTTR are computed from all recorded incidents irrespective of severity, so both describe the overall incident profile. CFR is a derived proxy, calculated as weighted incidents divided by the number of changes, the formula the case organisation itself applies. It approximates the DORA change failure rate without the deployment-outcome labelling a true CFR requires. Because it shares its incident numerator with incident frequency, the two criteria are not fully independent, a constraint whose effect on the ordering is bounded by the weight sensitivity analysis in @sec-stability.

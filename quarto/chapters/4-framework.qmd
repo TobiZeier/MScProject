@@ -29,7 +29,7 @@ These limitations do not invalidate the proxy approach. Scores should be read as
 @tbl-raw-data presents the extracted indicator values for all six services. Their definitions are given in @sec-datasources.
 
 ```{=latex}
-\begingroup
+\begin{samepage}
 \scriptsize
 ```
 
@@ -45,7 +45,7 @@ These limitations do not invalidate the proxy approach. Scores should be read as
 : Indicator values per service, 2025 {#tbl-raw-data tbl-colwidths="\[14,20,13,12,16,18\]"}
 
 ```{=latex}
-\endgroup
+\end{samepage}
 ```
 
 The exact content of the files that have been used for the TOPSIS calculation can be found in @sec-appendixb.
@@ -57,7 +57,7 @@ Each indicator was normalised using vector normalisation, as specified in @sec-f
 Two weight configurations are applied, as specified in @sec-frameworkdesign. The baseline equal-weight configuration assigns $w_j = 0.20$ to each of the five criteria and serves as the reference case. The differential configuration assigns higher weights to MTTR and patch recency, consistent with the design rationale established in @sec-chapter3. The differential weights are $w_{\text{MTTR}} = w_{\text{Patch Recency}} = 0.30$ and $w_{\text{IncFreq}} = w_{\text{CFR}} = w_{\text{UnsupComp}} = 0.1\overline{3}$.
 
 ```{=latex}
-\begingroup
+\begin{samepage}
 \scriptsize
 ```
 
@@ -69,7 +69,7 @@ Two weight configurations are applied, as specified in @sec-frameworkdesign. The
 : Weight configurations {#tbl-weights tbl-colwidths="\[25,15,12,12,18,18\]"}
 
 ```{=latex}
-\endgroup
+\end{samepage}
 ```
 
 ## TOPSIS Computation and Rankings {#sec-topsis-results}
@@ -79,7 +79,7 @@ The computation follows the TOPSIS formulation specified in @sec-frameworkdesign
 @tbl-topsis-results2025 presents the full results under both weight configurations. The table is sorted from highest to lowest debt priority, so rank 1 equals highest priority for remediation.
 
 ```{=latex}
-\begingroup
+\begin{samepage}
 \scriptsize
 ```
 
@@ -95,13 +95,13 @@ The computation follows the TOPSIS formulation specified in @sec-frameworkdesign
 : TOPSIS results, 2025 (higher $C_i$, lower debt priority) {#tbl-topsis-results2025 tbl-colwidths="\[20,20,20,20,20\]"}
 
 ```{=latex}
-\endgroup
+\end{samepage}
 ```
 
 To assess temporal stability, the framework was applied to the 2024 dataset using the same weight configurations. @tbl-topsis-results2024 presents the resulting closeness coefficients and rankings for both configurations.
 
 ```{=latex}
-\begingroup
+\begin{samepage}
 \scriptsize
 ```
 
@@ -117,7 +117,7 @@ To assess temporal stability, the framework was applied to the 2024 dataset usin
 : TOPSIS results, 2024 (higher $C_i$, lower debt priority) {#tbl-topsis-results2024 tbl-colwidths="\[20,20,20,20,20\]"}
 
 ```{=latex}
-\endgroup
+\end{samepage}
 ```
 
 The dominant lifecycle-debt signal sits with SVC-06 in both years. Its per-component exposure is the highest in the portfolio (16.41 months per component in 2024, rising to 18.88 in 2025), and by 2025 this combines with the worst change failure rate (3.96) and the worst patch recency (52.94) to place it first for remediation under both weight configurations. SVC-01's exposure also rose year on year, from 0.24 to 5.67 months per component, but spread across a large component base it remains a second-order signal; together with the portfolio's highest MTTR (45.35 hours) and second-worst patch recency (53.10) it places SVC-01 third in 2025. This illustrates the effect of the per-component normalisation directly. Under a cumulative measure, SVC-01's large estate would have produced the biggest raw figure and drawn it to the top of the ranking, whereas the size-adjusted intensity correctly subordinates it to SVC-06, a compact service almost entirely out of support. These movements are drawn from the same complete CMDB extract that underlies the indicator (@sec-appendixb).

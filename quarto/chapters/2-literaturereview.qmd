@@ -15,7 +15,7 @@ What the literature does not yet offer is a quantitative, service-level mechanis
 The literature search was conducted between January and April 2026 using a systematic and reproducible approach, drawing on four principal academic databases: the University of Essex library, Scopus, IEEE Xplore and Google Scholar. Search terms are summarised in @tbl-search-terms.
 
 ```{=latex}
-\begingroup
+\begin{samepage}
 \scriptsize
 ```
 
@@ -33,13 +33,13 @@ The literature search was conducted between January and April 2026 using a syste
 : Search terms used for literature review {#tbl-search-terms tbl-colwidths="[30,70]"}
 
 ```{=latex}
-\endgroup
+\end{samepage}
 ```
 
 Sources were screened against the pre-specified inclusion and exclusion criteria in @tbl-criteria.
 
 ```{=latex}
-\begingroup
+\begin{samepage}
 \scriptsize
 ```
 
@@ -56,7 +56,7 @@ Sources were screened against the pre-specified inclusion and exclusion criteria
 : Inclusion and exclusion criteria {#tbl-criteria tbl-colwidths="[30,70]"}
 
 ```{=latex}
-\endgroup
+\end{samepage}
 ```
 
 Titles and abstracts were screened against these criteria first. Forward and backward citation snowballing on three anchor publications, @kruchtenTechnicalDebtMetaphor2012, @lenarduzziSystematicLiteratureReview2021 and @forsgrenAccelerate2018, then surfaced relevant studies not captured by the database searches. This produced a combined pool of approximately 110 candidate sources, of which more than 50 were retained after full-text review for relevance and methodological quality.
@@ -142,7 +142,7 @@ The inferential step this thesis takes goes beyond that validation. Using DORA m
 The following table maps each operational indicator to the technical debt dimension. It is interpreted here as proxying, with the literature grounding each indicator's diagnostic value. The dimension assignments are this study's synthesis rather than claims made by the cited sources individually.
 
 ```{=latex}
-\begingroup
+\begin{samepage}
 \scriptsize
 ```
 
@@ -157,7 +157,7 @@ The following table maps each operational indicator to the technical debt dimens
 : Operational indicators mapped to technical debt dimensions {#tbl-indicators-lit tbl-colwidths="[25,30,45]"}
 
 ```{=latex}
-\endgroup
+\end{samepage}
 ```
 
 ### Security Debt and Patch Management
@@ -213,7 +213,7 @@ Existing TOPSIS applications to technical debt rely on controlled datasets, and 
 @tbl-lit-overview maps the reviewed literature to the thesis argument and makes the novelty explicit. No existing study combines service-level indicators, multi-criteria prioritisation, live operational data and a trading IT context into a single auditable framework.
 
 ```{=latex}
-\begingroup
+\begin{samepage}
 \scriptsize
 ```
 
@@ -233,7 +233,7 @@ Existing TOPSIS applications to technical debt rely on controlled datasets, and 
 : Overview of related work and research gap {#tbl-lit-overview tbl-colwidths="[30,20,10,10,8,22]"}
 
 ```{=latex}
-\endgroup
+\end{samepage}
 ```
 
 The research gap identified in the final row of @tbl-lit-overview defines the problem that Chapter 3 translates into a concrete research design, and that Chapters 4 and 5 address through framework construction and evaluation.

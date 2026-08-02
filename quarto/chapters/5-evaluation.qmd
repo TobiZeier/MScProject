@@ -11,7 +11,7 @@ The framework is evaluated against the criteria set out in @sec-evaluationapproa
 Kendall's tau measures the similarity between two rankings and is well established in Multi-Criteria Decision-Analysis (MCDA) evaluation [@shekhovtsovHowStronglyRank2021]. It scales concordant minus discordant pairs to $[-1, 1]$, where $\tau = 1$ is perfect agreement. With only six services the p-value is obtained exactly across all $6! = 720$ orderings. The small sample limits the test's power, but the limitation reflects portfolio size rather than weak agreement, since p-values fall as the sample grows when a real effect is present [@chenRolesChallengesMerits2023]. The p-values in @tbl-kendall are therefore read as effect sizes rather than accept-or-reject decisions. All figures refer to the standard formulation. The absolute-mode variant is examined in @sec-absolutemode.
 
 ```{=latex}
-\begingroup
+\begin{samepage}
 \scriptsize
 ```
 
@@ -25,7 +25,7 @@ Kendall's tau measures the similarity between two rankings and is well establish
 : Kendall's tau across ranking comparisons, standard TOPSIS {#tbl-kendall tbl-colwidths="[55,15,15]"}
 
 ```{=latex}
-\endgroup
+\end{samepage}
 ```
 
 Weight sensitivity is high in both years ($\tau = 0.867$ in 2025, $0.733$ in 2024). Reweighting MTTR and patch recency leaves the priority order largely intact, moving only adjacent mid-field services. Temporal stability is moderate ($\tau = 0.467$ equal, $0.600$ adjusted), and the movement follows real profile change. SVC-06 is the clearest anchor. It carries the portfolio's heaviest per-component lifecycle exposure in both years, and as its change failure rate and patch position deteriorate into 2025 it consolidates the top priority, having ranked second in 2024. SVC-01 climbs from fifth in 2024 to third in 2025 as its patch recency collapses and its per-component unsupported exposure rises. Cross-year movement is reported as descriptive context, not as a quality criterion in its own right. Services evolve between periods, and a faithful ranking should follow that change. In every run the lowest-priority position is identical, and the same three services occupy the high-priority half in 2025 under both configurations.
@@ -49,7 +49,7 @@ A multi-criteria framework only earns its complexity if it says something an obv
 Structural rigour was examined by removing each service in turn and re-ranking the remainder. Under the standard formulation the 2025 order is preserved under all six removals (@tbl-rankreversal). The 2024 ranking, by contrast, reorders under three removals, of SVC-03, SVC-04 and SVC-06 (@sec-appendixc). The lowest-priority service never moves in either year, but in 2024 the identity of the top-priority service depends on which others are present. This is the limitation of set-relative distance aggregation identified by @garcia-cascalesRankReversalTOPSIS2012, confined here to the more compressed 2024 profiles rather than the top of the 2025 ranking.
 
 ```{=latex}
-\begingroup
+\begin{samepage}
 \scriptsize
 ```
 
@@ -65,7 +65,7 @@ Structural rigour was examined by removing each service in turn and re-ranking t
 : Leave-one-out rank changes, standard TOPSIS, 2025 equal weights {#tbl-rankreversal tbl-colwidths="[35,65]"}
 
 ```{=latex}
-\endgroup
+\end{samepage}
 ```
 
 To remove the effect, the absolute-mode correction of @garcia-cascalesRankReversalTOPSIS2012, specified in @sec-frameworkdesign, was implemented. Vector normalisation is replaced by normalisation against fixed criterion bounds, and the ideal solutions are anchored direction-aware to fictitious alternatives at the extremes of each criterion scale, addressing the cost-attribute limitation that @yangIngeniousSolutionRank2020 identifies in the original formulation. Under this variant the order is preserved across all six removals in both years (@sec-appendixc), guaranteed rather than incidental. @yangIngeniousSolutionRank2020 proves that variants with set-independent bounds and ideals are ranking stable by construction. The gain carries a cost, since the fixed bounds must be justified from organisational thresholds rather than sample statistics (values in @sec-appendixa). Anchoring the ranking to a fixed frame, however, changes more than its stability properties.
@@ -85,7 +85,7 @@ Because two discrete configurations cannot capture the plurality of defensible j
 @tbl-montecarlo reports the rank-acceptability distribution for 2025. The bottom of the ranking is close to weight-independent, with SVC-03 at the lowest priority in 96.4% of weightings. The top is concentrated rather than evenly split. Rank 1 falls to SVC-06 in 65.1% of draws, with SVC-04 (26.2%) and SVC-01 (8.8%) the only other services ever reaching it. The extreme low priority is thus robust to any weighting, while the single top service is dominated by SVC-06 but weight-dependent within a stable three-service cluster, consistent with @sec-absolutemode.
 
 ```{=latex}
-\begingroup
+\begin{samepage}
 \scriptsize
 ```
 
@@ -101,7 +101,7 @@ Because two discrete configurations cannot capture the plurality of defensible j
 : Rank-acceptability distribution, absolute-mode TOPSIS, 2025 (20,000 weight samples, seed 50), cells are rank probabilities {#tbl-montecarlo tbl-colwidths="[22,13,13,13,13,13,13]"}
 
 ```{=latex}
-\endgroup
+\end{samepage}
 ```
 
 Repeating the analysis on 2024 data yields a flatter distribution (@tbl-appc-montecarlo2024). SVC-03 occupies the lowest rank in 72.0% of weightings rather than 96.4%, and the top rank spreads across three services, with SVC-04 taking it in 42.6% of draws, SVC-06 in 32.3% and SVC-02 in 25.1%. This mirrors the weaker 2024 figures in @sec-stability and has the same cause, the more compressed 2024 profiles, confirming that weight sensitivity here is a property of the data rather than of the method.
