@@ -4,11 +4,11 @@ The research strategy and design decisions governing the framework's constructio
 
 ## Research Design
 
-This study is grounded in a pragmatist research philosophy. Pragmatism holds that the value of a knowledge claim rests on whether the resulting artefact works in the context it was designed for [@kellyThreePrinciplesPragmatism2020]. This suits the present study, because the aim is not to establish universal laws about technical debt but to build a quantitative framework useful for prioritisation decisions in a specific enterprise IT environment. Technical debt is treated here as a construct without a single measurement, since tools applied to the same codebase produce substantially different estimates [@amanatidisEvaluatingAgreementTechnical2020]. The framework therefore grounds its estimates in operationally defined proxies and treats the resulting scores as representations, not facts.
+This work adopts a pragmatist research paradigm. Pragmatism holds that the value of a knowledge claim rests on whether the resulting artefact works in the context it was designed for [@kellyThreePrinciplesPragmatism2020]. This suits the present study, because the aim is not to establish universal laws about technical debt but to build a quantitative framework useful for prioritisation decisions in a specific enterprise IT environment. Technical debt is treated here as a construct without a single measurement, since tools applied to the same codebase produce substantially different estimates [@amanatidisEvaluatingAgreementTechnical2020]. The framework therefore grounds its estimates in operationally defined proxies and treats the resulting scores as representations, not facts.
 
 ### Research Strategy
 
-Design Science Research (DSR) governs this study, as formalised by @hevnerDesignScienceInformation2004. DSR is appropriate because the primary output is an artefact rather than a theory. The artefact is a TOPSIS-based prioritisation framework operating on live ITSM data, addressing the gap established in @sec-chapter2 and confirmed field-wide by @lenarduzziSystematicLiteratureReview2021.
+The methodology adopts a Design Science Research (DSR) approach [@hevnerDesignScienceInformation2004], framing the contribution as a functional artifact rather than theoretical observation. The artefact is a TOPSIS-based prioritisation framework operating on live ITSM data, addressing the gap established in @sec-chapter2 and confirmed field-wide by @lenarduzziSystematicLiteratureReview2021.
 
 @hevnerDesignScienceInformation2004 specify seven guidelines for rigorous DSR, mapped to this study in @tbl-dsr-guidelines. The problem space, the absence of a service-level TD framework, connects to the solution space, the TOPSIS artefact, through input knowledge and research processes, positioning the framework as prescriptive design knowledge for regulated enterprise contexts.
 
@@ -59,7 +59,7 @@ graph TD
 
 ### Case Study Design
 
-The study is structured as a single-organisation embedded case study, situated within the trading IT division of a systemically important Swiss financial institution. @turnbullUseCaseStudy2021 define this design as an investigation into a single instance of observable complex phenomena, constrained by clearly identifiable boundaries. Discrete units of analysis, in this case individual IT services, are examined within that bounded organisational setting.
+The study is structured as a single-organisation embedded case study design, situated within the trading IT division of a systemically important Swiss financial institution. Following @turnbullUseCaseStudy2021, this approach investigates bounded real-world system dynamics across distinct units of analysis, represented here by individual IT services within a unified organisational setting.
 
 Three factors make this design appropriate. First, the regulatory, operational and vendor-platform characteristics of Swiss financial IT resist generalisation from studies conducted elsewhere. Second, granular ITSM records are unavailable through surveys or experiments. Third, evaluating the artefact against operational data from its target environment satisfies the rigorous-evaluation requirement of @hevnerDesignScienceInformation2004.
 
