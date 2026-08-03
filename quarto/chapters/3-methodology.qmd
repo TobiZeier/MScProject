@@ -135,29 +135,42 @@ $$
 
 A higher $C_i$ indicates that a service is closer to the ideal best operational profile across the full indicator set and therefore has lower technical debt priority. Incident frequency, MTTR, CFR, and unsupported component months are cost criteria, where lower values are preferable, and patch recency is a benefit criterion, where higher is preferable.
 
-The evaluation in @sec-chapter5 also draws on an absolute-mode variant of TOPSIS that is invariant to the set of services being ranked, following @garcia-cascalesRankReversalTOPSIS2012 and @yangIngeniousSolutionRank2020. It is used for the leave-one-out rank-reversal test and as the scorer for the weight-space analysis, where each sampled weighting is treated as a separate decision context. Two elements of the standard procedure are replaced. First, vector normalisation gives way to max normalisation against a fixed ceiling. Each criterion $j$ is given a fixed range with a floor of zero and an upper bound $u_j$ declared from organisational thresholds rather than from the sample, and each value is divided by that ceiling.
+The evaluation in @sec-chapter5 also draws on an absolute-mode variant of TOPSIS that is invariant to the set of services being ranked, following @garcia-cascalesRankReversalTOPSIS2012 and @yangIngeniousSolutionRank2020. It is used for the leave-one-out rank-reversal test and as the scorer for the weight-space analysis. Two elements of the standard procedure are replaced. 
+
+First, vector normalisation is replaced by max normalisation against fixed bounds. Each criterion $j$ is assigned a fixed range $[l_j, u_j]$ with a floor $l_j$ (zero in this study) and an upper bound $u_j$ declared from organisational thresholds rather than from the sample, and each value is normalised as
+
+
+
+
+
 
 $$
-r_{ij}^{\text{abs}} = \frac{x_{ij}}{u_j}
+r^{\text{abs}}_{ij} = \frac{x_{ij} - l_j}{u_j - l_j}
 $$
 
-Second, the ideal components are anchored to the extremes of each criterion scale rather than to the best and worst values observed among the services. Writing $v_{ij} = w_j \, r_{ij}^{\text{abs}}$ and respecting criterion direction, the positive and negative ideal components are fixed as
+A weighted normalised matrix is then constructed as
 
 $$
-v_j^{\text{+}} =
+V_{ij} = w_j \cdot r^{\text{abs}}_{ij}
+$$
+
+Second, the ideal solutions are anchored to the extremes of each criterion scale, in the weighted–normalised space, rather than to the best and worst values observed among the services. Respecting criterion direction, the positive and negative ideal components are fixed as
+
+$$
+v_j^+ =
 \begin{cases}
-w_j & \text{if } j \text{ is a benefit criterion} \\
-0 & \text{if } j \text{ is a cost criterion}
+w_j, & \text{if } j \text{ is a benefit criterion} \\
+0,   & \text{if } j \text{ is a cost criterion}
 \end{cases}
-\qquad
-v_j^{\text{-}} =
+\quad
+v_j^- =
 \begin{cases}
-0 & \text{if } j \text{ is a benefit criterion} \\
-w_j & \text{if } j \text{ is a cost criterion}
+0,   & \text{if } j \text{ is a benefit criterion} \\
+w_j, & \text{if } j \text{ is a cost criterion.}
 \end{cases}
 $$
 
-Because $u_j$ and both ideal components are fixed, they do not change when a service is added or removed, so the ranking is invariant to portfolio composition. The distances $S_i^{\text{+}}$ and $S_i^{\text{-}}$ and the closeness coefficient $C_i$ follow exactly as in the standard procedure above. The declared bounds are listed in @sec-appendixa.
+Because $[l_j, u_j]$ and both ideal components are fixed, they do not change when a service is added or removed, so the ranking is invariant to portfolio composition. The distances $S_i^{\text{+}}$ and $S_i^{\text{-}}$ and the closeness coefficient $C_i$ are then computed exactly as in the standard procedure.  The declared bounds are listed in @sec-appendixa.
 
 @fig-framework-pipeline illustrates the full pipeline from indicator collection through to ranked output.
 
