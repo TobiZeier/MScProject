@@ -151,7 +151,7 @@ $$
 A weighted normalised matrix is then constructed as
 
 $$
-V_{ij} = w_j \cdot r^{\text{abs}}_{ij}
+v_{ij} = w_j \cdot r^{\text{abs}}_{ij}
 $$
 
 Second, the ideal solutions are anchored to the extremes of each criterion scale, in the weighted–normalised space, rather than to the best and worst values observed among the services. Respecting criterion direction, the positive and negative ideal components are fixed as
