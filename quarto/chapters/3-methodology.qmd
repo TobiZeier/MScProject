@@ -157,13 +157,13 @@ $$
 Second, the ideal solutions are anchored to the extremes of each criterion scale, in the weighted–normalised space, rather than to the best and worst values observed among the services. Respecting criterion direction, the positive and negative ideal components are fixed as
 
 $$
-v_j^+ =
+v_j^{\text{+}} =
 \begin{cases}
 w_j, & \text{if } j \text{ is a benefit criterion} \\
 0,   & \text{if } j \text{ is a cost criterion}
 \end{cases}
 \quad
-v_j^- =
+v_j^{\text{-}} =
 \begin{cases}
 0,   & \text{if } j \text{ is a benefit criterion} \\
 w_j, & \text{if } j \text{ is a cost criterion.}
