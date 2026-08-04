@@ -33,7 +33,7 @@ The methodology adopts a Design Science Research (DSR) approach [@hevnerDesignSc
 \end{samepage}
 ```
 
-The process follows the six-step model of @peffersDesignScienceResearch2007: problem identification and motivation (@sec-chapter1 and @sec-chapter2), definition of objectives (@sec-chapter2), design and development of the artefact (@sec-chapter4), demonstration, evaluation (@sec-chapter5), and communication (@sec-chapter6). The sequence is not strictly linear, as indicator selection and evaluation criteria were refined iteratively when constraints in the available data emerged during development.
+The process follows the six-step model of @peffersDesignScienceResearch2007: problem identification and motivation (@sec-chapter1 and @sec-chapter2), definition of objectives (@sec-chapter2), design and development of the artefact (@sec-chapter4), demonstration, evaluation (@sec-chapter5) and communication (@sec-chapter6). The sequence is not strictly linear, as indicator selection and evaluation criteria were refined iteratively when constraints in the available data emerged during development.
 
 ```{mermaid}
 %%| label: fig-dsr-grid
@@ -133,7 +133,7 @@ $$
 C_i = \frac{S_i^{\text{-}}}{S_i^{\text{+}} + S_i^{\text{-}}}, \quad C_i \in [0, 1]
 $$
 
-A higher $C_i$ indicates that a service is closer to the ideal best operational profile across the full indicator set and therefore has lower technical debt priority. Incident frequency, MTTR, CFR, and unsupported component months are cost criteria, where lower values are preferable, and patch recency is a benefit criterion, where higher is preferable.
+A higher $C_i$ indicates that a service is closer to the ideal best operational profile across the full indicator set and therefore has lower technical debt priority. Incident frequency, MTTR, CFR and unsupported component months are cost criteria, where lower values are preferable, and patch recency is a benefit criterion, where higher is preferable.
 
 The evaluation in @sec-chapter5 also draws on an absolute-mode variant of TOPSIS that is invariant to the set of services being ranked, following @garcia-cascalesRankReversalTOPSIS2012 and @yangIngeniousSolutionRank2020. It is used for the leave-one-out rank-reversal test and as the scorer for the weight-space analysis. Two elements of the standard procedure are replaced. 
 
@@ -197,15 +197,15 @@ Four strands are applied. The first tests ranking stability, extended beyond two
 
 ## Ethical and Professional Considerations {#sec-ethics}
 
-The ethical considerations arising from this study concern data confidentiality and legal compliance, the responsible use of prioritisation outputs, and alignment with professional standards.
+The ethical considerations arising from this study concern data confidentiality and legal compliance, the responsible use of prioritisation outputs and alignment with professional standards.
 
 ### Data Confidentiality and Anonymisation
 
-The data originate from a live Swiss financial institution that is not identified by name. All service, team, and vendor identifiers were replaced with alphanumeric codes before analysis. No employee data are present, since all five indicators are service-level aggregates that cannot be attributed to individuals. The data-sharing arrangement was established with the explicit authorisation of the Head of Trading IT. Only the data fields necessary for the analytical purposes of this study were exported, and no records were retained beyond the defined analytical period. All of these measures were applied before any data were transferred outside the organisation's infrastructure.
+The data originate from a live Swiss financial institution that is not identified by name. All service, team and vendor identifiers were replaced with alphanumeric codes before analysis. No employee data are present, since all five indicators are service-level aggregates that cannot be attributed to individuals. The data-sharing arrangement was established with the explicit authorisation of the Head of Trading IT. Only the data fields necessary for the analytical purposes of this study were exported, and no records were retained beyond the defined analytical period. All of these measures were applied before any data were transferred outside the organisation's infrastructure.
 
 ### Legal Compliance
 
-The organisation is subject to the revised Federal Act on Data Protection (nFADP), which entered into force on 1 September 2023 [@FederalActData2023], enforced by the Federal Data Protection and Information Commissioner (FDPIC). Because the dataset contains no personal data, the nFADP's provisions on personal data processing do not apply directly. The principle of data minimisation, which the nFADP enshrines in alignment with international standards, was nonetheless applied. Only the metrics required for the five TOPSIS indicators were extracted.
+The organisation is subject to the revised Federal Act on Data Protection (nFADP), which entered into force on 1 September 2023 [@FederalActData2023], enforced by the Federal Data Protection and Information Commissioner (FDPIC). Because the dataset contains no personal data, the nFADP's provisions on personal data processing do not apply directly. The principle of data minimisation, which the nFADP embodies in alignment with international standards, was nonetheless applied. Only the metrics required for the five TOPSIS indicators were extracted.
 
 As a systemically significant institution, the organisation is also subject to FINMA Circular 2023/1 on operational risks and resilience, in force since 1 January 2024 [@finmaCircular202312024]. The circular requires comprehensive ICT operational risk management, including incident monitoring and service resilience. The specific metrics used here are organisationally defined rather than prescribed by FINMA. No ethics committee approval was required under the University of Essex's research ethics framework, and a departmental no-objection confirmation was obtained.
 

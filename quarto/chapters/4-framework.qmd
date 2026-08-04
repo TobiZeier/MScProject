@@ -1,6 +1,6 @@
 # Framework Development and Results {#sec-chapter4}
 
-Two years of live ITSM and CMDB records, from January 2024 to December 2025, at a regulated Swiss trading institution supply the raw material for this chapter. The sections below document and justify the indicator values extracted from those records, the normalisation and weighting decisions applied to them, and the resulting TOPSIS scores.
+Two years of live ITSM and CMDB records, from January 2024 to December 2025, at a regulated Swiss financial institution supply the raw material for this chapter. The sections below document and justify the indicator values extracted from those records, the normalisation and weighting decisions applied to them, and the resulting TOPSIS scores.
 
 ## Data Preparation {#sec-dataprep}
 
