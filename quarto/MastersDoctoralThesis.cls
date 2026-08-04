@@ -373,7 +373,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 		\noindent\textcolor{black!30}{\rule{\linewidth}{.4pt}}\par
 		\vskip 16pt
 		\singlespacing
-		\noindent\ignorespaces
+		\everypar{{\setbox\z@\lastbox}\everypar{}}% MODIFIED: unindent the first body paragraph robustly (immune to a leading break from \addchaptertocentry or content)
 	}%
 	{%
 		\par\vfill\null
@@ -436,7 +436,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 		\vskip 10pt
 		\noindent\textcolor{black!30}{\rule{\linewidth}{.4pt}}\par
 		\vskip 16pt
-		\noindent\ignorespaces
+		\everypar{{\setbox\z@\lastbox}\everypar{}}% MODIFIED: unindent the first body paragraph robustly
 	}%
 	{%
 		\par\vfill\null
@@ -470,7 +470,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 		\vskip 10pt
 		\noindent\textcolor{black!30}{\rule{\linewidth}{.4pt}}\par
 		\vskip 16pt
-		\noindent\ignorespaces
+		\everypar{{\setbox\z@\lastbox}\everypar{}}% MODIFIED: unindent the first body paragraph robustly
 	}%
 	{%
 		\par\vfill\null

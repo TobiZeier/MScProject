@@ -12,7 +12,7 @@ Kendall's tau measures the similarity between two rankings and is well establish
 
 ```{=latex}
 \begin{samepage}
-\scriptsize
+\footnotesize
 ```
 
 | Comparison | $\tau$ | $p$ |
@@ -22,7 +22,7 @@ Kendall's tau measures the similarity between two rankings and is well establish
 | Temporal stability equal weights (2025 vs 2024) | 0.467 | 0.272 |
 | Temporal stability adjusted weights (2025 vs 2024) | 0.600 | 0.136 |
 
-: Kendall's $\tau$ across ranking comparisons, standard TOPSIS {#tbl-kendall tbl-colwidths="[55,15,15]"}
+: Kendall's $\tau$ across ranking comparisons, standard TOPSIS {#tbl-kendall}
 
 ```{=latex}
 \end{samepage}
@@ -50,7 +50,7 @@ Structural rigour was examined by removing each service in turn and re-ranking t
 
 ```{=latex}
 \begin{samepage}
-\scriptsize
+\footnotesize
 ```
 
 | Service removed | Outcome |
@@ -62,7 +62,7 @@ Structural rigour was examined by removing each service in turn and re-ranking t
 | SVC-05 | Order preserved |
 | SVC-06 | Order preserved |
 
-: Leave-one-out rank changes, standard TOPSIS, 2025 equal weights {#tbl-rankreversal tbl-colwidths="[35,65]"}
+: Leave-one-out rank changes, standard TOPSIS, 2025 equal weights {#tbl-rankreversal}
 
 ```{=latex}
 \end{samepage}
@@ -86,7 +86,7 @@ Because two discrete configurations cannot capture the plurality of defensible j
 
 ```{=latex}
 \begin{samepage}
-\scriptsize
+\footnotesize
 ```
 
 | Service | R1 | R2 | R3 | R4 | R5 | R6 |
@@ -98,7 +98,7 @@ Because two discrete configurations cannot capture the plurality of defensible j
 | SVC-05 | 0.0000 | 0.0000 | 0.2202 | 0.2780 | 0.5018 | 0.0000 |
 | SVC-06 | 0.6508 | 0.2550 | 0.0690 | 0.0086 | 0.0168 | 0.0000 |
 
-: Rank-acceptability distribution, absolute-mode TOPSIS, 2025 (20,000 weight samples, seed 50), cells are rank probabilities {#tbl-montecarlo tbl-colwidths="[22,13,13,13,13,13,13]"}
+: Rank-acceptability distribution, absolute-mode TOPSIS, 2025 (20,000 weight samples, seed 50), cells are rank probabilities {#tbl-montecarlo}
 
 ```{=latex}
 \end{samepage}

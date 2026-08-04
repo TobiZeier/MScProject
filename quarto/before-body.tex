@@ -82,9 +82,9 @@ $if(thesis.declaration)$
 \begin{declaration}
 \addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
 $if(thesis.declaration.text)$
-$thesis.declaration.text$
+\noindent $thesis.declaration.text$
 $else$
-\input{"$thesis.declaration$"}
+\noindent\input{"$thesis.declaration$"}
 $endif$
 
 \end{declaration}
@@ -116,7 +116,7 @@ $if(abstract)$
 
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-$abstract$
+\noindent $abstract$
 
 $if(keywords)$
 \vspace{1.5cm}
@@ -134,9 +134,9 @@ $if(thesis.acknowledgements)$
 \begin{acknowledgements}
 \addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
 $if(thesis.acknowledgements.text)$
-$thesis.acknowledgements.text$
+\noindent $thesis.acknowledgements.text$
 $else$
-\input{"$thesis.acknowledgements$"}
+\noindent\input{"$thesis.acknowledgements$"}
 $endif$
 \end{acknowledgements}
 
