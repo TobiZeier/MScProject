@@ -74,7 +74,7 @@ Two weight configurations are applied, as specified in @sec-frameworkdesign. The
 
 ## TOPSIS Computation and Rankings {#sec-topsis-results}
 
-The computation follows the TOPSIS formulation specified in @sec-frameworkdesign and was executed using the Python artefact in @sec-appendixa. This process calculates the closeness coefficient $C_i$ for each service based on its Euclidean distance from the ideal solution. A higher $C_i$ indicates that a service is closer to the positive ideal solution, while a lower $C_i$ signals higher technical debt priority. Since the framework is intended to guide prioritisation, the service with the least favourable score receives the highest rank.
+The computation follows the TOPSIS formulation specified in @sec-frameworkdesign and was executed using the Python artefact in @sec-appendixa. This process calculates the closeness coefficient $C_i$ for each service based on its Euclidean distance from the ideal solution. A higher $C_i$ indicates that a service is closer to the positive ideal solution, while a lower $C_i$ signals higher TD priority. Since the framework is intended to guide prioritisation, the service with the least favourable score receives the highest rank.
 
 @tbl-topsis-results2025 presents the full results under both weight configurations. The table is sorted from highest to lowest debt priority, so rank 1 equals highest priority for remediation.
 

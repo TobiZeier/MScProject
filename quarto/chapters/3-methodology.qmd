@@ -4,7 +4,7 @@ The research strategy and design decisions governing the framework's constructio
 
 ## Research Design
 
-This work adopts a pragmatist research paradigm. Pragmatism holds that the value of a knowledge claim rests on whether the resulting artefact works in the context it was designed for [@kellyThreePrinciplesPragmatism2020]. This suits the present study, because the aim is not to establish universal laws about technical debt but to build a quantitative framework useful for prioritisation decisions in a specific enterprise IT environment. Technical debt is treated here as a construct without a single measurement, since tools applied to the same codebase produce substantially different estimates [@amanatidisEvaluatingAgreementTechnical2020]. The framework therefore grounds its estimates in operationally defined proxies and treats the resulting scores as representations, not facts.
+This work adopts a pragmatist research paradigm. Pragmatism holds that the value of a knowledge claim rests on whether the resulting artefact works in the context it was designed for [@kellyThreePrinciplesPragmatism2020]. This suits the present study, because the aim is not to establish universal laws about TD but to build a quantitative framework useful for prioritisation decisions in a specific enterprise IT environment. TD is treated here as a construct without a single measurement, since tools applied to the same codebase produce substantially different estimates [@amanatidisEvaluatingAgreementTechnical2020]. The framework therefore grounds its estimates in operationally defined proxies and treats the resulting scores as representations, not facts.
 
 ### Research Strategy
 
@@ -22,7 +22,7 @@ The methodology adopts a Design Science Research (DSR) approach [@hevnerDesignSc
 | Design as an artefact | The TOPSIS-based prioritisation framework |
 | Problem relevance | Established in @sec-chapter2, no existing framework integrates service-level operational metrics for TD prioritisation in trading IT |
 | Design evaluation | Sensitivity analysis, convergent validation across alternative methods, discriminant baseline, rank-reversal test |
-| Research contributions | A novel operational indicator set and, to the best of current knowledge, the first application of TOPSIS to live ITSM and CMDB data for technical debt prioritisation in financial trading IT |
+| Research contributions | A novel operational indicator set and, to the best of current knowledge, the first application of TOPSIS to live ITSM and CMDB data for TD prioritisation in financial trading IT |
 | Research rigour | TOPSIS applied per its formal specification (@sec-frameworkdesign), with evaluation using established rank-correlation and robustness procedures (@sec-evaluationapproach) |
 | Design as a search process | Iterative refinement of indicator selection (literature candidates audited against ITSM/CMDB availability) and weight assignment |
 | Communication of research | This dissertation, plus practitioner-accessible scoring output |
@@ -44,7 +44,7 @@ graph TD
     P["**Problem**<br/>Absence of a quantitative<br/>service-level TD prioritisation<br/>framework for trading IT"]
     IK["**Input Knowledge**<br/>TD taxonomy, operational indicators,<br/>TOPSIS method, DSR foundations<br/>(Hevner *et al.*, 2004)"]
     RP["**Research Process**<br/>Literature review,<br/>indicator selection,<br/>TOPSIS construction,<br/>sensitivity analysis"]
-    KC["**Key Concepts**<br/>Technical debt,<br/>operational proxies,<br/>MCDM, ITSM service data"]
+    KC["**Key Concepts**<br/>TD,<br/>operational proxies,<br/>MCDM, ITSM service data"]
     DSR(["This Thesis"])
     S["**Solution**<br/>TOPSIS framework operating<br/>on live ITSM data<br/>(five operational indicators,<br/>two DORA-derived)"]
     OK["**Output Knowledge**<br/>Prescriptive design entity,<br/>validity of operational TD<br/>proxies in regulated IT"]
@@ -63,11 +63,11 @@ The study is structured as a single-organisation embedded case study design, sit
 
 Three factors make this design appropriate. First, the regulatory, operational and vendor-platform characteristics of Swiss financial IT resist generalisation from studies conducted elsewhere. Second, granular ITSM records are unavailable through surveys or experiments. Third, evaluating the artefact against operational data from its target environment satisfies the rigorous-evaluation requirement of @hevnerDesignScienceInformation2004.
 
-The unit of analysis is the individual IT service, defined as a distinct configuration item in the organisation's ITSM instance. In this vendor-heavy environment, source-code access is unavailable for both outsourced components and on-premises vendor software [@ramasubbuControllingTechnicalDebt2021]. Service-level operational indicators are therefore tested as candidate proxies for technical debt prioritisation rather than assumed as established substitutes. The study is cross-sectional, analysing a fixed observation window rather than tracking change over time, consistent with the aim of demonstrating ranking validity at a point in time.
+The unit of analysis is the individual IT service, defined as a distinct configuration item in the organisation's ITSM instance. In this vendor-heavy environment, source-code access is unavailable for both outsourced components and on-premises vendor software [@ramasubbuControllingTechnicalDebt2021]. Service-level operational indicators are therefore tested as candidate proxies for TD prioritisation rather than assumed as established substitutes. The study is cross-sectional, analysing a fixed observation window rather than tracking change over time, consistent with the aim of demonstrating ranking validity at a point in time.
 
 ### Data Sources and Collection {#sec-datasources}
 
-The literature review (@sec-chapter2) identified candidate indicators mapping technical debt dimensions to operational data (see @tbl-indicators-lit). A data audit against available ITSM and CMDB fields refined this set prior to data collection. Documentation completeness was excluded because no structured ITSM or CMDB field captures it consistently across services. The relevant records reside in unstructured repositories not amenable to uniform extraction. Test coverage ratio and architectural coupling were excluded because both require assets unavailable here, namely CI/CD build artefacts, source repositories or compiled code for dependency analysis [@amanatidisEvaluatingAgreementTechnical2020], none of which is accessible for vendor-managed or outsourced components. Raw vulnerability density was excluded in favour of patch recency, though it too depends on CMDB scanner coverage and correct support dates, and supported components may still be vulnerable.
+The literature review (@sec-chapter2) identified candidate indicators mapping TD dimensions to operational data (see @tbl-indicators-lit). A data audit against available ITSM and CMDB fields refined this set prior to data collection. Documentation completeness was excluded because no structured ITSM or CMDB field captures it consistently across services. The relevant records reside in unstructured repositories not amenable to uniform extraction. Test coverage ratio and architectural coupling were excluded because both require assets unavailable here, namely CI/CD build artefacts, source repositories or compiled code for dependency analysis [@amanatidisEvaluatingAgreementTechnical2020], none of which is accessible for vendor-managed or outsourced components. Raw vulnerability density was excluded in favour of patch recency, though it too depends on CMDB scanner coverage and correct support dates, and supported components may still be vulnerable.
 
 The five retained indicators are operationalisable from live records held in the organisation's ITSM instance and CMDB. Records were accessed under an agreed arrangement with the Head of Trading IT over a two-year observation window (January 2024 – December 2025) and anonymised at source, with service names replaced by alphanumeric identifiers and all team and vendor labels removed before analysis.
 
@@ -133,7 +133,7 @@ $$
 C_i = \frac{S_i^{\text{-}}}{S_i^{\text{+}} + S_i^{\text{-}}}, \quad C_i \in [0, 1]
 $$
 
-A higher $C_i$ indicates that a service is closer to the ideal best operational profile across the full indicator set and therefore has lower technical debt priority. Incident frequency, MTTR, CFR and unsupported component months are cost criteria, where lower values are preferable, and patch recency is a benefit criterion, where higher is preferable.
+A higher $C_i$ indicates that a service is closer to the ideal best operational profile across the full indicator set and therefore has lower TD priority. Incident frequency, MTTR, CFR and unsupported component months are cost criteria, where lower values are preferable, and patch recency is a benefit criterion, where higher is preferable.
 
 The evaluation in @sec-chapter5 also draws on an absolute-mode variant of TOPSIS that is invariant to the set of services being ranked, following @garcia-cascalesRankReversalTOPSIS2012 and @yangIngeniousSolutionRank2020. It is used for the leave-one-out rank-reversal test and as the scorer for the weight-space analysis. Two elements of the standard procedure are replaced. 
 
@@ -219,4 +219,4 @@ Team leads were not involved in the creation of this framework, as the study was
 
 ### Professional Standards and Limitations
 
-This study followed the BCS Code of Conduct [@CodeConductBCS2022], including the obligations to act with integrity, respect the rights of third parties and ensure the artefact is fit for purpose. Three limitations clarify scope. The single-site design means indicator weights and TOPSIS configuration are calibrated for one organisation and should not be transferred without revalidation. The cross-sectional window means the framework captures a snapshot, so recently remediated services may be under-ranked. Finally, the five indicators do not exhaust all dimensions of operational technical debt. Indicators for documentation, test coverage or architectural coupling were excluded on data availability and remain candidates for future iterations.
+This study followed the BCS Code of Conduct [@CodeConductBCS2022], including the obligations to act with integrity, respect the rights of third parties and ensure the artefact is fit for purpose. Three limitations clarify scope. The single-site design means indicator weights and TOPSIS configuration are calibrated for one organisation and should not be transferred without revalidation. The cross-sectional window means the framework captures a snapshot, so recently remediated services may be under-ranked. Finally, the five indicators do not exhaust all dimensions of operational TD. Indicators for documentation, test coverage or architectural coupling were excluded on data availability and remain candidates for future iterations.
