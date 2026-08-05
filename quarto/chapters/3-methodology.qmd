@@ -8,7 +8,7 @@ This work adopts a pragmatist research paradigm. Pragmatism holds that the value
 
 ### Research Strategy
 
-The methodology adopts a Design Science Research (DSR) approach [@hevnerDesignScienceInformation2004], framing the contribution as a functional artifact rather than theoretical observation. The artefact is a TOPSIS-based prioritisation framework operating on live ITSM data, addressing the gap established in @sec-chapter2 and confirmed field-wide by @lenarduzziSystematicLiteratureReview2021.
+The methodology adopts a Design Science Research (DSR) approach [@hevnerDesignScienceInformation2004], framing the contribution as a functional artefact rather than theoretical observation. The artefact is a TOPSIS-based prioritisation framework operating on live ITSM data, addressing the gap established in @sec-chapter2 and confirmed field-wide by @lenarduzziSystematicLiteratureReview2021.
 
 @hevnerDesignScienceInformation2004 specify seven guidelines for rigorous DSR, mapped to this study in @tbl-dsr-guidelines. The problem space, the absence of a service-level TD framework, connects to the solution space, the TOPSIS artefact, through input knowledge and research processes, positioning the framework as prescriptive design knowledge for regulated enterprise contexts.
 
@@ -22,7 +22,7 @@ The methodology adopts a Design Science Research (DSR) approach [@hevnerDesignSc
 | Design as an artefact | The TOPSIS-based prioritisation framework |
 | Problem relevance | Established in @sec-chapter2, no existing framework integrates service-level operational metrics for TD prioritisation in trading IT |
 | Design evaluation | Sensitivity analysis, convergent validation across alternative methods, discriminant baseline, rank-reversal test |
-| Research contributions | A novel operational indicator set, and to the best of current knowledge the first application of TOPSIS to live ITSM and CMDB data for technical debt prioritisation in financial trading IT |
+| Research contributions | A novel operational indicator set and, to the best of current knowledge, the first application of TOPSIS to live ITSM and CMDB data for technical debt prioritisation in financial trading IT |
 | Research rigour | TOPSIS applied per its formal specification (@sec-frameworkdesign), with evaluation using established rank-correlation and robustness procedures (@sec-evaluationapproach) |
 | Design as a search process | Iterative refinement of indicator selection (literature candidates audited against ITSM/CMDB availability) and weight assignment |
 | Communication of research | This dissertation, plus practitioner-accessible scoring output |
@@ -154,7 +154,7 @@ $$
 v_{ij} = w_j \cdot r^{\text{abs}}_{ij}
 $$
 
-Second, the ideal solutions are anchored to the extremes of each criterion scale, in the weighted–normalised space, rather than to the best and worst values observed among the services. Respecting criterion direction, the positive and negative ideal components are fixed as
+Second, the ideal solutions are anchored to the extremes of each criterion scale, in the weighted-normalised space, rather than to the best and worst values observed among the services. Respecting criterion direction, the positive and negative ideal components are fixed as
 
 $$
 v_j^{\text{+}} =
@@ -170,7 +170,7 @@ w_j, & \text{if } j \text{ is a cost criterion.}
 \end{cases}
 $$
 
-Because $[l_j, u_j]$ and both ideal components are fixed, they do not change when a service is added or removed, so the ranking is invariant to portfolio composition. The distances $S_i^{\text{+}}$ and $S_i^{\text{-}}$ and the closeness coefficient $C_i$ are then computed exactly as in the standard procedure.  The declared bounds are listed in @sec-appendixa.
+Because $[l_j, u_j]$ and both ideal components are fixed, they do not change when a service is added or removed, so the ranking is invariant to portfolio composition. The distances $S_i^{\text{+}}$ and $S_i^{\text{-}}$ and the closeness coefficient $C_i$ are then computed exactly as in the standard procedure. The declared bounds are listed in @sec-appendixa.
 
 @fig-framework-pipeline illustrates the full pipeline from indicator collection through to ranked output.
 

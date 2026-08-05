@@ -34,7 +34,7 @@ Two secondary questions support the investigation.
 
 The main academic contribution is a working prioritisation framework that did not previously exist for this environment, connecting operational service management with how technical debt is studied in software engineering. To the best of current knowledge, no prior study has applied TOPSIS to live operational records from a financial trading institution for technical debt prioritisation. Practically, the framework operates on data routinely available in enterprise ITSM and CMDB systems without requiring source code access, making it directly applicable to vendor-dominated trading IT architectures and supporting auditable remediation decisions in regulated environments.
 
-The framework measures debt indirectly through operational proxies, and expresses the result as a relative priority rather than an absolute quantity. The word "measuring" in the title carries that sense. It denotes a quantitative, reproducible ordering of services by debt priority, not a claim to have quantified the debt itself.
+The framework measures debt indirectly through operational proxies and expresses the result as a relative priority rather than an absolute quantity. The word "measuring" in the title carries that sense. It denotes a quantitative, reproducible ordering of services by debt priority, not a claim to have quantified the debt itself.
 
 ## Thesis Structure
 

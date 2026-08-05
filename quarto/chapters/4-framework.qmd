@@ -4,7 +4,7 @@ Two years of live ITSM and CMDB records, from January 2024 to December 2025, at 
 
 ## Data Preparation {#sec-dataprep}
 
-The trading IT portfolio includes 108 services. Fifty-three are small vendor applications such as vendor graphical user interfaces, and were excluded because they require no significant ongoing activity from the portfolio's IT teams.
+The trading IT portfolio includes 108 services. Fifty-three are small vendor applications such as vendor graphical user interfaces and were excluded because they require no significant ongoing activity from the portfolio's IT teams.
 
 From the remaining services, six were selected for demonstration on the basis of data completeness. Each holds a continuous record across all five indicators for the full two-year window in both systems, is registered as an active configuration item and has been in operation for more than thirty-six months. Service identifiers were replaced with alphanumeric codes before analysis (@sec-ethics), and the dataset contains no team, vendor or individual identifiers. Two consequences follow from such a small demonstration set. First, the services selected tend to carry higher operational activity, so absolute indicator values are not representative of the full portfolio. Second, a six-service decision matrix limits the discriminatory power of the rank-stability tests (@sec-evaluationlimitations). The contribution is therefore the working instrument and its evaluation logic, not a portfolio-wide ranking, which is identified as future work once indicator coverage across the portfolio is complete.
 
