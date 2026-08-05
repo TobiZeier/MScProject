@@ -39,7 +39,21 @@
 - [x] recalculate TOPSIS rankings to make sure python calculation is accurate
 - [x] recalculate Kendall's Tau and P-Values
 - [x] write chapter 5 and include graphs
+- [ ] check grammar and spelling
+- [x] check intend with before tex files
+- [ ] Apply Gesine's recommendations
+	- [x] DORA explanation
+	- [ ] Hypothesis before RQ's and in conclusion?
+	- [ ] Ethical and Social Evaluation
+	- [x] Answers to RQ in chapter 5 or 6?
+- [x] Check new equation and if all symbols are declared in the list of symbols
+- [x] Check if chapter 3 equations match with chapter 5 (equations and prose)
+- [x] Remove "earlier version" from chapter 5
+- [x] Fix CFR (0-100%)
+- [x] Mention absolute mode formula and fixed bounds in chapter 3 rather than chapter 5
+- [x] shorten explanation for unsupported component months
 
 
 
-
+- Table width
+- Table split

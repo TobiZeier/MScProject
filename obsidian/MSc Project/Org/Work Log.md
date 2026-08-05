@@ -77,11 +77,11 @@ This table is to track the time that I have invested in my master thesis.
 | 26/07 | 5     | Fixing data issues in all chapters incl. recalculations                                      |
 | 27/07 | 3     | Reading thesis and correcting minor errors                                                   |
 | 29/07 | 3     | Correcting minor issues                                                                      |
-| 31/07 | 1     | Correcting minor issues                                                                      |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
-|       |       |                                                                                              |
+| 31/07 | 4     | Correcting minor issues                                                                      |
+| 02/08 | 7.5   | Reading through the whole thesis and correcting minor errors                                 |
+| 03/08 | 3     | Implementing small fixes                                                                     |
+| 04/08 | 3.5   | Implementing small fixes                                                                     |
+| 05/08 | 2     | Implementing small fixes                                                                     |
 |       |       |                                                                                              |
 |       |       |                                                                                              |
 |       |       |                                                                                              |
