@@ -27,7 +27,7 @@ The methodology adopts a Design Science Research (DSR) approach [@hevnerDesignSc
 | Design as a search process | Iterative refinement of indicator selection (literature candidates audited against ITSM/CMDB availability) and weight assignment |
 | Communication of research | This dissertation, plus practitioner-accessible scoring output |
 
-: DSR guidelines and their implementation {#tbl-dsr-guidelines tbl-colwidths="\[30,70\]"}
+: DSR guidelines and their implementation {#tbl-dsr-guidelines tbl-colwidths="[25,75]"}
 
 ```{=latex}
 \end{samepage}

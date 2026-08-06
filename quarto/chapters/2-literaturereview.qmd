@@ -30,7 +30,7 @@ The literature search was conducted between January and April 2026 using a syste
 | Patch management | `"patch management" AND (priorit* OR risk OR vulnerability OR SLA OR enterprise)` |
 | Operational risk and DORA | `("DORA metrics" OR "mean time to recover") AND ("technical debt" OR "software delivery")` |
 
-: Search terms used for literature review {#tbl-search-terms tbl-colwidths="[30,70]"}
+: Search terms used for literature review {#tbl-search-terms tbl-colwidths="[25,75]"}
 
 ```{=latex}
 \end{samepage}
@@ -53,7 +53,7 @@ Sources were screened against the pre-specified inclusion and exclusion criteria
 | Exclusion: topic | Agile process improvement without a measurable TD component |
 | Exclusion: duplicates | Superseded by a more comprehensive journal version |
 
-: Inclusion and exclusion criteria {#tbl-criteria tbl-colwidths="[30,70]"}
+: Inclusion and exclusion criteria {#tbl-criteria tbl-colwidths="[20,80]"}
 
 ```{=latex}
 \end{samepage}
@@ -154,7 +154,7 @@ The following table maps each operational indicator to the TD dimension. It is i
 | Patch recency | Vulnerability debt | @tizioSoftwareUpdatesStrategies2023; @markkanenPatchManagementPlanning2023 |
 | Unsupported component months | Infrastructure lifecycle debt | @hakiDigitalNudgingTechnical2023 |
 
-: Operational indicators mapped to TD dimensions {#tbl-indicators-lit tbl-colwidths="[25,30,45]"}
+: Operational indicators mapped to TD dimensions {#tbl-indicators-lit tbl-colwidths="[20,25,55]"}
 
 ```{=latex}
 \end{samepage}

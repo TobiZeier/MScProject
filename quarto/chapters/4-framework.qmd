@@ -30,11 +30,11 @@ These limitations do not invalidate the proxy approach. Scores should be read as
 
 ```{=latex}
 \begin{samepage}
-\scriptsize
+\footnotesize
 ```
 
 | Service | Incident Freq. (per year) | MTTR (hrs) | CFR | Patch Recency | Unsup. Comp. Mo. / comp. |
-|------------|-----------:|-----------:|-----------:|-----------:|-----------:|
+|---|---:|---:|---:|---:|---:|
 | SVC-01 | 64 | 45.35 | 0.83 | 53.10 | 5.67 |
 | SVC-02 | 30 | 25.26 | 0.19 | 61.90 | 2.42 |
 | SVC-03 | 21 | 13.31 | 0.38 | 100.00 | 0.00 |
@@ -42,7 +42,7 @@ These limitations do not invalidate the proxy approach. Scores should be read as
 | SVC-05 | 171 | 23.72 | 1.52 | 100.00 | 0.00 |
 | SVC-06 | 302 | 13.11 | 3.96 | 52.94 | 18.88 |
 
-: Indicator values per service, 2025 {#tbl-raw-data tbl-colwidths="\[14,20,13,12,16,18\]"}
+: Indicator values per service, 2025 {#tbl-raw-data}
 
 ```{=latex}
 \end{samepage}
@@ -58,15 +58,15 @@ Two weight configurations are applied, as specified in @sec-frameworkdesign. The
 
 ```{=latex}
 \begin{samepage}
-\scriptsize
+\footnotesize
 ```
 
 | Configuration | Incident Freq. | MTTR | CFR | Patch Recency | Unsup. Comp. Months |
-|------------|-----------:|-----------:|-----------:|-----------:|-----------:|
+|---|---:|---:|---:|---:|---:|
 | Equal (baseline) | $0.20$ | $0.20$ | $0.20$ | $0.20$ | $0.20$ |
 | Differential | $0.1\overline{3}$ | $0.30$ | $0.1\overline{3}$ | $0.30$ | $0.1\overline{3}$ |
 
-: Weight configurations {#tbl-weights tbl-colwidths="\[25,15,12,12,18,18\]"}
+: Weight configurations {#tbl-weights}
 
 ```{=latex}
 \end{samepage}
@@ -80,7 +80,7 @@ The computation follows the TOPSIS formulation specified in @sec-frameworkdesign
 
 ```{=latex}
 \begin{samepage}
-\scriptsize
+\footnotesize
 ```
 
 | Service | $C_i$ (Equal) | Rank (Equal) | $C_i$ (Adjusted) | Rank (Adjusted) |
@@ -92,7 +92,7 @@ The computation follows the TOPSIS formulation specified in @sec-frameworkdesign
 | SVC-02 | 0.8297 | 5 | 0.7175 | 4 |
 | SVC-03 | 0.9774 | 6 | 0.9809 | 6 |
 
-: TOPSIS results, 2025 (higher $C_i$, lower debt priority) {#tbl-topsis-results2025 tbl-colwidths="\[20,20,20,20,20\]"}
+: TOPSIS results, 2025 (higher $C_i$, lower debt priority) {#tbl-topsis-results2025 tbl-colwidths="[10,12,15,15,15]"}
 
 ```{=latex}
 \end{samepage}
@@ -102,7 +102,7 @@ To assess temporal stability, the framework was applied to the 2024 dataset usin
 
 ```{=latex}
 \begin{samepage}
-\scriptsize
+\footnotesize
 ```
 
 | Service | $C_i$ (Equal) | Rank (Equal) | $C_i$ (Adjusted) | Rank (Adjusted) |
@@ -114,7 +114,7 @@ To assess temporal stability, the framework was applied to the 2024 dataset usin
 | SVC-01 | 0.7759 | 5 | 0.6231 | 4 |
 | SVC-03 | 0.8492 | 6 | 0.8816 | 6 |
 
-: TOPSIS results, 2024 (higher $C_i$, lower debt priority) {#tbl-topsis-results2024 tbl-colwidths="\[20,20,20,20,20\]"}
+: TOPSIS results, 2024 (higher $C_i$, lower debt priority) {#tbl-topsis-results2024 tbl-colwidths="[10,12,15,15,15]"}
 
 ```{=latex}
 \end{samepage}

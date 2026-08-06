@@ -15,12 +15,12 @@ Kendall's tau measures the similarity between two rankings and is well establish
 \footnotesize
 ```
 
-| Comparison | $\tau$ | $p$ |
-|------------------|-----------------:|-----------------:|
-| Weight sensitivity 2025 (equal vs adjusted) | 0.867 | 0.017 |
-| Weight sensitivity 2024 (equal vs adjusted) | 0.733 | 0.056 |
-| Temporal stability equal weights (2025 vs 2024) | 0.467 | 0.272 |
-| Temporal stability adjusted weights (2025 vs 2024) | 0.600 | 0.136 |
+| Comparison                                         | $\tau$ |   $p$ |
+|----------------------------------------------------|-------:|------:|
+| Weight sensitivity 2025 (equal vs adjusted)        |  0.867 | 0.017 |
+| Weight sensitivity 2024 (equal vs adjusted)        |  0.733 | 0.056 |
+| Temporal stability equal weights (2025 vs 2024)    |  0.467 | 0.272 |
+| Temporal stability adjusted weights (2025 vs 2024) |  0.600 | 0.136 |
 
 : Kendall's $\tau$ across ranking comparisons, standard TOPSIS {#tbl-kendall}
 
@@ -53,14 +53,14 @@ Structural rigour was examined by removing each service in turn and re-ranking t
 \footnotesize
 ```
 
-| Service removed | Outcome |
-|---|---|
-| SVC-01 | Order preserved |
-| SVC-02 | Order preserved |
-| SVC-03 | Order preserved |
-| SVC-04 | Order preserved |
-| SVC-05 | Order preserved |
-| SVC-06 | Order preserved |
+| Service removed | Outcome         |
+|-----------------|-----------------|
+| SVC-01          | Order preserved |
+| SVC-02          | Order preserved |
+| SVC-03          | Order preserved |
+| SVC-04          | Order preserved |
+| SVC-05          | Order preserved |
+| SVC-06          | Order preserved |
 
 : Leave-one-out rank changes, standard TOPSIS, 2025 equal weights {#tbl-rankreversal}
 
@@ -89,14 +89,14 @@ Because two discrete configurations cannot capture the plurality of defensible j
 \footnotesize
 ```
 
-| Service | R1 | R2 | R3 | R4 | R5 | R6 |
-|---|---:|---:|---:|---:|---:|---:|
-| SVC-01 | 0.0876 | 0.3231 | 0.3708 | 0.2186 | 0.0000 | 0.0000 |
-| SVC-02 | 0.0000 | 0.0002 | 0.1974 | 0.3209 | 0.4456 | 0.0358 |
-| SVC-03 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0358 | 0.9642 |
-| SVC-04 | 0.2616 | 0.4218 | 0.1426 | 0.1740 | 0.0000 | 0.0000 |
-| SVC-05 | 0.0000 | 0.0000 | 0.2202 | 0.2780 | 0.5018 | 0.0000 |
-| SVC-06 | 0.6508 | 0.2550 | 0.0690 | 0.0086 | 0.0168 | 0.0000 |
+| Service |     R1 |     R2 |     R3 |     R4 |     R5 |     R6 |
+|---------|-------:|-------:|-------:|-------:|-------:|-------:|
+| SVC-01  | 0.0876 | 0.3231 | 0.3708 | 0.2186 | 0.0000 | 0.0000 |
+| SVC-02  | 0.0000 | 0.0002 | 0.1974 | 0.3209 | 0.4456 | 0.0358 |
+| SVC-03  | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0358 | 0.9642 |
+| SVC-04  | 0.2616 | 0.4218 | 0.1426 | 0.1740 | 0.0000 | 0.0000 |
+| SVC-05  | 0.0000 | 0.0000 | 0.2202 | 0.2780 | 0.5018 | 0.0000 |
+| SVC-06  | 0.6508 | 0.2550 | 0.0690 | 0.0086 | 0.0168 | 0.0000 |
 
 : Rank-acceptability distribution, absolute-mode TOPSIS, 2025 (20,000 weight samples, seed 50), cells are rank probabilities {#tbl-montecarlo}
 
@@ -114,4 +114,4 @@ A cross-sectional design cannot establish whether the observed metrics are downs
 
 ## Limitations of the Evaluation {#sec-evaluationlimitations}
 
- Every strand draws on the same dataset and indicator set used to build the framework, so the triangulation and baseline comparisons establish convergent and discriminant validity but not criterion validity, for which no independent measure of the non-code debt in scope exists. External validation is the main avenue for future work. The six-service portfolio also limits the power of the Kendall's tau tests, since $\tau = 0.600$ cannot reach conventional significance across only 720 permutations even where agreement is substantively meaningful. The evaluation also depends on the per-component denominator behind the unsupported-components indicator, which is only as reliable as the CMDB's component count and is one of the broader data quality limitations noted in @sec-datalimitations. The method disagreement in @sec-convergent and @sec-absolutemode adds a further boundary. The single top rank is dominated by SVC-06 but remains weight-dependent within the SVC-06, SVC-04 and SVC-01 cluster across the weight space. It turns on whether concentrated structural exposure is judged more urgent than diffuse operational debt, a compensability judgement the framework informs rather than settles. Finally, the cross-sectional design captures a single snapshot, so a service mid-remediation may look worse than warranted. Longitudinal evaluation is flagged in @sec-chapter6, and middle-position rankings warrant careful reading.
+Every strand draws on the same dataset and indicator set used to build the framework, so the triangulation and baseline comparisons establish convergent and discriminant validity but not criterion validity, for which no independent measure of the non-code debt in scope exists. External validation is the main avenue for future work. The six-service portfolio also limits the power of the Kendall's tau tests, since $\tau = 0.600$ cannot reach conventional significance across only 720 permutations even where agreement is substantively meaningful. The evaluation also depends on the per-component denominator behind the unsupported-components indicator, which is only as reliable as the CMDB's component count and is one of the broader data quality limitations noted in @sec-datalimitations. The method disagreement in @sec-convergent and @sec-absolutemode adds a further boundary. The single top rank is dominated by SVC-06 but remains weight-dependent within the SVC-06, SVC-04 and SVC-01 cluster across the weight space. It turns on whether concentrated structural exposure is judged more urgent than diffuse operational debt, a compensability judgement the framework informs rather than settles. Finally, the cross-sectional design captures a single snapshot, so a service mid-remediation may look worse than warranted. Longitudinal evaluation is flagged in @sec-chapter6, and middle-position rankings warrant careful reading.
