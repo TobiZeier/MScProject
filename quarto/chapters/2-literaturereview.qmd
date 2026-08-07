@@ -149,7 +149,7 @@ The following table maps each operational indicator to the TD dimension. It is i
 | Indicator | TD Dimension | Literature Justification |
 |---|---|---|
 | Incident frequency | Architectural debt | @detoledoReducingIncidentsMicroservices2021; @ramasubbuControllingTechnicalDebt2021; @ramasubbuManagingTechnicalDebt2015; @nielsenITPortfolioManagement2022 |
-| Mean time to recover (MTTR) | Infrastructure / platform debt | @forsgrenAccelerate2018; @nordExamplesTechnicalDebts2021; @paudelExploringRelationshipTechnical2025 |
+| Mean time to recover | Infrastructure / platform debt | @forsgrenAccelerate2018; @nordExamplesTechnicalDebts2021; @paudelExploringRelationshipTechnical2025 |
 | Change failure rate | Process debt | @forsgrenAccelerate2018; @nordExamplesTechnicalDebts2021; @paudelExploringRelationshipTechnical2025 |
 | Patch recency | Vulnerability debt | @tizioSoftwareUpdatesStrategies2023; @markkanenPatchManagementPlanning2023 |
 | Unsupported component months | Infrastructure lifecycle debt | @hakiDigitalNudgingTechnical2023 |

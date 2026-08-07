@@ -38,7 +38,7 @@ The process follows the six-step model of @peffersDesignScienceResearch2007: pro
 ```{mermaid}
 %%| label: fig-dsr-grid
 %%| fig-cap: "DSR Grid for the present study, adapted from Peffers *et al.* (2007)"
-%%| fig-width: 6
+%%| fig-width: 5.7
 
 graph TD
     P["**Problem**<br/>Absence of a quantitative<br/>service-level TD prioritisation<br/>framework for trading IT"]
@@ -177,7 +177,7 @@ Because $[l_j, u_j]$ and both ideal components are fixed, they do not change whe
 ```{mermaid}
 %%| label: fig-framework-pipeline
 %%| fig-cap: "Framework pipeline: from operational indicators to ranked prioritisation"
-%%| fig-width: 6.5
+%%| fig-width: 5.7
 
 flowchart LR
     A["<b>Operational Indicators</b><br/>Incident freq.<br/>MTTR<br/>CFR<br/>Patch recency<br/>Unsupported comp. months"]
