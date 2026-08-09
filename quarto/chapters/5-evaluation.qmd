@@ -1,6 +1,7 @@
 # Evaluation and Discussion {#sec-chapter5}
 
-The framework developed in @sec-chapter4 ranks six production services from five operational indicators held in the organisation's ITSM instance and CMDB. Before the order is interpreted, it has to earn trust. This chapter therefore tests it from several directions: whether it is stable under varying weights and observation years, whether alternative methods reproduce it, whether it adds information over a single-criterion view and whether it survives the removal of individual services. These four tests constitute Objective 4, and their results feed the research-question answers in @sec-chapter6: RQ3 from the stability tests, RQ2 from the discriminant and practical-validity results.
+The Chapter 4 framework ranks six production services from five operational indicators in the organisation's ITSM instance and CMDB. Before that order is interpreted, it must earn trust. This chapter tests it on five fronts, stability across weights and years, agreement with alternative methods, added value over a single criterion, structural rigour under service removal and readability against service profiles. These five tests constitute Objective 4, feeding the @sec-chapter6 answers, RQ3 from stability and RQ2 from the discriminant and practical validity results.
+
 
 ## Evaluation Criteria {#sec-evaluationcriteria}
 
