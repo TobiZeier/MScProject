@@ -85,6 +85,7 @@ Because two discrete configurations cannot capture the plurality of defensible j
 @tbl-montecarlo reports the rank-acceptability distribution for 2025. The bottom of the ranking is close to weight-independent, with SVC-03 at the lowest priority in 96.4% of weightings. The top is concentrated rather than evenly split. Rank 1 falls to SVC-06 in 65.1% of draws, with SVC-04 (26.2%) and SVC-01 (8.8%) the only other services ever reaching it. The extreme low priority is thus robust to any weighting, while the single top service is dominated by SVC-06 but weight-dependent within a stable three-service cluster, consistent with @sec-absolutemode. In practice the organisation can act on both ends with confidence, deprioritising SVC-03 and prioritising SVC-06 under almost any weighting, while ordering the top cluster is a managerial judgement, not a settled result. This answers RQ3 directly.
 
 ```{=latex}
+\vspace{2.5cm}
 \begin{samepage}
 \footnotesize
 ```

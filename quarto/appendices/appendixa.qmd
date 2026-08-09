@@ -44,11 +44,11 @@ COST_CRITERIA = [
     "unsupported_months"
 ]
 
-#--- two different weight settings ------------------------------------------------------------------
+#---- two different weight settings ----------
 EQUAL_WEIGHTS = np.array([0.2, 0.2, 0.2, 0.2, 0.2], dtype=float)
 ADJUSTED_WEIGHTS = np.array([0.4/3, 0.3, 0.4/3, 0.3, 0.4/3], dtype=float)
 
-#--- fixed bounds to prevent rank reversal ------------------------------------------------------------
+#---- fixed bounds to prevent rank reversal ----------
 ABSOLUTE_BOUNDS = {
     "incident_freq": (0.0, 1000.0),
     "mttr_hrs": (0.0, 120.0),
@@ -57,7 +57,7 @@ ABSOLUTE_BOUNDS = {
     "unsupported_months": (0.0, 30.0)
 }
 
-#--- classic TOPSIS ranking ---------------------------------------------------------------------------
+#---- classic TOPSIS ranking ----------
 def topsis_classic(df, weights, criteria = CRITERIA, cost_criteria = COST_CRITERIA):
     _check_weights(weights)
 
@@ -82,7 +82,7 @@ def topsis_classic(df, weights, criteria = CRITERIA, cost_criteria = COST_CRITER
     return d_worst / total
 
 
-#--- absolute TOPSIS ranking ------------------------------------------------------------------
+#---- absolute TOPSIS ranking ----------
 def topsis_absolute(df, weights, criteria = CRITERIA, cost_criteria = COST_CRITERIA, bounds=ABSOLUTE_BOUNDS):
     _check_weights(weights)
 
@@ -119,7 +119,7 @@ def topsis_absolute(df, weights, criteria = CRITERIA, cost_criteria = COST_CRITE
 
 SCORERS = {"classic": topsis_classic, "absolute": topsis_absolute}
 
-#--- printing results and charts --------------------------------------------------------------
+#---- printing results and charts ----------
 
 def print_results(df, weights, scorer, mode, year, weight_label):
     result = rank_table(df, scorer(df, weights))
@@ -194,7 +194,7 @@ def save_chart(result, output_path, subtitle):
     print(f"Chart saved: {output_path}")
 
 
-#--- input handling ---------------------------------------------------------------------------
+#---- input handling ----------
 def _check_weights(weights):
     if not np.isclose(weights.sum(), 1.0):
         raise ValueError(f"Weights should sum to 1.0, got {weights.sum():.4f}")
