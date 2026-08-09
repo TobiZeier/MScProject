@@ -50,7 +50,7 @@ keywords:
  - composite score
 
 bibliography: references.bib
-csl: harvard-cite-them-right-no-et-al.csl
+csl: harvard-cite-them-right.csl
 
 jupyter: python3
 
