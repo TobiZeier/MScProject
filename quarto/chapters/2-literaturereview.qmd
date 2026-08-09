@@ -142,6 +142,7 @@ The inferential step this thesis takes goes beyond that validation. Using DORA m
 The following table maps each operational indicator to the TD dimension. It is interpreted here as proxying, with the literature grounding each indicator's diagnostic value. The dimension assignments are this study's synthesis rather than claims made by the cited sources individually.
 
 ```{=latex}
+\vspace{2cm}
 \begin{samepage}
 \scriptsize
 ```
