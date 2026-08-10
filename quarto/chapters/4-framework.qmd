@@ -66,7 +66,7 @@ Two weight configurations are applied, as specified in @sec-frameworkdesign. The
 | Equal (baseline) | $0.20$ | $0.20$ | $0.20$ | $0.20$ | $0.20$ |
 | Differential | $0.1\overline{3}$ | $0.30$ | $0.1\overline{3}$ | $0.30$ | $0.1\overline{3}$ |
 
-: Weight configurations {#tbl-weights}
+: Weight configurations {#tbl-weights tbl-colwidths="[20,15,15,15,15,20]"}
 
 ```{=latex}
 \end{samepage}

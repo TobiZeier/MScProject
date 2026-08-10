@@ -87,10 +87,6 @@ The 2024 adjusted-weight case is where the absolute frame departs from the stand
 
 : Rank agreement (Kendall's $\tau$) between classic TOPSIS and the alternative methods. {#tbl-appc-convergentclassic}
 
-```{=latex}
-\vspace{2.5cm}
-```
-
 ## Convergent Agreement (Absolute Mode)
 
 | Configuration  | TOPSIS vs SAW | TOPSIS vs VIKOR |
@@ -144,10 +140,6 @@ Reference orders: 2025 $\text{SVC-06} \succ \text{SVC-04} \succ \text{SVC-01} \s
 | SVC-06 | preserved | preserved |
 
 : Leave-one-out rank order, absolute-mode TOPSIS, equal weights {#tbl-appc-rankreversal-abs}
-
-```{=latex}
-\vspace{2.5cm}
-```
 
 ## Weight-Space Robustness Detail
 
