@@ -17,7 +17,7 @@ This study develops a service-level quantitative framework for measuring and pri
 1. To review literature on TD measurement, prioritisation, financial enterprise IT governance and multi-criteria decision-making.
 2. To identify and operationally define quantifiable TD indicators derived from live ITSM and CMDB records.
 3. To design and apply a TOPSIS-based multi-criteria model for scoring and ranking services by TD priority.
-4. To evaluate the framework analytically, by testing whether its rankings are stable under weight and temporal variation, reproduced by alternative methods, distinct from a single-criterion baseline and robust to the removal of individual services.
+4. To evaluate the framework analytically, by testing whether its rankings are stable under weight and temporal variation, reproduced by alternative methods, distinct from a single-criterion baseline, robust to the removal of individual services and readable against the service profiles they describe.
 
 ## Research Questions
 

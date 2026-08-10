@@ -63,6 +63,19 @@ Under absolute-mode TOPSIS the 2025 equal-weight agreement with SAW and VIKOR is
 
 : Full scores and rankings under absolute-mode TOPSIS, 2025 equal weights. {#tbl-appc-2025e-abs}
 
+The 2024 adjusted-weight case is where the absolute frame departs from the standard formulation (@sec-absolutemode). With the reward for a merely sample-extreme service removed, SVC-02 leads and SVC-04 falls to third, where the standard formulation is led by SVC-04. Agreement with SAW and VIKOR is correspondingly lower ($\tau = 0.333$ and $0.467$), consistent with @tbl-appc-convergentabsolute.
+
+| Service |  $C_i$ |    SAW |    $S$ |    $R$ |    $Q$ | Rank (T, S, V) |
+|---------|-------:|-------:|-------:|-------:|-------:|:--------------:|
+| SVC-02  | 0.6554 | 0.6933 | 0.3067 | 0.3000 | 0.7767 |    1, 3, 2     |
+| SVC-01  | 0.7431 | 0.7560 | 0.2440 | 0.1911 | 0.4912 |    2, 4, 4     |
+| SVC-04  | 0.7521 | 0.6002 | 0.3998 | 0.1333 | 0.5490 |    3, 2, 3     |
+| SVC-06  | 0.7984 | 0.4916 | 0.5084 | 0.3000 | 1.0000 |    4, 1, 1     |
+| SVC-05  | 0.8306 | 0.7943 | 0.2057 | 0.0860 | 0.2403 |    5, 5, 5     |
+| SVC-03  | 0.9301 | 0.9433 | 0.0567 | 0.0481 | 0.0000 |    6, 6, 6     |
+
+: Full scores and rankings under absolute-mode TOPSIS, 2024 adjusted weights. {#tbl-appc-2024a-abs}
+
 ## Convergent Agreement (Classic Mode)
 
 | Configuration  | TOPSIS vs SAW | TOPSIS vs VIKOR |
