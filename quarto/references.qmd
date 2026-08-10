@@ -1,4 +1,13 @@
 # References {.unnumbered}
 
+```{=latex}
+\begingroup
+\interlinepenalty=10000
+```
+
 ::: {#refs}
 :::
+
+```{=latex}
+\endgroup
+```
