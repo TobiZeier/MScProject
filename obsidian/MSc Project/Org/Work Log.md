@@ -82,6 +82,21 @@ This table is to track the time that I have invested in my master thesis.
 | 03/08 | 3     | Implementing small fixes                                                                     |
 | 04/08 | 3.5   | Implementing small fixes                                                                     |
 | 05/08 | 2     | Implementing small fixes                                                                     |
+| 06/08 | 1     | Implementing feedback from supervisor                                                        |
+| 07/08 | 1     | Implementing feedback from supervisor                                                        |
+| 09/08 | 7     | Reading front to back, correcting minor errors and stylistic fixes                           |
+| 10/08 | 4     | Implementing minor stylistic fixes and creating presentation                                 |
+| 12/08 | 2     | Working on the presentation                                                                  |
+|       |       |                                                                                              |
+|       |       |                                                                                              |
+|       |       |                                                                                              |
+|       |       |                                                                                              |
+|       |       |                                                                                              |
+|       |       |                                                                                              |
+|       |       |                                                                                              |
+|       |       |                                                                                              |
+|       |       |                                                                                              |
+|       |       |                                                                                              |
 |       |       |                                                                                              |
 |       |       |                                                                                              |
 |       |       |                                                                                              |

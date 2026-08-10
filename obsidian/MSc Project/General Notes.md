@@ -29,7 +29,6 @@
 	- [x] Table 3.1 Design evaluation
 	- [x] 3.1.2 "by evaluating the framework against operational data"
 	- [x] decide which term to use and adjust accordingly (Swiss securities trading institution, trading IT, financial trading IT, Swiss financial institution,)
-- [ ] rewrite abstract
 - [x] absolute-mode table in appendix c has three decimals against four everywhere else
 - [x] rerun monte carlo simulation and add results to appendix c
 - [x] weight perturbation for composite rankings according to greco et al.?
@@ -39,12 +38,13 @@
 - [x] recalculate TOPSIS rankings to make sure python calculation is accurate
 - [x] recalculate Kendall's Tau and P-Values
 - [x] write chapter 5 and include graphs
-- [ ] check grammar and spelling
+- [x] check grammar and spelling
 - [x] check intend with before tex files
-- [ ] Apply Gesine's recommendations
+- [x] Apply Gesine's recommendations
 	- [x] DORA explanation
-	- [ ] Hypothesis before RQ's and in conclusion?
-	- [ ] Ethical and Social Evaluation
+	- [x] Hypothesis before RQ's and in conclusion?
+	- [x] Ethical and Social Evaluation
+	- [x] rewrite abstract
 	- [x] Answers to RQ in chapter 5 or 6?
 - [x] Check new equation and if all symbols are declared in the list of symbols
 - [x] Check if chapter 3 equations match with chapter 5 (equations and prose)
@@ -52,8 +52,9 @@
 - [x] Fix CFR (0-100%)
 - [x] Mention absolute mode formula and fixed bounds in chapter 3 rather than chapter 5
 - [x] shorten explanation for unsupported component months
+- [x] implement feedback from Zahid
+- [x] implement stylistic fixes to chapter 5 and 6
+- [ ] prepare presentation
+- [ ] prepare script
+- [ ] prepare questions and answers
 
-
-
-- Table width
-- Table split
