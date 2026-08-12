@@ -3,7 +3,7 @@ This repository serves as the official working record for my Master of Science p
 
 Prior documentation produced in preparation for this project, as well as materials from preceding modules, is available in the [preliminary repository](https://github.com/TobiZeier/UoEO_MSc_EIM).
 
-The final thesis can be accessed [here](https://github.com/TobiZeier/MScProject/blob/main/MScProject/Measuring-Technical-Debt-in-Mission-Critical-Trading-Systems.pdf), and the accompanying presentation is available [here](https://github.com/TobiZeier/MScProject/tree/main/MScProject).
+The final thesis can be accessed [here](https://github.com/TobiZeier/MScProject/blob/main/MScProject/Measuring-Technical-Debt-in-Mission-Critical-Trading-Systems.pdf), and the accompanying presentation is available [here](https://github.com/TobiZeier/MScProject/blob/main/presentation/Measuring-TD-in-Trading-Systems-Thesis-Defence.pdf).
 
 # Workflow
 To support the execution of this Master of Science project, an integrated technical stack was selected to ensure academic rigour and structural consistency. Zotero functions as the primary reference management system to catalogue literature and automate bibliography generation. [Obsidian](https://github.com/TobiZeier/MScProject/tree/main/obsidian) is employed during early research phases to facilitate atomic note taking and knowledge synthesis through bidirectional linking. The final manuscript is compiled using [Quarto](https://github.com/TobiZeier/MScProject/tree/main/quarto), providing a technical writing environment that satisfies institutional formatting standards. All [Python](https://github.com/TobiZeier/MScProject/tree/main/code) scripts associated with the project were developed within the PyCharm integrated development environment.
