@@ -54,7 +54,7 @@
 - [x] shorten explanation for unsupported component months
 - [x] implement feedback from Zahid
 - [x] implement stylistic fixes to chapter 5 and 6
-- [ ] prepare presentation
-- [ ] prepare script
-- [ ] prepare questions and answers
+- [x] prepare presentation
+- [x] prepare script
+- [x] prepare questions and answers
 
