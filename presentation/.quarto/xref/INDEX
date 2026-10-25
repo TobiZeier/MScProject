@@ -1,0 +1,19 @@
+{
+  "index.qmd": {
+    "index.tex": "1ab82932",
+    "index.pptx": "fe51c2f6",
+    "index.html": "6d2372f3"
+  },
+  "defence-questions-and-answers.md": {
+    "defence-questions-and-answers.html": "3b25b758"
+  },
+  "defence-script.md": {
+    "defence-script.html": "a9a9fd82"
+  },
+  "defence-questions-and-answers.qmd": {
+    "defence-questions-and-answers.tex": "5333a823"
+  },
+  "defence-script.qmd": {
+    "defence-script.tex": "fab98646"
+  }
+}
